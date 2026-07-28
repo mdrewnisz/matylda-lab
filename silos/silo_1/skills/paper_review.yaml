@@ -1,0 +1,106 @@
+id: paper_review
+name: Paper Review
+description: >
+  Adversarial review artykułu naukowego. Identyfikuje twierdzenia, luki dowodowe
+  i słabe punkty metodologiczne. W v1.1 generuje preregistration_export —
+  gotowy blok do wklejenia jako wejście claim_map (krok 2 cyklu epistemicznego).
+version: "1.1"
+changelog:
+  - "1.1 (2026-05-19): dodano mandatory_counterargument per claim, epistemic_status,
+    preregistration_export. Paper review jest teraz krokiem 1 cyklu epistemicznego."
+  - "1.0 (2026-05-10): pierwotna wersja."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+# ── Cykl epistemiczny ─────────────────────────────────────────────────────────
+# Krok 1: paper_review → generuje mandatory_counterarguments + preregistration_export
+# Krok 2: user przegląda preregistration_export, koryguje progi, wkleja do claim_map
+# Krok 3: claim_map z preregistered_counterarguments → weryfikacja enforcement
+# Krok 4: DARKROOM porównuje wyniki z prerejestracją
+#
+# WAŻNE: prerejestracja (krok 2) musi się odbyć ZANIM uruchomisz claim_map (krok 3).
+# Zmiana progów po obejrzeniu danych = naruszenie izolacji epistemicznej.
+
+input_schema:
+  title: string
+  abstract: string
+  full_text: string      # opcjonalne
+  claims: list[string]   # opcjonalne — jeśli puste, reviewer sam identyfikuje
+
+output_schema:
+  overall_verdict: string
+
+  claim_analysis:
+    type: list[object]
+    item_schema:
+      claim: string
+      epistemic_status: string   # hypothesis | supported | contested | refuted | unclear
+      status: string             # strong | weak | unsupported | contradicted
+      notes: string
+      confidence: float          # 0.0–1.0 — ocena reviewera
+      mandatory_counterargument: string
+        # Konkretny, falsyfikowalny zarzut który MUSI być zaadresowany zanim
+        # twierdzenie może uzyskać status "supported".
+        # Wzorzec: "Nawet jeśli X, może to wynikać z Y. Sprawdź: [konkretny test]."
+        # NIE: ogólne wątpliwości. TAK: konkretne sprawdzalne twierdzenie przeciwne.
+      suggested_threshold: float
+        # Minimalne confidence (0.0–1.0) wymagane do uznania twierdzenia za
+        # "supported". Konserwatywnie: 0.80 dla twierdzeń empirycznych,
+        # 0.70 dla interpretacyjnych, 0.90 dla twierdzeń kauzalnych.
+      suggested_level_isolation: string  # "strict" | "relaxed"
+
+  methodological_gaps: list[string]
+  missing_references: list[string]
+  suggested_questions: list[string]
+  darkroom_flags: list[string]
+
+  # Gotowy eksport — skopiuj jako preregistered_counterarguments do claim_map.
+  # UWAGA: przejrzyj i zaakceptuj PRZED uruchomieniem claim_map.
+  preregistration_export:
+    type: list[object]
+    description: >
+      Blok gotowy do wklejenia jako input.preregistered_counterarguments w claim_map.
+      Przejrzyj progi i kontrargumenty ZANIM przekażesz do analizy.
+    item_schema:
+      claim_id: string
+      counterargument: string
+      confidence_threshold: float
+      level_isolation: string
+
+prompt_template: |
+  Jesteś recenzentem naukowym prowadzącym adversarial review. Twoja rola:
+  1. Zidentyfikować twierdzenia artykułu (jeśli nie podano) lub ocenić podane.
+  2. Dla każdego twierdzenia: sformułować JEDEN konkretny, falsyfikowalny
+     mandatory_counterargument.
+  3. Zaproponować minimalne progi confidence (suggested_threshold).
+  4. Wygenerować preregistration_export — gotowy do prerejestracji.
+
+  TYTUŁ: {{title}}
+  ABSTRAKT: {{abstract}}
+  {% if full_text %}TEKST: {{full_text}}{% endif %}
+  {% if claims %}TWIERDZENIA (do oceny): {{claims}}{% endif %}
+
+  ZASADY MANDATORY_COUNTERARGUMENT:
+  - Musi być konkretny i falsyfikowalny — nie ogólny sceptycyzm.
+  - Format: "Nawet jeśli [twierdzenie], może to wynikać z [alternatywna przyczyna].
+    Sprawdź: [konkretna operacja weryfikacyjna]."
+  - Przykład dobry:   "Nawet wysokie R²=0.91 może odzwierciedlać overfitting.
+    Sprawdź: czy wynik utrzymuje się przy 5-fold CV na niezależnym zbiorze?"
+  - Przykład zły:     "Wyniki mogą nie być generalizowalne." (za ogólny, niesprecy-
+    zowany, niefalsyfikowalny)
+
+  PROGI (suggested_threshold):
+  - Twierdzenia kauzalne: 0.90
+  - Twierdzenia empiryczne / pomiarowe: 0.80
+  - Twierdzenia interpretacyjne / teoretyczne: 0.70
+  - level_isolation=strict dla twierdzeń falsyfikowalnych eksperymentalnie.
+
+  Bądź konkretny. Każda uwaga uzasadniona. Nie dyplomatyczny.
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema.
+
+tags: [paper, review, adversarial, claims, preregistration, epistemic]
+created: "2026-05-10"
+updated: "2026-05-19"

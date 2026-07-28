@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "total_reviews": 0,
+  "total_review_logs": 0,
+  "total_passes": 0,
+  "total_flags": 0,
+  "total_failures": 0,
+  "unknown_reviews": 0,
+  "unreadable_review_logs": 0,
+  "failure_rate": 0.0,
+  "flag_rate": 0.0,
+  "pass_rate": 0.0,
+  "reviewer_errors": 0,
+  "total_issues": 0,
+  "first_review": null,
+  "last_review": null,
+  "last_failure": null,
+  "telemetry_status": "ok",
+  "repeated_patterns": []
+}

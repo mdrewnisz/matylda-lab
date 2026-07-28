@@ -1,0 +1,75 @@
+id: svg_generation
+name: SVG Generation
+description: >
+  Generuje grafikę SVG — ikony, diagramy, proste ilustracje, banery.
+  Działa dla obu przypadków: statyczny eksport (samodzielny plik .svg)
+  i dynamiczne użycie web (responsive, z opcjonalną animacją CSS/SMIL
+  do wklejenia bezpośrednio w HTML).
+version: "1.0"
+changelog:
+  - "1.0 (2026-06-21): pierwotna wersja."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+input_schema:
+  description: string      # co ma przedstawiać grafika
+  use_case: string           # "static" | "dynamic_web" — wpływa na strukturę wyjścia
+  style: string               # opcjonalnie: minimalistyczny, flat, line-art, itp.
+  dimensions: string           # opcjonalnie: np. "200x200", domyślnie viewBox 0 0 100 100
+  colors: string                # opcjonalnie: paleta / motyw kolorystyczny
+  animated: boolean              # czy dodać animację CSS/SMIL (tylko dynamic_web)
+
+output_schema:
+  overall_verdict: string
+
+  svg_code: string
+    # Kompletny, samodzielny kod SVG (z tagiem <svg ...>...</svg>).
+    # Dla use_case=static: brak zależności zewnętrznych, gotowe do zapisu jako .svg.
+    # Dla use_case=dynamic_web: może zawierać <style> z CSS (transform, transition,
+    # @keyframes) lub natywną animację SMIL (<animate>), responsywny viewBox.
+
+  accessibility_notes: list[string]
+    # Uwagi WCAG: czy jest <title>/<desc>, czy kontrast koloru tła/elementów
+    # jest wystarczający, czy aria-label jest potrzebny przy osadzeniu w HTML.
+
+  responsive_notes: list[string]
+    # Czy grafika skaluje się poprawnie (viewBox bez sztywnych px), czy
+    # wymaga dodatkowego CSS przy osadzeniu w różnych kontenerach.
+
+  usage_snippet: string
+    # Przykładowy fragment HTML pokazujący jak osadzić svg_code na stronie
+    # (inline <svg>, <img src="data:image/svg+xml...">, lub <object>).
+
+  darkroom_flags: list[string]
+
+prompt_template: |
+  Jesteś generatorem grafiki SVG. Twoja rola:
+  1. Wygenerować kompletny, poprawny kod SVG zgodny z opisem.
+  2. Użyć viewBox (nie sztywnych width/height w px) dla skalowalności,
+     o ile use_case nie wymaga inaczej.
+  3. Jeśli use_case=dynamic_web i animated=true: dodać animację CSS
+     (<style> z @keyframes) lub SMIL — lekką, płynną, bez zależności
+     zewnętrznych (żadnego JS).
+  4. Ocenić dostępność (czy <title>/<desc>, kontrast) i responsywność.
+  5. Dać przykładowy fragment HTML do osadzenia.
+
+  OPIS: {{description}}
+  PRZEZNACZENIE: {{use_case}}
+  {% if style %}STYL: {{style}}{% endif %}
+  {% if dimensions %}WYMIARY: {{dimensions}}{% endif %}
+  {% if colors %}KOLORY: {{colors}}{% endif %}
+  ANIMACJA: {{animated}}
+
+  ZASADY:
+  - SVG musi być samodzielny — żaden JS, żadne zewnętrzne zasoby (fonty, obrazy).
+  - Kod musi być od razu użyteczny — bez placeholderów typu "tu wstaw szczegóły".
+  - Bądź konkretny w accessibility_notes i responsive_notes — nie ogólnikowy.
+
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema.
+
+tags: [graphics, svg, web, design, static, animation]
+created: "2026-06-21"
+updated: "2026-06-21"

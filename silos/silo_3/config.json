@@ -1,0 +1,18 @@
+{
+  "name": "Programming",
+  "hashtag": "#code",
+  "type": "open",
+  "description": "Otwarty silos programistyczny. Hostile code review, krytyka architektury, wykrywanie luk w testach. Kod rzadko zawiera PII — silos otwarty, bez anonimizacji.",
+  "llm_policy": {
+    "external_llm": true,
+    "external_providers": ["anthropic"],
+    "internal_llm": true,
+    "anonymize": false,
+    "sleeping_matylda": false,
+    "darkroom": true,
+    "note": "DARKROOM obowiązkowy — hostile review jest sensem tego silosu. Sleeping Matylda wyłączona (kod nie wymaga refleksji wątkowej jak research)."
+  },
+  "features": ["skills", "notebooks", "darkroom", "external_llm"],
+  "enabled": true,
+  "version": "0.1"
+}

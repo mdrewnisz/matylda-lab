@@ -1,0 +1,8 @@
+{
+  "_schema": "attention_budget/v0.4.5",
+  "_max_topics": 10,
+  "session_id": null,
+  "session_start": null,
+  "topics_used": 0,
+  "topics": []
+}

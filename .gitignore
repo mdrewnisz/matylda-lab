@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Env
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# Runtime data (nie commitujemy)
+data/
+desk/
+homeostasis/
+inbox/
+library/
+logs/
+memory/
+darkroom/context/prompt_history/
+darkroom/context/failed_attempts/
+darkroom/meta/review_logs/
+darkroom/meta/epistemic_reports/
+darkroom/tension/active/
+darkroom/tension/archive/
+memory/insights/
+memory/candidates/
+memory/diary/
+memory/reflections/
+library/docs/attached/
+library/docs/generated/
+data/*_session.json
+data/task_queue.jsonl
+data/hypotheses.json
+data/validation_lab.json
+logs/
+silos/*/audit.jsonl
+silos/*/notebooks/
+silos/*/notebooks_index.json
+
+# Local operator state
+.claude/
+.python_path
+prompts/NEXT_PROMPTS.md
+prompts/SCALAR_PUMP_LITERATURE_MAP_PROMPT.md
+
+# Artefakty robocze
+artifacts/
+
+# IDE
+.vscode/
+.idea/

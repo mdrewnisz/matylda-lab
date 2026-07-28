@@ -1,0 +1,26 @@
+{
+  "name": "Science",
+  "hashtag": "#science",
+  "type": "open",
+  "description": "Otwarty silos badawczy. Może używać zewnętrznych LLM bez anonimizacji. Sleeping Matylda działa jako stały element wewnętrznych analiz.",
+  "llm_policy": {
+    "external_llm": true,
+    "external_providers": [
+      "anthropic"
+    ],
+    "internal_llm": true,
+    "anonymize": false,
+    "sleeping_matylda": true,
+    "darkroom": true,
+    "note": "Silos otwarty — dane badawcze mogą trafiać do zewnętrznych LLM bez anonimizacji. Sleeping Matylda używana do wewnętrznych analiz refleksyjnych."
+  },
+  "features": [
+    "skills",
+    "notebooks",
+    "sleeping_matylda",
+    "darkroom",
+    "external_llm"
+  ],
+  "enabled": true,
+  "version": "0.3d"
+}

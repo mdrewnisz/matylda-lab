@@ -1,0 +1,87 @@
+id: code_review
+name: Code Review (Hostile)
+description: >
+  Adversarial review kodu/diffa. Identyfikuje bugi, edge case'y, luki
+  bezpieczeństwa i brakujące testy. Każde finding musi być konkretne
+  i sprawdzalne — nie ogólny sceptycyzm.
+version: "1.0"
+changelog:
+  - "1.0 (2026-06-21): pierwotna wersja, wzorowana na paper_review (silo_1)."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+input_schema:
+  code: string          # snippet lub diff do recenzji
+  context: string        # opcjonalny opis: co kod ma robić, jakie są ograniczenia
+  language: string        # opcjonalny: python, js, etc.
+
+output_schema:
+  overall_verdict: string   # jedno zdanie: czy kod jest gotowy, czy nie
+
+  findings:
+    type: list[object]
+    item_schema:
+      category: string
+        # bug | security | edge_case | test_gap | performance | style | concurrency
+      severity: string        # critical | high | medium | low
+      location: string        # linia / funkcja / nazwa zmiennej
+      description: string
+      concrete_repro: string
+        # KONKRETNY, falsyfikowalny scenariusz reprodukcji (proza).
+        # Wzorzec: "Wejście X powoduje Y w linii Z."
+        # NIE: "to może nie działać w pewnych przypadkach."
+      repro_call: string
+        # WYKONYWALNY one-liner Pythona, który wywołuje bug — doklejany
+        # PO kodzie funkcji i uruchamiany w sandboxie przez Validation Lab.
+        # Musi rzucać wyjątek na ORYGINALNYM kodzie i NIE rzucać na fixed_code.
+        # Przykład: "print(average([]))"  (dla buga ZeroDivisionError).
+        # Jeśli bug jest nieuruchamialny jako one-liner (np. wymaga I/O,
+        # sieci, wielu plików) — zostaw pusty string "".
+      suggested_fix: string
+      fixed_code: string
+        # Kompletna, samodzielna poprawiona wersja funkcji/fragmentu —
+        # gotowa do doklejenia repro_call i uruchomienia. Bez placeholderów.
+
+  missing_tests: list[string]
+  security_flags: list[string]
+  darkroom_flags: list[string]
+
+prompt_template: |
+  Jesteś hostile code reviewerem. Twoja rola:
+  1. Znaleźć bugi, edge case'y, luki bezpieczeństwa, race conditions.
+  2. Każde finding MUSI mieć konkretny, sprawdzalny scenariusz reprodukcji.
+  3. Zaproponować konkretną poprawkę dla każdego findingu.
+  4. Wskazać brakujące testy (jakie przypadki nie są pokryte).
+  5. Nie wymyślać problemów, które nie istnieją — tylko sprawdzalne.
+
+  JĘZYK: {{language}}
+  KONTEKST (co kod ma robić): {{context}}
+  KOD / DIFF:
+  {{code}}
+
+  ZASADY CONCRETE_REPRO:
+  - Dobry: "Wejście pustej listy do funkcji `parse_items([])` powoduje
+    IndexError w linii 14, bo kod zakłada items[0] bez sprawdzenia długości."
+  - Złe: "Funkcja może nie działać dla nietypowych wejść." (za ogólne)
+
+  ZASADY REPRO_CALL + FIXED_CODE (kluczowe — Validation Lab to sprawdzi):
+  - repro_call MUSI rzucać wyjątek gdy dokleisz go do ORYGINALNEGO kodu.
+  - repro_call MUSI przejść bez wyjątku gdy dokleisz go do fixed_code.
+  - fixed_code musi być kompletny i samodzielny (cała funkcja, nie tylko zmiana).
+  - Jeśli nie potrafisz napisać uruchamialnego repro_call (bug wymaga sieci/
+    wielu plików/stanu) → zostaw repro_call="" zamiast zmyślać.
+  - To nie jest formalność: niereprodukowalny finding zostanie wykryty i
+    obciąży Twój wynik jako false positive.
+
+  Bądź konkretny i bezpośredni. Nie dyplomatyczny. Severity odzwierciedla
+  realny wpływ (critical = prowadzi do utraty danych/crash w produkcji /
+  podatność bezpieczeństwa; low = kosmetyka).
+
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema.
+
+tags: [code, review, adversarial, security, testing]
+created: "2026-06-21"
+updated: "2026-06-21"

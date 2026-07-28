@@ -1,0 +1,9 @@
+anthropic>=0.25.0
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pdfminer.six>=20221105
+rumps>=0.4
+pywebview>=4.0
+pyobjc-core>=10.0; sys_platform == "darwin"
+pyobjc-framework-Cocoa>=10.0; sys_platform == "darwin"
+pyobjc-framework-Quartz>=10.0; sys_platform == "darwin"

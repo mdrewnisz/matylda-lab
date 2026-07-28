@@ -1,0 +1,64 @@
+id: design_review
+name: Design Review (Hostile)
+description: >
+  Adversarial review projektu graficznego/UI. Sprawdza dostępność (WCAG),
+  kontrast, responsywność i zgodność z deklarowanym celem (statyczny
+  eksport vs. dynamiczna strona www). Konkretne, sprawdzalne uwagi —
+  nie ogólny sceptycyzm estetyczny.
+version: "1.0"
+changelog:
+  - "1.0 (2026-06-21): pierwotna wersja, wzorowana na code_review (silo_3)."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+input_schema:
+  code_or_description: string   # kod SVG/CSS/HTML lub opis projektu
+  context: string                 # do czego ma służyć (strona www, ikona aplikacji, wydruk...)
+  target_use_case: string          # "static" | "dynamic_web"
+
+output_schema:
+  overall_verdict: string
+
+  findings:
+    type: list[object]
+    item_schema:
+      category: string
+        # accessibility | contrast | responsiveness | scalability
+        # | performance | consistency
+      severity: string        # critical | high | medium | low
+      description: string
+      concrete_repro: string
+        # Konkretny, sprawdzalny scenariusz — np. "Kontrast tekstu #777 na
+        # tle #fff to 4.2:1, poniżej wymaganego 4.5:1 dla WCAG AA przy
+        # rozmiarze 14px."
+      suggested_fix: string
+
+  darkroom_flags: list[string]
+
+prompt_template: |
+  Jesteś hostile design reviewerem specjalizującym się w dostępności
+  i responsywności grafiki webowej/statycznej. Twoja rola:
+  1. Sprawdzić kontrast kolorów względem WCAG AA/AAA (policzyć realny ratio
+     jeśli kolory są podane jako hex/rgb).
+  2. Sprawdzić czy grafika skaluje się poprawnie (viewBox, jednostki relatywne).
+  3. Sprawdzić obecność atrybutów dostępności (title, desc, aria-label, alt).
+  4. Ocenić zgodność z target_use_case — czy rozwiązanie nadaje się do
+     deklarowanego celu (np. animacja CSS nieużyteczna w pliku do druku).
+  5. Każde finding musi mieć konkretny, sprawdzalny scenariusz.
+
+  KOD / OPIS: {{code_or_description}}
+  KONTEKST: {{context}}
+  PRZEZNACZENIE: {{target_use_case}}
+
+  Bądź konkretny i bezpośredni. Nie krytykuj estetyki subiektywnie —
+  tylko mierzalne problemy (kontrast, skalowanie, dostępność, zgodność
+  z przeznaczeniem).
+
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema.
+
+tags: [graphics, review, adversarial, accessibility, design]
+created: "2026-06-21"
+updated: "2026-06-21"

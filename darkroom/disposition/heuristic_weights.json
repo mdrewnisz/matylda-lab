@@ -1,0 +1,8 @@
+{
+  "failure_memory_weight": 0.8,
+  "tension_suppression": 0.6,
+  "drift_penalty": 0.7,
+  "review_threshold": 0.5,
+  "hallucination_sensitivity": 0.75,
+  "contradiction_amplification": 0.6
+}

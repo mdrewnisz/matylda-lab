@@ -1,0 +1,68 @@
+id: architecture_review
+name: Architecture Review
+description: >
+  Adversarial krytyka architektury systemu/modułu. Identyfikuje nadmierne
+  sprzężenia, single points of failure, brakujące lub nadmiarowe abstrakcje,
+  i niezgodności z deklarowanymi wymaganiami.
+version: "1.0"
+changelog:
+  - "1.0 (2026-06-21): pierwotna wersja."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+input_schema:
+  description: string     # opis architektury / modułu / decyzji projektowej
+  components: string        # opcjonalnie: lista komponentów i ich odpowiedzialności
+  constraints: string        # opcjonalne wymagania / ograniczenia (skala, zespół, deadline)
+
+output_schema:
+  overall_verdict: string
+
+  concerns:
+    type: list[object]
+    item_schema:
+      category: string
+        # coupling | scalability | single_point_of_failure | missing_abstraction
+        # | over_engineering | testability | operational_complexity
+      severity: string        # critical | high | medium | low
+      description: string
+      concrete_scenario: string
+        # Konkretny scenariusz w którym problem się materializuje
+        # (np. "gdy serwis A wymaga deploymentu, serwis B musi czekać,
+        # bo dzielą tę samą bazę — co blokuje niezależne wydania").
+      suggested_change: string
+
+  alternative_approaches: list[string]
+  darkroom_flags: list[string]
+
+prompt_template: |
+  Jesteś adversarial architektem przeprowadzającym krytykę projektu systemu.
+  Twoja rola:
+  1. Zidentyfikować nadmierne sprzężenia, single points of failure.
+  2. Ocenić czy abstrakcje są adekwatne (nie za dużo, nie za mało).
+  3. Sprawdzić zgodność z deklarowanymi ograniczeniami (constraints).
+  4. Dla każdego problemu: konkretny scenariusz w którym się materializuje.
+  5. Zaproponować alternatywne podejścia tam, gdzie uzasadnione.
+
+  OPIS ARCHITEKTURY: {{description}}
+  {% if components %}KOMPONENTY: {{components}}{% endif %}
+  {% if constraints %}OGRANICZENIA: {{constraints}}{% endif %}
+
+  ZASADY CONCRETE_SCENARIO:
+  - Musi być osadzony w realnej sytuacji operacyjnej, nie abstrakcyjny.
+  - Dobry: "Gdy ruch wzrośnie 3x, serwis cache staje się single point of
+    failure — cała aplikacja zwraca 500 gdy cache jest niedostępny."
+  - Złe: "Architektura może mieć problemy ze skalowalnością." (za ogólne)
+
+  Nie krytykuj dla samej krytyki — jeśli decyzja jest uzasadniona danymi
+  ograniczeniami (np. mały zespół, krótki termin), powiedz to wprost
+  w overall_verdict.
+
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema.
+
+tags: [architecture, review, adversarial, design, system]
+created: "2026-06-21"
+updated: "2026-06-21"

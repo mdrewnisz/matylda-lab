@@ -1,0 +1,62 @@
+[
+  {
+    "id": "legal_document_taxonomy_2024_2026",
+    "title": "Taksonomia dokumentów Legal 2024-2026",
+    "created": "2024-01-01T00:00:00+00:00",
+    "tags": [
+      "legal",
+      "taxonomy",
+      "dokumenty"
+    ],
+    "file": "legal_document_taxonomy_2024_2026.md",
+    "source": "vault/legal"
+  },
+  {
+    "id": "legal_operator_style_notebook",
+    "title": "Styl operatora w pismach Legal",
+    "created": "2024-01-01T00:00:00+00:00",
+    "tags": [
+      "legal",
+      "styl",
+      "operator"
+    ],
+    "file": "legal_operator_style_notebook.md",
+    "source": "vault/legal"
+  },
+  {
+    "id": "legal_evidence_and_attachments_notebook",
+    "title": "Dowody i załączniki w silosie Legal",
+    "created": "2024-01-01T00:00:00+00:00",
+    "tags": [
+      "legal",
+      "dowody",
+      "załączniki"
+    ],
+    "file": "legal_evidence_and_attachments_notebook.md",
+    "source": "vault/legal"
+  },
+  {
+    "id": "legal_credit_cases_notebook",
+    "title": "Sprawy kredytowe i rozliczeniowe",
+    "created": "2024-01-01T00:00:00+00:00",
+    "tags": [
+      "legal",
+      "kredyt",
+      "roszczenia"
+    ],
+    "file": "legal_credit_cases_notebook.md",
+    "source": "vault/legal"
+  },
+  {
+    "id": "legal_local_silo_operations",
+    "title": "Operacje lokalne w silosie Legal",
+    "created": "2024-01-01T00:00:00+00:00",
+    "tags": [
+      "legal",
+      "operacje",
+      "silo"
+    ],
+    "file": "legal_local_silo_operations.md",
+    "source": "vault/legal"
+  }
+]

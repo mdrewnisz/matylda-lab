@@ -1,0 +1,112 @@
+id: claim_map
+name: Claim Support Map
+description: >
+  Mapa wsparcia twierdzeń — dla każdego twierdzenia ocenia siłę dowodów w tekście.
+  Jeśli dostarczone są preregistered_counterarguments, każdy musi być jawnie
+  zaadresowany. Niespełniony kontrargument automatycznie obniża confidence cap do 0.5.
+version: "1.1"
+changelog:
+  - "1.1 (2026-05-19): epistemic preregistration — mandatory_counterargument,
+    epistemic_status, level_isolation, confidence_cap."
+  - "1.0 (2026-05-10): pierwotna wersja."
+
+llm_policy:
+  external_llm: true
+  anonymize: false
+  darkroom: true
+
+# ── Input ────────────────────────────────────────────────────────────────────
+input_schema:
+  title: string
+  claims: list[string]
+  full_text: string
+
+  # Opcjonalne — prerejestracja PRZED analizą.
+  # Jeśli puste: skill działa jak v1.0, ale generuje suggested_preregistration.
+  preregistered_counterarguments:
+    type: list[object]
+    required: false
+    description: >
+      Wypełnij ZANIM zobaczysz wyniki. Zmiana progów po obejrzeniu danych
+      = naruszenie epistemic isolation.
+    item_schema:
+      claim_id: string
+      counterargument: string      # konkretny zarzut który musi być zaadresowany
+      confidence_threshold: float  # min. confidence dla statusu "supported"
+      level_isolation: string      # "strict" | "relaxed"
+        # strict:  wyniki tej analizy NIE mogą uzasadniać zmiany progu ex-post
+        # relaxed: korekta progu dopuszczalna jeśli dane ją uzasadniają
+
+# ── Output ───────────────────────────────────────────────────────────────────
+output_schema:
+  support_summary: string
+  preregistration_enforced: bool
+
+  claim_entries:
+    type: list[object]
+    item_schema:
+      claim_id: string
+      claim_text: string
+      epistemic_status: string     # hypothesis | supported | contested | refuted | unclear
+      support_status: string       # supported | partially_supported | weakly_supported | unsupported | unclear
+      support_notes: string
+      confidence: float            # 0.0–1.0; może być obcięte przez confidence_cap
+      confidence_cap_applied: bool # true gdy kontrargument niespełniony → cap 0.5
+      counterargument_addressed: bool   # null jeśli brak prerejestracji
+      counterargument_address_notes: string  # jak / dlaczego (nie) zaadresowano
+      follow_up: list[string]
+
+  support_gaps: list[string]
+  priority_actions: list[string]
+
+  # Gdy brak prerejestracji — wygeneruj propozycje do następnej rundy
+  suggested_preregistration:
+    type: list[object]
+    item_schema:
+      claim_id: string
+      suggested_counterargument: string
+      suggested_threshold: float
+      rationale: string
+
+# ── Prompt ───────────────────────────────────────────────────────────────────
+prompt_template: |
+  Jesteś analitykiem epistemic support — oceniasz siłę dowodów dla twierdzeń naukowych.
+
+  TYTUŁ: {{title}}
+
+  TWIERDZENIA:
+  {{claims}}
+
+  TEKST:
+  {{full_text}}
+
+  {% if preregistered_counterarguments %}
+  === PREREGISTROWANE KONTRARGUMENTY (ustawione przed analizą — nienaruszalne) ===
+  {{preregistered_counterarguments}}
+
+  ZASADY OBOWIĄZKOWE:
+  1. Każdy preregistrowany kontrargument MUSI być jawnie zaadresowany
+     w polu counterargument_address_notes danego twierdzenia.
+  2. Jeśli kontrargument NIE zaadresowany → confidence_cap_applied: true,
+     confidence: min(wynik, 0.5). Bez wyjątków.
+  3. Nie zmieniaj progów confidence_threshold z prerejestracji.
+  4. level_isolation=strict: wyniki tej analizy NIE uzasadniają
+     zmiany progu w przyszłości.
+  {% else %}
+  === BRAK PREREJESTRACJI ===
+  Analizuj standardowo. W suggested_preregistration zaproponuj kontrargumenty
+  do prerejestracji przed kolejną rundą — wymagane dla replikowalności.
+  {% endif %}
+
+  EPISTEMIC STATUS per twierdzenie:
+  - hypothesis:  brak wystarczających dowodów w tekście
+  - supported:   confidence >= threshold (lub >= 0.75 bez prerejestracji)
+  - contested:   sprzeczne dowody
+  - refuted:     dowody przeciw twierdzeniu
+  - unclear:     niewystarczające dane
+
+  Zwróć WYŁĄCZNIE JSON zgodny z output_schema. Bez prozy, bez markdown.
+
+tags: [claims, evidence, mapping, validation, preregistration, epistemic]
+created: "2026-05-10"
+updated: "2026-05-19"

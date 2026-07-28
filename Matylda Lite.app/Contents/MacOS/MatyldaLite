@@ -1,0 +1,59 @@
+#!/bin/bash
+# Matylda Lab — macOS app launcher (v0.6)
+# Resolves project root from the bundle location.
+
+# Bundle is expected to be inside the project root:
+# project_root/Matylda Lite.app/Contents/MacOS/MatyldaLite
+
+BUNDLE_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
+PROJECT_ROOT="$(cd "$BUNDLE_DIR/.." && pwd)"
+
+# ── Znajdź Python z pywebview ────────────────────────────────────────────────
+# Szukamy Pythona, który MA pywebview — sprawdzamy kolejno.
+# macOS .app ma ograniczony PATH (bez conda/brew/pyenv), więc sprawdzamy
+# znane lokalizacje explicite.
+
+PYTHON=""
+
+# 1. Zapisany Python (ustawiany przy pierwszym uruchomieniu z terminala)
+PYTHON_CACHE="$PROJECT_ROOT/.python_path"
+if [ -f "$PYTHON_CACHE" ]; then
+    CACHED="$(cat "$PYTHON_CACHE")"
+    if [ -x "$CACHED" ] && "$CACHED" -c "import webview" 2>/dev/null; then
+        PYTHON="$CACHED"
+    fi
+fi
+
+# 2. Pełne przeszukiwanie jeśli cache nie pomógł
+if [ -z "$PYTHON" ]; then
+    for CANDIDATE in \
+        "$PROJECT_ROOT/.venv/bin/python3" \
+        "$PROJECT_ROOT/venv/bin/python3" \
+        "/opt/miniconda3/bin/python3" \
+        "/opt/miniconda3/envs/base/bin/python3" \
+        "$HOME/miniconda3/bin/python3" \
+        "$HOME/miniforge3/bin/python3" \
+        "$HOME/anaconda3/bin/python3" \
+        "$HOME/opt/miniconda3/bin/python3" \
+        "/opt/homebrew/bin/python3" \
+        "/usr/local/bin/python3" \
+        "$HOME/.pyenv/shims/python3" \
+        "$HOME/.local/bin/python3" \
+        "/usr/bin/python3"; do
+        if [ -x "$CANDIDATE" ] && "$CANDIDATE" -c "import webview" 2>/dev/null; then
+            PYTHON="$CANDIDATE"
+            # Zapisz do cache na przyszłość
+            echo "$PYTHON" > "$PYTHON_CACHE"
+            break
+        fi
+    done
+fi
+
+if [ -z "$PYTHON" ]; then
+    osascript -e 'display alert "Matylda Lab" message "Nie znaleziono Pythona z pywebview.\n\nUruchom w terminalu:\n\npip install pywebview\n\ni spróbuj ponownie." as critical'
+    exit 1
+fi
+
+# Launch
+cd "$PROJECT_ROOT"
+exec "$PYTHON" run.py --window 2>>/tmp/matylda_lite_app.log
