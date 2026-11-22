@@ -80,7 +80,7 @@ def is_instance(law: Law, general: Law) -> bool:
 
 def nph_star_laws(accepted: list, initial: list = (), reference_models: list = ()) -> tuple:
     """Zwraca (dolna, górna) granicę NPH* dla praw przyjętych w świecie."""
-    seen, uniq = set(), []
+    seen, uniq = {canonical(i) for i in initial}, []   # znane na starcie nie liczą się
     for law in accepted:
         c = canonical(law)
         if is_trivial(law) or c in seen:

@@ -176,6 +176,12 @@ def test_nph_star_laws_interval():
     assert hi == 2 and 1 <= lo <= hi
 
 
+def test_nph_star_laws_excludes_initial_equivalents():
+    init = [parse_law("y*x = x*y")]
+    assert basis.nph_star_laws([parse_law("x*y = y*x")], initial=init) == (0, 0)
+    assert basis.nph_star_laws([parse_law("(x*x)*y = y*(x*x)")], initial=init) == (0, 0)
+
+
 # ---------- kontrole ----------
 def test_controls_deterministic_and_capped():
     E = controls.enumerator_E(20)
