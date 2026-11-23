@@ -127,11 +127,16 @@ class GeneratorSnuNaSwiezych(SenPelny):
 
     def __init__(self, natura):
         self.natura = natura
+        self.dodane = 0
 
     def _znane(self, p, rng):
+        # poprawka po niezależnej recenzji: ŁĄCZNA liczba świeżych magm = liczba unikalnych kontrprzykładów
+        # (wcześniej w każdym cyklu dopisywano ją od nowa, co dawało 2,5–4× więcej magm niż S)
         widziane = set(p.obserwacje) | set(p.kontrprzyklady)
-        m = len(set(p.kontrprzyklady) - set(p.obserwacje))
-        p.obserwacje.extend(self.natura(m, rng, widziane))
+        m = len(set(p.kontrprzyklady)) - self.dodane
+        nowe = self.natura(m, rng, widziane)
+        self.dodane += len(nowe)
+        p.obserwacje.extend(nowe)
         return list(p.obserwacje)
 
 
@@ -147,8 +152,12 @@ class SenLosowy(Sen):
     nazwa = "S-los"
 
     def __call__(self, p, rng, intuicja, k):
+        kons = p.konsolidacja()
+        # poprawka po recenzji (Codex, PR #2): bez krawędzi wynikających z wiedzy; wcześniej wracały do
+        # kolejki co cykl, były pomijane w czuwaniu i S-los dochodził do limitu cykli z niewydanym budżetem
         pary = [(a, b) for a in p.names for b in p.names
-                if a != b and b != TOP and not p.rozstrzygnieta(a, b) and not p.obalona_za_darmo(a, b)]
+                if a != b and b != TOP and not p.rozstrzygnieta(a, b) and not kons.wynika(a, b)
+                and not p.obalona_za_darmo(a, b)]
         rng.shuffle(pary)
         return [Kandydat(a, b, "sen:losowy", 0) for a, b in pary[:k]]
 
@@ -161,11 +170,13 @@ class DzienDodatkowy(Sen):
 
     def __init__(self, natura: Callable[[int, np.random.Generator, set], list[int]]):
         self.natura = natura
+        self.dodane = 0
 
     def __call__(self, p, rng, intuicja, k):
         widziane = set(p.obserwacje) | set(p.kontrprzyklady)
-        m = len(set(p.kontrprzyklady) - set(p.obserwacje))
+        m = len(set(p.kontrprzyklady)) - self.dodane     # poprawka po recenzji: dopasowanie łączne
         nowe = self.natura(m, rng, widziane)
+        self.dodane += len(nowe)
         if not nowe:
             return []
         p.obserwacje.extend(nowe)
