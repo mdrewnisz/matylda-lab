@@ -1,6 +1,6 @@
 # Matylda: rdzeń
 
-Wersja 0.2, 23 listopada 2026 r. (v0.2: poprawiona rola LMM jako intuicji Matyldy; rdzeń dopisany do Masterplanu jako rozdz. 0, S-0 jako P1). Dokument wizji i minimalnego programu, nie plan wdrożenia.
+Wersja 0.3, 23 listopada 2026 r. (v0.3: wyniki S-0/S-0b po recenzji; v0.2: poprawiona rola LMM jako intuicji Matyldy; rdzeń dopisany do Masterplanu jako rozdz. 0, S-0 jako P1). Dokument wizji i minimalnego programu, nie plan wdrożenia.
 Uzupełnia Masterplan z 22.11 (nie zastępuje go): Masterplan mówi, **jak** Matylda pracuje i co kontroluje; ten dokument mówi, **po co** to wszystko istnieje.
 
 Oznaczenia: **[WYNIK]** sprawdzone w kodzie lub danych, **[WNIOSK.]** wynika z założeń, **[HIPOTEZA]** do sprawdzenia, **[SPEKULACJA]** kierunek bez uzasadnienia.
@@ -123,13 +123,15 @@ Status: **[HIPOTEZA]**, eksploracyjne, niezamrożone. Do zamrożenia przed uruch
 
 Jeżeli S-0 wyjdzie negatywnie, rozróżniamy (wg metodologii, pkt 4): zła rekombinacja (spróbować innych operatorów), za mały świat (magmy rzędu 4), czy realny brak efektu. Jeden wynik negatywny nie zamyka wizji, ale zamyka *tę* wersję snu.
 
-### 4.1. Wynik S-0 (23.11, prototyp `matylda-lab/rdzen/`)
+### 4.1. Wyniki S-0 i S-0b po niezależnej recenzji (23.11, `matylda-lab/rdzen/`)
 
-Prerejestracja zamrożona w commicie przed uruchomieniem ramion snu; czuwanie odtwarza KG-0b co do krzywej (100/100 przebiegów).
+Obie prerejestracje zamrożono przed uruchomieniem. Niezależny recenzent (osobny agent) i przegląd automatyczny znaleźli dwa błędy w ramionach kontrolnych oraz błąd interpretacyjny miary. Po poprawkach wnioski brzmią inaczej niż pierwsze odczytanie S-0. Szczegóły: `rdzen/wyniki/RECENZJA_I_WNIOSKI_S0_S0B.md`.
 
-- **[WYNIK, eksploracyjny]** H-sen nie obalona: S − W+ przy B = 50 ma dolną granicę 95% CI > 0 w 5 z 5 praw (średnio +5 do +8 krawędzi redukcji przechodniej). Konsolidacja potrzebna (S > S−K, 5 z 5). Sen lepszy od szumu w 4 z 5 praw (wyjątek: medialna).
-- **[WNIOSK., deflacja po wyniku]** Kontrola W+ głoduje (zużywa 21–30 z 50 wywołań, bo zwykły proponujący nic nowego nie znajduje), więc kontrast pokazuje głównie, że sen w ogóle przekracza sufit proponującego dnia. Przy B = 100 losowe przeczucia (S-los) przewyższają S w 4 z 5 praw: sen jest **wydajniejszy**, ale ma własny sufit. Świat jest łatwy (losowa para po przycięciu jest prawdziwa w ~90%), więc intuicja jest tu ledwo testowana.
-- **Status:** HIPOTEZA wsparta eksploracyjnie w wąskim świecie. Następnie: S-0b (silniejsza kontrola, rozdzielenie powtórki i śmiałości), trudniejszy świat, niezależny recenzent; dopiero potem S-1 z LMM jako intuicją.
+- **[WYNIK NEGATYWNY]** Powtórka własnych porażek (kontrprzykładów) nie ma wartości ponad tyle samo świeżych epizodów. Przy równym zużytym budżecie jest wręcz gorsza (istotnie ujemne w 3–4 z 5 praw). Wersja snu „powtórka” odpada.
+- **[WYNIK NEGATYWNY]** Sen nie jest wydajniejszy na jedno wywołanie weryfikatora niż dzień. Dopóki proponujący dnia ma kandydatów, jego kandydatury są lepsze. Pierwszy werdykt S-0 („S > W+”) wynikał z tego, że dzień przestawał proponować i zostawiał niewydany budżet.
+- **[WYNIK, eksploracyjny, wąski świat]** Sen działa jako generator, gdy dzień gaśnie: dzięki śmiałym przeczuciom wciąż ma co proponować, a na jedno wywołanie bije losowy przegląd w obu rzędach magm. Wyczerpuje się jednak wcześniej niż losowy przegląd.
+- **[WNIOSKOWANIE]** Wąskim gardłem nie jest pamięć ani powtórka, tylko **wybór, które śmiałe przeczucie sprawdzić**. To jest zadanie intuicji, czyli miejsce LMM. Kolejność pętli: najpierw dzień, potem sen jako generator przestrzeni hipotez, z intuicją jako filtrem.
+- **[RYZYKO]** W obecnych światach losowa para po przycięciu jest prawdziwa w ~90%, więc intuicja nie ma czego rozstrzygać. Przed S-1 (LMM jako intuicja) potrzebny jest świat, w którym śmiałe przeczucia są w większości fałszywe.
 
 ## 5. Czemu służy każdy istniejący element
 
