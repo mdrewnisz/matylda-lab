@@ -37,6 +37,13 @@ python -m pytest            # testy prototypu (Praxis opcjonalnie: pip install -
 python -m matylda_rdzen.s0  # S-0: zapis do wyniki/s0_wyniki.json i wyniki/S0_RAPORT.md
 ```
 
+## Stan wyników (23.11)
+
+S-0 i S-0b mają prerejestracje i surowe wyniki w `wyniki/`. Po niezależnej recenzji poprawiono dwa błędy kontroli
+(dopasowanie świeżych magm w W+/W+S, zapętlenie S-los) i dodano miarę przy równym zużytym budżecie:
+**aktualne wnioski są w `wyniki/RECENZJA_I_WNIOSKI_S0_S0B.md`** (powtórka porażek: wynik negatywny; sen jako generator
+po wygaśnięciu dnia: wynik eksploracyjny). `s0_wyniki.json` i `s0b_wyniki.json` pochodzą z kodu sprzed poprawek.
+
 ## Czego tu świadomie nie ma
 
 GUI, dashboardu, homeostazy, Focus Mode, routera modeli, wielu agentów ani prawdziwego LMM. Najpierw wynik pętli, potem framework.

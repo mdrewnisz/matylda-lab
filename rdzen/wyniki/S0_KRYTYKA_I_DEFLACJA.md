@@ -1,5 +1,7 @@
 # S-0: krytyka i deflacja (po wyniku, POST HOC)
 
+> **Zdezaktualizowane (23.11):** niezależna recenzja wykazała, że wniosek „sen jest wydajniejszy” jest sprzeczny z danymi przy równym zużytym budżecie, a W+ i S-los miały błędy implementacji. Aktualne wnioski: `RECENZJA_I_WNIOSKI_S0_S0B.md`.
+
 Ten plik powstał **po** obejrzeniu wyniku. Nie zmienia werdyktu prerejestracji, tylko go zawęża.
 Konstruktor pętli i analityk wyniku to ten sam agent, więc potrzebny jest niezależny recenzent (Hostile Review) przed promocją czegokolwiek.
 
