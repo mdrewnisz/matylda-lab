@@ -57,8 +57,9 @@ class Przebieg:
 
 
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
-            intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3) -> Przebieg:
-    sw = zbuduj_swiat(H, rzad)
+            intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3,
+            slownik: str = "baza", cex_cap: int = CEX_CAP) -> Przebieg:
+    sw = zbuduj_swiat(H, rzad, slownik)
     intuicja = intuicja or HeurystykaOgolnosci()
     sen = ramie(nazwa_ramienia, sw)
 
@@ -66,7 +67,7 @@ def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
     rng = np.random.default_rng(seed)
     okno = [int(x) for x in rng.choice(sw.world, size=min(K_WINDOW, len(sw.world)), replace=False)]
     p = Pamiec(names=list(sw.names), concepts=sw.concepts, obserwacje=list(okno))
-    wer = Weryfikator(sw, cex_cap=CEX_CAP)
+    wer = Weryfikator(sw, cex_cap=cex_cap)
     dz = Dziennik()
     czuwanie(p, wer, kandydaci_z_obserwacji(p, okno, rng, "okno"), budzet, sw.pokrycie, dz)
 

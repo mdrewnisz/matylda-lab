@@ -136,8 +136,9 @@ def _ground_truth(world, concepts, names):
 
 
 @lru_cache(maxsize=None)
-def zbuduj_swiat(H: str, rzad: int = 3) -> Swiat:
-    """rzad 3: wszystkie 3^9 magm (jak KG-0b). rzad 4: zamrożone uniwersum próbkowane (dane/u4.npy)."""
+def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
+    """rzad 3: wszystkie 3^9 magm (jak KG-0b). rzad 4: zamrożone uniwersum próbkowane (dane/u4.npy).
+    slownik: "baza" (24 pojęcia + ⊤) albo "negacje" (do tego zaprzeczenie każdego pojęcia, ¬X)."""
     if rzad == 3:
         allc, nm = ALL, NM
     elif rzad == 4:
@@ -146,6 +147,10 @@ def zbuduj_swiat(H: str, rzad: int = 3) -> Swiat:
         raise ValueError(rzad)
     world = np.nonzero(allc[H])[0]
     concepts = {k: v for k, v in allc.items() if k != H}
+    if slownik == "negacje":
+        concepts.update({f"¬{k}": ~v for k, v in list(concepts.items())})
+    elif slownik != "baza":
+        raise ValueError(slownik)
     concepts[TOP] = np.ones(nm, bool)
     names = list(concepts)
     E = _ground_truth(world, concepts, names)
