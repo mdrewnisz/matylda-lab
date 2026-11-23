@@ -44,3 +44,37 @@ Po czuwaniu 1 (wspólnym dla wszystkich ramion):
 
 Spośród spełniających wybieramy najprostszą konfigurację (kolejność: rząd 3 przed 4, „baza” przed „negacje”, większy `cex_cap` przed mniejszym),
 żeby zmieniać jak najmniej względem S-0b. Jeśli żadna nie spełnia, raportujemy to jako wynik i proponujemy kolejną dźwignię (koniunkcje przesłanek).
+
+---
+
+## Wynik kalibracji (23.11, `wyniki/T1_KALIBRACJA.md`)
+
+**[WYNIK] Pierwsza siatka (cex × słownik „baza”/„negacje” × rząd) nie dała żadnego świata spełniającego kryteria.**
+- Po czuwaniu 1 losowa pula jest trafna w 37–49% („baza”), a śmiałe przeczucia w 58–79%. Wartość ~90% z S-0/S-0b dotyczyła
+  późniejszych cykli, gdy pamięć kontrprzykładów już urosła.
+- Mniej kontrprzykładów (`cex_cap` 1) obniża trafność tylko lekko.
+- **Hipoteza o negacjach obalona:** zaprzeczenia czynią świat *łatwiejszym* (p_śm 0,83–1,00), bo wykluczenia między pojęciami są zwykle prawdziwe.
+
+Zgodnie z ostatnim zdaniem kryteriów dodano kolejną dźwignię, zamiast koniunkcji przesłanek prostszą i bliższą idei LMM:
+**literały** `a·b=c` (pojedyncze wpisy tablicy działania; 27 w rzędzie 3, 64 w rzędzie 4) jako dodatkowe pojęcia. To najniższy poziom
+„tokenów zależności”: prawo H wymusza zależności między wpisami (np. komutatywność: `0·1=2 ⇒ 1·0=2`), a przypadkowe współwystępowania
+dają fałszywe przeczucia. Wariant „tylko literały” okazał się za trudny: śmiałych przeczuć praktycznie nie ma (pula 0–8).
+
+| Konfiguracja | p_los | p_śm | pula śm. | |TR| | pokrycie dnia | Kryteria |
+|---|---|---|---|---|---|---|
+| rząd 3, baza + literały, cex 1 | 0,25 | 0,47 | 71 | 62 | 0,39 | **spełnia (T1)** |
+| rząd 4, baza + literały, cex 1 | 0,26 | 0,20 | 98 | 77 | 0,34 | spełnia (T1-4) |
+| rząd 3, baza + literały, cex 5 | 0,37 | 0,58 | 45 | 62 | 0,40 | nie |
+
+## Wybór
+
+- **T1 = rząd 3, słownik „baza + literały”, weryfikator zwraca 1 kontrprzykład.** To najprostsza konfiguracja spełniająca kryteria (reguła wyboru zapisana z góry).
+- **Zastrzeżenie:** p_śm = 0,47 leży tuż pod progiem 0,50 i różni się między prawami (komutatywna 0,31, łączna 0,64). W dwóch prawach śmiałe przeczucia są nadal częściej prawdziwe.
+- **T1-4 = to samo w rzędzie 4** (p_śm = 0,20, wszystkie prawa ≤ 0,27) jako świat do replikacji S-1. Ewentualne wyniki S-1 powinny wymagać zgodności w T1 i T1-4.
+- Test dymny pętli w T1 i T1-4 (prawo spoza S-0, ziarno 99) działa: dzień, sen i losowy przegląd kończą się poprawnie, ok. 0,1–0,5 s na przebieg.
+
+## Szkic S-1 (do osobnej prerejestracji)
+
+Pytanie: czy intuicja wybiera lepsze śmiałe przeczucia niż przypadek? Ramiona różnią się **tylko** portem `Intuicja`: losowy wybór,
+`HeurystykaOgolnosci`, później LMM. Miary: trafność obudzonych przeczuć i pokrycie TR **przy równym zużytym budżecie** (lekcja z recenzji S-0b),
+w T1 i T1-4. Adapter LMM musi czytać macierz zależności, której węzłami są także literały `a·b=c`.

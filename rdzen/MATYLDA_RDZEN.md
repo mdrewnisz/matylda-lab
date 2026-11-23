@@ -1,6 +1,6 @@
 # Matylda: rdzeń
 
-Wersja 0.3, 23 listopada 2026 r. (v0.3: wyniki S-0/S-0b po recenzji; v0.2: poprawiona rola LMM jako intuicji Matyldy; rdzeń dopisany do Masterplanu jako rozdz. 0, S-0 jako P1). Dokument wizji i minimalnego programu, nie plan wdrożenia.
+Wersja 0.4, 23 listopada 2026 r. (v0.4: świat T1; v0.3: wyniki S-0/S-0b po recenzji; v0.2: poprawiona rola LMM jako intuicji Matyldy; rdzeń dopisany do Masterplanu jako rozdz. 0, S-0 jako P1). Dokument wizji i minimalnego programu, nie plan wdrożenia.
 Uzupełnia Masterplan z 22.11 (nie zastępuje go): Masterplan mówi, **jak** Matylda pracuje i co kontroluje; ten dokument mówi, **po co** to wszystko istnieje.
 
 Oznaczenia: **[WYNIK]** sprawdzone w kodzie lub danych, **[WNIOSK.]** wynika z założeń, **[HIPOTEZA]** do sprawdzenia, **[SPEKULACJA]** kierunek bez uzasadnienia.
@@ -132,6 +132,13 @@ Obie prerejestracje zamrożono przed uruchomieniem. Niezależny recenzent (osobn
 - **[WYNIK, eksploracyjny, wąski świat]** Sen działa jako generator, gdy dzień gaśnie: dzięki śmiałym przeczuciom wciąż ma co proponować, a na jedno wywołanie bije losowy przegląd w obu rzędach magm. Wyczerpuje się jednak wcześniej niż losowy przegląd.
 - **[WNIOSKOWANIE]** Wąskim gardłem nie jest pamięć ani powtórka, tylko **wybór, które śmiałe przeczucie sprawdzić**. To jest zadanie intuicji, czyli miejsce LMM. Kolejność pętli: najpierw dzień, potem sen jako generator przestrzeni hipotez, z intuicją jako filtrem.
 - **[RYZYKO]** W obecnych światach losowa para po przycięciu jest prawdziwa w ~90%, więc intuicja nie ma czego rozstrzygać. Przed S-1 (LMM jako intuicja) potrzebny jest świat, w którym śmiałe przeczucia są w większości fałszywe.
+
+### 4.2. Świat T1 dla intuicji (23.11, `rdzen/SWIAT_T1_PROJEKT.md`)
+
+Kryteria trudności zapisano przed kalibracją: losowe i śmiałe przeczucia mają być w większości fałszywe, a dzień nie może rozwiązywać świata sam.
+- **[WYNIK NEGATYWNY]** Mniej kontrprzykładów i negacje pojęć nie wystarczają; negacje czynią świat wręcz łatwiejszym.
+- **[WYNIK]** Działa słownik z **literałami** `a·b=c` (pojedyncze wpisy tablicy działania), czyli zależnościami najniższego poziomu, plus weryfikator, który zwraca jeden kontrprzykład. **T1** (rząd 3): trafność losowa 0,25, śmiałe przeczucia 0,47 (tuż pod progiem, różnie między prawami). **T1-4** (rząd 4): 0,26 i 0,20. S-1 ma wymagać zgodności w obu.
+- **[WNIOSKOWANIE]** Literały są naturalnymi „tokenami zależności” dla LMM: prawo podłożone jest siecią zależności między wpisami tablicy, którą intuicja ma wyczuć.
 
 ## 5. Czemu służy każdy istniejący element
 

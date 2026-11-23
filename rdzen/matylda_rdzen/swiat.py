@@ -149,6 +149,14 @@ def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
     concepts = {k: v for k, v in allc.items() if k != H}
     if slownik == "negacje":
         concepts.update({f"¬{k}": ~v for k, v in list(concepts.items())})
+    elif slownik in ("literaly", "tylko_literaly"):
+        # „tokeny zależności” najniższego poziomu: pojedyncze wpisy tablicy działania, a·b = c
+        U = _tablice(rzad)
+        n = U.shape[1]
+        lit = {f"{a}·{b}={c}": U[:, a, b] == c for a in range(n) for b in range(n) for c in range(n)}
+        if slownik == "tylko_literaly":
+            concepts = {}
+        concepts.update(lit)
     elif slownik != "baza":
         raise ValueError(slownik)
     concepts[TOP] = np.ones(nm, bool)
@@ -160,6 +168,13 @@ def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
     TR_planted = {(a, b) for (a, b) in TR
                   if any((x, y) in planted for x in names for y in names if cls[x] == a and cls[y] == b)}
     return Swiat(H, world, concepts, names, frozenset(E), frozenset(TR), frozenset(TR_planted), cls)
+
+
+def _tablice(rzad: int) -> np.ndarray:
+    if rzad == 3:
+        return T
+    from .uniwersum4 import wczytaj
+    return wczytaj()
 
 
 @lru_cache(maxsize=None)

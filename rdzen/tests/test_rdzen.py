@@ -86,3 +86,9 @@ def test_seedy_do_praxis():
 def test_prawa_s0_niepuste():
     for H in PRAWA_S0:
         assert len(zbuduj_swiat(H).TR) > 0
+
+
+def test_swiat_literaly_ma_zaleznosci_wpisow():
+    sw = zbuduj_swiat("komutatywna", 3, "literaly")
+    assert ("0·1=2", "1·0=2") in sw.E          # komutatywność wymusza zależność między wpisami
+    assert ("0·1=2", "1·0=1") not in sw.E
