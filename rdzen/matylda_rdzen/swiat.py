@@ -15,62 +15,61 @@ import numpy as np
 S = 3
 TOP = "⊤"
 
-_codes = np.arange(S ** (S * S))
-T = np.stack([(_codes // S ** i) % S for i in range(S * S)], axis=1).reshape(-1, S, S)
-NM = len(T)
-_I = np.arange(NM)[:, None]
+
+def wszystkie_magmy(n: int) -> np.ndarray:
+    codes = np.arange(n ** (n * n))
+    return np.stack([(codes // n ** i) % n for i in range(n * n)], axis=1).reshape(-1, n, n)
 
 
-def _op(a, b):
-    return T[_I, a, b]
+def pojecia(T: np.ndarray) -> dict[str, np.ndarray]:
+    """Maski pojęć (prawa i własności strukturalne) dla tablic działań T kształtu (liczba, n, n)."""
+    NM, n = len(T), T.shape[1]
+    I = np.arange(NM)[:, None]
 
+    def op(a, b):
+        return T[I, a, b]
 
-def _grid(r):
-    X = np.array(list(product(range(S), repeat=r)))
-    return [X[:, i][None].repeat(NM, 0) for i in range(r)]
+    def grid(r):
+        X = np.array(list(product(range(n), repeat=r)))
+        return [X[:, i][None].repeat(NM, 0) for i in range(r)]
 
+    x2, y2 = grid(2)
+    x3, y3, z3 = grid(3)
+    x4, y4, z4, w4 = grid(4)
 
-_x2, _y2 = _grid(2)
-_x3, _y3, _z3 = _grid(3)
-_x4, _y4, _z4, _w4 = _grid(4)
+    def law2(l, r):
+        return (l(x2, y2) == r(x2, y2)).all(1)
 
+    def law3(l, r):
+        return (l(x3, y3, z3) == r(x3, y3, z3)).all(1)
 
-def _law2(l, r):
-    return (l(_x2, _y2) == r(_x2, _y2)).all(1)
-
-
-def _law3(l, r):
-    return (l(_x3, _y3, _z3) == r(_x3, _y3, _z3)).all(1)
-
-
-def _concepts() -> dict[str, np.ndarray]:
-    op = _op
-    rows_perm = np.array([[len(set(t[i])) == S for i in range(S)] for t in T]).all(1)
-    cols_perm = np.array([[len(set(t[:, j])) == S for j in range(S)] for t in T]).all(1)
-    diag = T[:, np.arange(S), np.arange(S)]
+    ar = np.arange(n)
+    rows_perm = (np.sort(T, axis=2) == ar).all((1, 2))
+    cols_perm = (np.sort(T, axis=1) == ar[:, None]).all((1, 2))
+    diag = T[:, ar, ar]
     neutral = np.zeros(NM, bool); left_neutral = np.zeros(NM, bool); zero = np.zeros(NM, bool)
-    for e in range(S):
-        neutral |= (T[:, e, :] == np.arange(S)).all(1) & (T[:, :, e] == np.arange(S)).all(1)
-        left_neutral |= (T[:, e, :] == np.arange(S)).all(1)
+    for e in range(n):
+        neutral |= (T[:, e, :] == ar).all(1) & (T[:, :, e] == ar).all(1)
+        left_neutral |= (T[:, e, :] == ar).all(1)
         zero |= (T[:, e, :] == e).all(1) & (T[:, :, e] == e).all(1)
     laws = {
-        "komutatywna": _law2(lambda x, y: op(x, y), lambda x, y: op(y, x)),
-        "łączna": _law3(lambda x, y, z: op(op(x, y), z), lambda x, y, z: op(x, op(y, z))),
-        "idempotentna": (diag == np.arange(S)).all(1),
+        "komutatywna": law2(lambda x, y: op(x, y), lambda x, y: op(y, x)),
+        "łączna": law3(lambda x, y, z: op(op(x, y), z), lambda x, y, z: op(x, op(y, z))),
+        "idempotentna": (diag == ar).all(1),
         "unipotentna xx=yy": (diag == diag[:, :1]).all(1),
-        "xy=x": _law2(lambda x, y: op(x, y), lambda x, y: x),
-        "xy=y": _law2(lambda x, y: op(x, y), lambda x, y: y),
+        "xy=x": law2(lambda x, y: op(x, y), lambda x, y: x),
+        "xy=y": law2(lambda x, y: op(x, y), lambda x, y: y),
         "stała": (T.reshape(NM, -1) == T.reshape(NM, -1)[:, :1]).all(1),
-        "elastyczna x(yx)=(xy)x": _law2(lambda x, y: op(x, op(y, x)), lambda x, y: op(op(x, y), x)),
-        "lewa alternat. x(xy)=(xx)y": _law2(lambda x, y: op(x, op(x, y)), lambda x, y: op(op(x, x), y)),
-        "prawa alternat. (yx)x=y(xx)": _law2(lambda x, y: op(op(y, x), x), lambda x, y: op(y, op(x, x))),
-        "medialna": (op(op(_x4, _y4), op(_z4, _w4)) == op(op(_x4, _z4), op(_y4, _w4))).all(1),
-        "lewa samodystr.": _law3(lambda x, y, z: op(x, op(y, z)), lambda x, y, z: op(op(x, y), op(x, z))),
-        "prawa samodystr.": _law3(lambda x, y, z: op(op(y, z), x), lambda x, y, z: op(op(y, x), op(z, x))),
-        "x(xy)=y": _law2(lambda x, y: op(x, op(x, y)), lambda x, y: y),
-        "(yx)x=y": _law2(lambda x, y: op(op(y, x), x), lambda x, y: y),
-        "półsymetr. y(xy)=x": _law2(lambda x, y: op(y, op(x, y)), lambda x, y: x),
-        "x(xy)=xy": _law2(lambda x, y: op(x, op(x, y)), lambda x, y: op(x, y)),
+        "elastyczna x(yx)=(xy)x": law2(lambda x, y: op(x, op(y, x)), lambda x, y: op(op(x, y), x)),
+        "lewa alternat. x(xy)=(xx)y": law2(lambda x, y: op(x, op(x, y)), lambda x, y: op(op(x, x), y)),
+        "prawa alternat. (yx)x=y(xx)": law2(lambda x, y: op(op(y, x), x), lambda x, y: op(y, op(x, x))),
+        "medialna": (op(op(x4, y4), op(z4, w4)) == op(op(x4, z4), op(y4, w4))).all(1),
+        "lewa samodystr.": law3(lambda x, y, z: op(x, op(y, z)), lambda x, y, z: op(op(x, y), op(x, z))),
+        "prawa samodystr.": law3(lambda x, y, z: op(op(y, z), x), lambda x, y, z: op(op(y, x), op(z, x))),
+        "x(xy)=y": law2(lambda x, y: op(x, op(x, y)), lambda x, y: y),
+        "(yx)x=y": law2(lambda x, y: op(op(y, x), x), lambda x, y: y),
+        "półsymetr. y(xy)=x": law2(lambda x, y: op(y, op(x, y)), lambda x, y: x),
+        "x(xy)=xy": law2(lambda x, y: op(x, op(x, y)), lambda x, y: op(x, y)),
     }
     struct = {
         "quasigrupa": rows_perm & cols_perm,
@@ -79,12 +78,14 @@ def _concepts() -> dict[str, np.ndarray]:
         "ma neutralny": neutral,
         "ma lewy neutralny": left_neutral,
         "ma zero": zero,
-        "ma idempotent": (diag == np.arange(S)).any(1),
+        "ma idempotent": (diag == ar).any(1),
     }
     return {**laws, **struct}
 
 
-ALL = _concepts()
+T = wszystkie_magmy(S)
+NM = len(T)
+ALL = pojecia(T)
 PRAWA_S0 = ("idempotentna", "komutatywna", "x(xy)=y", "łączna", "medialna")
 
 
@@ -135,15 +136,29 @@ def _ground_truth(world, concepts, names):
 
 
 @lru_cache(maxsize=None)
-def zbuduj_swiat(H: str) -> Swiat:
-    world = np.nonzero(ALL[H])[0]
-    concepts = {k: v for k, v in ALL.items() if k != H}
-    concepts[TOP] = np.ones(NM, bool)
+def zbuduj_swiat(H: str, rzad: int = 3) -> Swiat:
+    """rzad 3: wszystkie 3^9 magm (jak KG-0b). rzad 4: zamrożone uniwersum próbkowane (dane/u4.npy)."""
+    if rzad == 3:
+        allc, nm = ALL, NM
+    elif rzad == 4:
+        allc, nm = _pojecia_u4()
+    else:
+        raise ValueError(rzad)
+    world = np.nonzero(allc[H])[0]
+    concepts = {k: v for k, v in allc.items() if k != H}
+    concepts[TOP] = np.ones(nm, bool)
     names = list(concepts)
     E = _ground_truth(world, concepts, names)
-    E_full = _ground_truth(np.arange(NM), concepts, names)
+    E_full = _ground_truth(np.arange(nm), concepts, names)
     planted = {e for e in E if e not in E_full}
     cls, TR = klasy_i_redukcja(names, E)
     TR_planted = {(a, b) for (a, b) in TR
                   if any((x, y) in planted for x in names for y in names if cls[x] == a and cls[y] == b)}
     return Swiat(H, world, concepts, names, frozenset(E), frozenset(TR), frozenset(TR_planted), cls)
+
+
+@lru_cache(maxsize=None)
+def _pojecia_u4():
+    from .uniwersum4 import wczytaj
+    U = wczytaj()
+    return pojecia(U), len(U)

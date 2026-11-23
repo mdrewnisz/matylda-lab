@@ -86,12 +86,17 @@ class SenPelny(Sen):
     """S: konsolidacja → powtórka kontrprzykładów (+ śmiałe przeczucia) → przycinanie → intuicja."""
     nazwa = "S"
     konsolidacja = True
+    smiale = True
+
+    def _znane(self, p, rng):
+        return list(dict.fromkeys(list(p.obserwacje) + list(p.kontrprzyklady)))
 
     def __call__(self, p, rng, intuicja, k):
-        znane = list(dict.fromkeys(list(p.obserwacje) + list(p.kontrprzyklady)))
+        znane = self._znane(p, rng)
         kons = p.konsolidacja()
         pula = []
-        for zrodlo, ms in (("sen:powtorka", MIN_SUPPORT), ("sen:smiale", 1)):
+        zrodla = (("sen:powtorka", MIN_SUPPORT), ("sen:smiale", 1)) if self.smiale else (("sen:powtorka", MIN_SUPPORT),)
+        for zrodlo, ms in zrodla:
             for c in kandydaci_z_obserwacji(p, znane, rng, zrodlo, min_support=ms):
                 if zrodlo == "sen:smiale" and c.wsparcie != 1:
                     continue
@@ -106,6 +111,28 @@ class SenPelny(Sen):
         tie = rng.random(len(pula))
         order = sorted(range(len(pula)), key=lambda i: (-oc[i], tie[i]))
         return [pula[i] for i in order[:k]]
+
+
+class SenBezSmialosci(SenPelny):
+    """S−Ś (S-0b): jak S, ale bez śmiałych przeczuć (tylko powtórka ze wsparciem ≥ 2)."""
+    nazwa = "S-Ś"
+    smiale = False
+
+
+class GeneratorSnuNaSwiezych(SenPelny):
+    """W+S (S-0b, silna kontrola): TEN SAM generator co S (konsolidacja, śmiałe przeczucia, intuicja),
+    ale zamiast powtórki kontrprzykładów dostaje tyle samo świeżych losowych magm ze świata
+    (dopisywanych do obserwacji, jak w W+). Izoluje wartość powtórki własnych porażek."""
+    nazwa = "W+S"
+
+    def __init__(self, natura):
+        self.natura = natura
+
+    def _znane(self, p, rng):
+        widziane = set(p.obserwacje) | set(p.kontrprzyklady)
+        m = len(set(p.kontrprzyklady) - set(p.obserwacje))
+        p.obserwacje.extend(self.natura(m, rng, widziane))
+        return list(p.obserwacje)
 
 
 class SenBezKonsolidacji(SenPelny):

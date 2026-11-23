@@ -5,8 +5,9 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from .fazy import (DzienDodatkowy, Dziennik, Sen, SenBezKonsolidacji, SenLosowy, SenPelny, Seed,
-                   czuwanie, kandydaci_z_obserwacji, przebudzenie)
+from .fazy import (DzienDodatkowy, Dziennik, GeneratorSnuNaSwiezych, Sen, SenBezKonsolidacji,
+                   SenBezSmialosci, SenLosowy, SenPelny, Seed, czuwanie, kandydaci_z_obserwacji,
+                   przebudzenie)
 from .intuicja import HeurystykaOgolnosci, Intuicja
 from .pamiec import Pamiec, Weryfikator
 from .swiat import Swiat, zbuduj_swiat
@@ -28,10 +29,12 @@ def natura_swiata(sw: Swiat):
 
 def ramie(nazwa: str, sw: Swiat) -> Sen:
     return {"A2": Sen(), "W+": DzienDodatkowy(natura_swiata(sw)), "S-los": SenLosowy(),
-            "S": SenPelny(), "S-K": SenBezKonsolidacji()}[nazwa]
+            "S": SenPelny(), "S-K": SenBezKonsolidacji(), "S-Ś": SenBezSmialosci(),
+            "W+S": GeneratorSnuNaSwiezych(natura_swiata(sw))}[nazwa]
 
 
-RAMIONA = ("A2", "W+", "S-los", "S", "S-K")
+RAMIONA = ("A2", "W+", "S-los", "S", "S-K")             # S-0
+RAMIONA_S0B = ("A2", "W+", "W+S", "S-los", "S", "S-Ś")  # S-0b
 
 
 @dataclass
@@ -54,8 +57,8 @@ class Przebieg:
 
 
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
-            intuicja: Intuicja | None = None, k: int = ILE_INTUICJI) -> Przebieg:
-    sw = zbuduj_swiat(H)
+            intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3) -> Przebieg:
+    sw = zbuduj_swiat(H, rzad)
     intuicja = intuicja or HeurystykaOgolnosci()
     sen = ramie(nazwa_ramienia, sw)
 
