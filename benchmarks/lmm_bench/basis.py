@@ -99,3 +99,35 @@ def nph_star_laws(accepted: list, initial: list = (), reference_models: list = (
         if models and all(holds(law, t) for t in models):
             lower.remove(law)
     return len(lower), len(upper)
+
+
+def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000):
+    """Przedział NPH* oparty na prawdziwym sprawdzaczu wynikania (entail.py). Obie granice są pewne:
+
+    górna = liczność zbioru po zachłannym usunięciu praw z DOWODEM wynikania z pozostałych
+            (to nadal zbiór generujący, więc baza minimalna nie jest większa);
+    dolna = liczba praw „niezbędnych”: z KONTRMODELEM względem wszystkich pozostałych naraz
+            (każda baza będąca podzbiorem musi je zawierać).
+    """
+    from . import entail
+
+    seen, uniq = {canonical(i) for i in initial}, []
+    for law in accepted:
+        c = canonical(law)
+        if is_trivial(law) or c in seen:
+            continue
+        seen.add(c)
+        uniq.append(law)
+
+    upper = list(uniq)
+    for law in reversed(uniq):
+        rest = [x for x in upper if x is not law] + list(initial)
+        if entail.prove(rest, law, node_limit=node_limit) is not None:
+            upper.remove(law)
+
+    essential = []
+    for law in uniq:
+        rest = [x for x in uniq if x is not law] + list(initial)
+        if entail.countermodel(rest, law, sizes=sizes) is not None:
+            essential.append(law)
+    return len(essential), len(upper)

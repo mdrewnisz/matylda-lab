@@ -30,6 +30,8 @@ PILOT_SEEDS = range(2000, 3000)
 MAX_OPS = 4
 K = 20
 WINDOW = 12
+NODE_LIMIT = 5000
+FULL_CEILING = False  # sufit z wynikaniem dla ~90 praw jest kosztowny; włączany osobno
 
 
 def reference_models() -> list:
@@ -73,7 +75,8 @@ def arm_C(table, seed, pool):
 def score(submitted, table, refs):
     acc = [l for l in submitted if holds(l, table)]
     lo, hi = basis.nph_star_laws(acc, reference_models=refs)
-    return {"zgloszone": len(submitted), "przyjete": len(acc),
+    elo, ehi = basis.nph_star_laws_entail(acc, node_limit=NODE_LIMIT) if acc else (0, 0)
+    return {"nph_star_entail_lo": elo, "nph_star_entail_hi": ehi, "zgloszone": len(submitted), "przyjete": len(acc),
             "precyzja": len(acc) / len(submitted) if submitted else None,
             "nph_star_lo": lo, "nph_star_hi": hi}
 
@@ -91,7 +94,8 @@ def run(n_worlds: int = 30, sizes=(4, 5, 6), kinds=("afiniczna", "losowa")) -> d
                 t0 = time.perf_counter()
                 truth = [l for l in pool if holds(l, w.table)]
                 truth_lo, truth_hi = basis.nph_star_laws(truth, reference_models=refs) if truth else (0, 0)
-                rec = {"seed": s, "kind": kind, "n": n, "prawdziwe_w_puli": len(truth),
+                rec = {"sufit_nph_star_entail": list(basis.nph_star_laws_entail(truth, node_limit=NODE_LIMIT)) if truth and FULL_CEILING else None,
+                       "seed": s, "kind": kind, "n": n, "prawdziwe_w_puli": len(truth),
                        "sufit_nph_star": [truth_lo, truth_hi]}
                 rec["E"] = score(controls.enumerator_E(K, max_ops=MAX_OPS), w.table, refs)
                 rec["R0"] = score(controls.random_R0(K, seed=s, max_ops=MAX_OPS), w.table, refs)
@@ -116,6 +120,11 @@ def summarize(res: dict) -> dict:
             hi = np.array([r[arm]["nph_star_hi"] for r in rs], float)
             d[arm] = {"nph_star_hi_srednia": hi.mean(), "nph_star_hi_sd": hi.std(ddof=1),
                       "nph_star_lo_srednia": lo.mean(), "nph_star_lo_sd": lo.std(ddof=1)}
+        for arm in ("E", "R0", "C"):
+            for key in ("nph_star_entail_lo", "nph_star_entail_hi"):
+                v = np.array([r[arm][key] for r in rs], float)
+                d[arm][key + "_srednia"] = v.mean()
+                d[arm][key + "_sd"] = v.std(ddof=1)
         for a, b in (("C", "E"), ("C", "R0")):
             diff = np.array([r[a]["nph_star_hi"] - r[b]["nph_star_hi"] for r in rs], float)
             d[f"{a}-{b}_hi"] = {"srednia": diff.mean(), "sd": diff.std(ddof=1)}

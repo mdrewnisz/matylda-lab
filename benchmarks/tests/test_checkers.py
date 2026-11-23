@@ -191,3 +191,41 @@ def test_controls_deterministic_and_capped():
     assert len(R) == 20 and R == controls.random_R0(20, seed=2000) and R != controls.random_R0(20, seed=2001)
     ex = E[:5]
     assert not set(controls.enumerator_E(20, exclude=ex)) & {terms.canonical(e) for e in ex}
+
+
+# ---------- sprawdzacz wynikania ----------
+from lmm_bench import entail  # noqa: E402
+
+
+@pytest.mark.parametrize("axioms,law,expected", [
+    (["x*(x*y) = y"], "x*(x*(x*y)) = x*y", entail.PROVED),
+    (["x*y = x"], "(x*y)*z = x*(y*z)", entail.PROVED),           # wymaga odwrócenia kroku z podstawieniem
+    (["(x*y)*z = x*(y*z)", "x*y = y*x"], "(x*y)*z = (y*z)*x", entail.PROVED),
+    (["x*y = y*x"], "(x*y)*z = x*(y*z)", entail.REFUTED),
+    (["x*(x*y) = y"], "x*y = y", entail.REFUTED),
+    ([], "x*x = x", entail.REFUTED),
+])
+def test_entailment_known_cases(axioms, law, expected):
+    st, cert = entail.entails([parse_law(a) for a in axioms], parse_law(law))
+    assert st == expected
+    if st == entail.REFUTED:
+        assert all(terms.holds(parse_law(a), cert) for a in axioms) and not terms.holds(parse_law(law), cert)
+    if st == entail.PROVED:
+        ok, _ = proofcheck.check_proof(parse_law(law), [parse_law(a) for a in axioms], cert)
+        assert ok
+
+
+def test_entailment_never_both_proved_and_refuted():
+    pool = list(controls.law_pool(3))
+    rng = np.random.default_rng(2000)
+    for _ in range(60):
+        a, b = (pool[i] for i in rng.choice(len(pool), 2, replace=False))
+        steps = entail.prove([a], b, node_limit=3000)
+        cm = entail.countermodel([a], b)
+        assert not (steps is not None and cm is not None)
+
+
+def test_nph_star_entail_bounds_sound():
+    acc = [parse_law(s) for s in ["x*y = y*x", "(x*y)*z = x*(y*z)", "(x*y)*z = (y*z)*x"]]
+    lo, hi = basis.nph_star_laws_entail(acc)
+    assert lo <= hi == 2

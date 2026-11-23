@@ -20,6 +20,7 @@ class Step:
     direction: str
     position: tuple
     result: Term
+    subst: dict | None = None   # wartości zmiennych występujących tylko po stronie docelowej
 
 
 def match(pattern: Term, term: Term, subst: dict) -> dict | None:
@@ -73,7 +74,8 @@ def check_proof(claim: Law, axioms: list, steps: list) -> tuple[bool, str]:
         if st.direction not in ("lr", "rl"):
             return False, f"krok {k}: zły kierunek {st.direction!r}"
         src, dst = axioms[st.axiom] if st.direction == "lr" else axioms[st.axiom][::-1]
-        if _vars(dst, set()) - _vars(src, set()):
+        free = _vars(dst, set()) - _vars(src, set())
+        if free - set((st.subst or {}).keys()):
             return False, f"krok {k}: strona docelowa ma zmienne wolne (podstawienie niejednoznaczne)"
         try:
             sub = subterm(cur, st.position)
@@ -82,6 +84,7 @@ def check_proof(claim: Law, axioms: list, steps: list) -> tuple[bool, str]:
         s = match(src, sub, {})
         if s is None:
             return False, f"krok {k}: aksjomat {st.axiom} nie pasuje do {show(sub)}"
+        s = {**s, **{v: st.subst[v] for v in free}}
         nxt = replace_at(cur, st.position, apply_subst(dst, s))
         if nxt != st.result:
             return False, f"krok {k}: deklarowany wynik {show(st.result)} ≠ obliczony {show(nxt)}"
