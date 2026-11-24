@@ -146,7 +146,13 @@ Pytanie: czy intuicja wybiera lepsze przeczucia niż los? Ramiona różnią się
 dwie wyrocznie kalibracyjne (bramka „czy wybór w ogóle się opłaca”). Miara: pole pod krzywą pokrycia po dniu 1 przy równym zużytym budżecie,
 80 ziaren, werdykt wymaga zgodności w T1 i T1-4, trzy kategorie (lepsza / pomijalna / nierozstrzygnięta). Niezależna recenzja przed uruchomieniem
 odrzuciła wersję 1 (moc ok. 1%), wersja 2 ma moc ≥ 0,99 na prawach spoza S-0. LMM dołącza osobną poprawką, na świeżych ziarnach 600–679,
-bez danych ze światów praw S-0. Status: **zamrożona, nieuruchomiona**.
+bez danych ze światów praw S-0.
+
+**Wynik (24.11, `rdzen/wyniki/S1_RAPORT.md`, po niezależnej recenzji):** werdykt NIEINFORMATYWNY, bo bramka nie przeszła w T1-4.
+- [WYNIK] W T1-4 przy budżecie 100 dzień 1 zjada cały budżet w 3 z 5 praw, sen się nie odbywa. [WNIOSKOWANIE] To artefakt budżetu, nie brak miejsca na wybór.
+- [HIPOTEZA] W T1 heurystyka ogólności bije los (4/5 praw), ale daje tylko ok. ćwierć tego, co idealny wybór, i głównie dzięki regule „powtórka przed śmiałymi”; wśród śmiałych przeczuć wybiera jak los.
+- [WYNIK] Dobry wybór jest wart dużo (wyrocznia 2–5 krawędzi TR). Miejsce dla LMM jest i heurystyka go nie wyczerpuje.
+- Następny krok: S-1b z budżetem po dniu 1 i świeżymi ziarnami 800–879.
 
 ## 5. Czemu służy każdy istniejący element
 
