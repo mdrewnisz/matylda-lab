@@ -111,7 +111,7 @@ class SenPelny(Sen):
         self.ostatnia_pula = list(pula)
         if not pula:
             return []
-        oc = intuicja.ocen(pula, KontekstIntuicji(kons, len(znane)))
+        oc = intuicja.ocen(pula, KontekstIntuicji(kons, len(znane), p, tuple(znane)))
         tie = rng.random(len(pula))
         order = sorted(range(len(pula)), key=lambda i: (-oc[i], tie[i]))
         return [pula[i] for i in order[:k]]

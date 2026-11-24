@@ -1,0 +1,366 @@
+{
+ "torch": "2.15.0+cu132",
+ "swiaty_treningowe": [
+  [
+   "unipotentna xx=yy",
+   "3T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   "3T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   "3T"
+  ],
+  [
+   "lewo-skracalna",
+   "3T"
+  ],
+  [
+   "prawo-skracalna",
+   "3T"
+  ],
+  [
+   "ma neutralny",
+   "3T"
+  ],
+  [
+   "ma lewy neutralny",
+   "3T"
+  ],
+  [
+   "ma zero",
+   "3T"
+  ],
+  [
+   "ma idempotent",
+   "3T"
+  ],
+  [
+   "unipotentna xx=yy ∧ ma lewy neutralny",
+   "3T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma lewy neutralny",
+   "3T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma lewy neutralny",
+   "3T"
+  ],
+  [
+   "unipotentna xx=yy",
+   "4T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   "4T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   "4T"
+  ],
+  [
+   "quasigrupa",
+   "4T"
+  ],
+  [
+   "lewo-skracalna",
+   "4T"
+  ],
+  [
+   "prawo-skracalna",
+   "4T"
+  ],
+  [
+   "ma neutralny",
+   "4T"
+  ],
+  [
+   "ma lewy neutralny",
+   "4T"
+  ],
+  [
+   "ma zero",
+   "4T"
+  ],
+  [
+   "ma idempotent",
+   "4T"
+  ],
+  [
+   "unipotentna xx=yy ∧ quasigrupa",
+   "4T"
+  ],
+  [
+   "unipotentna xx=yy ∧ lewo-skracalna",
+   "4T"
+  ],
+  [
+   "unipotentna xx=yy ∧ prawo-skracalna",
+   "4T"
+  ],
+  [
+   "unipotentna xx=yy ∧ ma lewy neutralny",
+   "4T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma lewy neutralny",
+   "4T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma zero",
+   "4T"
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma idempotent",
+   "4T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma lewy neutralny",
+   "4T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma zero",
+   "4T"
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma idempotent",
+   "4T"
+  ]
+ ],
+ "u4t_sha256": "5451395fdced1fcf8b48cb47d2234c93d1fd0431c1474e1c0dc4656fe1b1776c",
+ "seeds_trening": [
+  1100,
+  1159
+ ],
+ "seeds_odlozone": [
+  1160,
+  1169
+ ],
+ "epoki": 10,
+ "lr": [
+  0.001,
+  1e-05
+ ],
+ "ziarno": 2024,
+ "migawki": {
+  "trening": 9022,
+  "odlozone": 1491,
+  "walidacja_offline": 3974
+ },
+ "modele": {
+  "v2": {
+   "konfig": {
+    "d": 64,
+    "L": 4,
+    "heads": 4,
+    "graf": true
+   },
+   "wagi_sha256": "33876429b789de75e08d3564832071ee235ddcbd5db74844d1a3cd140b1d0a6f",
+   "historia": [
+    {
+     "epoka": 1,
+     "trening": 0.3584798559186412,
+     "odlozone": 0.2972547899916678
+    },
+    {
+     "epoka": 2,
+     "trening": 0.3092981560687557,
+     "odlozone": 0.29449293138040433
+    },
+    {
+     "epoka": 3,
+     "trening": 0.3014760464950338,
+     "odlozone": 0.2762128453076168
+    },
+    {
+     "epoka": 4,
+     "trening": 0.2877408920443732,
+     "odlozone": 0.27348039054332424
+    },
+    {
+     "epoka": 5,
+     "trening": 0.2791220015505465,
+     "odlozone": 0.27262823777725714
+    },
+    {
+     "epoka": 6,
+     "trening": 0.2700067214110219,
+     "odlozone": 0.2616673148790151
+    },
+    {
+     "epoka": 7,
+     "trening": 0.2594610452672002,
+     "odlozone": 0.24961392835278126
+    },
+    {
+     "epoka": 8,
+     "trening": 0.24841042187754825,
+     "odlozone": 0.24053891841569597
+    },
+    {
+     "epoka": 9,
+     "trening": 0.23798645039429212,
+     "odlozone": 0.23568924062014893
+    },
+    {
+     "epoka": 10,
+     "trening": 0.23339017529241773,
+     "odlozone": 0.23099659891267996
+    }
+   ],
+   "wybrana_epoka": 10,
+   "offline_odlozone": {
+    "lmm": {
+     "auc_prawda": 0.9212304827035515,
+     "auc_TR": 0.8862226383158809,
+     "topk_wartosc": 0.5838770725477629,
+     "auc_prawda_smiale": 0.8989068721731079
+    },
+    "heur": {
+     "auc_prawda": 0.5663503564810837,
+     "auc_TR": 0.5730215795403358,
+     "topk_wartosc": 0.4828039685390405,
+     "auc_prawda_smiale": 0.5
+    },
+    "los": {
+     "auc_prawda": 0.5015399483602009,
+     "auc_TR": 0.4965313294139379,
+     "topk_wartosc": 0.43196560492917724,
+     "auc_prawda_smiale": 0.5030455660400182
+    }
+   },
+   "offline_walidacja": {
+    "lmm": {
+     "auc_prawda": 0.5335060014167008,
+     "auc_TR": 0.5529877220378524,
+     "topk_wartosc": 0.6398054125883289,
+     "auc_prawda_smiale": 0.4605520340464835
+    },
+    "heur": {
+     "auc_prawda": 0.5175898503807712,
+     "auc_TR": 0.5443972516047704,
+     "topk_wartosc": 0.5960082306934846,
+     "auc_prawda_smiale": 0.5
+    },
+    "los": {
+     "auc_prawda": 0.5025465327149873,
+     "auc_TR": 0.4990756811280382,
+     "topk_wartosc": 0.5394405411574174,
+     "auc_prawda_smiale": 0.5016507654757555
+    }
+   }
+  },
+  "v2_bez_grafu": {
+   "konfig": {
+    "d": 64,
+    "L": 4,
+    "heads": 4,
+    "graf": false
+   },
+   "wagi_sha256": "4105bb0603a5b36f053c6255eac8c3b39b80f6bf2cb0a4ae0341816a17e7c9fb",
+   "historia": [
+    {
+     "epoka": 1,
+     "trening": 0.5022378004359619,
+     "odlozone": 0.4693858887602673
+    },
+    {
+     "epoka": 2,
+     "trening": 0.4811008106178547,
+     "odlozone": 0.45387263336524336
+    },
+    {
+     "epoka": 3,
+     "trening": 0.47180941724079073,
+     "odlozone": 0.450620118251269
+    },
+    {
+     "epoka": 4,
+     "trening": 0.46612317771342715,
+     "odlozone": 0.4449224283404668
+    },
+    {
+     "epoka": 5,
+     "trening": 0.4603274922205649,
+     "odlozone": 0.44101192552776225
+    },
+    {
+     "epoka": 6,
+     "trening": 0.4566686861270055,
+     "odlozone": 0.44214925045752806
+    },
+    {
+     "epoka": 7,
+     "trening": 0.4534669434904899,
+     "odlozone": 0.44423113929983515
+    },
+    {
+     "epoka": 8,
+     "trening": 0.45075090268980467,
+     "odlozone": 0.4395562449286209
+    },
+    {
+     "epoka": 9,
+     "trening": 0.44865015116510676,
+     "odlozone": 0.43835873941945236
+    },
+    {
+     "epoka": 10,
+     "trening": 0.4476401488669547,
+     "odlozone": 0.4374529808827774
+    }
+   ],
+   "wybrana_epoka": 10,
+   "offline_odlozone": {
+    "lmm": {
+     "auc_prawda": 0.8664923106250241,
+     "auc_TR": 0.7714422014353843,
+     "topk_wartosc": 0.5452788166456939,
+     "auc_prawda_smiale": 0.7893611820829582
+    },
+    "heur": {
+     "auc_prawda": 0.5663503564810837,
+     "auc_TR": 0.5730215795403358,
+     "topk_wartosc": 0.4828039685390405,
+     "auc_prawda_smiale": 0.5
+    },
+    "los": {
+     "auc_prawda": 0.5015399483602009,
+     "auc_TR": 0.4965313294139379,
+     "topk_wartosc": 0.43196560492917724,
+     "auc_prawda_smiale": 0.5030455660400182
+    }
+   },
+   "offline_walidacja": {
+    "lmm": {
+     "auc_prawda": 0.42280697562812464,
+     "auc_TR": 0.4530446767297103,
+     "topk_wartosc": 0.5780162832577384,
+     "auc_prawda_smiale": 0.34437352275851624
+    },
+    "heur": {
+     "auc_prawda": 0.5175898503807712,
+     "auc_TR": 0.5443972516047704,
+     "topk_wartosc": 0.5960082306934846,
+     "auc_prawda_smiale": 0.5
+    },
+    "los": {
+     "auc_prawda": 0.5025465327149873,
+     "auc_TR": 0.4990756811280382,
+     "topk_wartosc": 0.5394405411574174,
+     "auc_prawda_smiale": 0.5016507654757555
+    }
+   }
+  }
+ },
+ "kod_sha256": {
+  "lmm_intuicja.py": "9925decf67d166a8add7775210bcbf477ae460e989f5a73ba56e1fd4f1cff901",
+  "lmm_trening.py": "f39522916cb1cad6731a682a629ea99376babbf7c98e74d79087743f2ca9b1fa",
+  "lmm_bsd2_models.py": "5e2a2140a655e5291a68ed19170d3dfdbf678b049fd600c6389fde2af59c21af",
+  "uniwersum4t.py": "f736f3713b395f8dff478e1f003ae3186689c5785a815d4c2f0e37d0a5708716",
+  "swiat.py": "a3558b1b72dce235fa1c95d0cc99243b5e4d3090d3c5fba60ab908c4c8b359c1"
+ }
+}

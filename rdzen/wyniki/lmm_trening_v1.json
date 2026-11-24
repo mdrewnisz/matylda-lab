@@ -1,0 +1,340 @@
+{
+ "wagi_sha256": "0b7eef57b850e209ee3372374fc93f43685423224eb4755bc1f34c81fccaf438",
+ "kod_sha256": {
+  "lmm_intuicja.py": "9873733c3baf61d1a8879860610bfd819a65fe212baa1043ed0519acbbae97cf",
+  "lmm_trening.py": "97ecbb0d24930d0f190c32e578177ada2e9807ea09ffa1c331566dd15496a94e",
+  "lmm_bsd2_models.py": "5e2a2140a655e5291a68ed19170d3dfdbf678b049fd600c6389fde2af59c21af"
+ },
+ "torch": "2.15.0+cu132",
+ "wersja": "v1",
+ "trening": [
+  [
+   "unipotentna xx=yy",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   3
+  ],
+  [
+   "unipotentna xx=yy",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   4
+  ],
+  [
+   "półsymetr. y(xy)=x",
+   4
+  ],
+  [
+   "lewo-skracalna",
+   3
+  ],
+  [
+   "prawo-skracalna",
+   3
+  ],
+  [
+   "ma neutralny",
+   3
+  ],
+  [
+   "ma lewy neutralny",
+   3
+  ],
+  [
+   "ma zero",
+   3
+  ],
+  [
+   "ma idempotent",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ lewo-skracalna",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ prawo-skracalna",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ ma neutralny",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ ma lewy neutralny",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ ma zero",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ ma idempotent",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma neutralny",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma lewy neutralny",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma zero",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma idempotent",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma neutralny",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma lewy neutralny",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma zero",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma idempotent",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ lewa alternat. x(xy)=(xx)y",
+   3
+  ],
+  [
+   "unipotentna xx=yy ∧ prawa alternat. (yx)x=y(xx)",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ prawa alternat. (yx)x=y(xx)",
+   3
+  ],
+  [
+   "quasigrupa",
+   4
+  ],
+  [
+   "lewo-skracalna",
+   4
+  ],
+  [
+   "prawo-skracalna",
+   4
+  ],
+  [
+   "ma neutralny",
+   4
+  ],
+  [
+   "ma lewy neutralny",
+   4
+  ],
+  [
+   "ma zero",
+   4
+  ],
+  [
+   "ma idempotent",
+   4
+  ],
+  [
+   "unipotentna xx=yy ∧ lewo-skracalna",
+   4
+  ],
+  [
+   "unipotentna xx=yy ∧ ma zero",
+   4
+  ],
+  [
+   "unipotentna xx=yy ∧ ma idempotent",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ prawo-skracalna",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma neutralny",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma lewy neutralny",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma zero",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ ma idempotent",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ lewo-skracalna",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ prawo-skracalna",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma neutralny",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma lewy neutralny",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma zero",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx) ∧ ma idempotent",
+   4
+  ],
+  [
+   "unipotentna xx=yy ∧ lewa alternat. x(xy)=(xx)y",
+   4
+  ],
+  [
+   "unipotentna xx=yy ∧ prawa alternat. (yx)x=y(xx)",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y ∧ prawa alternat. (yx)x=y(xx)",
+   4
+  ]
+ ],
+ "walidacja": [
+  [
+   "elastyczna x(yx)=(xy)x",
+   3
+  ],
+  [
+   "lewa samodystr.",
+   3
+  ],
+  [
+   "prawa samodystr.",
+   3
+  ],
+  [
+   "x(xy)=xy",
+   3
+  ],
+  [
+   "(yx)x=y",
+   3
+  ],
+  [
+   "elastyczna x(yx)=(xy)x",
+   4
+  ],
+  [
+   "lewa samodystr.",
+   4
+  ],
+  [
+   "prawa samodystr.",
+   4
+  ],
+  [
+   "x(xy)=xy",
+   4
+  ],
+  [
+   "(yx)x=y",
+   4
+  ]
+ ],
+ "seeds_trening": [
+  1100,
+  1139
+ ],
+ "seeds_walid": [
+  1200,
+  1239
+ ],
+ "konfig": {
+  "d": 64,
+  "L": 4,
+  "heads": 4
+ },
+ "epoki": 8,
+ "lr": 0.001,
+ "ziarno": 2024,
+ "strata": [
+  0.48196075254597315,
+  0.45072560726687416,
+  0.4183721773489493,
+  0.39952941214229715,
+  0.3919875178223749,
+  0.3836251789017812,
+  0.3786763567815188,
+  0.41036640996946927
+ ],
+ "migawki": {
+  "trening": 19786,
+  "walidacja": 3974
+ },
+ "offline_trening": {
+  "lmm": {
+   "auc_prawda": 0.9103272875722953,
+   "auc_TR": 0.8808829624491058,
+   "topk_wartosc": 0.7885127161469964,
+   "auc_prawda_smiale": 0.9315009537643147
+  },
+  "heur": {
+   "auc_prawda": 0.3592818245390309,
+   "auc_TR": 0.3427634819235846,
+   "topk_wartosc": 0.5920624898811553,
+   "auc_prawda_smiale": 0.0
+  },
+  "los": {
+   "auc_prawda": 0.49737670660304084,
+   "auc_TR": 0.49855567603729517,
+   "topk_wartosc": 0.5069816415812284,
+   "auc_prawda_smiale": 0.49736977558295675
+  }
+ },
+ "offline_walidacja": {
+  "lmm": {
+   "auc_prawda": 0.8326405344234373,
+   "auc_TR": 0.7649151368172187,
+   "topk_wartosc": 0.7641637405932744,
+   "auc_prawda_smiale": 0.8663303607315076
+  },
+  "heur": {
+   "auc_prawda": 0.3163912493565025,
+   "auc_TR": 0.3163469930794566,
+   "topk_wartosc": 0.5960082306934846,
+   "auc_prawda_smiale": 0.0
+  },
+  "los": {
+   "auc_prawda": 0.5025465327149873,
+   "auc_TR": 0.4990756811280382,
+   "topk_wartosc": 0.5394405411574174,
+   "auc_prawda_smiale": 0.5016507654757555
+  }
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "wagi_sha256": "aa0f5a9e334d935e562f43a8490749436ab05b78cc8bf53b9d67a3bfaa7a3849",
+ "kod_sha256": {
+  "lmm_intuicja.py": "9873733c3baf61d1a8879860610bfd819a65fe212baa1043ed0519acbbae97cf",
+  "lmm_trening.py": "97ecbb0d24930d0f190c32e578177ada2e9807ea09ffa1c331566dd15496a94e",
+  "lmm_bsd2_models.py": "5e2a2140a655e5291a68ed19170d3dfdbf678b049fd600c6389fde2af59c21af"
+ },
+ "torch": "2.15.0+cu132",
+ "trening": [
+  [
+   "unipotentna xx=yy",
+   3
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   3
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   3
+  ],
+  [
+   "unipotentna xx=yy",
+   4
+  ],
+  [
+   "lewa alternat. x(xy)=(xx)y",
+   4
+  ],
+  [
+   "prawa alternat. (yx)x=y(xx)",
+   4
+  ],
+  [
+   "półsymetr. y(xy)=x",
+   4
+  ]
+ ],
+ "walidacja": [
+  [
+   "elastyczna x(yx)=(xy)x",
+   3
+  ],
+  [
+   "lewa samodystr.",
+   3
+  ],
+  [
+   "prawa samodystr.",
+   3
+  ],
+  [
+   "x(xy)=xy",
+   3
+  ],
+  [
+   "(yx)x=y",
+   3
+  ],
+  [
+   "elastyczna x(yx)=(xy)x",
+   4
+  ],
+  [
+   "lewa samodystr.",
+   4
+  ],
+  [
+   "prawa samodystr.",
+   4
+  ],
+  [
+   "x(xy)=xy",
+   4
+  ],
+  [
+   "(yx)x=y",
+   4
+  ]
+ ],
+ "seeds_trening": [
+  1100,
+  1199
+ ],
+ "seeds_walid": [
+  1200,
+  1239
+ ],
+ "konfig": {
+  "d": 64,
+  "L": 4,
+  "heads": 4
+ },
+ "epoki": 8,
+ "lr": 0.001,
+ "ziarno": 2024,
+ "strata": [
+  0.3729518755859913,
+  0.32091702980675113,
+  0.3016561882127735,
+  0.29620764889410783,
+  0.3079409273864552,
+  0.290128467150916,
+  0.2921109098508728,
+  0.2780400036381961
+ ],
+ "migawki": {
+  "trening": 8275,
+  "walidacja": 3974
+ },
+ "offline_trening": {
+  "lmm": {
+   "auc_prawda": 0.952144597672626,
+   "auc_TR": 0.9336849084635199,
+   "topk_wartosc": 0.8515126112274533,
+   "auc_prawda_smiale": 0.9587431041272755
+  },
+  "heur": {
+   "auc_prawda": 0.3591587552825829,
+   "auc_TR": 0.34551015278473496,
+   "topk_wartosc": 0.6043222803453664,
+   "auc_prawda_smiale": 0.0
+  },
+  "los": {
+   "auc_prawda": 0.49964439195734167,
+   "auc_TR": 0.5021101196599164,
+   "topk_wartosc": 0.4927210721747213,
+   "auc_prawda_smiale": 0.4923967021279963
+  }
+ },
+ "offline_walidacja": {
+  "lmm": {
+   "auc_prawda": 0.8161421765733313,
+   "auc_TR": 0.6668533835549899,
+   "topk_wartosc": 0.7162523161672397,
+   "auc_prawda_smiale": 0.871956009787151
+  },
+  "heur": {
+   "auc_prawda": 0.3163912493565025,
+   "auc_TR": 0.3163469930794566,
+   "topk_wartosc": 0.5960082306934846,
+   "auc_prawda_smiale": 0.0
+  },
+  "los": {
+   "auc_prawda": 0.5025465327149873,
+   "auc_TR": 0.4990756811280382,
+   "topk_wartosc": 0.5394405411574174,
+   "auc_prawda_smiale": 0.5016507654757555
+  }
+ }
+}

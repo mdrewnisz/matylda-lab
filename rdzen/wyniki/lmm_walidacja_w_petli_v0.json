@@ -1,0 +1,2579 @@
+{
+ "wagi_sha256": "aa0f5a9e334d935e562f43a8490749436ab05b78cc8bf53b9d67a3bfaa7a3849",
+ "kontrasty": {
+  "T1|lmm-heurystyka|pole|elastyczna x(yx)=(xy)x": [
+   1.6339252112652936,
+   1.1995907819904226,
+   2.0538130928330665
+  ],
+  "T1|lmm-heurystyka|stale_okno|elastyczna x(yx)=(xy)x": [
+   1.1093137254901957,
+   0.814705882352941,
+   1.4083333333333325
+  ],
+  "T1|lmm-losowa|pole|elastyczna x(yx)=(xy)x": [
+   2.0291391508027075,
+   1.6070332206569364,
+   2.453016359786499
+  ],
+  "T1|lmm-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   1.2960784313725486,
+   0.9142034313725487,
+   1.6921568627450978
+  ],
+  "T1|heurystyka-losowa|pole|elastyczna x(yx)=(xy)x": [
+   0.34317540165461996,
+   -0.0516981503319555,
+   0.7292045606495423
+  ],
+  "T1|heurystyka-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   0.1867647058823529,
+   -0.2338480392156861,
+   0.5975612745098037
+  ],
+  "T1|wyrocznia_pokrycia-losowa|pole|elastyczna x(yx)=(xy)x": [
+   5.723575299741991,
+   5.33220886243979,
+   6.124989687585127
+  ],
+  "T1|wyrocznia_pokrycia-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   3.602450980392157,
+   3.1343137254901956,
+   4.104914215686274
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|pole|elastyczna x(yx)=(xy)x": [
+   5.336104157206435,
+   4.9489384252434006,
+   5.725227098583457
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|stale_okno|elastyczna x(yx)=(xy)x": [
+   3.4156862745098038,
+   2.8583210784313726,
+   3.983835784313725
+  ],
+  "T1|lmm-heurystyka|pole|lewa samodystr.": [
+   2.230632566520699,
+   1.7438996810097986,
+   2.755535247317145
+  ],
+  "T1|lmm-heurystyka|stale_okno|lewa samodystr.": [
+   2.085784313725491,
+   1.5877450980392163,
+   2.626973039215687
+  ],
+  "T1|lmm-losowa|pole|lewa samodystr.": [
+   2.6345058547286473,
+   2.091915949097495,
+   3.181582391703165
+  ],
+  "T1|lmm-losowa|stale_okno|lewa samodystr.": [
+   2.4490196078431383,
+   1.9068504901960786,
+   3.007855392156863
+  ],
+  "T1|heurystyka-losowa|pole|lewa samodystr.": [
+   0.4033357699471388,
+   -0.24381670407164194,
+   1.0494601282130966
+  ],
+  "T1|heurystyka-losowa|stale_okno|lewa samodystr.": [
+   0.3632352941176474,
+   -0.2701225490196072,
+   0.9995098039215691
+  ],
+  "T1|wyrocznia_pokrycia-losowa|pole|lewa samodystr.": [
+   5.069420508820156,
+   4.494676403419564,
+   5.662737513036565
+  ],
+  "T1|wyrocznia_pokrycia-losowa|stale_okno|lewa samodystr.": [
+   4.537745098039216,
+   3.922524509803921,
+   5.18235294117647
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|pole|lewa samodystr.": [
+   4.604051446659524,
+   3.9793543574258368,
+   5.30227230517969
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|stale_okno|lewa samodystr.": [
+   4.174509803921568,
+   3.510784313725491,
+   4.922573529411765
+  ],
+  "T1|lmm-heurystyka|pole|prawa samodystr.": [
+   2.491411591952869,
+   1.998885676699418,
+   3.0228927751488768
+  ],
+  "T1|lmm-heurystyka|stale_okno|prawa samodystr.": [
+   2.3029411764705876,
+   1.7823529411764714,
+   2.865208333333334
+  ],
+  "T1|lmm-losowa|pole|prawa samodystr.": [
+   2.877953740092419,
+   2.3881407576581775,
+   3.389750479586877
+  ],
+  "T1|lmm-losowa|stale_okno|prawa samodystr.": [
+   2.67843137254902,
+   2.147046568627451,
+   3.2240196078431373
+  ],
+  "T1|heurystyka-losowa|pole|prawa samodystr.": [
+   0.440240988707236,
+   -0.060852236910392876,
+   0.9284053015189381
+  ],
+  "T1|heurystyka-losowa|stale_okno|prawa samodystr.": [
+   0.375490196078432,
+   -0.11813725490196028,
+   0.8529534313725496
+  ],
+  "T1|wyrocznia_pokrycia-losowa|pole|prawa samodystr.": [
+   6.0292040533745235,
+   5.263239336718965,
+   6.807702206117226
+  ],
+  "T1|wyrocznia_pokrycia-losowa|stale_okno|prawa samodystr.": [
+   5.507352941176471,
+   4.678431372549019,
+   6.361776960784313
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|pole|prawa samodystr.": [
+   5.630463152574618,
+   4.9084767870372,
+   6.405559777340921
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|stale_okno|prawa samodystr.": [
+   5.131862745098038,
+   4.337242647058822,
+   5.975490196078431
+  ],
+  "T1|lmm-heurystyka|pole|x(xy)=xy": [
+   -0.28242276376239134,
+   -0.7005556467412303,
+   0.16146763543756606
+  ],
+  "T1|lmm-heurystyka|stale_okno|x(xy)=xy": [
+   -0.5416666666666673,
+   -0.8196323529411778,
+   -0.2617524509803923
+  ],
+  "T1|lmm-losowa|pole|x(xy)=xy": [
+   0.8941434331909479,
+   0.4485899456574114,
+   1.3489890143583378
+  ],
+  "T1|lmm-losowa|stale_okno|x(xy)=xy": [
+   0.42450980392156856,
+   0.05881127450980304,
+   0.8058823529411766
+  ],
+  "T1|heurystyka-losowa|pole|x(xy)=xy": [
+   1.187839831386556,
+   0.6685043767585134,
+   1.716354054854832
+  ],
+  "T1|heurystyka-losowa|stale_okno|x(xy)=xy": [
+   0.9661764705882359,
+   0.6137254901960789,
+   1.325502450980393
+  ],
+  "T1|wyrocznia_pokrycia-losowa|pole|x(xy)=xy": [
+   5.163542924636172,
+   4.606460310506733,
+   5.730897421729326
+  ],
+  "T1|wyrocznia_pokrycia-losowa|stale_okno|x(xy)=xy": [
+   3.332352941176471,
+   2.8220343137254904,
+   3.8392401960784324
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|pole|x(xy)=xy": [
+   3.8495684876758034,
+   3.3891831649079083,
+   4.303478680194581
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|stale_okno|x(xy)=xy": [
+   2.3661764705882353,
+   1.9646936274509799,
+   2.764718137254902
+  ],
+  "T1|lmm-heurystyka|pole|(yx)x=y": [
+   -1.5911863545408829,
+   -1.9471128979323715,
+   -1.242999845520905
+  ],
+  "T1|lmm-heurystyka|stale_okno|(yx)x=y": [
+   -1.1691176470588236,
+   -1.4985416666666673,
+   -0.8749999999999997
+  ],
+  "T1|lmm-losowa|pole|(yx)x=y": [
+   -1.1175146510978695,
+   -1.4038108637946631,
+   -0.8323960754052835
+  ],
+  "T1|lmm-losowa|stale_okno|(yx)x=y": [
+   -0.8343137254901963,
+   -1.0622549019607845,
+   -0.6127328431372541
+  ],
+  "T1|heurystyka-losowa|pole|(yx)x=y": [
+   0.526703368019388,
+   0.16000945244708045,
+   0.881207409659517
+  ],
+  "T1|heurystyka-losowa|stale_okno|(yx)x=y": [
+   0.3348039215686273,
+   0.09557598039215605,
+   0.5848161764705883
+  ],
+  "T1|wyrocznia_pokrycia-losowa|pole|(yx)x=y": [
+   2.3441980756514162,
+   1.9018050747329978,
+   2.7862581345044717
+  ],
+  "T1|wyrocznia_pokrycia-losowa|stale_okno|(yx)x=y": [
+   1.3416666666666672,
+   0.9935906862745106,
+   1.701470588235295
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|pole|(yx)x=y": [
+   1.8397377140128384,
+   1.5167816629952218,
+   2.1536340264705522
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|stale_okno|(yx)x=y": [
+   1.0068627450980399,
+   0.7745098039215692,
+   1.2436274509803928
+  ],
+  "T1-4|lmm-heurystyka|pole|elastyczna x(yx)=(xy)x": [
+   0.5303640100007312,
+   0.2835186287463521,
+   0.7848667447687703
+  ],
+  "T1-4|lmm-heurystyka|stale_okno|elastyczna x(yx)=(xy)x": [
+   0.2642156862745094,
+   0.14116421568627394,
+   0.390686274509804
+  ],
+  "T1-4|lmm-losowa|pole|elastyczna x(yx)=(xy)x": [
+   2.0952177085504538,
+   1.7532269947610069,
+   2.424862459017705
+  ],
+  "T1-4|lmm-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   1.1460784313725487,
+   0.9225490196078429,
+   1.3759803921568623
+  ],
+  "T1-4|heurystyka-losowa|pole|elastyczna x(yx)=(xy)x": [
+   1.554414187272409,
+   1.2312557928140921,
+   1.880144744652452
+  ],
+  "T1-4|heurystyka-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   0.8818627450980394,
+   0.6799019607843138,
+   1.0931495098039214
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|pole|elastyczna x(yx)=(xy)x": [
+   3.846516526694708,
+   3.457981858498057,
+   4.260504417574608
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|stale_okno|elastyczna x(yx)=(xy)x": [
+   1.932843137254902,
+   1.665674019607843,
+   2.2254901960784315
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|pole|elastyczna x(yx)=(xy)x": [
+   2.207124545799373,
+   1.9897314613242318,
+   2.4372497555941997
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|stale_okno|elastyczna x(yx)=(xy)x": [
+   1.0509803921568626,
+   0.9284313725490195,
+   1.175490196078431
+  ],
+  "T1-4|lmm-heurystyka|pole|lewa samodystr.": [
+   0.06796138878424252,
+   -0.259264533310962,
+   0.3849252731125217
+  ],
+  "T1-4|lmm-heurystyka|stale_okno|lewa samodystr.": [
+   0.09362745098039209,
+   -0.12647058823529472,
+   0.31421568627451
+  ],
+  "T1-4|lmm-losowa|pole|lewa samodystr.": [
+   1.483128349354357,
+   1.0086819184600178,
+   1.97044136592945
+  ],
+  "T1-4|lmm-losowa|stale_okno|lewa samodystr.": [
+   0.9671568627450975,
+   0.6122303921568617,
+   1.366666666666666
+  ],
+  "T1-4|heurystyka-losowa|pole|lewa samodystr.": [
+   1.3731129574586127,
+   0.9182813073531384,
+   1.841512867905749
+  ],
+  "T1-4|heurystyka-losowa|stale_okno|lewa samodystr.": [
+   0.8735294117647054,
+   0.5504779411764698,
+   1.2176593137254892
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|pole|lewa samodystr.": [
+   4.329455917663954,
+   3.7717351911103196,
+   4.906603355892885
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|stale_okno|lewa samodystr.": [
+   2.429901960784313,
+   1.9391789215686266,
+   2.960318627450979
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|pole|lewa samodystr.": [
+   2.7651890575789784,
+   2.4625818001436732,
+   3.081306397359843
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|stale_okno|lewa samodystr.": [
+   1.5563725490196076,
+   1.272549019607843,
+   1.8549019607843131
+  ],
+  "T1-4|lmm-heurystyka|pole|prawa samodystr.": [
+   3.4607843137254912,
+   2.7480392156862754,
+   4.130894607843138
+  ],
+  "T1-4|lmm-heurystyka|stale_okno|prawa samodystr.": [
+   3.4607843137254912,
+   2.7480392156862754,
+   4.130894607843138
+  ],
+  "T1-4|lmm-losowa|pole|prawa samodystr.": [
+   5.033823529411766,
+   4.251948529411766,
+   5.81764705882353
+  ],
+  "T1-4|lmm-losowa|stale_okno|prawa samodystr.": [
+   5.033823529411766,
+   4.251948529411766,
+   5.81764705882353
+  ],
+  "T1-4|heurystyka-losowa|pole|prawa samodystr.": [
+   1.573039215686275,
+   0.9896936274509806,
+   2.1573529411764705
+  ],
+  "T1-4|heurystyka-losowa|stale_okno|prawa samodystr.": [
+   1.573039215686275,
+   0.9896936274509806,
+   2.1573529411764705
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|pole|prawa samodystr.": [
+   12.880193268796882,
+   12.137597748673937,
+   13.59544538985807
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|stale_okno|prawa samodystr.": [
+   12.876960784313727,
+   12.129901960784313,
+   13.596568627450978
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|pole|prawa samodystr.": [
+   11.30634024673699,
+   10.690419280478148,
+   11.889302373715443
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|stale_okno|prawa samodystr.": [
+   11.30392156862745,
+   10.688664215686277,
+   11.88873774509804
+  ],
+  "T1-4|lmm-heurystyka|pole|x(xy)=xy": [
+   -2.249460630705844,
+   -2.6902569985207143,
+   -1.8232710563456547
+  ],
+  "T1-4|lmm-heurystyka|stale_okno|x(xy)=xy": [
+   -2.118627450980392,
+   -2.5490196078431357,
+   -1.7048897058823547
+  ],
+  "T1-4|lmm-losowa|pole|x(xy)=xy": [
+   0.7015660475565986,
+   0.1146843860919557,
+   1.2746444937899457
+  ],
+  "T1-4|lmm-losowa|stale_okno|x(xy)=xy": [
+   0.683333333333332,
+   0.12840686274509674,
+   1.2348161764705865
+  ],
+  "T1-4|heurystyka-losowa|pole|x(xy)=xy": [
+   2.9458854635901957,
+   2.428716710383851,
+   3.4980908113266636
+  ],
+  "T1-4|heurystyka-losowa|stale_okno|x(xy)=xy": [
+   2.8019607843137244,
+   2.274019607843136,
+   3.3681495098039207
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|pole|x(xy)=xy": [
+   9.348982214811613,
+   8.40575248792973,
+   10.296022740275966
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|stale_okno|x(xy)=xy": [
+   8.82843137254902,
+   7.724411764705882,
+   9.913259803921568
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|pole|x(xy)=xy": [
+   6.3543946466571155,
+   5.665082697521039,
+   7.028452265192436
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|stale_okno|x(xy)=xy": [
+   6.026470588235294,
+   5.22985294117647,
+   6.806911764705881
+  ],
+  "T1-4|lmm-heurystyka|pole|(yx)x=y": [
+   -1.1176583103046518,
+   -1.3867191979970497,
+   -0.8586446595425229
+  ],
+  "T1-4|lmm-heurystyka|stale_okno|(yx)x=y": [
+   -0.3147058823529402,
+   -0.4254901960784302,
+   -0.21959558823529338
+  ],
+  "T1-4|lmm-losowa|pole|(yx)x=y": [
+   -0.9985192554234127,
+   -1.2406363654727617,
+   -0.7669314271555018
+  ],
+  "T1-4|lmm-losowa|stale_okno|(yx)x=y": [
+   -0.3132352941176471,
+   -0.43627450980392196,
+   -0.2088235294117645
+  ],
+  "T1-4|heurystyka-losowa|pole|(yx)x=y": [
+   0.15553615484401942,
+   -0.12469431040063184,
+   0.4498616814416045
+  ],
+  "T1-4|heurystyka-losowa|stale_okno|(yx)x=y": [
+   0.0014705882352931353,
+   -0.08922794117647201,
+   0.08971813725490153
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|pole|(yx)x=y": [
+   1.0378050692686833,
+   0.8182589886255411,
+   1.2573110736281674
+  ],
+  "T1-4|wyrocznia_pokrycia-losowa|stale_okno|(yx)x=y": [
+   0.25735294117647045,
+   0.17892156862745043,
+   0.34460784313725445
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|pole|(yx)x=y": [
+   0.8780758941796055,
+   0.6385067115056712,
+   1.1312091638122288
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|stale_okno|(yx)x=y": [
+   0.25588235294117734,
+   0.14754901960784378,
+   0.3882352941176476
+  ]
+ },
+ "per_swiat": {
+  "T1": {
+   "prawa_wazne": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "bramka_prawa": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "bramka": true,
+   "luka_wyrocznia-heurystyka": {
+    "elastyczna x(yx)=(xy)x": 5.336104157206435,
+    "lewa samodystr.": 4.604051446659524,
+    "prawa samodystr.": 5.630463152574618,
+    "x(xy)=xy": 3.8495684876758034,
+    "(yx)x=y": 1.8397377140128384
+   },
+   "prog_0.25_luki": {
+    "elastyczna x(yx)=(xy)x": 1.3340260393016088,
+    "lewa samodystr.": 1.151012861664881,
+    "prawa samodystr.": 1.4076157881436544,
+    "x(xy)=xy": 0.9623921219189508,
+    "(yx)x=y": 0.4599344285032096
+   },
+   "lmm_dolna>0": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr."
+   ],
+   "lmm_gorna<prog": [
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "lmm_istotnie_gorsza": [
+    "(yx)x=y"
+   ],
+   "lmm_ulamek_luki": {
+    "elastyczna x(yx)=(xy)x": 0.3062018962014955,
+    "lewa samodystr.": 0.48449340594122553,
+    "prawa samodystr.": 0.44248786013520613,
+    "x(xy)=xy": -0.07336478482368955,
+    "(yx)x=y": -0.8648984811373928
+   },
+   "lmm_los_dolna>0": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy"
+   ],
+   "kategoria_lmm": "lepsza"
+  },
+  "T1-4": {
+   "prawa_wazne": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "bramka_prawa": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "bramka": true,
+   "luka_wyrocznia-heurystyka": {
+    "elastyczna x(yx)=(xy)x": 2.207124545799373,
+    "lewa samodystr.": 2.7651890575789784,
+    "prawa samodystr.": 11.30634024673699,
+    "x(xy)=xy": 6.3543946466571155,
+    "(yx)x=y": 0.8780758941796055
+   },
+   "prog_0.25_luki": {
+    "elastyczna x(yx)=(xy)x": 0.5517811364498433,
+    "lewa samodystr.": 0.6912972643947446,
+    "prawa samodystr.": 2.8265850616842476,
+    "x(xy)=xy": 1.5885986616642789,
+    "(yx)x=y": 0.21951897354490138
+   },
+   "lmm_dolna>0": [
+    "elastyczna x(yx)=(xy)x",
+    "prawa samodystr."
+   ],
+   "lmm_gorna<prog": [
+    "lewa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "lmm_istotnie_gorsza": [
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "lmm_ulamek_luki": {
+    "elastyczna x(yx)=(xy)x": 0.24029636705827342,
+    "lewa samodystr.": 0.024577483625566325,
+    "prawa samodystr.": 0.3060923551035246,
+    "x(xy)=xy": -0.35400077517836065,
+    "(yx)x=y": -1.272849326252021
+   },
+   "lmm_los_dolna>0": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy"
+   ],
+   "kategoria_lmm": "pomijalna"
+  }
+ },
+ "waznosc": {
+  "T1|elastyczna x(yx)=(xy)x": [
+   1.0,
+   0.0
+  ],
+  "T1|lewa samodystr.": [
+   1.0,
+   0.0
+  ],
+  "T1|prawa samodystr.": [
+   1.0,
+   0.0
+  ],
+  "T1|x(xy)=xy": [
+   1.0,
+   0.0
+  ],
+  "T1|(yx)x=y": [
+   1.0,
+   0.0
+  ],
+  "T1-4|elastyczna x(yx)=(xy)x": [
+   1.0,
+   0.0
+  ],
+  "T1-4|lewa samodystr.": [
+   1.0,
+   0.0
+  ],
+  "T1-4|prawa samodystr.": [
+   1.0,
+   0.0
+  ],
+  "T1-4|x(xy)=xy": [
+   1.0,
+   0.0
+  ],
+  "T1-4|(yx)x=y": [
+   0.975,
+   0.0
+  ]
+ },
+ "trafnosc_snu1": {
+  "T1|elastyczna x(yx)=(xy)x|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     125,
+     400,
+     0.3125
+    ],
+    "pula": [
+     1123,
+     4038,
+     0.2781079742446756
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     70,
+     271,
+     0.25830258302583026
+    ],
+    "pula": [
+     724,
+     2927,
+     0.24735223778612914
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     55,
+     129,
+     0.4263565891472868
+    ],
+    "pula": [
+     399,
+     1111,
+     0.35913591359135916
+    ]
+   }
+  },
+  "T1|elastyczna x(yx)=(xy)x|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     147,
+     400,
+     0.3675
+    ],
+    "pula": [
+     1123,
+     4038,
+     0.2781079742446756
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     14,
+     73,
+     0.1917808219178082
+    ],
+    "pula": [
+     724,
+     2927,
+     0.24735223778612914
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     133,
+     327,
+     0.40672782874617736
+    ],
+    "pula": [
+     399,
+     1111,
+     0.35913591359135916
+    ]
+   }
+  },
+  "T1|elastyczna x(yx)=(xy)x|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     291,
+     400,
+     0.7275
+    ],
+    "pula": [
+     1123,
+     4038,
+     0.2781079742446756
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     120,
+     171,
+     0.7017543859649122
+    ],
+    "pula": [
+     724,
+     2927,
+     0.24735223778612914
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     171,
+     229,
+     0.7467248908296943
+    ],
+    "pula": [
+     399,
+     1111,
+     0.35913591359135916
+    ]
+   }
+  },
+  "T1|elastyczna x(yx)=(xy)x|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     1123,
+     4038,
+     0.2781079742446756
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     251,
+     251,
+     1.0
+    ],
+    "pula": [
+     724,
+     2927,
+     0.24735223778612914
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     149,
+     149,
+     1.0
+    ],
+    "pula": [
+     399,
+     1111,
+     0.35913591359135916
+    ]
+   }
+  },
+  "T1|elastyczna x(yx)=(xy)x|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     1123,
+     4038,
+     0.2781079742446756
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     258,
+     258,
+     1.0
+    ],
+    "pula": [
+     724,
+     2927,
+     0.24735223778612914
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     142,
+     142,
+     1.0
+    ],
+    "pula": [
+     399,
+     1111,
+     0.35913591359135916
+    ]
+   }
+  },
+  "T1|lewa samodystr.|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     307,
+     400,
+     0.7675
+    ],
+    "pula": [
+     3048,
+     4108,
+     0.7419668938656281
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     253,
+     335,
+     0.755223880597015
+    ],
+    "pula": [
+     2575,
+     3502,
+     0.7352941176470589
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     54,
+     65,
+     0.8307692307692308
+    ],
+    "pula": [
+     473,
+     606,
+     0.7805280528052805
+    ]
+   }
+  },
+  "T1|lewa samodystr.|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     298,
+     400,
+     0.745
+    ],
+    "pula": [
+     3048,
+     4108,
+     0.7419668938656281
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     77,
+     111,
+     0.6936936936936937
+    ],
+    "pula": [
+     2575,
+     3502,
+     0.7352941176470589
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     221,
+     289,
+     0.7647058823529411
+    ],
+    "pula": [
+     473,
+     606,
+     0.7805280528052805
+    ]
+   }
+  },
+  "T1|lewa samodystr.|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     379,
+     400,
+     0.9475
+    ],
+    "pula": [
+     3048,
+     4108,
+     0.7419668938656281
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     255,
+     269,
+     0.9479553903345725
+    ],
+    "pula": [
+     2575,
+     3502,
+     0.7352941176470589
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     124,
+     131,
+     0.9465648854961832
+    ],
+    "pula": [
+     473,
+     606,
+     0.7805280528052805
+    ]
+   }
+  },
+  "T1|lewa samodystr.|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     3048,
+     4108,
+     0.7419668938656281
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     341,
+     341,
+     1.0
+    ],
+    "pula": [
+     2575,
+     3502,
+     0.7352941176470589
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     59,
+     59,
+     1.0
+    ],
+    "pula": [
+     473,
+     606,
+     0.7805280528052805
+    ]
+   }
+  },
+  "T1|lewa samodystr.|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     3048,
+     4108,
+     0.7419668938656281
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     353,
+     353,
+     1.0
+    ],
+    "pula": [
+     2575,
+     3502,
+     0.7352941176470589
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     47,
+     47,
+     1.0
+    ],
+    "pula": [
+     473,
+     606,
+     0.7805280528052805
+    ]
+   }
+  },
+  "T1|prawa samodystr.|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     295,
+     400,
+     0.7375
+    ],
+    "pula": [
+     3064,
+     4124,
+     0.7429679922405431
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     205,
+     279,
+     0.7347670250896058
+    ],
+    "pula": [
+     2232,
+     2953,
+     0.7558415171012529
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     90,
+     121,
+     0.743801652892562
+    ],
+    "pula": [
+     832,
+     1171,
+     0.7105038428693424
+    ]
+   }
+  },
+  "T1|prawa samodystr.|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     279,
+     400,
+     0.6975
+    ],
+    "pula": [
+     3064,
+     4124,
+     0.7429679922405431
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     6,
+     7,
+     0.8571428571428571
+    ],
+    "pula": [
+     2232,
+     2953,
+     0.7558415171012529
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     273,
+     393,
+     0.6946564885496184
+    ],
+    "pula": [
+     832,
+     1171,
+     0.7105038428693424
+    ]
+   }
+  },
+  "T1|prawa samodystr.|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     363,
+     400,
+     0.9075
+    ],
+    "pula": [
+     3064,
+     4124,
+     0.7429679922405431
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     191,
+     208,
+     0.9182692307692307
+    ],
+    "pula": [
+     2232,
+     2953,
+     0.7558415171012529
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     172,
+     192,
+     0.8958333333333334
+    ],
+    "pula": [
+     832,
+     1171,
+     0.7105038428693424
+    ]
+   }
+  },
+  "T1|prawa samodystr.|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     3064,
+     4124,
+     0.7429679922405431
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     332,
+     332,
+     1.0
+    ],
+    "pula": [
+     2232,
+     2953,
+     0.7558415171012529
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     68,
+     68,
+     1.0
+    ],
+    "pula": [
+     832,
+     1171,
+     0.7105038428693424
+    ]
+   }
+  },
+  "T1|prawa samodystr.|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     3064,
+     4124,
+     0.7429679922405431
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     294,
+     294,
+     1.0
+    ],
+    "pula": [
+     2232,
+     2953,
+     0.7558415171012529
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     106,
+     106,
+     1.0
+    ],
+    "pula": [
+     832,
+     1171,
+     0.7105038428693424
+    ]
+   }
+  },
+  "T1|x(xy)=xy|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     203,
+     400,
+     0.5075
+    ],
+    "pula": [
+     1093,
+     2268,
+     0.48192239858906527
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     93,
+     223,
+     0.4170403587443946
+    ],
+    "pula": [
+     535,
+     1251,
+     0.4276578737010392
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     110,
+     177,
+     0.6214689265536724
+    ],
+    "pula": [
+     558,
+     1017,
+     0.5486725663716814
+    ]
+   }
+  },
+  "T1|x(xy)=xy|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     208,
+     400,
+     0.52
+    ],
+    "pula": [
+     1093,
+     2268,
+     0.48192239858906527
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     4,
+     11,
+     0.36363636363636365
+    ],
+    "pula": [
+     535,
+     1251,
+     0.4276578737010392
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     204,
+     389,
+     0.5244215938303342
+    ],
+    "pula": [
+     558,
+     1017,
+     0.5486725663716814
+    ]
+   }
+  },
+  "T1|x(xy)=xy|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     327,
+     400,
+     0.8175
+    ],
+    "pula": [
+     1093,
+     2268,
+     0.48192239858906527
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     126,
+     144,
+     0.875
+    ],
+    "pula": [
+     535,
+     1251,
+     0.4276578737010392
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     201,
+     256,
+     0.78515625
+    ],
+    "pula": [
+     558,
+     1017,
+     0.5486725663716814
+    ]
+   }
+  },
+  "T1|x(xy)=xy|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     399,
+     400,
+     0.9975
+    ],
+    "pula": [
+     1093,
+     2268,
+     0.48192239858906527
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     162,
+     163,
+     0.9938650306748467
+    ],
+    "pula": [
+     535,
+     1251,
+     0.4276578737010392
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     237,
+     237,
+     1.0
+    ],
+    "pula": [
+     558,
+     1017,
+     0.5486725663716814
+    ]
+   }
+  },
+  "T1|x(xy)=xy|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     399,
+     400,
+     0.9975
+    ],
+    "pula": [
+     1093,
+     2268,
+     0.48192239858906527
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     177,
+     178,
+     0.9943820224719101
+    ],
+    "pula": [
+     535,
+     1251,
+     0.4276578737010392
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     222,
+     222,
+     1.0
+    ],
+    "pula": [
+     558,
+     1017,
+     0.5486725663716814
+    ]
+   }
+  },
+  "T1|(yx)x=y|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     293,
+     396,
+     0.73989898989899
+    ],
+    "pula": [
+     1702,
+     2503,
+     0.6799840191769876
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     91,
+     170,
+     0.5352941176470588
+    ],
+    "pula": [
+     774,
+     1397,
+     0.5540443808160344
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     202,
+     226,
+     0.8938053097345132
+    ],
+    "pula": [
+     928,
+     1106,
+     0.8390596745027125
+    ]
+   }
+  },
+  "T1|(yx)x=y|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     344,
+     396,
+     0.8686868686868687
+    ],
+    "pula": [
+     1702,
+     2503,
+     0.6799840191769876
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     11,
+     17,
+     0.6470588235294118
+    ],
+    "pula": [
+     774,
+     1397,
+     0.5540443808160344
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     333,
+     379,
+     0.8786279683377308
+    ],
+    "pula": [
+     928,
+     1106,
+     0.8390596745027125
+    ]
+   }
+  },
+  "T1|(yx)x=y|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     389,
+     396,
+     0.9823232323232324
+    ],
+    "pula": [
+     1702,
+     2503,
+     0.6799840191769876
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     90,
+     92,
+     0.9782608695652174
+    ],
+    "pula": [
+     774,
+     1397,
+     0.5540443808160344
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     299,
+     304,
+     0.9835526315789473
+    ],
+    "pula": [
+     928,
+     1106,
+     0.8390596745027125
+    ]
+   }
+  },
+  "T1|(yx)x=y|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     394,
+     396,
+     0.9949494949494949
+    ],
+    "pula": [
+     1702,
+     2503,
+     0.6799840191769876
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     145,
+     145,
+     1.0
+    ],
+    "pula": [
+     774,
+     1397,
+     0.5540443808160344
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     249,
+     251,
+     0.9920318725099602
+    ],
+    "pula": [
+     928,
+     1106,
+     0.8390596745027125
+    ]
+   }
+  },
+  "T1|(yx)x=y|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     394,
+     396,
+     0.9949494949494949
+    ],
+    "pula": [
+     1702,
+     2503,
+     0.6799840191769876
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     140,
+     140,
+     1.0
+    ],
+    "pula": [
+     774,
+     1397,
+     0.5540443808160344
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     254,
+     256,
+     0.9921875
+    ],
+    "pula": [
+     928,
+     1106,
+     0.8390596745027125
+    ]
+   }
+  },
+  "T1-4|elastyczna x(yx)=(xy)x|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     110,
+     398,
+     0.27638190954773867
+    ],
+    "pula": [
+     415,
+     1995,
+     0.20802005012531327
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     15,
+     192,
+     0.078125
+    ],
+    "pula": [
+     126,
+     1291,
+     0.09759876065065841
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     95,
+     206,
+     0.46116504854368934
+    ],
+    "pula": [
+     289,
+     704,
+     0.41051136363636365
+    ]
+   }
+  },
+  "T1-4|elastyczna x(yx)=(xy)x|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     210,
+     398,
+     0.5276381909547738
+    ],
+    "pula": [
+     415,
+     1995,
+     0.20802005012531327
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     1,
+     12,
+     0.08333333333333333
+    ],
+    "pula": [
+     126,
+     1291,
+     0.09759876065065841
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     209,
+     386,
+     0.5414507772020726
+    ],
+    "pula": [
+     289,
+     704,
+     0.41051136363636365
+    ]
+   }
+  },
+  "T1-4|elastyczna x(yx)=(xy)x|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     272,
+     398,
+     0.6834170854271356
+    ],
+    "pula": [
+     415,
+     1995,
+     0.20802005012531327
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     36,
+     88,
+     0.4090909090909091
+    ],
+    "pula": [
+     126,
+     1291,
+     0.09759876065065841
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     236,
+     310,
+     0.7612903225806451
+    ],
+    "pula": [
+     289,
+     704,
+     0.41051136363636365
+    ]
+   }
+  },
+  "T1-4|elastyczna x(yx)=(xy)x|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     337,
+     398,
+     0.8467336683417085
+    ],
+    "pula": [
+     415,
+     1995,
+     0.20802005012531327
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     86,
+     99,
+     0.8686868686868687
+    ],
+    "pula": [
+     126,
+     1291,
+     0.09759876065065841
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     251,
+     299,
+     0.8394648829431438
+    ],
+    "pula": [
+     289,
+     704,
+     0.41051136363636365
+    ]
+   }
+  },
+  "T1-4|elastyczna x(yx)=(xy)x|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     337,
+     398,
+     0.8467336683417085
+    ],
+    "pula": [
+     415,
+     1995,
+     0.20802005012531327
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     94,
+     107,
+     0.8785046728971962
+    ],
+    "pula": [
+     126,
+     1291,
+     0.09759876065065841
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     243,
+     291,
+     0.8350515463917526
+    ],
+    "pula": [
+     289,
+     704,
+     0.41051136363636365
+    ]
+   }
+  },
+  "T1-4|lewa samodystr.|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     229,
+     400,
+     0.5725
+    ],
+    "pula": [
+     1228,
+     2431,
+     0.5051419169066228
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     70,
+     179,
+     0.39106145251396646
+    ],
+    "pula": [
+     578,
+     1501,
+     0.38507661558960693
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     159,
+     221,
+     0.7194570135746606
+    ],
+    "pula": [
+     650,
+     930,
+     0.6989247311827957
+    ]
+   }
+  },
+  "T1-4|lewa samodystr.|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     253,
+     400,
+     0.6325
+    ],
+    "pula": [
+     1228,
+     2431,
+     0.5051419169066228
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     5,
+     7,
+     0.7142857142857143
+    ],
+    "pula": [
+     578,
+     1501,
+     0.38507661558960693
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     248,
+     393,
+     0.6310432569974554
+    ],
+    "pula": [
+     650,
+     930,
+     0.6989247311827957
+    ]
+   }
+  },
+  "T1-4|lewa samodystr.|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     386,
+     400,
+     0.965
+    ],
+    "pula": [
+     1228,
+     2431,
+     0.5051419169066228
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     71,
+     75,
+     0.9466666666666667
+    ],
+    "pula": [
+     578,
+     1501,
+     0.38507661558960693
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     315,
+     325,
+     0.9692307692307692
+    ],
+    "pula": [
+     650,
+     930,
+     0.6989247311827957
+    ]
+   }
+  },
+  "T1-4|lewa samodystr.|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     396,
+     400,
+     0.99
+    ],
+    "pula": [
+     1228,
+     2431,
+     0.5051419169066228
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     98,
+     98,
+     1.0
+    ],
+    "pula": [
+     578,
+     1501,
+     0.38507661558960693
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     298,
+     302,
+     0.9867549668874173
+    ],
+    "pula": [
+     650,
+     930,
+     0.6989247311827957
+    ]
+   }
+  },
+  "T1-4|lewa samodystr.|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     396,
+     400,
+     0.99
+    ],
+    "pula": [
+     1228,
+     2431,
+     0.5051419169066228
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     123,
+     123,
+     1.0
+    ],
+    "pula": [
+     578,
+     1501,
+     0.38507661558960693
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     273,
+     277,
+     0.9855595667870036
+    ],
+    "pula": [
+     650,
+     930,
+     0.6989247311827957
+    ]
+   }
+  },
+  "T1-4|prawa samodystr.|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     167,
+     400,
+     0.4175
+    ],
+    "pula": [
+     2340,
+     6090,
+     0.3842364532019704
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     101,
+     251,
+     0.40239043824701193
+    ],
+    "pula": [
+     1520,
+     3951,
+     0.3847127309541888
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     66,
+     149,
+     0.4429530201342282
+    ],
+    "pula": [
+     820,
+     2139,
+     0.383356708742403
+    ]
+   }
+  },
+  "T1-4|prawa samodystr.|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     193,
+     400,
+     0.4825
+    ],
+    "pula": [
+     2340,
+     6090,
+     0.3842364532019704
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     0,
+     0,
+     null
+    ],
+    "pula": [
+     1520,
+     3951,
+     0.3847127309541888
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     193,
+     400,
+     0.4825
+    ],
+    "pula": [
+     820,
+     2139,
+     0.383356708742403
+    ]
+   }
+  },
+  "T1-4|prawa samodystr.|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     370,
+     400,
+     0.925
+    ],
+    "pula": [
+     2340,
+     6090,
+     0.3842364532019704
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     83,
+     84,
+     0.9880952380952381
+    ],
+    "pula": [
+     1520,
+     3951,
+     0.3847127309541888
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     287,
+     316,
+     0.9082278481012658
+    ],
+    "pula": [
+     820,
+     2139,
+     0.383356708742403
+    ]
+   }
+  },
+  "T1-4|prawa samodystr.|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     2340,
+     6090,
+     0.3842364532019704
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     254,
+     254,
+     1.0
+    ],
+    "pula": [
+     1520,
+     3951,
+     0.3847127309541888
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     146,
+     146,
+     1.0
+    ],
+    "pula": [
+     820,
+     2139,
+     0.383356708742403
+    ]
+   }
+  },
+  "T1-4|prawa samodystr.|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     2340,
+     6090,
+     0.3842364532019704
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     282,
+     282,
+     1.0
+    ],
+    "pula": [
+     1520,
+     3951,
+     0.3847127309541888
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     118,
+     118,
+     1.0
+    ],
+    "pula": [
+     820,
+     2139,
+     0.383356708742403
+    ]
+   }
+  },
+  "T1-4|x(xy)=xy|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     163,
+     400,
+     0.4075
+    ],
+    "pula": [
+     1654,
+     4195,
+     0.39427890345649586
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     33,
+     129,
+     0.2558139534883721
+    ],
+    "pula": [
+     410,
+     1507,
+     0.272063702720637
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     130,
+     271,
+     0.4797047970479705
+    ],
+    "pula": [
+     1244,
+     2688,
+     0.46279761904761907
+    ]
+   }
+  },
+  "T1-4|x(xy)=xy|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     274,
+     400,
+     0.685
+    ],
+    "pula": [
+     1654,
+     4195,
+     0.39427890345649586
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     0,
+     0,
+     null
+    ],
+    "pula": [
+     410,
+     1507,
+     0.272063702720637
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     274,
+     400,
+     0.685
+    ],
+    "pula": [
+     1244,
+     2688,
+     0.46279761904761907
+    ]
+   }
+  },
+  "T1-4|x(xy)=xy|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     316,
+     400,
+     0.79
+    ],
+    "pula": [
+     1654,
+     4195,
+     0.39427890345649586
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     132,
+     190,
+     0.6947368421052632
+    ],
+    "pula": [
+     410,
+     1507,
+     0.272063702720637
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     184,
+     210,
+     0.8761904761904762
+    ],
+    "pula": [
+     1244,
+     2688,
+     0.46279761904761907
+    ]
+   }
+  },
+  "T1-4|x(xy)=xy|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     1654,
+     4195,
+     0.39427890345649586
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     77,
+     77,
+     1.0
+    ],
+    "pula": [
+     410,
+     1507,
+     0.272063702720637
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     323,
+     323,
+     1.0
+    ],
+    "pula": [
+     1244,
+     2688,
+     0.46279761904761907
+    ]
+   }
+  },
+  "T1-4|x(xy)=xy|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     400,
+     400,
+     1.0
+    ],
+    "pula": [
+     1654,
+     4195,
+     0.39427890345649586
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     99,
+     99,
+     1.0
+    ],
+    "pula": [
+     410,
+     1507,
+     0.272063702720637
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     301,
+     301,
+     1.0
+    ],
+    "pula": [
+     1244,
+     2688,
+     0.46279761904761907
+    ]
+   }
+  },
+  "T1-4|(yx)x=y|losowa": {
+   "wszystkie": {
+    "wybrane": [
+     241,
+     376,
+     0.6409574468085106
+    ],
+    "pula": [
+     902,
+     1708,
+     0.5281030444964872
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     96,
+     226,
+     0.4247787610619469
+    ],
+    "pula": [
+     434,
+     1210,
+     0.3586776859504132
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     145,
+     150,
+     0.9666666666666667
+    ],
+    "pula": [
+     468,
+     498,
+     0.9397590361445783
+    ]
+   }
+  },
+  "T1-4|(yx)x=y|heurystyka": {
+   "wszystkie": {
+    "wybrane": [
+     320,
+     376,
+     0.851063829787234
+    ],
+    "pula": [
+     902,
+     1708,
+     0.5281030444964872
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     44,
+     96,
+     0.4583333333333333
+    ],
+    "pula": [
+     434,
+     1210,
+     0.3586776859504132
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     276,
+     280,
+     0.9857142857142858
+    ],
+    "pula": [
+     468,
+     498,
+     0.9397590361445783
+    ]
+   }
+  },
+  "T1-4|(yx)x=y|lmm": {
+   "wszystkie": {
+    "wybrane": [
+     374,
+     376,
+     0.9946808510638298
+    ],
+    "pula": [
+     902,
+     1708,
+     0.5281030444964872
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     197,
+     199,
+     0.9899497487437185
+    ],
+    "pula": [
+     434,
+     1210,
+     0.3586776859504132
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     177,
+     177,
+     1.0
+    ],
+    "pula": [
+     468,
+     498,
+     0.9397590361445783
+    ]
+   }
+  },
+  "T1-4|(yx)x=y|wyrocznia_pokrycia": {
+   "wszystkie": {
+    "wybrane": [
+     376,
+     376,
+     1.0
+    ],
+    "pula": [
+     902,
+     1708,
+     0.5281030444964872
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     180,
+     180,
+     1.0
+    ],
+    "pula": [
+     434,
+     1210,
+     0.3586776859504132
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     196,
+     196,
+     1.0
+    ],
+    "pula": [
+     468,
+     498,
+     0.9397590361445783
+    ]
+   }
+  },
+  "T1-4|(yx)x=y|wyrocznia_trafnosci": {
+   "wszystkie": {
+    "wybrane": [
+     376,
+     376,
+     1.0
+    ],
+    "pula": [
+     902,
+     1708,
+     0.5281030444964872
+    ]
+   },
+   "sen:smiale": {
+    "wybrane": [
+     192,
+     192,
+     1.0
+    ],
+    "pula": [
+     434,
+     1210,
+     0.3586776859504132
+    ]
+   },
+   "sen:powtorka": {
+    "wybrane": [
+     184,
+     184,
+     1.0
+    ],
+    "pula": [
+     468,
+     498,
+     0.9397590361445783
+    ]
+   }
+  }
+ },
+ "wywolania": {
+  "T1|losowa": 85.765,
+  "T1|heurystyka": 85.73,
+  "T1|lmm": 88.24,
+  "T1|wyrocznia_pokrycia": 82.43,
+  "T1|wyrocznia_trafnosci": 86.085,
+  "T1-4|losowa": 125.175,
+  "T1-4|heurystyka": 124.935,
+  "T1-4|lmm": 125.38,
+  "T1-4|wyrocznia_pokrycia": 121.885,
+  "T1-4|wyrocznia_trafnosci": 125.17
+ },
+ "G": "WYNIK NEGATYWNY: zysk LMM ponad heurystykę pomijalny (< 0,25 luki) w T1-4 (prawa z dolną granicą > 0: ['elastyczna x(yx)=(xy)x', 'prawa samodystr.'])"
+}

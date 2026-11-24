@@ -148,3 +148,45 @@ def test_s1b_sen_odbywa_sie_gdy_dzien_wiaze():
     x = uruchom(PRAWO_TESTOWE, 5, "S", budzet=100, rzad=3, slownik="literaly", cex_cap=1)
     y = uruchom(PRAWO_TESTOWE, 5, "S", budzet=100, budzet_snu=None, rzad=3, slownik="literaly", cex_cap=1)
     assert x.wywolania == y.wywolania and x.dziennik.krzywa == y.dziennik.krzywa
+
+
+# --- ramię LMM ---
+import hashlib  # noqa: E402
+
+LMM_WAGI = Path(__file__).resolve().parents[1] / "dane" / "lmm_intuicja_v2.pt"
+
+
+def test_lmm_kopia_kodera_zgodna_ze_zrodlem():
+    src = (Path(__file__).resolve().parents[1] / "matylda_rdzen" / "lmm_bsd2_models.py").read_bytes()
+    body = b"\n".join(src.split(b"\n")[2:])
+    assert hashlib.sha256(body).hexdigest() == "eaa06c45b5d1092d0a1aea76fbca8d08dd242c6cdcec731b730dc74aa778097e"
+
+
+@pytest.mark.skipif(not LMM_WAGI.exists(), reason="brak wag LMM")
+def test_lmm_deterministyczna_i_bez_swiata_w_petli():
+    pytest.importorskip("torch")
+    from matylda_rdzen.lmm_intuicja import IntuicjaLMM as L
+    from matylda_rdzen.s1lmm import WAGI_SHA
+    a, b = L(LMM_WAGI), L(LMM_WAGI)
+    assert WAGI_SHA is None or a.sha256 == WAGI_SHA
+    assert not any(hasattr(v, "world") for v in vars(a).values())
+    pa = uruchom(PRAWO_TESTOWE, 9, "S", budzet=300, budzet_snu=50, rzad=3, slownik="literaly", cex_cap=1, intuicja=a)
+    pb = uruchom(PRAWO_TESTOWE, 9, "S", budzet=300, budzet_snu=50, rzad=3, slownik="literaly", cex_cap=1, intuicja=b)
+    assert pa.dziennik.krzywa == pb.dziennik.krzywa and pa.dziennik.wybrane_snu1 == pb.dziennik.wybrane_snu1
+
+
+def test_lmm_trening_bez_praw_s0():
+    from matylda_rdzen.lmm_trening import WALIDACJA, swiaty_v2
+    from matylda_rdzen.uniwersum4t import WYKLUCZONE
+    assert not any(c in PRAWA_S0 for H, _ in WALIDACJA for c in H.split(" ∧ "))
+    for H, rz in swiaty_v2():
+        assert rz in ("3T", "4T") and not set(H.split(" ∧ ")) & set(WYKLUCZONE)
+        sw = zbuduj_swiat(H, rz, "literaly")
+        assert not any(sw.concepts[h][sw.world].any() for h in WYKLUCZONE)   # żadna magma treningowa nie spełnia praw S-0 ani walidacyjnych
+
+
+def test_uniwersum_treningowe_rozlaczne_z_u4():
+    from matylda_rdzen.uniwersum4 import wczytaj as u4
+    from matylda_rdzen.uniwersum4t import wczytaj as u4t
+    a = {tuple(m.ravel()) for m in u4()}
+    assert not any(tuple(m.ravel()) in a for m in u4t())

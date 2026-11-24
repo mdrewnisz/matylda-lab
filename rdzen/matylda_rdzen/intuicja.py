@@ -26,6 +26,8 @@ class Kandydat:
 class KontekstIntuicji:
     konsolidacja: Konsolidacja   # tokeny zależności: konsolidacja.macierz_zaleznosci
     liczba_znanych_magm: int
+    pamiec: object = None        # (od ramienia LMM) pamięć badacza tylko do odczytu: statusy, obalenia; bez weryfikatora
+    znane_magmy: tuple = ()      # magmy, na których badacz może oceniać pojęcia (obserwacje + kontrprzykłady)
 
 
 class Intuicja(Protocol):
@@ -46,22 +48,21 @@ class HeurystykaOgolnosci:
 
 
 class IntuicjaLMM:
-    """Miejsce na LMM. Wejście: kontekst.konsolidacja.macierz_zaleznosci (bool N × N, porządek częściowy)
-    plus para klas (A, B); wyjście: ocena kandydatury.
-
-    Nie podpinamy prawdziwego modelu przed S-0 i przed wynikami V0/V1/V2 (Masterplan, rozdz. 0 i 9).
-    Planowany adapter: koder bsd2.PosetEncoder z repo lmm, osadzenia klas → ocena krawędzi A ⇒ B.
-    """
+    """Miejsce na LMM; implementacja w `lmm_intuicja.IntuicjaLMM` (wymaga torch i pliku wag)."""
 
     nazwa = "lmm"
 
     def __init__(self, sciezka_wag: str | None = None):
         self.sciezka_wag = sciezka_wag
+        self._impl = None
+        if sciezka_wag is not None:
+            from .lmm_intuicja import IntuicjaLMM as _Impl
+            self._impl = _Impl(sciezka_wag)
 
     def ocen(self, kandydaci, kontekst):
-        raise NotImplementedError(
-            "IntuicjaLMM: adapter LMM nie jest jeszcze podpięty (czeka na S-0 i V0/V1/V2). "
-            "Użyj HeurystykaOgolnosci.")
+        if self._impl is None:
+            raise NotImplementedError("IntuicjaLMM: brak wag (podaj sciezka_wag); zob. lmm_intuicja.py")
+        return self._impl.ocen(kandydaci, kontekst)
 
 
 class IntuicjaLosowa:

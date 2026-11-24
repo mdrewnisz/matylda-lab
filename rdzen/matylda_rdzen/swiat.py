@@ -139,14 +139,22 @@ def _ground_truth(world, concepts, names):
 def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
     """rzad 3: wszystkie 3^9 magm (jak KG-0b). rzad 4: zamrożone uniwersum próbkowane (dane/u4.npy).
     slownik: "baza" (24 pojęcia + ⊤) albo "negacje" (do tego zaprzeczenie każdego pojęcia, ¬X)."""
-    if rzad == 3:
+    if rzad in (3, "3T"):
         allc, nm = ALL, NM
     elif rzad == 4:
         allc, nm = _pojecia_u4()
+    elif rzad == "4T":
+        allc, nm = _pojecia_u4t()
     else:
         raise ValueError(rzad)
-    world = np.nonzero(allc[H])[0]
-    concepts = {k: v for k, v in allc.items() if k != H}
+    czesci = H.split(" ∧ ")                     # koniunkcja praw/własności (światy treningowe LMM)
+    maska = np.logical_and.reduce([allc[c] for c in czesci])
+    if rzad in ("3T", "4T"):                    # światy treningowe LMM v2: bez magm praw S-0 i walidacyjnych
+        from .uniwersum4t import WYKLUCZONE
+        assert not set(czesci) & set(WYKLUCZONE)
+        maska = maska & ~np.logical_or.reduce([allc[h] for h in WYKLUCZONE])
+    world = np.nonzero(maska)[0]
+    concepts = {k: v for k, v in allc.items() if k not in czesci}
     if slownik == "negacje":
         concepts.update({f"¬{k}": ~v for k, v in list(concepts.items())})
     elif slownik in ("literaly", "tylko_literaly"):
@@ -170,9 +178,12 @@ def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
     return Swiat(H, world, concepts, names, frozenset(E), frozenset(TR), frozenset(TR_planted), cls)
 
 
-def _tablice(rzad: int) -> np.ndarray:
-    if rzad == 3:
+def _tablice(rzad) -> np.ndarray:
+    if rzad in (3, "3T"):
         return T
+    if rzad == "4T":
+        from .uniwersum4t import wczytaj as w4t
+        return w4t()
     from .uniwersum4 import wczytaj
     return wczytaj()
 
@@ -180,5 +191,12 @@ def _tablice(rzad: int) -> np.ndarray:
 @lru_cache(maxsize=None)
 def _pojecia_u4():
     from .uniwersum4 import wczytaj
+    U = wczytaj()
+    return pojecia(U), len(U)
+
+
+@lru_cache(maxsize=None)
+def _pojecia_u4t():
+    from .uniwersum4t import wczytaj
     U = wczytaj()
     return pojecia(U), len(U)
