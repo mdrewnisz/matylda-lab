@@ -140,6 +140,14 @@ Kryteria trudności zapisano przed kalibracją: losowe i śmiałe przeczucia maj
 - **[WYNIK]** Działa słownik z **literałami** `a·b=c` (pojedyncze wpisy tablicy działania), czyli zależnościami najniższego poziomu, plus weryfikator, który zwraca jeden kontrprzykład. **T1** (rząd 3): trafność losowa 0,25, śmiałe przeczucia 0,47 (tuż pod progiem, różnie między prawami). **T1-4** (rząd 4): 0,26 i 0,20. S-1 ma wymagać zgodności w obu.
 - **[WNIOSKOWANIE]** Literały są naturalnymi „tokenami zależności” dla LMM: prawo podłożone jest siecią zależności między wpisami tablicy, którą intuicja ma wyczuć.
 
+### 4.3. S-1: prerejestracja (24.11, `rdzen/PREREJESTRACJA_S1.md`, zamrożona w commicie 7676f1b)
+
+Pytanie: czy intuicja wybiera lepsze przeczucia niż los? Ramiona różnią się tylko portem `Intuicja`: losowa, heurystyka ogólności,
+dwie wyrocznie kalibracyjne (bramka „czy wybór w ogóle się opłaca”). Miara: pole pod krzywą pokrycia po dniu 1 przy równym zużytym budżecie,
+80 ziaren, werdykt wymaga zgodności w T1 i T1-4, trzy kategorie (lepsza / pomijalna / nierozstrzygnięta). Niezależna recenzja przed uruchomieniem
+odrzuciła wersję 1 (moc ok. 1%), wersja 2 ma moc ≥ 0,99 na prawach spoza S-0. LMM dołącza osobną poprawką, na świeżych ziarnach 600–679,
+bez danych ze światów praw S-0. Status: **zamrożona, nieuruchomiona**.
+
 ## 5. Czemu służy każdy istniejący element
 
 | Element | Rola wobec rdzenia |
