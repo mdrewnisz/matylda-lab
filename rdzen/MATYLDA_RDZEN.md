@@ -152,7 +152,9 @@ bez danych ze światów praw S-0.
 - [WYNIK] W T1-4 przy budżecie 100 dzień 1 zjada cały budżet w 3 z 5 praw, sen się nie odbywa. [WNIOSKOWANIE] To artefakt budżetu, nie brak miejsca na wybór.
 - [HIPOTEZA] W T1 heurystyka ogólności bije los (4/5 praw), ale daje tylko ok. ćwierć tego, co idealny wybór, i głównie dzięki regule „powtórka przed śmiałymi”; wśród śmiałych przeczuć wybiera jak los.
 - [WYNIK] Dobry wybór jest wart dużo (wyrocznia 2–5 krawędzi TR). Miejsce dla LMM jest i heurystyka go nie wyczerpuje.
-- Następny krok: S-1b z budżetem po dniu 1 i świeżymi ziarnami 800–879.
+- S-1b (24.11, `rdzen/wyniki/S1B_RAPORT.md`, osobny budżet snu 50, ziarna 800–879, po niezależnej recenzji): **[WYNIK]** heurystyka ogólności bije los w obu światach (T1 4/5, T1-4 5/5),
+  ale daje tylko 1/5–1/3 tego, co idealny wybór; to replikacja na tych samych prawach, nie test uogólnienia. Zysk to głównie „powtórka przed śmiałymi”; wśród śmiałych heurystyka jest losem z konstrukcji.
+  **[HIPOTEZA]** Idealny wybór śmiałych daje dodatkowo ok. 40% luki: to cel dla LMM (kryteria w raporcie S-1b).
 
 ## 5. Czemu służy każdy istniejący element
 
