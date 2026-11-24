@@ -1,0 +1,47 @@
+import json, sys, numpy as np
+from multiprocessing import Pool
+from matylda_rdzen.intuicja import HeurystykaOgolnosci
+from matylda_rdzen.petla import uruchom
+from matylda_rdzen.s1 import CEX, SLOWNIK
+from matylda_rdzen.s1b import BUDZET_DNIA, BUDZET_SNU
+from matylda_rdzen.swiat import zbuduj_swiat
+from matylda_rdzen.lmm_intuicja import typ_pojecia
+from matylda_rdzen.lmm_trening import auc
+
+class Rec:
+    nazwa="rec"
+    def __init__(s, sw, buf): s.sw, s.buf, s.h = sw, buf, HeurystykaOgolnosci()
+    def ocen(s, K, ctx):
+        kons, p = ctx.konsolidacja, ctx.pamiec; z=np.asarray(ctx.znane_magmy, dtype=np.int64)
+        F=kons.macierz_zaleznosci; ri={r:i for i,r in enumerate(kons.reprezentanci)}
+        size={}; 
+        for a,r in kons.cls.items(): size[r]=size.get(r,0)+1
+        W,c=s.sw.world,s.sw.concepts; n=max(ctx.liczba_znanych_magm,1)
+        f=lambda x: float(p.concepts[x][z].mean()) if len(z) else .5
+        for k in K:
+            A,B=kons.cls[k.a],kons.cls[k.b]; i,j=ri[A],ri[B]
+            t= not (c[k.a][W] & ~c[k.b][W]).any(); tr=(s.sw.cls[k.a],s.sw.cls[k.b]) in s.sw.TR
+            s.buf.append(dict(smiale=k.zrodlo=="sen:smiale", sup=k.wsparcie/n, fa=f(k.a), fb=f(k.b), sa=size[A], sb=size[B],
+              outa=int(F[i].sum()), ina=int(F[:,i].sum()), outb=int(F[j].sum()), inb=int(F[:,j].sum()),
+              ta=typ_pojecia(A), tb=typ_pojecia(B), y_t=t, y_tr=t and tr, pula=len(K), sen=len(s.buf)))
+        return s.h.ocen(K, ctx)
+
+def jeden(a):
+    H,rz=a; sw=zbuduj_swiat(H,rz,SLOWNIK); buf=[]
+    for sd in range(1610,1614):
+        b0=len(buf)
+        uruchom(H, sd, "S", budzet=BUDZET_DNIA, budzet_snu=BUDZET_SNU, rzad=rz, slownik=SLOWNIK, cex_cap=CEX, intuicja=Rec(sw,buf))
+    return buf
+
+L=[(H,rz) for H,rz,*_ in json.load(open('dane/swiaty_v3.json'))][::4]
+with Pool(4) as p: R=p.map(jeden,L)
+X=[r for b in R for r in b]; print(len(X))
+import collections
+for grp in ("wszystkie","smiale","powtorka"):
+    S=[r for r in X if grp=="wszystkie" or (r["smiale"]==(grp=="smiale"))]
+    y=np.array([r["y_tr"] for r in S]); yt=np.array([r["y_t"] for r in S])
+    print(grp, len(S), "TR%", y.mean().round(3), "prawda%", yt.mean().round(3))
+    for f in ("sup","fa","fb","sa","sb","outa","ina","outb","inb","ta","tb"):
+        v=np.array([r[f] for r in S],float)
+        print(f"  {f:5s} AUC_TR {auc(v,y) or 0:.3f}  AUC_prawda {auc(v,yt) or 0:.3f}")
+json.dump(X,open('/tmp/claude-0/-home-user/83eecaf9-1625-504b-91bb-d2946dbfcbc6/scratchpad/cechy.json','w'))

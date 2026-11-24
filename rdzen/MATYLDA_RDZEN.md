@@ -202,3 +202,9 @@ Walidacja na nowych ziarnach 1520–1559: LMM − heurystyka istotnie > 0 w 0/5 
 Offline na nowych światach treningowych LMM dobrze rozpoznaje prawdziwość (AUC 0,91), ale to nie przekłada się na pokrycie: nawet idealna trafność odzyskuje ≤ 60% luki.
 Przyczyny (HIPOTEZY): rozjazd celu (prawdziwość ≠ pokrycie TR), ekspozycja (sny 2+ poza rozkładem), martwe węzły-prawa w treningu, duplikaty w top-k.
 Test S-0 nie uruchomiony; ziarna 600–679 nietknięte. Raport: `rdzen/wyniki/LMM_RAPORT_v3.md`, recenzja: `rdzen/wyniki/LMM_V3_RECENZJA.md`.
+
+## Heurystyka grafu (24.11): WYNIK
+
+Po odłożeniu LMM (decyzja Michała): reguła bez uczenia, ocena a ⇒ b = out(a) + out(b) − 3·[śmiałe] na tokenach zależności.
+Walidacja z kryterium zapisanym wcześniej (5 praw spoza S-0, ziarna 1640–1679): lepsza od starej heurystyki w T1 5/5 i T1-4 4/5 praw, 8–77% luki do wyroczni; replikacja recenzenta potwierdza.
+Sygnał niesie out(b). Zysk to głównie tempo; x(xy)=xy w T1-4 gorzej. Test na S-0 (600–679) jeszcze nie zrobiony. Raport: `rdzen/wyniki/HEUR_GRAFU_RAPORT.md`.
