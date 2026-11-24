@@ -155,6 +155,10 @@ bez danych ze światów praw S-0.
 - S-1b (24.11, `rdzen/wyniki/S1B_RAPORT.md`, osobny budżet snu 50, ziarna 800–879, po niezależnej recenzji): **[WYNIK]** heurystyka ogólności bije los w obu światach (T1 4/5, T1-4 5/5),
   ale daje tylko 1/5–1/3 tego, co idealny wybór; to replikacja na tych samych prawach, nie test uogólnienia. Zysk to głównie „powtórka przed śmiałymi”; wśród śmiałych heurystyka jest losem z konstrukcji.
   **[HIPOTEZA]** Idealny wybór śmiałych daje dodatkowo ok. 40% luki: to cel dla LMM (kryteria w raporcie S-1b).
+- LMM jako intuicja (24.11, `rdzen/wyniki/LMM_RAPORT_v0_v2.md`): adapter na koderze PosetEncoder, uczony od zera na światach spoza S-0.
+  **[WYNIK NEGATYWNY]** Po usunięciu nakładania się magm między treningiem a walidacją (v2) LMM nie uogólnia się na nowe prawa: gorszy od heurystyki w 3/5 praw.
+  **[WNIOSKOWANIE]** Wcześniejsze dobre wyniki (v0/v1) to najpewniej skażenie danych. **[WYNIK]** Graf zależności jest używany (bije ablację bez grafu), ale wyuczona intuicja nie przenosi się.
+  Test na prawach S-0 (ziarna 600–679) nieuruchomiony.
 
 ## 5. Czemu służy każdy istniejący element
 
