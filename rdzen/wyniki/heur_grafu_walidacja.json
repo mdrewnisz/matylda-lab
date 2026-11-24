@@ -1,0 +1,273 @@
+{
+ "commit": "459a097b8987e9880a3a8f53725ff72818b38c86",
+ "plan_sha256": "fcd49c482257e98b4d4960aab0efdebf91453077ba20d31f9993a7aa3ad600fd",
+ "wzor": "oa+ob+kara",
+ "kontrasty": {
+  "T1|heur_grafu-heurystyka|elastyczna x(yx)=(xy)x": [
+   1.0219196174465974,
+   0.6988793618073473,
+   1.3163351213463155
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|elastyczna x(yx)=(xy)x": [
+   5.270853363800174,
+   4.898216475976326,
+   5.638216562478487
+  ],
+  "T1|heur_grafu-losowa|elastyczna x(yx)=(xy)x": [
+   1.6124276715643107,
+   1.1429871783279635,
+   2.096006847813345
+  ],
+  "T1|heurystyka-losowa|elastyczna x(yx)=(xy)x": [
+   0.5867068002034328,
+   0.1889579821699964,
+   0.99523744836111
+  ],
+  "T1|heur_grafu-heurystyka|lewa samodystr.": [
+   2.8269472471305486,
+   2.283726607757237,
+   3.3946587914102047
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|lewa samodystr.": [
+   4.436300895108223,
+   3.888330911472707,
+   4.9951513693062815
+  ],
+  "T1|heur_grafu-losowa|lewa samodystr.": [
+   4.068513343030394,
+   3.598294538104707,
+   4.53603337772155
+  ],
+  "T1|heurystyka-losowa|lewa samodystr.": [
+   1.2512480541597522,
+   0.7695877143672033,
+   1.7374209944997734
+  ],
+  "T1|heur_grafu-heurystyka|prawa samodystr.": [
+   2.8514178271561517,
+   2.4356363511949217,
+   3.267764639829984
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|prawa samodystr.": [
+   4.734715758702689,
+   4.306607563104285,
+   5.164624985090423
+  ],
+  "T1|heur_grafu-losowa|prawa samodystr.": [
+   3.373804713321262,
+   2.8266407045590842,
+   3.9403737476910443
+  ],
+  "T1|heurystyka-losowa|prawa samodystr.": [
+   0.504296965478803,
+   -0.10727130889004365,
+   1.1314221680610959
+  ],
+  "T1|heur_grafu-heurystyka|x(xy)=xy": [
+   1.1703415749220591,
+   0.8314663141395687,
+   1.513004027548896
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|x(xy)=xy": [
+   4.020061348829694,
+   3.5612439615737608,
+   4.496607529562277
+  ],
+  "T1|heur_grafu-losowa|x(xy)=xy": [
+   2.6546664313165005,
+   2.1456174296695485,
+   3.129134327747553
+  ],
+  "T1|heurystyka-losowa|x(xy)=xy": [
+   1.3323465169818245,
+   0.9197547646619209,
+   1.7331223005481786
+  ],
+  "T1|heur_grafu-heurystyka|(yx)x=y": [
+   1.7344385967394473,
+   1.3232115133080795,
+   2.1762344064082146
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|(yx)x=y": [
+   1.7390797783467846,
+   1.385594169868528,
+   2.10834203916986
+  ],
+  "T1|heur_grafu-losowa|(yx)x=y": [
+   2.3256720006838543,
+   1.8384292973994987,
+   2.839875872143703
+  ],
+  "T1|heurystyka-losowa|(yx)x=y": [
+   0.518437397192794,
+   0.24789074316722332,
+   0.8133881150979684
+  ],
+  "T1-4|heur_grafu-heurystyka|elastyczna x(yx)=(xy)x": [
+   0.16672146340536614,
+   0.01149324869594687,
+   0.3234074363129576
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|elastyczna x(yx)=(xy)x": [
+   2.0802273655739763,
+   1.8686025948171059,
+   2.3067050622945784
+  ],
+  "T1-4|heur_grafu-losowa|elastyczna x(yx)=(xy)x": [
+   1.7559969987165396,
+   1.4150692126433453,
+   2.0834368572244935
+  ],
+  "T1-4|heurystyka-losowa|elastyczna x(yx)=(xy)x": [
+   1.545522631489892,
+   1.224731168440542,
+   1.8572531262782597
+  ],
+  "T1-4|heur_grafu-heurystyka|lewa samodystr.": [
+   1.5896053275163695,
+   1.3543694539708164,
+   1.812981291206067
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|lewa samodystr.": [
+   3.0446338105207085,
+   2.77273546818307,
+   3.296584370465121
+  ],
+  "T1-4|heur_grafu-losowa|lewa samodystr.": [
+   2.84725103632631,
+   2.3961769327712665,
+   3.2920414289066677
+  ],
+  "T1-4|heurystyka-losowa|lewa samodystr.": [
+   1.1844784284520657,
+   0.7413510078776545,
+   1.6403066537003077
+  ],
+  "T1-4|heur_grafu-heurystyka|prawa samodystr.": [
+   4.176296723723814,
+   3.7832015685221454,
+   4.57379838056504
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|prawa samodystr.": [
+   11.121693814050442,
+   10.576584808435786,
+   11.642132773189063
+  ],
+  "T1-4|heur_grafu-losowa|prawa samodystr.": [
+   5.926626821895806,
+   5.418868749765351,
+   6.454173109026217
+  ],
+  "T1-4|heurystyka-losowa|prawa samodystr.": [
+   1.7516301869585038,
+   1.1661682056543539,
+   2.3594733242134054
+  ],
+  "T1-4|heur_grafu-heurystyka|x(xy)=xy": [
+   -1.0444140942421902,
+   -1.5208884387091104,
+   -0.5660506862034385
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|x(xy)=xy": [
+   7.248662131689656,
+   6.684035516391715,
+   7.813251345865396
+  ],
+  "T1-4|heur_grafu-losowa|x(xy)=xy": [
+   2.609367227936589,
+   2.147661685768171,
+   3.087235090166062
+  ],
+  "T1-4|heurystyka-losowa|x(xy)=xy": [
+   3.6197022350544814,
+   3.0638989163274757,
+   4.176703245765798
+  ],
+  "T1-4|heur_grafu-heurystyka|(yx)x=y": [
+   0.6037714551530329,
+   0.3861798128771801,
+   0.8254959589022072
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|(yx)x=y": [
+   0.7857942934258713,
+   0.5821173466518856,
+   0.9991073115480997
+  ],
+  "T1-4|heur_grafu-losowa|(yx)x=y": [
+   0.7533611800621556,
+   0.5398692473432761,
+   0.9620611738849476
+  ],
+  "T1-4|heurystyka-losowa|(yx)x=y": [
+   0.1306219767075028,
+   -0.041004478708426204,
+   0.30221289246207
+  ]
+ },
+ "per_swiat": {
+  "T1": {
+   "prawa_wazne": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "lepsza": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "gorsza": [],
+   "luka": {
+    "elastyczna x(yx)=(xy)x": 5.270853363800174,
+    "lewa samodystr.": 4.436300895108223,
+    "prawa samodystr.": 4.734715758702689,
+    "x(xy)=xy": 4.020061348829694,
+    "(yx)x=y": 1.7390797783467846
+   },
+   "ulamek_luki": {
+    "elastyczna x(yx)=(xy)x": 0.19388124596010672,
+    "lewa samodystr.": 0.6372307275747998,
+    "prawa samodystr.": 0.6022363268407562,
+    "x(xy)=xy": 0.2911253021705166,
+    "(yx)x=y": 0.9973312428416887
+   }
+  },
+  "T1-4": {
+   "prawa_wazne": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "x(xy)=xy",
+    "(yx)x=y"
+   ],
+   "lepsza": [
+    "elastyczna x(yx)=(xy)x",
+    "lewa samodystr.",
+    "prawa samodystr.",
+    "(yx)x=y"
+   ],
+   "gorsza": [
+    "x(xy)=xy"
+   ],
+   "luka": {
+    "elastyczna x(yx)=(xy)x": 2.0802273655739763,
+    "lewa samodystr.": 3.0446338105207085,
+    "prawa samodystr.": 11.121693814050442,
+    "x(xy)=xy": 7.248662131689656,
+    "(yx)x=y": 0.7857942934258713
+   },
+   "ulamek_luki": {
+    "elastyczna x(yx)=(xy)x": 0.08014578894810585,
+    "lewa samodystr.": 0.5221006618344383,
+    "prawa samodystr.": 0.3755090540658246,
+    "x(xy)=xy": -0.1440837047261766,
+    "(yx)x=y": 0.7683581570957162
+   }
+  }
+ },
+ "G": "WYNIK: heurystyka grafu lepsza w rzędzie 4; T1: lepsza w ≥ 3/5"
+}
