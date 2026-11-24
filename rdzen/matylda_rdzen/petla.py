@@ -58,7 +58,9 @@ class Przebieg:
 
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
             intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3,
-            slownik: str = "baza", cex_cap: int = CEX_CAP) -> Przebieg:
+            slownik: str = "baza", cex_cap: int = CEX_CAP, budzet_snu: int | None = None) -> Przebieg:
+    """budzet_snu (S-1b): jeśli podany, czuwanie 1 ma limit `budzet`, a fazy po nim dostają osobno `budzet_snu` wywołań
+    (łączny limit = wywołania po dniu 1 + budzet_snu). Domyślnie (None) jeden wspólny budżet, jak w S-0/S-0b/S-1."""
     sw = zbuduj_swiat(H, rzad, slownik)
     intuicja = intuicja or HeurystykaOgolnosci()
     sen = ramie(nazwa_ramienia, sw)
@@ -71,6 +73,8 @@ def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
     dz = Dziennik()
     czuwanie(p, wer, kandydaci_z_obserwacji(p, okno, rng, "okno"), budzet, sw.pokrycie, dz)
     dz.koniec_dnia1 = wer.wywolania
+    if budzet_snu is not None:
+        budzet = wer.wywolania + budzet_snu
 
     rng_sen = np.random.default_rng([seed, 1])   # osobny strumień: nie zmienia czuwania 1
     seedy: list[Seed] = []

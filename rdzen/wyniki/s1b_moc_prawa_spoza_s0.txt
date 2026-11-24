@@ -1,0 +1,54 @@
+T1|elastyczna x(yx)=(xy)x|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1|elastyczna x(yx)=(xy)x|po_dniu1 31.6
+T1|lewa samodystr.|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1|lewa samodystr.|po_dniu1 44.7375
+T1|prawa samodystr.|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1|prawa samodystr.|po_dniu1 45.625
+T1|x(xy)=xy|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1|x(xy)=xy|po_dniu1 33.975
+T1|(yx)x=y|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1|(yx)x=y|po_dniu1 26.6
+T1|wyrocznia_pokrycia|elastyczna x(yx)=(xy)x|srednia,sd [5.64, 1.4]
+T1|wyrocznia_pokrycia|lewa samodystr.|srednia,sd [5.37, 2.2]
+T1|wyrocznia_pokrycia|prawa samodystr.|srednia,sd [5.27, 2.06]
+T1|wyrocznia_pokrycia|x(xy)=xy|srednia,sd [5.54, 1.35]
+T1|wyrocznia_pokrycia|(yx)x=y|srednia,sd [2.21, 1.44]
+T1|heurystyka|elastyczna x(yx)=(xy)x|srednia,sd [0.57, 1.05]
+T1|heurystyka|lewa samodystr.|srednia,sd [0.85, 1.99]
+T1|heurystyka|prawa samodystr.|srednia,sd [0.41, 1.8]
+T1|heurystyka|x(xy)=xy|srednia,sd [1.37, 1.43]
+T1|heurystyka|(yx)x=y|srednia,sd [0.35, 1.3]
+T1|wyrocznia_pokrycia|n=20|P(>=3/5) 1.0
+T1|heurystyka|n=20|P(>=3/5) 0.54
+T1|wyrocznia_pokrycia|n=40|P(>=3/5) 1.0
+T1|heurystyka|n=40|P(>=3/5) 0.925
+T1|wyrocznia_pokrycia|n=80|P(>=3/5) 1.0
+T1|heurystyka|n=80|P(>=3/5) 1.0
+T1-4|elastyczna x(yx)=(xy)x|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1-4|elastyczna x(yx)=(xy)x|po_dniu1 27.9125
+T1-4|lewa samodystr.|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1-4|lewa samodystr.|po_dniu1 28.7375
+T1-4|prawa samodystr.|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1-4|prawa samodystr.|po_dniu1 49.9
+T1-4|x(xy)=xy|waznosc(sen,limit_dnia) [1.0, 0.0]
+T1-4|x(xy)=xy|po_dniu1 48.3625
+T1-4|(yx)x=y|waznosc(sen,limit_dnia) [0.96, 0.0]
+T1-4|(yx)x=y|po_dniu1 10.375
+T1-4|wyrocznia_pokrycia|elastyczna x(yx)=(xy)x|srednia,sd [3.87, 1.32]
+T1-4|wyrocznia_pokrycia|lewa samodystr.|srednia,sd [4.07, 1.44]
+T1-4|wyrocznia_pokrycia|prawa samodystr.|srednia,sd [12.91, 2.45]
+T1-4|wyrocznia_pokrycia|x(xy)=xy|srednia,sd [9.39, 2.32]
+T1-4|wyrocznia_pokrycia|(yx)x=y|srednia,sd [0.97, 0.8]
+T1-4|heurystyka|elastyczna x(yx)=(xy)x|srednia,sd [1.68, 1.18]
+T1-4|heurystyka|lewa samodystr.|srednia,sd [1.18, 1.46]
+T1-4|heurystyka|prawa samodystr.|srednia,sd [1.6, 1.69]
+T1-4|heurystyka|x(xy)=xy|srednia,sd [2.94, 1.47]
+T1-4|heurystyka|(yx)x=y|srednia,sd [-0.12, 0.75]
+T1-4|wyrocznia_pokrycia|n=20|P(>=3/5) 1.0
+T1-4|heurystyka|n=20|P(>=3/5) 1.0
+T1-4|wyrocznia_pokrycia|n=40|P(>=3/5) 1.0
+T1-4|heurystyka|n=40|P(>=3/5) 1.0
+T1-4|wyrocznia_pokrycia|n=80|P(>=3/5) 1.0
+T1-4|heurystyka|n=80|P(>=3/5) 1.0
+
+[exited with code 0]

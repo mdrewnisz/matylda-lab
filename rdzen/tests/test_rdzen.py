@@ -130,3 +130,21 @@ def test_s1_pole_pod_krzywa():
     k = [(10, 2, 0), (12, 4, 0)]
     assert pole(k, 10, 13) == (2 + 2 + 4 + 4) / 4
     assert pole(k, 12, 12) == 4.0
+
+
+def test_s1b_osobny_budzet_snu():
+    """S-1b: po dniu 1 pętla wydaje najwyżej budzet_snu wywołań; dzień 1 jak przy tym samym limicie dnia."""
+    for rz in (3, 4):
+        a = uruchom(PRAWO_TESTOWE, 5, "S", budzet=300, budzet_snu=50, rzad=rz, slownik="literaly", cex_cap=1)
+        b = uruchom(PRAWO_TESTOWE, 5, "A2", budzet=300, rzad=rz, slownik="literaly", cex_cap=1)
+        assert a.dziennik.koniec_dnia1 == b.dziennik.koniec_dnia1
+        assert a.wywolania - a.dziennik.koniec_dnia1 <= 50
+
+
+def test_s1b_sen_odbywa_sie_gdy_dzien_wiaze():
+    a = uruchom(PRAWO_TESTOWE, 5, "S", budzet=10, budzet_snu=30, rzad=3, slownik="literaly", cex_cap=1)
+    assert a.dziennik.koniec_dnia1 == 10
+    assert 0 < a.wywolania - a.dziennik.koniec_dnia1 <= 30
+    x = uruchom(PRAWO_TESTOWE, 5, "S", budzet=100, rzad=3, slownik="literaly", cex_cap=1)
+    y = uruchom(PRAWO_TESTOWE, 5, "S", budzet=100, budzet_snu=None, rzad=3, slownik="literaly", cex_cap=1)
+    assert x.wywolania == y.wywolania and x.dziennik.krzywa == y.dziennik.krzywa
