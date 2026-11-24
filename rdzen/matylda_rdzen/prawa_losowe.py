@@ -72,3 +72,22 @@ def losuj_prawa(liczba: int, ziarno: int) -> list[str]:
         if s not in widziane:
             widziane.add(s); out.append(s)
     return out
+
+
+def swiaty_z_praw(liczba=2000, ziarno=31337):
+    """Odtwarza dane/swiaty_v3.json: (prawo, uniwersum, |świat|, |TR|) dla ≥ 20 magm i |TR| ≥ 15, bez duplikatów światów."""
+    from .swiat import zbuduj_swiat
+    out, widziane = [], set()
+    for H in losuj_prawa(liczba, ziarno):
+        for rz in ("3T", "4T"):
+            sw = zbuduj_swiat(H, rz, "literaly")
+            k = (rz, tuple(sw.world))
+            if len(sw.world) >= 20 and len(sw.TR) >= 15 and k not in widziane:
+                widziane.add(k)
+                out.append((H, rz, len(sw.world), len(sw.TR)))
+    return out
+
+
+if __name__ == "__main__":      # python -m matylda_rdzen.prawa_losowe > dane/swiaty_v3.json  (~11 min)
+    import json
+    print(json.dumps(swiaty_z_praw(), ensure_ascii=False))

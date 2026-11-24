@@ -194,3 +194,11 @@ Uzupełnia listę z Masterplanu, rozdz. 11.
 - Wizja pętli: **[HIPOTEZA]** z mocnym punktem zaczepienia w danych (sufit proponującego w KG-0b).
 - Następny krok: zamrozić S-0 (operatory snu, próg, B) w prerejestracji prototypu i uruchomić go. Bez nowej infrastruktury.
 - DECYZJA Michała (23.11): rdzeń dopisany do Masterplanu jako rozdział 0 „Po co jest Matylda”, S-0 jako priorytet P1 obok etapów 0–2 GSI. Prototyp pętli powstaje w `matylda-lab/rdzen/`.
+
+## LMM v3 (24.11): przenoszalność, WYNIK NEGATYWNY
+
+Plan z kryterium przed treningiem (`rdzen/PLAN_LMM_V3.md`), 323 światy z losowych praw równościowych, architektura bez zmian.
+Walidacja na nowych ziarnach 1520–1559: LMM − heurystyka istotnie > 0 w 0/5 praw T1 i 1/5 T1-4 → **nie przeszła**; LMM bywa gorszy nawet od losowego.
+Offline na nowych światach treningowych LMM dobrze rozpoznaje prawdziwość (AUC 0,91), ale to nie przekłada się na pokrycie: nawet idealna trafność odzyskuje ≤ 60% luki.
+Przyczyny (HIPOTEZY): rozjazd celu (prawdziwość ≠ pokrycie TR), ekspozycja (sny 2+ poza rozkładem), martwe węzły-prawa w treningu, duplikaty w top-k.
+Test S-0 nie uruchomiony; ziarna 600–679 nietknięte. Raport: `rdzen/wyniki/LMM_RAPORT_v3.md`, recenzja: `rdzen/wyniki/LMM_V3_RECENZJA.md`.
