@@ -62,3 +62,48 @@ class IntuicjaLMM:
         raise NotImplementedError(
             "IntuicjaLMM: adapter LMM nie jest jeszcze podpięty (czeka na S-0 i V0/V1/V2). "
             "Użyj HeurystykaOgolnosci.")
+
+
+class IntuicjaLosowa:
+    """S-1, ramię kontrolne: ocena losowa (wybór przeczuć na ślepo). Własny strumień losowy na przebieg."""
+
+    nazwa = "losowa"
+
+    def __init__(self, ziarno: int):
+        self._rng = np.random.default_rng([ziarno, 2])
+
+    def ocen(self, kandydaci, kontekst):
+        return self._rng.random(len(kandydaci))
+
+
+class IntuicjaWyrocznia:
+    """S-1, ramię KALIBRACYJNE (nie intuicja!): wyrocznia TRAFNOŚCI. Zna prawdę świata i ocenia 1 krawędzie prawdziwe,
+    0 fałszywe. To NIE jest górna granica pokrycia: prawdziwa krawędź może nie dokładać nic do TR (recenzja S-1, uwaga 4)."""
+
+    nazwa = "wyrocznia_trafnosci"
+
+    def __init__(self, swiat):
+        self._sw = swiat
+
+    def ocen(self, kandydaci, kontekst):
+        W, c = self._sw.world, self._sw.concepts
+        return np.array([float(not (c[k.a][W] & ~c[k.b][W]).any()) for k in kandydaci])
+
+
+class IntuicjaWyroczniaPokrycia:
+    """S-1, ramię KALIBRACYJNE (bramka): zna prawdę świata; najpierw budzi prawdziwe krawędzie leżące na redukcji
+    przechodniej (para klas w TR), potem pozostałe prawdziwe, na końcu fałszywe. Mierzy, czy dobry wybór w ogóle się opłaca."""
+
+    nazwa = "wyrocznia_pokrycia"
+
+    def __init__(self, swiat):
+        self._sw = swiat
+
+    def ocen(self, kandydaci, kontekst):
+        sw = self._sw
+        W, c = sw.world, sw.concepts
+        out = []
+        for k in kandydaci:
+            prawdziwa = not (c[k.a][W] & ~c[k.b][W]).any()
+            out.append(0.0 if not prawdziwa else 2.0 if (sw.cls[k.a], sw.cls[k.b]) in sw.TR else 1.0)
+        return np.array(out)

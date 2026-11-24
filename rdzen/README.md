@@ -48,3 +48,10 @@ po wygaśnięciu dnia: wynik eksploracyjny). `s0_wyniki.json` i `s0b_wyniki.json
 
 GUI, dashboardu, homeostazy, Focus Mode, routera modeli, wielu agentów ani prawdziwego LMM. Najpierw wynik pętli, potem framework.
 Weryfikator jest wymienny: kolejnym krokiem może być sprawdzacz wynikania z `benchmarks/lmm_bench/entail.py` (PR #1).
+
+## S-1 (prerejestracja zamrożona 24.11)
+
+`PREREJESTRACJA_S1.md`: czy intuicja (port `Intuicja`) wybiera lepsze przeczucia niż los, w T1 i T1-4. Ramiona: losowa, heurystyka,
+wyrocznia pokrycia (bramka) i wyrocznia trafności (opisowa). Miara główna: pole pod krzywą pokrycia po dniu 1 przy równym zużytym budżecie,
+80 ziaren (100–179). Recenzja przed uruchomieniem: `wyniki/S1_RECENZJA_PRZED.md`; analiza mocy na prawach spoza S-0: `wyniki/s1_moc_prawa_spoza_s0.json`.
+Uruchomienie: `python -m matylda_rdzen.s1` (wymaga czystego drzewa). Ramię LMM tylko przez osobną poprawkę (sekcja 7).

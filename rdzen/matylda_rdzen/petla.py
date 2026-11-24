@@ -70,6 +70,7 @@ def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
     wer = Weryfikator(sw, cex_cap=cex_cap)
     dz = Dziennik()
     czuwanie(p, wer, kandydaci_z_obserwacji(p, okno, rng, "okno"), budzet, sw.pokrycie, dz)
+    dz.koniec_dnia1 = wer.wywolania
 
     rng_sen = np.random.default_rng([seed, 1])   # osobny strumień: nie zmienia czuwania 1
     seedy: list[Seed] = []
@@ -79,6 +80,9 @@ def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
         przed = wer.wywolania
         kandydaci = sen(p, rng_sen, intuicja, k)          # sen: bez weryfikatora
         assert wer.wywolania == przed, "sen nie może wywoływać weryfikatora"
+        if cykl == 1:
+            dz.pula_snu1 = list(getattr(sen, "ostatnia_pula", []))
+            dz.wybrane_snu1 = list(kandydaci)
         if not kandydaci:
             break
         nowe = przebudzenie(kandydaci, H, cykl)

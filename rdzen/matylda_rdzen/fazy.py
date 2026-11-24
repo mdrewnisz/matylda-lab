@@ -46,6 +46,9 @@ class Dziennik:
     pominiete_wynikajace: int = 0
     ze_snu_sprawdzone: int = 0
     ze_snu_prawdziwe: int = 0
+    koniec_dnia1: int = 0                              # wywołania po czuwaniu 1 (wspólnym dla ramion)
+    pula_snu1: list = field(default_factory=list)      # pełna pula pierwszego snu (przed wyborem intuicji)
+    wybrane_snu1: list = field(default_factory=list)   # kandydatury obudzone po pierwszym śnie
 
 
 def czuwanie(p: Pamiec, wer: Weryfikator, kolejka: list[Kandydat], budzet: int,
@@ -105,6 +108,7 @@ class SenPelny(Sen):
                 if self.konsolidacja and kons.wynika(c.a, c.b):
                     continue
                 pula.append(c)
+        self.ostatnia_pula = list(pula)
         if not pula:
             return []
         oc = intuicja.ocen(pula, KontekstIntuicji(kons, len(znane)))

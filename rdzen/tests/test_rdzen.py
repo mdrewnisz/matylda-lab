@@ -92,3 +92,41 @@ def test_swiat_literaly_ma_zaleznosci_wpisow():
     sw = zbuduj_swiat("komutatywna", 3, "literaly")
     assert ("0·1=2", "1·0=2") in sw.E          # komutatywność wymusza zależność między wpisami
     assert ("0·1=2", "1·0=1") not in sw.E
+
+
+# --- S-1: ramiona różnią się tylko portem Intuicja ---
+from matylda_rdzen.intuicja import IntuicjaLosowa  # noqa: E402
+from matylda_rdzen.s1 import RAMIONA as RAMIONA_S1, intuicja as intuicja_s1, pole  # noqa: E402
+
+PRAWO_TESTOWE = "elastyczna x(yx)=(xy)x"     # spoza PRAW_S0, żeby testy nie podglądały świata S-1
+
+
+@pytest.mark.parametrize("rzad", [3, 4])
+def test_s1_czuwanie_i_pula_wspolne(rzad):
+    sw = zbuduj_swiat(PRAWO_TESTOWE, rzad, "literaly")
+    prz = [uruchom(PRAWO_TESTOWE, 11, "S", budzet=100, rzad=rzad, slownik="literaly", cex_cap=1,
+                   intuicja=intuicja_s1(r, 11, sw)) for r in RAMIONA_S1]
+    d1 = {p.dziennik.koniec_dnia1 for p in prz}
+    assert len(d1) == 1
+    pref = [[x for x in p.dziennik.krzywa if x[0] <= d1.copy().pop()] for p in prz]
+    assert all(x == pref[0] for x in pref)
+    pule = [p.dziennik.pula_snu1 for p in prz]
+    assert all(x == pule[0] for x in pule) and pule[0]
+    assert all(set(p.dziennik.wybrane_snu1) <= set(pule[0]) for p in prz)
+
+
+def test_s1_losowa_deterministyczna_i_bez_swiata():
+    kons = uruchom("idempotentna", 0, "A2").pamiec.konsolidacja()
+    kand = [Kandydat("a", "b", "sen:smiale", 1)] * 5
+    a = IntuicjaLosowa(3).ocen(kand, KontekstIntuicji(kons, 20))
+    b = IntuicjaLosowa(3).ocen(kand, KontekstIntuicji(kons, 20))
+    assert (a == b).all()
+    sw = zbuduj_swiat(PRAWO_TESTOWE, 3, "literaly")
+    for r in ("losowa", "heurystyka"):
+        assert not any(v is sw for v in vars(intuicja_s1(r, 0, sw)).values())
+
+
+def test_s1_pole_pod_krzywa():
+    k = [(10, 2, 0), (12, 4, 0)]
+    assert pole(k, 10, 13) == (2 + 2 + 4 + 4) / 4
+    assert pole(k, 12, 12) == 4.0
