@@ -148,7 +148,12 @@ def zbuduj_swiat(H: str, rzad: int = 3, slownik: str = "baza") -> Swiat:
     else:
         raise ValueError(rzad)
     czesci = H.split(" ∧ ")                     # koniunkcja praw/własności (światy treningowe LMM)
-    maska = np.logical_and.reduce([allc[c] for c in czesci])
+    def _m(c):
+        if c.startswith("L:"):                  # losowe prawo równościowe (światy treningowe LMM v3)
+            from .prawa_losowe import maska_prawa
+            return maska_prawa(c, _tablice(rzad))
+        return allc[c]
+    maska = np.logical_and.reduce([_m(c) for c in czesci])
     if rzad in ("3T", "4T"):                    # światy treningowe LMM v2: bez magm praw S-0 i walidacyjnych
         from .uniwersum4t import WYKLUCZONE
         assert not set(czesci) & set(WYKLUCZONE)

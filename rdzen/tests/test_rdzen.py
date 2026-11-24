@@ -190,3 +190,29 @@ def test_uniwersum_treningowe_rozlaczne_z_u4():
     from matylda_rdzen.uniwersum4t import wczytaj as u4t
     a = {tuple(m.ravel()) for m in u4()}
     assert not any(tuple(m.ravel()) in a for m in u4t())
+
+
+def test_prawa_losowe_zgodne_z_nazwanymi():
+    from matylda_rdzen.prawa_losowe import maska_prawa
+    from matylda_rdzen.swiat import ALL, T
+    assert (maska_prawa("L:(x*y)=(y*x)", T) == ALL["komutatywna"]).all()
+    assert (maska_prawa("L:((x*y)*z)=(x*(y*z))", T) == ALL["łączna"]).all()
+
+
+def test_lmm_v3_bez_praw_wykluczonych():
+    """Światy v3 nie zawierają magm praw S-0 ani walidacyjnych (uniwersa 3T/4T) i nie używają nazw tych praw."""
+    import json
+    from matylda_rdzen.lmm_trening import SWIATY_V3
+    from matylda_rdzen.swiat import PRAWA_S0, pojecia, zbuduj_swiat
+    from matylda_rdzen.uniwersum4t import WYKLUCZONE
+    if not SWIATY_V3.exists():
+        import pytest
+        pytest.skip("brak dane/swiaty_v3.json")
+    L = json.loads(SWIATY_V3.read_text(encoding="utf-8"))
+    assert all(H.startswith("L:") and rz in ("3T", "4T") for H, rz, *_ in L)
+    for H, rz, *_ in L[::25]:
+        sw = zbuduj_swiat(H, rz, "literaly")
+        from matylda_rdzen.swiat import _tablice
+        P = pojecia(_tablice(rz)[sw.world])
+        assert not np.logical_or.reduce([P[h] for h in WYKLUCZONE]).any()
+    assert not set(PRAWA_S0) & {H for H, *_ in L}

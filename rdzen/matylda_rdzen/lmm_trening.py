@@ -10,6 +10,11 @@ Historia (jawnie, zob. PREREJESTRACJA_S1_LMM.md; kod v0/v1: wyniki/lmm_trening_v
   (osobne uniwersum, `uniwersum4t.py`, rozłączne z U4); 32 różne światy. Procedura z góry: 10 epok, LR kosinusowo 1e-3 → 1e-5,
   wybór epoki po stracie na odłożonych ziarnach światów treningowych (1160–1169), nie na prawach walidacyjnych.
   Ten sam trening dla ablacji „bez grafu” (koder bez przepływu przez tokeny zależności).
+  Wynik v2: nie uogólnia się na prawa walidacyjne (WYNIK NEGATYWNY, wyniki/LMM_RAPORT_v0_v2.md).
+- v3 (PLAN_LMM_V3.md): światy z LOSOWYCH praw równościowych (`prawa_losowe.py`) na 3T/4T, setki światów, mało ziaren na świat;
+  podział na światy treningowe i ODŁOŻONE ŚWIATY (wybór epoki mierzy przenoszenie na nowe prawa). Architektura i cechy bez zmian.
+
+    python -m matylda_rdzen.lmm_trening v3
 """
 from __future__ import annotations
 
@@ -38,6 +43,12 @@ SEEDS_ODLOZONE = range(1160, 1170)
 SEEDS_WALID_W_PETLI = range(1440, 1480)   # 1300–1339 użyte do walidacji v0/v1, 1400–1419 przez recenzenta
 EPOKI, LR, LR_MIN, ZIARNO = 10, 1e-3, 1e-5, 2024
 KONFIGI = {"v2": {"d": 64, "L": 4, "heads": 4, "graf": True}, "v2_bez_grafu": {"d": 64, "L": 4, "heads": 4, "graf": False}}
+
+
+SWIATY_V3 = ROOT / "dane" / "swiaty_v3.json"
+SEEDS_V3 = range(1500, 1508)                # 8 ziaren na świat (światy treningowe i odłożone)
+UDZIAL_ODLOZONYCH_V3, ZIARNO_PODZIALU_V3 = 0.15, 77
+KONFIGI_V3 = {"v3": {"d": 64, "L": 4, "heads": 4, "graf": True}, "v3_bez_grafu": {"d": 64, "L": 4, "heads": 4, "graf": False}}
 
 
 def wagi(nazwa):
@@ -162,6 +173,40 @@ def _sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
+def swiaty_v3():
+    """Zamrożona lista (dane/swiaty_v3.json) → (treningowe, odłożone); podział losowy po światach, ziarno 77."""
+    L = [(H, rz) for H, rz, *_ in json.loads(SWIATY_V3.read_text(encoding="utf-8"))]
+    rng = np.random.default_rng(ZIARNO_PODZIALU_V3)
+    idx = rng.permutation(len(L))
+    k = int(round(UDZIAL_ODLOZONYCH_V3 * len(L)))
+    return [L[i] for i in sorted(idx[k:])], [L[i] for i in sorted(idx[:k])]
+
+
+def main_v3():
+    import torch
+    torch.set_num_threads(4)
+    tr_sw, od_sw = swiaty_v3()
+    assert not any(c in PRAWA_S0 or c in WYKLUCZONE for H, _ in tr_sw + od_sw for c in H.split(" ∧ "))
+    t = time.time()
+    tr, od = zbierz(tr_sw, SEEDS_V3), zbierz(od_sw, SEEDS_V3)
+    print(f"migawki: trening {len(tr)}, odłożone światy {len(od)} ({time.time() - t:.0f} s)", flush=True)
+    from .uniwersum4t import sha256 as s4t, wczytaj as w4t
+    rap = {"torch": torch.__version__, "swiaty_v3_sha256": _sha(SWIATY_V3), "swiaty_treningowe": len(tr_sw), "swiaty_odlozone": od_sw,
+           "u4t_sha256": s4t(w4t().astype(np.uint8)), "seeds": [SEEDS_V3[0], SEEDS_V3[-1]], "epoki": EPOKI, "lr": [LR, LR_MIN],
+           "ziarno": ZIARNO, "migawki": {"trening": len(tr), "odlozone_swiaty": len(od)}, "modele": {}}
+    for nazwa, konf in KONFIGI_V3.items():
+        model, hist = trenuj(tr, od, konf)
+        torch.save({"konfig": konf, "wagi": model.state_dict()}, wagi(nazwa))
+        rap["modele"][nazwa] = {"konfig": konf, "wagi_sha256": _sha(wagi(nazwa)), "historia": hist,
+                                "wybrana_epoka": min(hist, key=lambda h: h["odlozone"])["epoka"],
+                                "offline_odlozone_swiaty": ocena_offline(model, od)}
+    rap["kod_sha256"] = {f: _sha(ROOT / "matylda_rdzen" / f) for f in
+                         ("lmm_intuicja.py", "lmm_trening.py", "lmm_bsd2_models.py", "uniwersum4t.py", "swiat.py", "prawa_losowe.py")}
+    (ROOT / "wyniki" / "lmm_trening_v3.json").write_text(json.dumps(rap, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(json.dumps({n: {k: m[k] for k in ("wagi_sha256", "wybrana_epoka", "offline_odlozone_swiaty")} for n, m in rap["modele"].items()},
+                     ensure_ascii=False, indent=1))
+
+
 def main():
     import torch
     torch.set_num_threads(4)
@@ -188,4 +233,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main_v3() if "v3" in sys.argv[1:] else main()

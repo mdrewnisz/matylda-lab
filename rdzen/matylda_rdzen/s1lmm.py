@@ -1,7 +1,7 @@
 """S-1 LMM: ramię LMM w protokole S-1b. Uruchamiać na ziarnach 600–679 dopiero po zamrożeniu PREREJESTRACJA_S1_LMM.md.
 
     python -m matylda_rdzen.s1lmm              # przebieg prerejestrowany (prawa S-0, ziarna 600–679)
-    python -m matylda_rdzen.s1lmm --walidacja  # eksploracyjnie: prawa spoza S-0, ziarna 1300–1339 (dozwolone przed zamrożeniem)
+    python -m matylda_rdzen.s1lmm --walidacja v3  # walidacja wag v3 na prawach spoza S-0, ziarna 1520–1559 (PLAN_LMM_V3.md)
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from .s1b import BUDZET_DNIA, BUDZET_SNU, PROG_WAZNOSCI, roznice, waznosc
 from .swiat import PRAWA_S0, zbuduj_swiat
 
 SEEDS = range(600, 680)
-SEEDS_WALID = range(1440, 1480)   # walidacja v2 (1300–1339: v0/v1, 1400–1419: recenzent)
+SEEDS_WALID = {"v2": range(1440, 1480), "v3": range(1520, 1560)}   # 1300–1339: v0/v1, 1400–1419: recenzent
 RAMIONA = ("losowa", "heurystyka", "lmm", "lmm_bez_grafu", "wyrocznia_pokrycia", "wyrocznia_trafnosci")
 WAGI = ROOT / "dane" / "lmm_intuicja_v2.pt"
 WAGI_ABL = ROOT / "dane" / "lmm_intuicja_v2_bez_grafu.pt"
@@ -129,14 +129,18 @@ def main():
     return wynik
 
 
-def walidacja():
-    lmm, abl = IntuicjaLMM(WAGI), IntuicjaLMM(WAGI_ABL)
-    run = zbierz(PRAWA_MOCY, SEEDS_WALID, lmm, abl)
-    out = {"wagi_sha256": lmm.sha256, "wagi_bez_grafu_sha256": abl.sha256, **analiza(run, PRAWA_MOCY, SEEDS_WALID)}
-    (ROOT / "wyniki" / f"lmm_walidacja_w_petli_{WAGI.stem.split('_')[-1]}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+def walidacja(v="v2"):
+    lmm = IntuicjaLMM(ROOT / "dane" / f"lmm_intuicja_{v}.pt")
+    abl = IntuicjaLMM(ROOT / "dane" / f"lmm_intuicja_{v}_bez_grafu.pt")
+    wyj = ROOT / "wyniki" / f"lmm_walidacja_w_petli_{v}.json"
+    if wyj.exists():
+        raise SystemExit(f"{wyj} już istnieje, nie nadpisuję.")
+    run = zbierz(PRAWA_MOCY, SEEDS_WALID[v], lmm, abl)
+    out = {"wagi_sha256": lmm.sha256, "wagi_bez_grafu_sha256": abl.sha256, **analiza(run, PRAWA_MOCY, SEEDS_WALID[v])}
+    wyj.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     return out
 
 
 if __name__ == "__main__":
-    w = walidacja() if "--walidacja" in sys.argv else main()
+    w = walidacja(sys.argv[-1] if sys.argv[-1].startswith("v") else "v2") if "--walidacja" in sys.argv else main()
     print(json.dumps({k: w[k] for k in ("per_swiat", "G", "wywolania")}, ensure_ascii=False, indent=1))
