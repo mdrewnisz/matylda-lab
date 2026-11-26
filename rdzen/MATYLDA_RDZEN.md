@@ -208,3 +208,9 @@ Test S-0 nie uruchomiony; ziarna 600–679 nietknięte. Raport: `rdzen/wyniki/LM
 Po odłożeniu LMM (decyzja Michała): reguła bez uczenia, ocena a ⇒ b = out(a) + out(b) − 3·[śmiałe] na tokenach zależności.
 Walidacja z kryterium zapisanym wcześniej (5 praw spoza S-0, ziarna 1640–1679): lepsza od starej heurystyki w T1 5/5 i T1-4 4/5 praw, 8–77% luki do wyroczni; replikacja recenzenta potwierdza.
 Sygnał niesie out(b). Zysk to głównie tempo; x(xy)=xy w T1-4 gorzej. Test na S-0 (600–679) jeszcze nie zrobiony. Raport: `rdzen/wyniki/HEUR_GRAFU_RAPORT.md`.
+
+## Heurystyka grafu na S-0 (26.11): WYNIK
+
+Prerejestrowany test (zamrożony w 1183968, ziarna 600–679): heurystyka grafu lepsza od dotychczasowej na prawach S-0 w obu światach.
+T1: 5/5 praw, odporne (stałe okno, replikacja). T1-4: dokładnie 3/5, kruche (łączna wolniej, komutatywna niższe pokrycie końcowe).
+Część zysku to tempo. Wyrocznia pokrycia jest zachłanna, nie jest optimum. Raport: `rdzen/wyniki/S0_HEUR_RAPORT.md`.
