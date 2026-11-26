@@ -1,6 +1,6 @@
 # Prerejestracja S-1 LMM: czy intuicja LMM wybiera lepiej niż heurystyka?
 
-Status: **projekt do zamrożenia** (24.11). Poprawka zapowiedziana w sekcji 7 `PREREJESTRACJA_S1.md`, w protokole S-1b (`PREREJESTRACJA_S1B.md`).
+Status: **PORZUCONA** (26.11): LMM odłożony decyzją Michała 24.11 po wynikach v2/v3; ziarna 600–679 zużył test heurystyki grafu (`PREREJESTRACJA_S0_HEUR.md`). Pierwotnie: projekt do zamrożenia (24.11). Poprawka zapowiedziana w sekcji 7 `PREREJESTRACJA_S1.md`, w protokole S-1b (`PREREJESTRACJA_S1B.md`).
 Zamrożenie = commit tego pliku z kodem i wagami przed pierwszym `python -m matylda_rdzen.s1lmm`. Runner odmawia przy brudnym drzewie,
 istniejących wynikach, złym hashu U4 lub wag; zapisuje commit, sha256 tego pliku, wag i kodu.
 

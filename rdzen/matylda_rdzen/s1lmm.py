@@ -19,7 +19,7 @@ from .s1 import CEX, PRAWA_MOCY, ROOT, SLOWNIK, SWIATY, U4_SHA, _sha, pokr, pole
 from .s1b import BUDZET_DNIA, BUDZET_SNU, PROG_WAZNOSCI, roznice, waznosc
 from .swiat import PRAWA_S0, zbuduj_swiat
 
-SEEDS = range(600, 680)
+SEEDS = None   # 600–679 zużyte przez test heurystyki grafu na S-0 (PREREJESTRACJA_S0_HEUR.md); test LMM na S-0 odłożony
 SEEDS_WALID = {"v2": range(1440, 1480), "v3": range(1520, 1560)}   # 1300–1339: v0/v1, 1400–1419: recenzent
 RAMIONA = ("losowa", "heurystyka", "lmm", "lmm_bez_grafu", "wyrocznia_pokrycia", "wyrocznia_trafnosci")
 WAGI = ROOT / "dane" / "lmm_intuicja_v2.pt"
