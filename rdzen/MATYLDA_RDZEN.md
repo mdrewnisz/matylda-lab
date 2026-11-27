@@ -225,3 +225,11 @@ Stara `HeurystykaOgolnosci` zostaje nazwaną linią bazową; runnery wcześniejs
 - Prototyp: `python -m matylda_rdzen.prototyp` — czuwanie → sen → przebudzenie → każda intuicja jako rekord Praxis w stanie SEED (SQLite) z genealogią i werdyktem weryfikatora obok. Sklejenie istniejących części, bez nowego twierdzenia o skuteczności.
 - Rząd 4, wariant ze wsparciem (prerejestracja f30184c, 5 nowych praw, ziarna 1820–1879): **NIEINFORMATYWNY**; domyślna intuicja bez zmian.
 - **Erratum:** „wyrocznia pokrycia” nie jest sufitem (40–50% jej sprawdzeń nic nie wnosi); heurystyka grafu ją bije w 4/5 praw rzędu 4. Bramki dawnych testów stoją, ale ułamki luki i wnioski o „suficie” (w tym z LMM v3) są nieważne. Lepszy kandydat na sufit: wyrocznia przyrostu pokrycia TR. Raport: `rdzen/wyniki/HEUR4_RAPORT.md`.
+
+## Wyrocznia przyrostu i heurystyka przyrostu (27.11): WYNIK CZĘŚCIOWY
+
+- Nowa bramka: zachłanna wyrocznia przyrostu pokrycia TR (`wyrocznie.py`). Przechodzi we wszystkich komórkach dev i walidacji, więc zastępuje starą wyrocznię jako bramkę w nowych testach.
+- Heurystyka przyrostu na znanym porządku (`heurystyki_przyrostu.py`, m = 1). Prerejestracja 85f6d4d, 5 nowych praw z klasy większych termów, ziarna 1920–1979.
+  - Rząd 4: lepsza od heurystyki grafu w **5/5 praw** (WYNIK). Zysk dotyczy tempa.
+  - Rząd 3: 2/5, nierozstrzygnięte. Prawdopodobnie przeszkadza rozmiar świata (HIPOTEZA). Wąskim gardłem jest rozpoznanie prawdziwości w puli snu.
+- Domyślna intuicja bez zmian do decyzji Michała. Raport: `rdzen/wyniki/PRZYROST_RAPORT.md`.
