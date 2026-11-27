@@ -1,0 +1,2142 @@
+{
+ "meta": {
+  "uwaga": "PILOT, nie test; te same światy co pilot 2026-11-23 (ziarna 2000–2059), ramię C, D1-W",
+  "przebieg_2_afiniczne": "po poprawce: górna granica = minimum z dwóch kolejności zachłannego usuwania (commit z tym raportem)"
+ },
+ "swiaty": [
+  {
+   "seed": 2000,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 8.43
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 8.36
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 8.69
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 27.4
+   }
+  },
+  {
+   "seed": 2001,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 2.87
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 2.58
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 2.73
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 8.35
+   }
+  },
+  {
+   "seed": 2002,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 3.61
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 3.49
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 3.51
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 17.84
+   }
+  },
+  {
+   "seed": 2003,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.9
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 4.77
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.01
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 26.55
+   }
+  },
+  {
+   "seed": 2004,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 2,
+    "hi": 7,
+    "czas_s": 6.28
+   },
+   "pakowanie": {
+    "lo": 3,
+    "hi": 7,
+    "czas_s": 9.42
+   },
+   "pakowanie+podstawienia": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 9.5
+   },
+   "wszystko+rozmiar6": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 37.93
+   }
+  },
+  {
+   "seed": 2005,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 5,
+    "czas_s": 6.33
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 6.26
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 10.01
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 44.84
+   }
+  },
+  {
+   "seed": 2006,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 4.53
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.29
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.3
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 15.01
+   }
+  },
+  {
+   "seed": 2007,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 11,
+    "czas_s": 3.06
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 11,
+    "czas_s": 3.04
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 8,
+    "czas_s": 3.66
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 8,
+    "czas_s": 10.06
+   }
+  },
+  {
+   "seed": 2008,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 23.23
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 22.63
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 23.5
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 168.13
+   }
+  },
+  {
+   "seed": 2009,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 3.42
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.28
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 3.51
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 10.73
+   }
+  },
+  {
+   "seed": 2010,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 10,
+    "czas_s": 3.54
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 10,
+    "czas_s": 3.33
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 9,
+    "czas_s": 4.4
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 9,
+    "czas_s": 9.94
+   }
+  },
+  {
+   "seed": 2011,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 4.3
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 4.2
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 4.5
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 14.68
+   }
+  },
+  {
+   "seed": 2012,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.88
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 5.28
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.26
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 28.02
+   }
+  },
+  {
+   "seed": 2013,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 16,
+   "bazowa": {
+    "lo": 0,
+    "hi": 6,
+    "czas_s": 2.41
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 2.48
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 3.2
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 8.71
+   }
+  },
+  {
+   "seed": 2014,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 4.84
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 9,
+    "czas_s": 5.04
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 4.79
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 20.41
+   }
+  },
+  {
+   "seed": 2015,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 4.09
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 9,
+    "czas_s": 3.99
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 4.47
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 14.41
+   }
+  },
+  {
+   "seed": 2016,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 4.45
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 9,
+    "czas_s": 4.72
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 4.67
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 20.97
+   }
+  },
+  {
+   "seed": 2017,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 4,
+    "czas_s": 1.11
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 0.92
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 1.33
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 2.47
+   }
+  },
+  {
+   "seed": 2018,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 13,
+    "czas_s": 2.89
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 13,
+    "czas_s": 2.74
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 12,
+    "czas_s": 2.72
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 12,
+    "czas_s": 8.94
+   }
+  },
+  {
+   "seed": 2019,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 12,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 4.12
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 4.05
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 4.31
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 14.46
+   }
+  },
+  {
+   "seed": 2020,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 8.69
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 8.86
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 9.25
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 28.05
+   }
+  },
+  {
+   "seed": 2021,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 18,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 19.11
+   },
+   "pakowanie": {
+    "lo": 3,
+    "hi": 4,
+    "czas_s": 19.99
+   },
+   "pakowanie+podstawienia": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 19.42
+   },
+   "wszystko+rozmiar6": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 115.33
+   }
+  },
+  {
+   "seed": 2022,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 12,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 0.91
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 0.82
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 0.99
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 4.19
+   }
+  },
+  {
+   "seed": 2023,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 9.59
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 10.3
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 12.36
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 60.65
+   }
+  },
+  {
+   "seed": 2024,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 14,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 1.62
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 1.69
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 1.54
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 7.23
+   }
+  },
+  {
+   "seed": 2025,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 10.56
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 10.69
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 10.77
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 153.82
+   }
+  },
+  {
+   "seed": 2026,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.51
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 4.68
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.83
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 26.07
+   }
+  },
+  {
+   "seed": 2027,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 3.43
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.58
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.55
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 13.0
+   }
+  },
+  {
+   "seed": 2028,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 4.24
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.61
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.85
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 40.3
+   }
+  },
+  {
+   "seed": 2029,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 5,
+   "bazowa": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.63
+   },
+   "pakowanie": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 1.05
+   },
+   "pakowanie+podstawienia": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 1.14
+   },
+   "wszystko+rozmiar6": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 6.53
+   }
+  },
+  {
+   "seed": 2030,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 2,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.03
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.03
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.03
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.08
+   }
+  },
+  {
+   "seed": 2031,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 2,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.01
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.02
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.02
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.04
+   }
+  },
+  {
+   "seed": 2032,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 3,
+   "bazowa": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.01
+   },
+   "pakowanie": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.02
+   },
+   "pakowanie+podstawienia": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.02
+   },
+   "wszystko+rozmiar6": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.05
+   }
+  },
+  {
+   "seed": 2033,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2034,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2035,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2036,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 8,
+   "bazowa": {
+    "lo": 3,
+    "hi": 4,
+    "czas_s": 0.12
+   },
+   "pakowanie": {
+    "lo": 3,
+    "hi": 4,
+    "czas_s": 0.18
+   },
+   "pakowanie+podstawienia": {
+    "lo": 3,
+    "hi": 4,
+    "czas_s": 0.18
+   },
+   "wszystko+rozmiar6": {
+    "lo": 3,
+    "hi": 4,
+    "czas_s": 0.38
+   }
+  },
+  {
+   "seed": 2037,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2038,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2039,
+   "kind": "losowa",
+   "n": 4,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2040,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2041,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2042,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2043,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2044,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2045,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2046,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2047,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2048,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2049,
+   "kind": "losowa",
+   "n": 5,
+   "przyjete": 1,
+   "bazowa": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2050,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2051,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2052,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2053,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2054,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2055,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2056,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2057,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2058,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  },
+  {
+   "seed": 2059,
+   "kind": "losowa",
+   "n": 6,
+   "przyjete": 0,
+   "bazowa": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "pakowanie+podstawienia": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   },
+   "wszystko+rozmiar6": {
+    "lo": 0,
+    "hi": 0,
+    "czas_s": 0.0
+   }
+  }
+ ],
+ "podsumowanie": {
+  "afiniczna": {
+   "bazowa": {
+    "lo_srednia": 0.26666666666666666,
+    "hi_srednia": 4.366666666666666,
+    "swiaty_domkniete": 1,
+    "szerokosc_srednia": 4.1,
+    "czas_s_suma": 163.6
+   },
+   "pakowanie": {
+    "lo_srednia": 1.1666666666666667,
+    "hi_srednia": 4.366666666666666,
+    "swiaty_domkniete": 6,
+    "szerokosc_srednia": 3.2,
+    "czas_s_suma": 171.1
+   },
+   "pakowanie+podstawienia": {
+    "lo_srednia": 1.1666666666666667,
+    "hi_srednia": 3.4,
+    "swiaty_domkniete": 8,
+    "szerokosc_srednia": 2.2333333333333334,
+    "czas_s_suma": 182.8
+   },
+   "wszystko+rozmiar6": {
+    "lo_srednia": 1.1666666666666667,
+    "hi_srednia": 3.4,
+    "swiaty_domkniete": 8,
+    "szerokosc_srednia": 2.2333333333333334,
+    "czas_s_suma": 965.0
+   }
+  },
+  "losowa": {
+   "bazowa": {
+    "lo_srednia": 0.43333333333333335,
+    "hi_srednia": 0.4666666666666667,
+    "swiaty_domkniete": 29,
+    "szerokosc_srednia": 0.03333333333333333,
+    "czas_s_suma": 0.2
+   },
+   "pakowanie": {
+    "lo_srednia": 0.43333333333333335,
+    "hi_srednia": 0.4666666666666667,
+    "swiaty_domkniete": 29,
+    "szerokosc_srednia": 0.03333333333333333,
+    "czas_s_suma": 0.2
+   },
+   "pakowanie+podstawienia": {
+    "lo_srednia": 0.43333333333333335,
+    "hi_srednia": 0.4666666666666667,
+    "swiaty_domkniete": 29,
+    "szerokosc_srednia": 0.03333333333333333,
+    "czas_s_suma": 0.2
+   },
+   "wszystko+rozmiar6": {
+    "lo_srednia": 0.43333333333333335,
+    "hi_srednia": 0.4666666666666667,
+    "swiaty_domkniete": 29,
+    "szerokosc_srednia": 0.03333333333333333,
+    "czas_s_suma": 0.6
+   }
+  },
+  "wszystkie": {
+   "bazowa": {
+    "lo_srednia": 0.35,
+    "hi_srednia": 2.4166666666666665,
+    "swiaty_domkniete": 30,
+    "szerokosc_srednia": 2.066666666666667,
+    "czas_s_suma": 163.8
+   },
+   "pakowanie": {
+    "lo_srednia": 0.8,
+    "hi_srednia": 2.4166666666666665,
+    "swiaty_domkniete": 35,
+    "szerokosc_srednia": 1.6166666666666667,
+    "czas_s_suma": 171.4
+   },
+   "pakowanie+podstawienia": {
+    "lo_srednia": 0.8,
+    "hi_srednia": 1.9333333333333333,
+    "swiaty_domkniete": 37,
+    "szerokosc_srednia": 1.1333333333333333,
+    "czas_s_suma": 183.0
+   },
+   "wszystko+rozmiar6": {
+    "lo_srednia": 0.8,
+    "hi_srednia": 1.9333333333333333,
+    "swiaty_domkniete": 37,
+    "szerokosc_srednia": 1.1333333333333333,
+    "czas_s_suma": 965.6
+   }
+  }
+ },
+ "przebieg_2_afiniczne": [
+  {
+   "seed": 2000,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 8.83
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 8.95
+   }
+  },
+  {
+   "seed": 2001,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 2.82
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 2.85
+   }
+  },
+  {
+   "seed": 2002,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 3.34
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 3.68
+   }
+  },
+  {
+   "seed": 2003,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.48
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.19
+   }
+  },
+  {
+   "seed": 2004,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 2,
+    "hi": 7,
+    "czas_s": 6.79
+   },
+   "pakowanie+podstawienia": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 10.37
+   }
+  },
+  {
+   "seed": 2005,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 5,
+    "czas_s": 6.8
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 11.6
+   }
+  },
+  {
+   "seed": 2006,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 4.2
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.19
+   }
+  },
+  {
+   "seed": 2007,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 11,
+    "czas_s": 3.33
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 8,
+    "czas_s": 3.37
+   }
+  },
+  {
+   "seed": 2008,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 21.86
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 24.17
+   }
+  },
+  {
+   "seed": 2009,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 3.18
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.48
+   }
+  },
+  {
+   "seed": 2010,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 10,
+    "czas_s": 3.49
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 8,
+    "czas_s": 4.7
+   }
+  },
+  {
+   "seed": 2011,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 4.05
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 4.29
+   }
+  },
+  {
+   "seed": 2012,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.56
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.52
+   }
+  },
+  {
+   "seed": 2013,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 16,
+   "bazowa": {
+    "lo": 0,
+    "hi": 6,
+    "czas_s": 2.27
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 3.34
+   }
+  },
+  {
+   "seed": 2014,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 4.52
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 5.21
+   }
+  },
+  {
+   "seed": 2015,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 3.91
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 5,
+    "czas_s": 4.75
+   }
+  },
+  {
+   "seed": 2016,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 9,
+    "czas_s": 4.44
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 6,
+    "czas_s": 5.2
+   }
+  },
+  {
+   "seed": 2017,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 4,
+    "czas_s": 1.19
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 1.97
+   }
+  },
+  {
+   "seed": 2018,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 13,
+    "czas_s": 2.65
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 12,
+    "czas_s": 3.06
+   }
+  },
+  {
+   "seed": 2019,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 12,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 3.94
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 4.1
+   }
+  },
+  {
+   "seed": 2020,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 8.69
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 8.93
+   }
+  },
+  {
+   "seed": 2021,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 18,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 19.47
+   },
+   "pakowanie+podstawienia": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 20.36
+   }
+  },
+  {
+   "seed": 2022,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 12,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 0.87
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 0.98
+   }
+  },
+  {
+   "seed": 2023,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 9.53
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 9.7
+   }
+  },
+  {
+   "seed": 2024,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 14,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 1.33
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 1.24
+   }
+  },
+  {
+   "seed": 2025,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 3,
+    "czas_s": 9.13
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 3,
+    "czas_s": 10.06
+   }
+  },
+  {
+   "seed": 2026,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 1,
+    "hi": 4,
+    "czas_s": 3.42
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 5.1
+   }
+  },
+  {
+   "seed": 2027,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 1,
+    "czas_s": 3.69
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.44
+   }
+  },
+  {
+   "seed": 2028,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "bazowa": {
+    "lo": 0,
+    "hi": 2,
+    "czas_s": 4.42
+   },
+   "pakowanie+podstawienia": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 4.96
+   }
+  },
+  {
+   "seed": 2029,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 5,
+   "bazowa": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 0.58
+   },
+   "pakowanie+podstawienia": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 1.1
+   }
+  }
+ ]
+}

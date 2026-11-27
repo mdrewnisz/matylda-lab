@@ -120,11 +120,17 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
         seen.add(c)
         uniq.append(law)
 
-    upper = list(uniq)
-    for law in reversed(uniq):
-        rest = [x for x in upper if x is not law] + list(initial)
-        if entail.prove(rest, law, node_limit=node_limit, fill_free=fill_free) is not None:
-            upper.remove(law)
+    def greedy(order):
+        up = list(uniq)
+        for law in order:
+            rest = [x for x in up if x is not law] + list(initial)
+            if entail.prove(rest, law, node_limit=node_limit, fill_free=fill_free) is not None:
+                up = [x for x in up if x is not law]
+        return up
+
+    # Zachłanne usuwanie zależy od kolejności (mocniejszy dowodnik może dać WIĘKSZY zbiór).
+    # Każdy wynik jest zbiorem generującym, więc minimum z dwóch kolejności też jest górną granicą.
+    upper = min(greedy(list(reversed(uniq))), greedy(list(uniq)), key=len)
 
     essential = []
     for law in uniq:
