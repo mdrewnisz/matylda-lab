@@ -3,26 +3,34 @@ from matylda_rdzen.prawa_losowe import losuj_prawa
 from matylda_rdzen.heur4_dev import swiaty_dev
 from matylda_rdzen.swiat import zbuduj_swiat, PRAWA_S0, _tablice
 from matylda_rdzen.s1 import PRAWA_MOCY
-def key(H,rz):
-    sw=zbuduj_swiat(H,rz,'literaly'); U=_tablice(rz)[sw.world]
-    A={m.tobytes() for m in U.astype(np.uint8)}; At={m.T.tobytes() for m in U.astype(np.uint8)}
-    return frozenset(A), frozenset(At)
-spent=list(PRAWA_S0)+list(PRAWA_MOCY)+swiaty_dev(120)
-zakaz={3:set(),4:set()}
+from matylda_rdzen.lmm_trening import _L, _S
+def zb(H,rz):
+    sw=zbuduj_swiat(H,rz,'literaly'); U=_tablice(rz)[sw.world].astype(np.uint8)
+    return {m.tobytes() for m in U}, {np.ascontiguousarray(m.T).tobytes() for m in U}, sw
+L3=[H for H,*_ in json.load(open('dane/swiaty_v3.json'))]
+spent=list(dict.fromkeys(list(PRAWA_S0)+list(PRAWA_MOCY)+_L+_S+L3+swiaty_dev(120)))
+ref={rz:[] for rz in (3,4)}
+TESTOWANE=set(PRAWA_S0)|set(PRAWA_MOCY)
 for H in spent:
     for rz in (3,4):
-        a,at=key(H,rz); zakaz[rz]|={a,at}
-named=['unipotentna xx=yy','lewa alternat. x(xy)=(xx)y','prawa alternat. (yx)x=y(xx)']
-out=[]; 
-for H in named+losuj_prawa(600, 9090):
+        a,at,_=zb(H,rz)
+        if a: ref[rz].append((H,a,at))
+def zly(a,at,rz):
+    for H,b,bt in ref[rz]:
+        for x in (a,at):
+            j=len(x&b)/len(x|b)
+            if j>=0.5 or (H in TESTOWANE and b<=x): return H
+    return None
+out=[]
+for H in losuj_prawa(5000, 9090):
     if H in spent: continue
     ok=True; info=[]
     for rz in (3,4):
-        sw=zbuduj_swiat(H,rz,'literaly'); a,at=key(H,rz)
-        if len(sw.world)<20 or len(sw.TR)<15 or a in zakaz[rz] or at in zakaz[rz]: ok=False; break
-        info+= [len(sw.world),len(sw.TR)]
+        a,at,sw=zb(H,rz)
+        if len(sw.world)<20 or len(sw.TR)<15 or zly(a,at,rz): ok=False; break
+        info+=[len(sw.world),len(sw.TR)]
     if ok:
         out.append((H,info))
-        for rz in (3,4): a,at=key(H,rz); zakaz[rz]|={a,at}   # bez duplikatów/dualów wewnątrz zbioru
+        for rz in (3,4): a,at,_=zb(H,rz); ref[rz].append((H,a,at))
     if len(out)>=8: break
 print(json.dumps(out,ensure_ascii=False))

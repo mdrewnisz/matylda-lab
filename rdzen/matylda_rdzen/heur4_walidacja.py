@@ -18,12 +18,12 @@ from .s1 import CEX, ROOT, SLOWNIK, SWIATY, U4_SHA, _sha, pokr
 from .s1b import BUDZET_DNIA, BUDZET_SNU, PROG_WAZNOSCI, roznice, waznosc
 from .swiat import zbuduj_swiat
 
-PRAWA = ("lewa alternat. x(xy)=(xx)y", "L:(x*(z*x))=((x*x)*y)", "L:((x*y)*y)=(y*(z*z))", "L:(z*((x*y)*x))=(z*y)",
-         "L:(x*(x*x))=x", "L:((y*y)*(x*y))=(y*y)", "L:((x*z)*y)=((y*x)*y)", "L:(x*x)=(x*(x*x))")
+PRAWA = ("L:(x*(x*x))=(y*(y*y))", "L:(x*(x*(y*x)))=x", "L:((y*z)*y)=((z*y)*z)", "L:(y*(x*(x*y)))=y", "L:((z*(z*x))*x)=x")
 SEEDS = range(1820, 1880)
 LAMBDA = 1.0
 RAMIONA = ("losowa", "heurystyka", "heur_grafu", "heur_grafu_wsp", "wyrocznia_pokrycia")
-H4_SHA = None     # sha256 heurystyki4.py, wpisywane przy zamrożeniu
+H4_SHA = "dcb0a4b225a2ceccfcbe5a331cc0d25fc25afb21e47351c918b40aa2a1ddd706"   # heurystyki4.py, zamrożone
+HEUR_SHA = "bbbf3a71c2da07d94391a35c8f865ba0c99f12d53f60e7510d0075bca5ed8931"   # heurystyki.py (heur_grafu, jak w S-0)
 PROG_UDZIALU = 0.6
 
 
@@ -53,13 +53,16 @@ def _koniec(run, swiat, H, x, y, seeds):
 
 
 def kategoria(lepsza, gorsza, wazne, bramka):
+    """Szkoda („gorsza”) jest rozpoznawana NIEZALEŻNIE od bramki (poprawka B1 recenzji przed zamrożeniem)."""
     n = len(wazne)
-    if n < 4 or len(bramka) < PROG_UDZIALU * n:
+    if n < 4:
+        return "nieinformatywny"
+    if len(gorsza) >= PROG_UDZIALU * n:
+        return "gorsza"
+    if len(bramka) < PROG_UDZIALU * n:
         return "nieinformatywny"
     if len(lepsza) >= PROG_UDZIALU * n:
         return "lepsza"
-    if len(gorsza) >= PROG_UDZIALU * n:
-        return "gorsza"
     return "nierozstrzygnieta"
 
 
@@ -108,6 +111,8 @@ def main():
         raise SystemExit("zły hash U4")
     if _sha(ROOT / "matylda_rdzen" / "heurystyki4.py") != H4_SHA:
         raise SystemExit("wariant zmieniony po zamrożeniu (sha256 heurystyki4.py)")
+    if _sha(ROOT / "matylda_rdzen" / "heurystyki.py") != HEUR_SHA:
+        raise SystemExit("heurystyka grafu zmieniona (sha256 heurystyki.py)")
     run = zbierz(PRAWA, SEEDS)
     w = {"commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip(),
          "prerejestracja_sha256": _sha(ROOT / "PREREJESTRACJA_HEUR4.md"), "lambda": LAMBDA, **analiza(run, PRAWA, SEEDS)}
