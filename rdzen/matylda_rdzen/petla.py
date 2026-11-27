@@ -8,7 +8,8 @@ import numpy as np
 from .fazy import (DzienDodatkowy, Dziennik, GeneratorSnuNaSwiezych, Sen, SenBezKonsolidacji,
                    SenBezSmialosci, SenLosowy, SenPelny, Seed, czuwanie, kandydaci_z_obserwacji,
                    przebudzenie)
-from .intuicja import HeurystykaOgolnosci, Intuicja
+from .heurystyki import HeurystykaGrafu
+from .intuicja import Intuicja
 from .pamiec import Pamiec, Weryfikator
 from .swiat import Swiat, zbuduj_swiat
 
@@ -56,13 +57,18 @@ class Przebieg:
         return best
 
 
+DOMYSLNY_WZOR = "oa+ob+kara"
+
+
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
             intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3,
             slownik: str = "baza", cex_cap: int = CEX_CAP, budzet_snu: int | None = None) -> Przebieg:
     """budzet_snu (S-1b): jeśli podany, czuwanie 1 ma limit `budzet`, a fazy po nim dostają osobno `budzet_snu` wywołań
     (łączny limit = wywołania po dniu 1 + budzet_snu). Domyślnie (None) jeden wspólny budżet, jak w S-0/S-0b/S-1."""
     sw = zbuduj_swiat(H, rzad, slownik)
-    intuicja = intuicja or HeurystykaOgolnosci()
+    # Domyślna intuicja rdzenia od 27.11 (decyzja Michała): heurystyka grafu, zwalidowana i przetestowana na S-0
+    # (wyniki/S0_HEUR_RAPORT.md; zastrzeżenie: w rzędzie 4 przewaga krucha). Linia bazowa: intuicja.HeurystykaOgolnosci.
+    intuicja = intuicja or HeurystykaGrafu(DOMYSLNY_WZOR)
     sen = ramie(nazwa_ramienia, sw)
 
     # Czuwanie 1: identyczne we wszystkich ramionach i zgodne z ramieniem A2 z KG-0b.

@@ -214,3 +214,8 @@ Sygnał niesie out(b). Zysk to głównie tempo; x(xy)=xy w T1-4 gorzej. Test na 
 Prerejestrowany test (zamrożony w 1183968, ziarna 600–679): heurystyka grafu lepsza od dotychczasowej na prawach S-0 w obu światach.
 T1: 5/5 praw, odporne (stałe okno, replikacja). T1-4: dokładnie 3/5, kruche (łączna wolniej, komutatywna niższe pokrycie końcowe).
 Część zysku to tempo. Wyrocznia pokrycia jest zachłanna, nie jest optimum. Raport: `rdzen/wyniki/S0_HEUR_RAPORT.md`.
+
+## Domyślna intuicja rdzenia (27.11, decyzja Michała)
+
+Od 27.11 `petla.uruchom` bez podanej intuicji używa heurystyki grafu (`HeurystykaGrafu("oa+ob+kara")`), z zastrzeżeniem, że w rzędzie 4 przewaga jest krucha.
+Stara `HeurystykaOgolnosci` zostaje nazwaną linią bazową; runnery wcześniejszych eksperymentów (S-0, S-0b, korekta, trudność) mają ją przypiętą jawnie, więc ich wyniki pozostają odtwarzalne.

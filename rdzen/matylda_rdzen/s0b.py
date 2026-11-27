@@ -4,6 +4,8 @@
 """
 from __future__ import annotations
 
+from .intuicja import HeurystykaOgolnosci  # przypięta linia bazowa: wyniki sprzed 27.11 odtwarzalne
+
 import hashlib
 import json
 from pathlib import Path
@@ -40,7 +42,7 @@ def main(out_dir: Path = ROOT / "wyniki") -> dict:
             sw = zbuduj_swiat(H, rz)
             for seed in SEEDS:
                 for r in RAMIONA_S0B:
-                    pr = uruchom(H, seed, r, budzet=max(BUDZETY), rzad=rz)
+                    pr = uruchom(H, seed, r, budzet=max(BUDZETY), rzad=rz, intuicja=HeurystykaOgolnosci())
                     dz = pr.dziennik
                     wiersze.append({
                         "rzad": rz, "H": H, "seed": seed, "ramie": r, "TR": len(sw.TR),

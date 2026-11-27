@@ -9,6 +9,8 @@ ramię nie ma kandydatów, i miara przy stałym B nagradza samo wydawanie budże
 """
 from __future__ import annotations
 
+from .intuicja import HeurystykaOgolnosci  # przypięta linia bazowa: wyniki sprzed 27.11 odtwarzalne
+
 import json
 from pathlib import Path
 
@@ -48,7 +50,7 @@ def main():
         for H in PRAWA_S0:
             for seed in SEEDS:
                 for r in RAMIONA:
-                    pr = uruchom(H, seed, r, budzet=100, rzad=rz)
+                    pr = uruchom(H, seed, r, budzet=100, rzad=rz, intuicja=HeurystykaOgolnosci())
                     run[(rz, H, seed, r)] = (pr.wywolania, pr.cykle, pr.dziennik.krzywa)
     out = {}
     for nazwa, rz, B, x, y in KRYTERIA:

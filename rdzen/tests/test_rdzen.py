@@ -216,3 +216,13 @@ def test_lmm_v3_bez_praw_wykluczonych():
         P = pojecia(_tablice(rz)[sw.world])
         assert not np.logical_or.reduce([P[h] for h in WYKLUCZONE]).any()
     assert not set(PRAWA_S0) & {H for H, *_ in L}
+
+
+def test_domyslna_intuicja_to_heurystyka_grafu():
+    """Od 27.11 domyślną intuicją rdzenia jest heurystyka grafu; linia bazowa pozostaje dostępna jawnie."""
+    from matylda_rdzen.heurystyki import HeurystykaGrafu
+    a = uruchom("medialna", 1, "S", budzet=60)
+    b = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaGrafu("oa+ob+kara"))
+    c = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaOgolnosci())
+    assert a.dziennik.krzywa == b.dziennik.krzywa
+    assert c.wywolania > 0

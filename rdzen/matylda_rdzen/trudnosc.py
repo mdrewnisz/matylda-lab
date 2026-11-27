@@ -4,6 +4,8 @@
 """
 from __future__ import annotations
 
+from .intuicja import HeurystykaOgolnosci  # przypięta linia bazowa: wyniki sprzed 27.11 odtwarzalne
+
 import itertools
 import json
 from pathlib import Path
@@ -24,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def pomiar(H, seed, rzad, slownik, cex_cap):
     sw = zbuduj_swiat(H, rzad, slownik)
-    pr = uruchom(H, seed, "A2", budzet=B, rzad=rzad, slownik=slownik, cex_cap=cex_cap)
+    pr = uruchom(H, seed, "A2", budzet=B, rzad=rzad, slownik=slownik, cex_cap=cex_cap, intuicja=HeurystykaOgolnosci())
     p = pr.pamiec
     kons = p.konsolidacja()
     W = sw.world

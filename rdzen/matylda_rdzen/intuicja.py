@@ -2,7 +2,8 @@
 
 LMM jest intuicją Matyldy: działa na tokenach zależności (strukturze tego, co z czego wynika),
 a nie na surowym tekście lub kodzie, i wskazuje, którą kandydaturę warto obudzić.
-Do czasu wyników LMM v2 (V0/V1/V2) port wypełnia prosta heurystyka.
+Domyślnie (od 27.11) port wypełnia `heurystyki.HeurystykaGrafu("oa+ob+kara")` (wyniki/S0_HEUR_RAPORT.md);
+`HeurystykaOgolnosci` niżej to nazwana linia bazowa. LMM odłożony (wyniki/LMM_RAPORT_v3.md).
 """
 from __future__ import annotations
 
