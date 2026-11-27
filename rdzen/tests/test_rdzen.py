@@ -304,3 +304,13 @@ def test_domyslna_intuicja_zalezy_od_rzedu():
     from matylda_rdzen.petla import domyslna_intuicja
     assert domyslna_intuicja(3).nazwa.startswith("heur_grafu")
     assert domyslna_intuicja(4).nazwa == "heur_przyrostu[m=1]"
+
+
+def test_rozmiar3_werdykt_i_przedzialy():
+    from matylda_rdzen.rozmiar3_walidacja import werdykt
+    from matylda_rdzen.rozmiar3_wybor_praw import przedzial
+    assert przedzial(20) == "male" and przedzial(300) == "male" and przedzial(400) is None and przedzial(500) == "duze"
+    assert werdykt("lepsza", "nierozstrzygnieta", (1.0, 0.2, 2.0)).startswith("WYNIK: lepsza w małych światach i efekt")
+    assert werdykt("lepsza", "lepsza", (0.1, -0.5, 0.7)).startswith("WYNIK: lepsza w małych światach; moderacja")
+    assert werdykt("nierozstrzygnieta", "lepsza", None).startswith("WYNIK NEGATYWNY dla hipotezy")
+    assert werdykt("nieinformatywny", "lepsza", None).startswith("NIEINFORMATYWNY")
