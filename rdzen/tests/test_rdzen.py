@@ -239,3 +239,33 @@ def test_prototyp_seedy_w_praxis(tmp_path):
         from matylda_praxis.adapters.sqlite import SQLiteArtifactRepository
         recs = SQLiteArtifactRepository(tmp_path / "praxis.sqlite3").list()
         assert len(recs) == o["seedy"] and all(r.state.value == "seed" for r in recs)
+
+
+def test_zachlanny_przyrost_liczy_jak_pokrycie():
+    """Przyrost wybranej krawędzi = przyrost Swiat.pokrycie; wybór sekwencyjny nie powtarza zysku."""
+    from matylda_rdzen.wyrocznie import zachlanny_przyrost
+    from matylda_rdzen.swiat import closure
+    sw = zbuduj_swiat("medialna", 3, "literaly")
+    tr = sorted(sw.TR)
+    a, b = [x for x, _ in tr[:5]], [y for _, y in tr[:5]]
+    wybor = zachlanny_przyrost(sw.names, set(), tr, a + a[:1], b + b[:1], np.zeros(6), k=6)
+    assert sorted(wybor[:5]) == [0, 1, 2, 3, 4] and wybor[5] == 5        # duplikat ostatni (zysk 0)
+    przed = sw.pokrycie(set())[0]
+    po = sw.pokrycie({(a[wybor[0]], b[wybor[0]])})[0]
+    assert po - przed >= 1
+
+
+def test_wyrocznia_przyrostu_i_heurystyka_przyrostu_w_petli():
+    """Wyrocznia: najpierw prawdziwe; heurystyka przyrostu nie zna świata (ten sam wynik dla tego samego ziarna)."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
+    from matylda_rdzen.wyrocznie import IntuicjaWyroczniaPrzyrostu
+    sw = zbuduj_swiat("medialna", 3, "literaly")
+    r1 = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=HeurystykaPrzyrostu(1))
+    r2 = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=HeurystykaPrzyrostu(1))
+    assert r1.dziennik.krzywa == r2.dziennik.krzywa
+    w = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=IntuicjaWyroczniaPrzyrostu(sw))
+    wyb = w.dziennik.wybrane_snu1
+    if wyb:
+        from matylda_rdzen.s1 import prawdziwa
+        flagi = [prawdziwa(sw, k.a, k.b) for k in wyb]
+        assert flagi == sorted(flagi, reverse=True)
