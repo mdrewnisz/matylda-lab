@@ -218,11 +218,11 @@ def test_lmm_v3_bez_praw_wykluczonych():
     assert not set(PRAWA_S0) & {H for H, *_ in L}
 
 
-def test_domyslna_intuicja_to_heurystyka_grafu():
-    """Od 27.11 domyślną intuicją rdzenia jest heurystyka grafu; linia bazowa pozostaje dostępna jawnie."""
-    from matylda_rdzen.heurystyki import HeurystykaGrafu
+def test_domyslna_intuicja_to_heurystyka_przyrostu():
+    """Od 27.11 (po ROZMIAR3) domyślną intuicją jest heurystyka przyrostu; linie bazowe pozostają dostępne jawnie."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
     a = uruchom("medialna", 1, "S", budzet=60)
-    b = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaGrafu("oa+ob+kara"))
+    b = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaPrzyrostu(1))
     c = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaOgolnosci())
     assert a.dziennik.krzywa == b.dziennik.krzywa
     assert c.wywolania > 0
@@ -299,8 +299,39 @@ def test_werdykt_przyrost_pelna_tabela():
     assert werdykt("nieinformatywny", "nieinformatywny").startswith("NIEINFORMATYWNY")
 
 
-def test_domyslna_intuicja_zalezy_od_rzedu():
-    """Decyzja Michała (27.11): w rzędzie 4 domyślna jest heurystyka przyrostu, w rzędzie 3 heurystyka grafu."""
+def test_domyslna_intuicja_w_obu_rzedach():
+    """Decyzja Michała (27.11, po ROZMIAR3): heurystyka przyrostu domyślna w rzędzie 3 i 4."""
     from matylda_rdzen.petla import domyslna_intuicja
-    assert domyslna_intuicja(3).nazwa.startswith("heur_grafu")
+    assert domyslna_intuicja(3).nazwa == "heur_przyrostu[m=1]"
     assert domyslna_intuicja(4).nazwa == "heur_przyrostu[m=1]"
+
+
+def test_rozmiar3_werdykt_i_przedzialy():
+    from matylda_rdzen.rozmiar3_walidacja import status_zamrozona, werdykt
+    from matylda_rdzen.rozmiar3_wybor_praw import przedzial
+    assert przedzial(20) == "male" and przedzial(300) == "male" and przedzial(400) is None and przedzial(500) == "duze"
+    tak, nie = {"p_perm": 0.01}, {"p_perm": 0.3}
+    assert werdykt("lepsza", "nierozstrzygnieta", tak).startswith("WYNIK: lepsza w małych, nie w dużych")
+    assert werdykt("lepsza", "lepsza", tak) .startswith("WYNIK: lepsza w małych i w dużych; efekt większy")
+    assert werdykt("lepsza", "lepsza", nie).startswith("WYNIK: lepsza w małych i w dużych; różnica")
+    assert werdykt("lepsza", "nieinformatywny", tak).startswith("WYNIK: lepsza w małych; duże nieinformatywne")
+    assert werdykt("lepsza", "gorsza", nie).startswith("WYNIK: lepsza w małych; moderacja niewykazana")
+    assert werdykt("nierozstrzygnieta", "lepsza", None).startswith("H_mod NIEPOTWIERDZONA")
+    assert werdykt("gorsza", "lepsza", None).startswith("WYNIK NEGATYWNY")
+    assert werdykt("nieinformatywny", "lepsza", None).startswith("NIEINFORMATYWNY")
+    assert not status_zamrozona("Status: **SZKIC**\nZamrożenie = ... „ZAMROŻONA” ...")
+    assert status_zamrozona("# T\n\nStatus: **ZAMROŻONA** (27.11)")
+
+
+def test_rozmiar3_permutacja_dokladna():
+    """Interakcja: dokładny test permutacyjny po prawach (252 podziały przy 5 + 5)."""
+    import numpy as np
+    from matylda_rdzen import rozmiar3_walidacja as R
+    A = {"male": [f"m{i}" for i in range(5)], "duze": [f"d{i}" for i in range(5)]}
+    stare = R._d
+    R._d = lambda run, H, seeds: np.full(10, 5.0 if H[0] == "m" else 0.0) + np.arange(10) * 0.01
+    try:
+        w = R.interakcja(None, A, range(10))
+    finally:
+        R._d = stare
+    assert w["n_podzialow"] == 252 and abs(w["p_perm"] - 1 / 252) < 1e-9 and w["I"] > 4.9
