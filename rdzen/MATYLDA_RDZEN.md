@@ -232,4 +232,5 @@ Stara `HeurystykaOgolnosci` zostaje nazwaną linią bazową; runnery wcześniejs
 - Heurystyka przyrostu na znanym porządku (`heurystyki_przyrostu.py`, m = 1). Prerejestracja 85f6d4d, 5 nowych praw z klasy większych termów, ziarna 1920–1979.
   - Rząd 4: lepsza od heurystyki grafu w **5/5 praw** (WYNIK). Zysk dotyczy tempa.
   - Rząd 3: 2/5, nierozstrzygnięte. Prawdopodobnie przeszkadza rozmiar świata (HIPOTEZA). Wąskim gardłem jest rozpoznanie prawdziwości w puli snu.
-- Domyślna intuicja bez zmian do decyzji Michała. Raport: `rdzen/wyniki/PRZYROST_RAPORT.md`.
+- Raport: `rdzen/wyniki/PRZYROST_RAPORT.md`.
+- **Decyzja Michała (27.11):** w rzędzie 4 domyślną intuicją jest heurystyka przyrostu (`petla.domyslna_intuicja`), w rzędzie 3 zostaje heurystyka grafu. To jawny wyjątek od §6 prerejestracji przy WYNIKU CZĘŚCIOWYM; zysk dotyczy tempa.

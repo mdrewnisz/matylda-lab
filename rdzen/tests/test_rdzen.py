@@ -297,3 +297,10 @@ def test_werdykt_przyrost_pelna_tabela():
     assert werdykt("nieinformatywny", "lepsza").startswith("WYNIK CZĘŚCIOWY")
     assert "NIEINFORMATYWNY" in werdykt("nieinformatywny", "nierozstrzygnieta") and "brak przewagi" in werdykt("nieinformatywny", "nierozstrzygnieta")
     assert werdykt("nieinformatywny", "nieinformatywny").startswith("NIEINFORMATYWNY")
+
+
+def test_domyslna_intuicja_zalezy_od_rzedu():
+    """Decyzja Michała (27.11): w rzędzie 4 domyślna jest heurystyka przyrostu, w rzędzie 3 heurystyka grafu."""
+    from matylda_rdzen.petla import domyslna_intuicja
+    assert domyslna_intuicja(3).nazwa.startswith("heur_grafu")
+    assert domyslna_intuicja(4).nazwa == "heur_przyrostu[m=1]"

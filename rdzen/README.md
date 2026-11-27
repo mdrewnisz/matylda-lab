@@ -16,7 +16,8 @@ czuwanie ──► sen (offline) ──► przebudzenie ──► czuwanie …
 | `swiat.py` | Świat zamknięty: magmy rzędu 3 z podłożonym prawem; prawda podstawowa tylko dla ewaluatora | przeniesione z `kg/kg0b_magmy.py` |
 | `pamiec.py` | Graf wiedzy (statusy, kontrprzykłady, genealogia), konsolidacja, **tokeny zależności** (macierz porządku częściowego klas), weryfikator, który tylko obala | KG-0 / KG-0b |
 | `fazy.py` | Proponujący dnia, czuwanie, strategie snu (S, S−K, S-los), kontrola W+, przebudzenie | nowe |
-| `intuicja.py` | Port `Intuicja`: dziś `HeurystykaOgolnosci`, miejsce na `IntuicjaLMM` | nowe |
+| `intuicja.py` | Port `Intuicja`; domyślnie (`petla.domyslna_intuicja`) rząd 3: `HeurystykaGrafu`, rząd 4: `HeurystykaPrzyrostu(1)`; linia bazowa `HeurystykaOgolnosci`; LMM odłożony | nowe |
+| `heurystyki_przyrostu.py`, `wyrocznie.py` | Heurystyka przyrostu pokrycia na znanym porządku; wyrocznia przyrostu (bramka kalibracyjna) | nowe |
 | `petla.py` | Pętla z budżetem weryfikatora; sen ma asercję „zero wywołań weryfikatora” | nowe |
 | `praxis_most.py` | Seedy z przebudzenia → `HypothesisRecord.seed` w Praxis albo JSON | most do Praxis |
 | `s0.py` | Eksperyment S-0 wg `PREREJESTRACJA_S0.md` | nowe |
@@ -59,6 +60,6 @@ Uruchomienie: `python -m matylda_rdzen.s1` (wymaga czystego drzewa). Ramię LMM 
 ## Prototyp rdzenia (27.11)
 
 `python -m matylda_rdzen.prototyp --prawo łączna --rzad 3 --ziarno 0 --wyj katalog`: czuwanie → sen (konsolidacja, powtórka, śmiałe przeczucia,
-intuicja = heurystyka grafu) → przebudzenie → każda intuicja jako rekord Praxis w stanie SEED (SQLite Praxis) z genealogią i werdyktem
+intuicja domyślna: rząd 3 heurystyka grafu, rząd 4 heurystyka przyrostu) → przebudzenie → każda intuicja jako rekord Praxis w stanie SEED (SQLite Praxis) z genealogią i werdyktem
 weryfikatora z następnego czuwania (OBALONA / NIEOBALONA_W_ZAKRESIE / WYNIKA_Z_WIEDZY / NIEROZSTRZYGNIĘTA). Sen i weryfikator nie zmieniają
 stanu rekordu w Praxis. To sklejenie istniejących części, nie nowy eksperyment: nie ma tu twierdzenia o skuteczności ponad wyniki S-1b i S-0 heurystyki.

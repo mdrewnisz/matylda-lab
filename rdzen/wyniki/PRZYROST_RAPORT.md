@@ -51,3 +51,7 @@ W T1-4 dla x(z(xx)) = z(xx) obie heurystyki, nowa i grafu, są istotnie gorsze o
 ## Zużyte ziarna
 
 1900–1919 (dev), 1920–1979 (walidacja), 1980–1989 (recenzja przed), 1990–1999 (recenzja po), 2000–2009 (pilot). Generatory praw: 9191 (0 praw), 9292 (walidacja), 9393 (pilot). Wolne od 2010.
+
+## Decyzja (27.11)
+
+Michał wybrał: **heurystyka przyrostu jako domyślna intuicja tylko w rzędzie 4**, w rzędzie 3 bez zmian. Wprowadzone w `petla.domyslna_intuicja`. Runnery wcześniejszych eksperymentów mają intuicje przypięte jawnie.
