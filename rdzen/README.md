@@ -55,3 +55,10 @@ Weryfikator jest wymienny: kolejnym krokiem może być sprawdzacz wynikania z `b
 wyrocznia pokrycia (bramka) i wyrocznia trafności (opisowa). Miara główna: pole pod krzywą pokrycia po dniu 1 przy równym zużytym budżecie,
 80 ziaren (100–179). Recenzja przed uruchomieniem: `wyniki/S1_RECENZJA_PRZED.md`; analiza mocy na prawach spoza S-0: `wyniki/s1_moc_prawa_spoza_s0.json`.
 Uruchomienie: `python -m matylda_rdzen.s1` (wymaga czystego drzewa). Ramię LMM tylko przez osobną poprawkę (sekcja 7).
+
+## Prototyp rdzenia (27.11)
+
+`python -m matylda_rdzen.prototyp --prawo łączna --rzad 3 --ziarno 0 --wyj katalog`: czuwanie → sen (konsolidacja, powtórka, śmiałe przeczucia,
+intuicja = heurystyka grafu) → przebudzenie → każda intuicja jako rekord Praxis w stanie SEED (SQLite Praxis) z genealogią i werdyktem
+weryfikatora z następnego czuwania (OBALONA / NIEOBALONA_W_ZAKRESIE / WYNIKA_Z_WIEDZY / NIEROZSTRZYGNIĘTA). Sen i weryfikator nie zmieniają
+stanu rekordu w Praxis. To sklejenie istniejących części, nie nowy eksperyment: nie ma tu twierdzenia o skuteczności ponad wyniki S-1b i S-0 heurystyki.

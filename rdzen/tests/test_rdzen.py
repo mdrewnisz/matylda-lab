@@ -226,3 +226,16 @@ def test_domyslna_intuicja_to_heurystyka_grafu():
     c = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaOgolnosci())
     assert a.dziennik.krzywa == b.dziennik.krzywa
     assert c.wywolania > 0
+
+
+def test_prototyp_seedy_w_praxis(tmp_path):
+    """Prototyp: każda intuicja z przebudzenia to rekord Praxis w stanie SEED; werdykt tylko obok, stan Praxis bez zmian."""
+    from matylda_rdzen.praxis_most import praxis_dostepny
+    from matylda_rdzen.prototyp import prototyp
+    o = prototyp("komutatywna", 3, 7, tmp_path, budzet_dnia=60, budzet_snu=20)
+    assert o["seedy"] == len(o["wpisy"]) > 0 and sum(o["werdykty"].values()) == o["seedy"]
+    assert (tmp_path / "przebudzenie.json").exists()
+    if praxis_dostepny():
+        from matylda_praxis.adapters.sqlite import SQLiteArtifactRepository
+        recs = SQLiteArtifactRepository(tmp_path / "praxis.sqlite3").list()
+        assert len(recs) == o["seedy"] and all(r.state.value == "seed" for r in recs)
