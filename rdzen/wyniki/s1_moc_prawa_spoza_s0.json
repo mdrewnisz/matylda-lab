@@ -1,0 +1,194 @@
+{
+ "T1|wyrocznia_pokrycia|pole|elastyczna x(yx)=(xy)x|srednia,sd": [
+  5.6402650076869385,
+  1.395424808790995
+ ],
+ "T1|wyrocznia_pokrycia|koniec|elastyczna x(yx)=(xy)x|srednia,sd": [
+  4.6375,
+  1.7481686846525994
+ ],
+ "T1|wyrocznia_pokrycia|pole|lewa samodystr.|srednia,sd": [
+  5.370971233847415,
+  2.2221448329039033
+ ],
+ "T1|wyrocznia_pokrycia|koniec|lewa samodystr.|srednia,sd": [
+  3.475,
+  3.327818354417801
+ ],
+ "T1|wyrocznia_pokrycia|pole|prawa samodystr.|srednia,sd": [
+  5.270645025227097,
+  2.0565933484108156
+ ],
+ "T1|wyrocznia_pokrycia|koniec|prawa samodystr.|srednia,sd": [
+  3.575,
+  3.2664009245651395
+ ],
+ "T1|wyrocznia_pokrycia|pole|x(xy)=xy|srednia,sd": [
+  5.543338695940725,
+  1.3475493939509418
+ ],
+ "T1|wyrocznia_pokrycia|koniec|x(xy)=xy|srednia,sd": [
+  4.7125,
+  2.0322017001272292
+ ],
+ "T1|wyrocznia_pokrycia|pole|(yx)x=y|srednia,sd": [
+  2.121345701686642,
+  1.4687079417786253
+ ],
+ "T1|wyrocznia_pokrycia|koniec|(yx)x=y|srednia,sd": [
+  1.925,
+  1.7802738553379929
+ ],
+ "T1|heurystyka|pole|elastyczna x(yx)=(xy)x|srednia,sd": [
+  0.5696414837927163,
+  1.0456724837514066
+ ],
+ "T1|heurystyka|koniec|elastyczna x(yx)=(xy)x|srednia,sd": [
+  0.3375,
+  2.2580065876786097
+ ],
+ "T1|heurystyka|pole|lewa samodystr.|srednia,sd": [
+  0.8466939217635415,
+  2.0205247813866443
+ ],
+ "T1|heurystyka|koniec|lewa samodystr.|srednia,sd": [
+  0.8875,
+  4.751299164439132
+ ],
+ "T1|heurystyka|pole|prawa samodystr.|srednia,sd": [
+  0.4191832847224143,
+  1.8270312845778285
+ ],
+ "T1|heurystyka|koniec|prawa samodystr.|srednia,sd": [
+  0.9625,
+  3.932059733778214
+ ],
+ "T1|heurystyka|pole|x(xy)=xy|srednia,sd": [
+  1.3923920108544787,
+  1.4249798647786676
+ ],
+ "T1|heurystyka|koniec|x(xy)=xy|srednia,sd": [
+  0.1625,
+  2.2385472409578497
+ ],
+ "T1|heurystyka|pole|(yx)x=y|srednia,sd": [
+  0.37775020563585915,
+  1.116867997110303
+ ],
+ "T1|heurystyka|koniec|(yx)x=y|srednia,sd": [
+  0.3,
+  2.0579115627256677
+ ],
+ "T1|wyrocznia_pokrycia|pole|n=20|P(>=3/5)": 1.0,
+ "T1|wyrocznia_pokrycia|koniec|n=20|P(>=3/5)": 1.0,
+ "T1|heurystyka|pole|n=20|P(>=3/5)": 0.6,
+ "T1|heurystyka|koniec|n=20|P(>=3/5)": 0.02,
+ "T1|wyrocznia_pokrycia|pole|n=40|P(>=3/5)": 1.0,
+ "T1|wyrocznia_pokrycia|koniec|n=40|P(>=3/5)": 1.0,
+ "T1|heurystyka|pole|n=40|P(>=3/5)": 0.945,
+ "T1|heurystyka|koniec|n=40|P(>=3/5)": 0.005,
+ "T1|wyrocznia_pokrycia|pole|n=60|P(>=3/5)": 1.0,
+ "T1|wyrocznia_pokrycia|koniec|n=60|P(>=3/5)": 1.0,
+ "T1|heurystyka|pole|n=60|P(>=3/5)": 1.0,
+ "T1|heurystyka|koniec|n=60|P(>=3/5)": 0.005,
+ "T1|wyrocznia_pokrycia|pole|n=80|P(>=3/5)": 1.0,
+ "T1|wyrocznia_pokrycia|koniec|n=80|P(>=3/5)": 1.0,
+ "T1|heurystyka|pole|n=80|P(>=3/5)": 1.0,
+ "T1|heurystyka|koniec|n=80|P(>=3/5)": 0.0,
+ "T1-4|wyrocznia_pokrycia|pole|elastyczna x(yx)=(xy)x|srednia,sd": [
+  3.8711931684496377,
+  1.3191777220545633
+ ],
+ "T1-4|wyrocznia_pokrycia|koniec|elastyczna x(yx)=(xy)x|srednia,sd": [
+  4.0125,
+  1.520639257023177
+ ],
+ "T1-4|wyrocznia_pokrycia|pole|lewa samodystr.|srednia,sd": [
+  4.064300757776031,
+  1.4444634265594773
+ ],
+ "T1-4|wyrocznia_pokrycia|koniec|lewa samodystr.|srednia,sd": [
+  4.55,
+  2.2522211259110416
+ ],
+ "T1-4|wyrocznia_pokrycia|pole|prawa samodystr.|srednia,sd": [
+  6.98455218916084,
+  2.471697691273608
+ ],
+ "T1-4|wyrocznia_pokrycia|koniec|prawa samodystr.|srednia,sd": [
+  13.275,
+  4.579778924795388
+ ],
+ "T1-4|wyrocznia_pokrycia|pole|x(xy)=xy|srednia,sd": [
+  0.05625,
+  0.2634490120392263
+ ],
+ "T1-4|wyrocznia_pokrycia|koniec|x(xy)=xy|srednia,sd": [
+  0.125,
+  0.5562148865321748
+ ],
+ "T1-4|wyrocznia_pokrycia|pole|(yx)x=y|srednia,sd": [
+  0.0,
+  0.0
+ ],
+ "T1-4|wyrocznia_pokrycia|koniec|(yx)x=y|srednia,sd": [
+  0.0,
+  0.0
+ ],
+ "T1-4|heurystyka|pole|elastyczna x(yx)=(xy)x|srednia,sd": [
+  1.678899255140287,
+  1.1782888179536646
+ ],
+ "T1-4|heurystyka|koniec|elastyczna x(yx)=(xy)x|srednia,sd": [
+  0.925,
+  1.8626258346753382
+ ],
+ "T1-4|heurystyka|pole|lewa samodystr.|srednia,sd": [
+  1.2280240924966284,
+  1.498412853951516
+ ],
+ "T1-4|heurystyka|koniec|lewa samodystr.|srednia,sd": [
+  1.025,
+  2.190747589294577
+ ],
+ "T1-4|heurystyka|pole|prawa samodystr.|srednia,sd": [
+  1.1203980130354818,
+  1.194636341823483
+ ],
+ "T1-4|heurystyka|koniec|prawa samodystr.|srednia,sd": [
+  1.9125,
+  1.9633756008466645
+ ],
+ "T1-4|heurystyka|pole|x(xy)=xy|srednia,sd": [
+  0.00625,
+  0.1248436522214885
+ ],
+ "T1-4|heurystyka|koniec|x(xy)=xy|srednia,sd": [
+  0.025,
+  0.2222048604328897
+ ],
+ "T1-4|heurystyka|pole|(yx)x=y|srednia,sd": [
+  0.0,
+  0.0
+ ],
+ "T1-4|heurystyka|koniec|(yx)x=y|srednia,sd": [
+  0.0,
+  0.0
+ ],
+ "T1-4|wyrocznia_pokrycia|pole|n=20|P(>=3/5)": 1.0,
+ "T1-4|wyrocznia_pokrycia|koniec|n=20|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|pole|n=20|P(>=3/5)": 0.985,
+ "T1-4|heurystyka|koniec|n=20|P(>=3/5)": 0.39,
+ "T1-4|wyrocznia_pokrycia|pole|n=40|P(>=3/5)": 1.0,
+ "T1-4|wyrocznia_pokrycia|koniec|n=40|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|pole|n=40|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|koniec|n=40|P(>=3/5)": 0.895,
+ "T1-4|wyrocznia_pokrycia|pole|n=60|P(>=3/5)": 1.0,
+ "T1-4|wyrocznia_pokrycia|koniec|n=60|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|pole|n=60|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|koniec|n=60|P(>=3/5)": 1.0,
+ "T1-4|wyrocznia_pokrycia|pole|n=80|P(>=3/5)": 1.0,
+ "T1-4|wyrocznia_pokrycia|koniec|n=80|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|pole|n=80|P(>=3/5)": 1.0,
+ "T1-4|heurystyka|koniec|n=80|P(>=3/5)": 1.0
+}

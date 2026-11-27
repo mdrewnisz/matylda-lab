@@ -1,0 +1,164 @@
+"""Trening i ocena offline intuicji LMM. WYŁĄCZNIE prawa spoza S-0 (zakaz z sekcji 7 PREREJESTRACJA_S1.md).
+
+    python -m matylda_rdzen.lmm_trening            # dane → trening → wagi dane/lmm_intuicja_v0.pt → ocena offline
+
+Podział: prawa treningowe (TRENING) i walidacyjne (WALIDACJA = prawa analizy mocy S-1/S-1b), oba rzędy, świat jak w S-1b.
+Migawki zbierane w pętli S (budżety S-1b) z ramionami losowa i heurystyka; etykiety z prawdy świata (tylko te światy).
+Ziarna: trening 1100–1199, walidacja 1200–1239 (ewaluacja offline), 1300–1339 (ewaluacja w pętli).
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import time
+
+import numpy as np
+
+from .intuicja import HeurystykaOgolnosci, IntuicjaLosowa
+from .lmm_intuicja import etykiety, migawka, tensory, zbuduj_model
+from .petla import uruchom
+from .s1 import CEX, ROOT, SLOWNIK
+from .s1b import BUDZET_DNIA, BUDZET_SNU
+from .swiat import PRAWA_S0, zbuduj_swiat
+
+TRENING = [("unipotentna xx=yy", 3), ("lewa alternat. x(xy)=(xx)y", 3), ("prawa alternat. (yx)x=y(xx)", 3),
+           ("unipotentna xx=yy", 4), ("lewa alternat. x(xy)=(xx)y", 4), ("prawa alternat. (yx)x=y(xx)", 4),
+           ("półsymetr. y(xy)=x", 4)]
+WALIDACJA = [(H, rz) for rz in (3, 4) for H in ("elastyczna x(yx)=(xy)x", "lewa samodystr.", "prawa samodystr.",
+                                                 "x(xy)=xy", "(yx)x=y")]
+_L = ["unipotentna xx=yy", "lewa alternat. x(xy)=(xx)y", "prawa alternat. (yx)x=y(xx)", "półsymetr. y(xy)=x"]
+_S = ["quasigrupa", "lewo-skracalna", "prawo-skracalna", "ma neutralny", "ma lewy neutralny", "ma zero", "ma idempotent"]
+
+
+def swiaty_v1():
+    """v1 (po walidacji v0: słaba generalizacja na małe światy): + światy własności strukturalnych i koniunkcji
+    prawo ∧ własność, prawo ∧ prawo (bez praw S-0); tylko światy z ≥ 20 magmami i |TR| ≥ 15."""
+    from itertools import combinations
+    kand = _S + [f"{a} ∧ {b}" for a in _L for b in _S] + [f"{a} ∧ {b}" for a, b in combinations(_L, 2)]
+    out = list(TRENING)
+    for rz in (3, 4):
+        for H in kand:
+            sw = zbuduj_swiat(H, rz, SLOWNIK)
+            if len(sw.world) >= 20 and len(sw.TR) >= 15:
+                out.append((H, rz))
+    return out
+
+
+WERSJA = "v1"
+SEEDS_TRENING = range(1100, 1200)
+SEEDS_WALID = range(1200, 1240)
+KONFIG = {"d": 64, "L": 4, "heads": 4}
+EPOKI, LR, ZIARNO = 8, 1e-3, 2024
+WAGI = ROOT / "dane" / f"lmm_intuicja_{WERSJA}.pt"
+SEEDS_TRENING_V1 = range(1100, 1140)
+assert not any(c in PRAWA_S0 for H, _ in TRENING + WALIDACJA for c in H.split(" ∧ "))
+
+
+class Nagrywacz:
+    """Owija ramię i zapisuje migawkę każdego snu (pula, tokeny zależności, etykiety ewaluatora)."""
+
+    def __init__(self, inner, sw, bufor):
+        self.inner, self.sw, self.bufor = inner, sw, bufor
+        self.nazwa = inner.nazwa
+
+    def ocen(self, kandydaci, kontekst):
+        s = migawka(kandydaci, kontekst)
+        s["y"] = etykiety(kandydaci, self.sw)
+        s["heur"] = HeurystykaOgolnosci().ocen(kandydaci, kontekst).astype(np.float32)
+        self.bufor.append(s)
+        return self.inner.ocen(kandydaci, kontekst)
+
+
+def zbierz(swiaty, seeds):
+    bufor = []
+    for H, rz in swiaty:
+        sw = zbuduj_swiat(H, rz, SLOWNIK)
+        for s in seeds:
+            for inner in (IntuicjaLosowa(s), HeurystykaOgolnosci()):
+                uruchom(H, s, "S", budzet=BUDZET_DNIA, budzet_snu=BUDZET_SNU, rzad=rz, slownik=SLOWNIK, cex_cap=CEX,
+                        intuicja=Nagrywacz(inner, sw, bufor))
+    return [b for b in bufor if len(b["y"]) > 0]
+
+
+def trenuj(dane):
+    import torch
+    torch.manual_seed(ZIARNO)
+    torch.use_deterministic_algorithms(True)
+    model = zbuduj_model(**KONFIG)
+    opt = torch.optim.Adam(model.parameters(), lr=LR)
+    rng = np.random.default_rng(ZIARNO)
+    T = [(tensory(s), torch.from_numpy(s["y"])) for s in dane]
+    hist = []
+    for ep in range(EPOKI):
+        model.train()
+        tot = 0.0
+        for i in rng.permutation(len(T)):
+            x, y = T[i]
+            loss = torch.nn.functional.binary_cross_entropy_with_logits(model(*x), y)
+            opt.zero_grad()
+            loss.backward()
+            opt.step()
+            tot += float(loss.detach())
+        hist.append(tot / len(T))
+        print(f"epoka {ep + 1}: strata {hist[-1]:.4f}", flush=True)
+    return model, hist
+
+
+def auc(score, lab):
+    pos, neg = score[lab], score[~lab]
+    if len(pos) == 0 or len(neg) == 0:
+        return None
+    from scipy.stats import rankdata
+    r = rankdata(np.concatenate([pos, neg]))   # remisy: średnie rangi (stała ocena → 0,5). Do 24.11 argsort: AUC heurystyki w JSON v0/v1 zaniżone
+    return float((r[:len(pos)].sum() - len(pos) * (len(pos) + 1) / 2) / (len(pos) * len(neg)))
+
+
+def ocena_offline(model, dane, k=10):
+    """Na każdej migawce: AUC (prawda), AUC (na TR), wartość top-k (średnia etykieta 0/0,5/1), osobno dla śmiałych."""
+    import torch
+    model.eval()
+    wyn = {"lmm": [], "heur": [], "los": []}
+    rng = np.random.default_rng(0)
+    for s in dane:
+        with torch.no_grad():
+            sc = {"lmm": model(*tensory(s)).numpy(), "heur": s["heur"], "los": rng.random(len(s["y"]))}
+        y = s["y"]
+        sm = s["C"][:, 1] > 0.5
+        for nm, v in sc.items():
+            top = np.argsort(-v + 1e-9 * rng.random(len(v)))[:k]
+            wyn[nm].append((auc(v, y > 0), auc(v, y == 1.0), float(y[top].mean()),
+                            auc(v[sm], y[sm] > 0) if sm.sum() > 1 else None))
+    out = {}
+    for nm, L in wyn.items():
+        A = np.array([[np.nan if x is None else x for x in r] for r in L], float)
+        out[nm] = {"auc_prawda": float(np.nanmean(A[:, 0])), "auc_TR": float(np.nanmean(A[:, 1])),
+                   "topk_wartosc": float(np.nanmean(A[:, 2])), "auc_prawda_smiale": float(np.nanmean(A[:, 3]))}
+    return out
+
+
+def main():
+    import torch
+    torch.set_num_threads(4)
+    assert not any(c in PRAWA_S0 for H, _ in swiaty_v1() for c in H.split(" ∧ "))
+    t = time.time()
+    tr = zbierz(swiaty_v1(), SEEDS_TRENING_V1) if WERSJA == "v1" else zbierz(TRENING, SEEDS_TRENING)
+    wa = zbierz(WALIDACJA, SEEDS_WALID)
+    print(f"migawki: trening {len(tr)}, walidacja {len(wa)} ({time.time() - t:.0f} s)", flush=True)
+    model, hist = trenuj(tr)
+    WAGI.parent.mkdir(exist_ok=True)
+    torch.save({"konfig": KONFIG, "wagi": model.state_dict()}, WAGI)
+    rap = {"wagi_sha256": hashlib.sha256(WAGI.read_bytes()).hexdigest(),
+           "kod_sha256": {f: hashlib.sha256((ROOT / "matylda_rdzen" / f).read_bytes()).hexdigest()
+                          for f in ("lmm_intuicja.py", "lmm_trening.py", "lmm_bsd2_models.py")},
+           "torch": torch.__version__, "wersja": WERSJA,
+           "trening": swiaty_v1() if WERSJA == "v1" else TRENING, "walidacja": WALIDACJA,
+           "seeds_trening": ([1100, 1139] if WERSJA == "v1" else [1100, 1199]), "seeds_walid": [SEEDS_WALID.start, SEEDS_WALID.stop - 1],
+           "konfig": KONFIG, "epoki": EPOKI, "lr": LR, "ziarno": ZIARNO, "strata": hist,
+           "migawki": {"trening": len(tr), "walidacja": len(wa)},
+           "offline_trening": ocena_offline(model, tr[::5]), "offline_walidacja": ocena_offline(model, wa)}
+    (ROOT / "wyniki" / f"lmm_trening_{WERSJA}.json").write_text(json.dumps(rap, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(json.dumps({k: rap[k] for k in ("offline_trening", "offline_walidacja", "wagi_sha256")}, ensure_ascii=False, indent=1))
+
+
+if __name__ == "__main__":
+    main()

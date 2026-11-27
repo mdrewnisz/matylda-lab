@@ -1,0 +1,738 @@
+{
+ "commit": "1183968164753de8357bfdfb3539211f06e0a73c",
+ "prerejestracja_sha256": "07aef1ac644559a14df5eda80f7be4ce3cda8a82a03fbf9a79106d1abd53dcf3",
+ "wzor": "oa+ob+kara",
+ "ramiona": [
+  "losowa",
+  "heurystyka",
+  "heur_grafu",
+  "wyrocznia_pokrycia"
+ ],
+ "kod_sha256": {
+  "s0_heur.py": "fc9f67e95be0f73f843da5c5e54db00f948bf1ad32575f63a6a370edc958e4ee",
+  "heur_walidacja.py": "24798aa495e97a8275e07690806320166ba8aca218fd035dc3662d405c70f9a3",
+  "heurystyki.py": "bbbf3a71c2da07d94391a35c8f865ba0c99f12d53f60e7510d0075bca5ed8931",
+  "intuicja.py": "676b31a724ba6a38fbb17db06b44d612ffe6f03d717f759ca993142a990e99e0",
+  "fazy.py": "b581c4157a91993a8532bd6a31277dc5b157503cd02a30528e64ea4a5831d363",
+  "petla.py": "6ef65152d5b7cd053b1674a3f0ff86c0d4fc9d613df6d4f274e007932f1e195b",
+  "pamiec.py": "d945cfbeb5a5e826227361a6ea6b8e455bc8df203fc85baa262c7e1516c2576b",
+  "swiat.py": "f762475c1fbf7e3ba9293940f88f55a5404a9758b773b4b964cb9361f41ba103",
+  "s0.py": "68ca2e724743a6d527c7fc76529faea645d14b7eb59e0dd397c5c2c65598f2c0",
+  "s1.py": "9c65b6eac392b1c67f20937f225dee4291980c266b1e411bf91891d4c53b1422",
+  "s1b.py": "d35676bb28bea2ec6be210dd28cde0370c48665f327ba7d70ee9401d4fb8e3df",
+  "uniwersum4.py": "2b3466444a1798b2675bfa0077f874da2312254b44c35d52e39e729ecedb27d1"
+ },
+ "kontrasty": {
+  "T1|heur_grafu-heurystyka|idempotentna|pole": [
+   2.3249514772018967,
+   2.006751801294828,
+   2.661484915048496
+  ],
+  "T1|heur_grafu-heurystyka|idempotentna|stale_okno": [
+   2.1730392156862743,
+   1.7955759803921567,
+   2.544142156862745
+  ],
+  "T1|heur_grafu-heurystyka|idempotentna|koncowe": [
+   3.025,
+   2.2375,
+   3.8
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|idempotentna|pole": [
+   3.8500560153738306,
+   3.4986151578866975,
+   4.197804795925788
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|idempotentna|stale_okno": [
+   3.386764705882353,
+   2.896317401960784,
+   3.8625
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|idempotentna|koncowe": [
+   2.875,
+   2.0375,
+   3.7125
+  ],
+  "T1|heur_grafu-losowa|idempotentna|pole": [
+   3.02668697768802,
+   2.6126916532231723,
+   3.427473159013399
+  ],
+  "T1|heur_grafu-losowa|idempotentna|stale_okno": [
+   2.824754901960784,
+   2.4004779411764696,
+   3.2353002450980393
+  ],
+  "T1|heur_grafu-losowa|idempotentna|koncowe": [
+   2.8375,
+   2.1375,
+   3.575
+  ],
+  "T1|heurystyka-losowa|idempotentna|pole": [
+   0.6431030820562877,
+   0.315750672840577,
+   0.9694545502461642
+  ],
+  "T1|heurystyka-losowa|idempotentna|stale_okno": [
+   0.6517156862745095,
+   0.31151960784313715,
+   0.9870220588235288
+  ],
+  "T1|heurystyka-losowa|idempotentna|koncowe": [
+   -0.1875,
+   -0.8,
+   0.4375
+  ],
+  "T1|heur_grafu-heurystyka|komutatywna|pole": [
+   2.436950743259446,
+   2.2007904855893843,
+   2.6696663230263047
+  ],
+  "T1|heur_grafu-heurystyka|komutatywna|stale_okno": [
+   1.883823529411765,
+   1.6254901960784316,
+   2.1281862745098037
+  ],
+  "T1|heur_grafu-heurystyka|komutatywna|koncowe": [
+   0.4625,
+   0.0125,
+   0.8875
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|komutatywna|pole": [
+   2.3446867640280225,
+   1.9713868807056225,
+   2.737333916975663
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|komutatywna|stale_okno": [
+   1.9769607843137251,
+   1.5975428921568626,
+   2.3806433823529405
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|komutatywna|koncowe": [
+   0.4375,
+   0.075,
+   0.8375
+  ],
+  "T1|heur_grafu-losowa|komutatywna|pole": [
+   3.5771487732389167,
+   3.24183866731719,
+   3.8981516372458827
+  ],
+  "T1|heur_grafu-losowa|komutatywna|stale_okno": [
+   2.873039215686275,
+   2.559558823529412,
+   3.1806433823529416
+  ],
+  "T1|heur_grafu-losowa|komutatywna|koncowe": [
+   0.7875,
+   0.45,
+   1.1625
+  ],
+  "T1|heurystyka-losowa|komutatywna|pole": [
+   1.1414102966403772,
+   0.8576562845364479,
+   1.4175310440193618
+  ],
+  "T1|heurystyka-losowa|komutatywna|stale_okno": [
+   0.9892156862745101,
+   0.7372365196078426,
+   1.235808823529412
+  ],
+  "T1|heurystyka-losowa|komutatywna|koncowe": [
+   0.325,
+   -0.0625,
+   0.7625
+  ],
+  "T1|heur_grafu-heurystyka|x(xy)=y|pole": [
+   1.4980842315081362,
+   1.2315027761836217,
+   1.7812095214609722
+  ],
+  "T1|heur_grafu-heurystyka|x(xy)=y|stale_okno": [
+   0.9995098039215687,
+   0.7504840686274509,
+   1.2769730392156862
+  ],
+  "T1|heur_grafu-heurystyka|x(xy)=y|koncowe": [
+   0.0125,
+   0.0,
+   0.0375
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|x(xy)=y|pole": [
+   1.2872700388271006,
+   1.0580582217318082,
+   1.510532802304912
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|x(xy)=y|stale_okno": [
+   0.7323529411764707,
+   0.5624938725490192,
+   0.9058884803921576
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|x(xy)=y|koncowe": [
+   -0.025,
+   -0.1125,
+   0.0375
+  ],
+  "T1|heur_grafu-losowa|x(xy)=y|pole": [
+   2.1593953262750234,
+   1.8033418490254394,
+   2.5366755420474103
+  ],
+  "T1|heur_grafu-losowa|x(xy)=y|stale_okno": [
+   1.3387254901960786,
+   1.0188664215686278,
+   1.6978063725490193
+  ],
+  "T1|heur_grafu-losowa|x(xy)=y|koncowe": [
+   0.0875,
+   0.0,
+   0.2625
+  ],
+  "T1|heurystyka-losowa|x(xy)=y|pole": [
+   0.5710871932139746,
+   0.24813081867527764,
+   0.8883844713057706
+  ],
+  "T1|heurystyka-losowa|x(xy)=y|stale_okno": [
+   0.33921568627450976,
+   0.08946078431372548,
+   0.5975551470588232
+  ],
+  "T1|heurystyka-losowa|x(xy)=y|koncowe": [
+   0.075,
+   -0.025,
+   0.25
+  ],
+  "T1|heur_grafu-heurystyka|łączna|pole": [
+   4.1219524946423505,
+   3.9266239693875877,
+   4.324113258177984
+  ],
+  "T1|heur_grafu-heurystyka|łączna|stale_okno": [
+   4.679411764705883,
+   4.4428921568627455,
+   4.925
+  ],
+  "T1|heur_grafu-heurystyka|łączna|koncowe": [
+   5.7375,
+   4.8375,
+   6.675
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|łączna|pole": [
+   3.8742947907918106,
+   3.5413886016054157,
+   4.212575980645468
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|łączna|stale_okno": [
+   3.8634803921568626,
+   3.5271936274509805,
+   4.203216911764706
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|łączna|koncowe": [
+   3.225,
+   2.5375,
+   3.9375
+  ],
+  "T1|heur_grafu-losowa|łączna|pole": [
+   5.964854677321673,
+   5.588475560086909,
+   6.347192514307375
+  ],
+  "T1|heur_grafu-losowa|łączna|stale_okno": [
+   6.406862745098039,
+   5.966415441176471,
+   6.847561274509803
+  ],
+  "T1|heur_grafu-losowa|łączna|koncowe": [
+   7.5125,
+   6.3621875,
+   8.6625
+  ],
+  "T1|heurystyka-losowa|łączna|pole": [
+   1.7424411546969325,
+   1.276186539521045,
+   2.1840152437340317
+  ],
+  "T1|heurystyka-losowa|łączna|stale_okno": [
+   1.7274509803921565,
+   1.2602941176470583,
+   2.172794117647058
+  ],
+  "T1|heurystyka-losowa|łączna|koncowe": [
+   1.775,
+   0.9125,
+   2.6125
+  ],
+  "T1|heur_grafu-heurystyka|medialna|pole": [
+   1.3361597764633277,
+   1.10061118490625,
+   1.5799508212676043
+  ],
+  "T1|heur_grafu-heurystyka|medialna|stale_okno": [
+   0.7411764705882353,
+   0.580876225490196,
+   0.917401960784314
+  ],
+  "T1|heur_grafu-heurystyka|medialna|koncowe": [
+   0.0375,
+   0.0,
+   0.1125
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|medialna|pole": [
+   3.4350387058844163,
+   3.0542545306362503,
+   3.8242249398857093
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|medialna|stale_okno": [
+   1.6696078431372547,
+   1.3906801470588233,
+   1.9632536764705877
+  ],
+  "T1|wyrocznia_pokrycia-heurystyka|medialna|koncowe": [
+   0.0,
+   -0.15,
+   0.15
+  ],
+  "T1|heur_grafu-losowa|medialna|pole": [
+   1.5676403905745075,
+   1.2905568953554563,
+   1.8501035940804045
+  ],
+  "T1|heur_grafu-losowa|medialna|stale_okno": [
+   0.7767156862745095,
+   0.612242647058823,
+   0.9517218137254901
+  ],
+  "T1|heur_grafu-losowa|medialna|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|heurystyka-losowa|medialna|pole": [
+   0.1932350561235052,
+   -0.052643751676143394,
+   0.431884369612265
+  ],
+  "T1|heurystyka-losowa|medialna|stale_okno": [
+   0.0355392156862742,
+   -0.10564338235294154,
+   0.1725551470588232
+  ],
+  "T1|heurystyka-losowa|medialna|koncowe": [
+   -0.0375,
+   -0.1125,
+   0.0
+  ],
+  "T1-4|heur_grafu-heurystyka|idempotentna|pole": [
+   -0.0941912192090184,
+   -0.26039881071212745,
+   0.06855953095683778
+  ],
+  "T1-4|heur_grafu-heurystyka|idempotentna|stale_okno": [
+   0.05269607843137294,
+   -0.07304534313725455,
+   0.18015318627451113
+  ],
+  "T1-4|heur_grafu-heurystyka|idempotentna|koncowe": [
+   0.425,
+   0.2375,
+   0.625
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|idempotentna|pole": [
+   2.7314028898964557,
+   2.492120804488359,
+   2.9739976178938443
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|idempotentna|stale_okno": [
+   1.9931372549019606,
+   1.6938664215686265,
+   2.2955943627450983
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|idempotentna|koncowe": [
+   0.5625,
+   0.325,
+   0.8125
+  ],
+  "T1-4|heur_grafu-losowa|idempotentna|pole": [
+   0.7525210266697092,
+   0.5045282622858651,
+   1.0028262055315964
+  ],
+  "T1-4|heur_grafu-losowa|idempotentna|stale_okno": [
+   0.6700980392156859,
+   0.4654411764705876,
+   0.8860294117647054
+  ],
+  "T1-4|heur_grafu-losowa|idempotentna|koncowe": [
+   0.525,
+   0.275,
+   0.8
+  ],
+  "T1-4|heurystyka-losowa|idempotentna|pole": [
+   0.7879678525931229,
+   0.6082369648213038,
+   0.9765011747852732
+  ],
+  "T1-4|heurystyka-losowa|idempotentna|stale_okno": [
+   0.617401960784313,
+   0.4590624999999992,
+   0.7887254901960775
+  ],
+  "T1-4|heurystyka-losowa|idempotentna|koncowe": [
+   0.1,
+   -0.0875,
+   0.2875
+  ],
+  "T1-4|heur_grafu-heurystyka|komutatywna|pole": [
+   0.8679356542189506,
+   0.7043646305390495,
+   1.0342813742219104
+  ],
+  "T1-4|heur_grafu-heurystyka|komutatywna|stale_okno": [
+   0.14803921568627443,
+   -0.08529411764705871,
+   0.36985294117646994
+  ],
+  "T1-4|heur_grafu-heurystyka|komutatywna|koncowe": [
+   -0.65,
+   -1.05,
+   -0.275
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|komutatywna|pole": [
+   2.081200940076979,
+   1.854253271730699,
+   2.316013056116779
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|komutatywna|stale_okno": [
+   1.2100490196078433,
+   0.9740196078431378,
+   1.4301470588235288
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|komutatywna|koncowe": [
+   0.1,
+   -0.2375,
+   0.4
+  ],
+  "T1-4|heur_grafu-losowa|komutatywna|pole": [
+   1.6653263836610503,
+   1.42880484235778,
+   1.906545582238427
+  ],
+  "T1-4|heur_grafu-losowa|komutatywna|stale_okno": [
+   0.6267156862745098,
+   0.35661151960784265,
+   0.9017279411764707
+  ],
+  "T1-4|heur_grafu-losowa|komutatywna|koncowe": [
+   -0.65,
+   -1.0125,
+   -0.3125
+  ],
+  "T1-4|heurystyka-losowa|komutatywna|pole": [
+   0.799103144947521,
+   0.5444448690726897,
+   1.0624114702706935
+  ],
+  "T1-4|heurystyka-losowa|komutatywna|stale_okno": [
+   0.4786764705882353,
+   0.27400735294117595,
+   0.7051470588235292
+  ],
+  "T1-4|heurystyka-losowa|komutatywna|koncowe": [
+   0.0,
+   -0.2625,
+   0.31281249999999544
+  ],
+  "T1-4|heur_grafu-heurystyka|x(xy)=y|pole": [
+   1.0269436033306611,
+   0.8051533004222755,
+   1.2665438485316458
+  ],
+  "T1-4|heur_grafu-heurystyka|x(xy)=y|stale_okno": [
+   0.9585784313725487,
+   0.7274509803921568,
+   1.2007536764705884
+  ],
+  "T1-4|heur_grafu-heurystyka|x(xy)=y|koncowe": [
+   0.575,
+   0.125,
+   1.075
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|x(xy)=y|pole": [
+   2.585023051870438,
+   2.232519256694888,
+   2.9424239464843893
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|x(xy)=y|stale_okno": [
+   2.1821078431372545,
+   1.7649509803921564,
+   2.5968321078431367
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|x(xy)=y|koncowe": [
+   0.5875,
+   -0.0125,
+   1.2125
+  ],
+  "T1-4|heur_grafu-losowa|x(xy)=y|pole": [
+   1.7877661280679427,
+   1.4559427947419128,
+   2.1382646194406907
+  ],
+  "T1-4|heur_grafu-losowa|x(xy)=y|stale_okno": [
+   1.7264705882352942,
+   1.404405637254902,
+   2.073535539215686
+  ],
+  "T1-4|heur_grafu-losowa|x(xy)=y|koncowe": [
+   0.925,
+   0.425,
+   1.525
+  ],
+  "T1-4|heurystyka-losowa|x(xy)=y|pole": [
+   0.7429141551748539,
+   0.4940503411758142,
+   0.9972748800885244
+  ],
+  "T1-4|heurystyka-losowa|x(xy)=y|stale_okno": [
+   0.7678921568627456,
+   0.5058823529411768,
+   1.0458455882352944
+  ],
+  "T1-4|heurystyka-losowa|x(xy)=y|koncowe": [
+   0.35,
+   -0.25,
+   1.0
+  ],
+  "T1-4|heur_grafu-heurystyka|łączna|pole": [
+   -0.9652838626674525,
+   -1.2772004256410756,
+   -0.6667425377167686
+  ],
+  "T1-4|heur_grafu-heurystyka|łączna|stale_okno": [
+   -0.5365196078431367,
+   -0.8630024509803913,
+   -0.23431372549019577
+  ],
+  "T1-4|heur_grafu-heurystyka|łączna|koncowe": [
+   1.025,
+   0.7,
+   1.3875
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|łączna|pole": [
+   5.878315527861399,
+   5.542619402988072,
+   6.220689801805424
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|łączna|stale_okno": [
+   5.064215686274512,
+   4.660049019607845,
+   5.483627450980394
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|łączna|koncowe": [
+   1.45,
+   0.925,
+   2.0625
+  ],
+  "T1-4|heur_grafu-losowa|łączna|pole": [
+   1.1657684675069486,
+   0.7331425885771633,
+   1.567370592916587
+  ],
+  "T1-4|heur_grafu-losowa|łączna|stale_okno": [
+   1.2713235294117653,
+   0.8563725490196079,
+   1.6549142156862762
+  ],
+  "T1-4|heur_grafu-losowa|łączna|koncowe": [
+   1.1,
+   0.675,
+   1.5875
+  ],
+  "T1-4|heurystyka-losowa|łączna|pole": [
+   1.9617537199084822,
+   1.6407584108687396,
+   2.266762255186814
+  ],
+  "T1-4|heurystyka-losowa|łączna|stale_okno": [
+   1.807843137254902,
+   1.499503676470589,
+   2.1088235294117634
+  ],
+  "T1-4|heurystyka-losowa|łączna|koncowe": [
+   0.075,
+   -0.25,
+   0.4125
+  ],
+  "T1-4|heur_grafu-heurystyka|medialna|pole": [
+   0.6561960598499047,
+   0.5145735492558013,
+   0.7983160279437957
+  ],
+  "T1-4|heur_grafu-heurystyka|medialna|stale_okno": [
+   0.35318627450980394,
+   0.2730330882352942,
+   0.4362745098039218
+  ],
+  "T1-4|heur_grafu-heurystyka|medialna|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|medialna|pole": [
+   2.9060906991678834,
+   2.6813132325620406,
+   3.1374980244839517
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|medialna|stale_okno": [
+   1.3683823529411765,
+   1.2122549019607844,
+   1.5330943627450981
+  ],
+  "T1-4|wyrocznia_pokrycia-heurystyka|medialna|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu-losowa|medialna|pole": [
+   1.3589587447411315,
+   1.1422631931399543,
+   1.5833954047001138
+  ],
+  "T1-4|heur_grafu-losowa|medialna|stale_okno": [
+   0.6522058823529411,
+   0.5416666666666667,
+   0.7705882352941175
+  ],
+  "T1-4|heur_grafu-losowa|medialna|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heurystyka-losowa|medialna|pole": [
+   0.6876881371381783,
+   0.47677932647573545,
+   0.9077840591580888
+  ],
+  "T1-4|heurystyka-losowa|medialna|stale_okno": [
+   0.29901960784313714,
+   0.18822303921568623,
+   0.4149509803921566
+  ],
+  "T1-4|heurystyka-losowa|medialna|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "per_swiat": {
+  "T1": {
+   "prawa_wazne": [
+    "idempotentna",
+    "komutatywna",
+    "x(xy)=y",
+    "łączna",
+    "medialna"
+   ],
+   "bramka_prawa": [
+    "idempotentna",
+    "komutatywna",
+    "x(xy)=y",
+    "łączna",
+    "medialna"
+   ],
+   "lepsza": [
+    "idempotentna",
+    "komutatywna",
+    "x(xy)=y",
+    "łączna",
+    "medialna"
+   ],
+   "gorsza": [],
+   "ulamek_luki": {
+    "idempotentna": 0.6038747145283158,
+    "komutatywna": 1.0393502367339336,
+    "x(xy)=y": 1.1637684295620827,
+    "łączna": 1.063923298877297,
+    "medialna": 0.3889795402230578
+   },
+   "bramka": true,
+   "kategoria": "lepsza"
+  },
+  "T1-4": {
+   "prawa_wazne": [
+    "idempotentna",
+    "komutatywna",
+    "x(xy)=y",
+    "łączna",
+    "medialna"
+   ],
+   "bramka_prawa": [
+    "idempotentna",
+    "komutatywna",
+    "x(xy)=y",
+    "łączna",
+    "medialna"
+   ],
+   "lepsza": [
+    "komutatywna",
+    "x(xy)=y",
+    "medialna"
+   ],
+   "gorsza": [
+    "łączna"
+   ],
+   "ulamek_luki": {
+    "idempotentna": -0.0344845572059086,
+    "komutatywna": 0.4170359706770302,
+    "x(xy)=y": 0.39726671009281656,
+    "łączna": -0.16421096453436454,
+    "medialna": 0.22580026839416845
+   },
+   "bramka": true,
+   "kategoria": "lepsza"
+  }
+ },
+ "waznosc": {
+  "T1|idempotentna": {
+   "pula_snu1": 0.9625,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|komutatywna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|x(xy)=y": {
+   "pula_snu1": 0.9875,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|łączna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|medialna": {
+   "pula_snu1": 0.975,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|idempotentna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|komutatywna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|x(xy)=y": {
+   "pula_snu1": 0.975,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|łączna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|medialna": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  }
+ },
+ "G": "WYNIK: heurystyka grafu lepsza na S-0 w obu światach"
+}

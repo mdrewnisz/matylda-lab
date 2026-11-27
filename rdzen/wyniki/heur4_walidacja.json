@@ -1,0 +1,855 @@
+{
+ "commit": "f30184cd112464ad8d831a7f7153967acf8f8cff",
+ "prerejestracja_sha256": "b81c9067735b1a2f00dafd935142030c0f78a21f79f18647c5869ef2c02992c6",
+ "lambda": 1.0,
+ "kontrasty": {
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.08297063600356079,
+   -0.0702609704547326,
+   0.23475479897720267
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.03398692810457516,
+   -0.1388970588235294,
+   0.19674019607843155
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.0,
+   -0.3333333333333333,
+   0.3333333333333333
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|pole": [
+   4.470007409287482,
+   4.111379609732769,
+   4.833862306300206
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   3.546732026143791,
+   3.149975490196078,
+   3.951307189542483
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.6666666666666666,
+   0.08333333333333333,
+   1.252083333333303
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.6972765899482949,
+   0.5008271775569431,
+   0.8997256901550922
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.847058823529412,
+   0.6241830065359479,
+   1.0758251633986928
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.6666666666666666,
+   0.11666666666666667,
+   1.2333333333333334
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.8165369822819424,
+   0.6205478003727791,
+   1.012974815423566
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.8810457516339872,
+   0.6627369281045752,
+   1.1032761437908498
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.6666666666666666,
+   0.15,
+   1.2
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|pole": [
+   2.4673348577591128,
+   2.032160028003033,
+   2.8882633461519216
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   2.2924836601307184,
+   1.8839869281045756,
+   2.693464052287582
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.5,
+   -0.16666666666666666,
+   1.2
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|pole": [
+   0.4019477304918272,
+   0.23943477355477105,
+   0.570031899257974
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|stale_okno": [
+   0.39901960784313734,
+   0.23659313725490197,
+   0.5676470588235298
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|koncowe": [
+   0.5333333333333333,
+   0.2833333333333333,
+   0.8
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|pole": [
+   3.282017899323305,
+   2.8161070654102276,
+   3.7483665399403012
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|stale_okno": [
+   3.1725490196078443,
+   2.6878921568627465,
+   3.658186274509804
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|koncowe": [
+   1.55,
+   0.7833333333333333,
+   2.3333333333333335
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|pole": [
+   2.2721460369563027,
+   1.5526411649729592,
+   2.9991275098206254
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|stale_okno": [
+   2.347058823529411,
+   1.624485294117647,
+   3.081699346405228
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|koncowe": [
+   6.933333333333334,
+   5.85,
+   8.016666666666667
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|pole": [
+   2.6765541425941795,
+   2.0248409327067,
+   3.337727408742156
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|stale_okno": [
+   2.746078431372548,
+   2.092124183006535,
+   3.4176879084967307
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|koncowe": [
+   7.466666666666667,
+   6.416666666666667,
+   8.516666666666667
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|pole": [
+   5.203935595626455,
+   4.655355391883912,
+   5.75393998683217
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|stale_okno": [
+   5.255228758169934,
+   4.688880718954248,
+   5.8209477124183
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|koncowe": [
+   9.15,
+   7.95,
+   10.366666666666667
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|pole": [
+   -0.03839978864385193,
+   -0.2293204502009333,
+   0.15833258211871315
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   -0.033660130718954066,
+   -0.1869281045751631,
+   0.12451797385620925
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   -0.2,
+   -0.4166666666666667,
+   -0.03333333333333333
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|pole": [
+   1.6817080202228878,
+   1.2297176596553816,
+   2.128325176666747
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.4379084967320261,
+   1.0316584967320264,
+   1.8594852941176467
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   0.016666666666666666,
+   -0.26666666666666666,
+   0.31666666666666665
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|pole": [
+   1.5431301869752192,
+   1.161060093403845,
+   1.9492071840310694
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.1444444444444442,
+   0.8437826797385619,
+   1.4722303921568625
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   0.38333333333333336,
+   0.1,
+   0.7833333333333333
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|pole": [
+   1.5152222809637839,
+   1.1955322622901465,
+   1.8457937380217364
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.11078431372549,
+   0.8682924836601301,
+   1.3604738562091498
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   0.18333333333333332,
+   -0.05,
+   0.4666666666666667
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|pole": [
+   2.599769936256494,
+   2.2152295686727776,
+   2.980590273131813
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.9415032679738564,
+   1.6019526143790845,
+   2.287263071895425
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   0.18333333333333332,
+   -0.21666666666666667,
+   0.6333333333333333
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|pole": [
+   0.04738562091503275,
+   -0.002941176470588225,
+   0.10718954248366028
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|stale_okno": [
+   0.04738562091503275,
+   -0.002941176470588225,
+   0.10718954248366028
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|koncowe": [
+   0.16666666666666666,
+   -0.18333333333333332,
+   0.55
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|pole": [
+   -5.9189542483660125,
+   -6.37843954248366,
+   -5.463063725490196
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|stale_okno": [
+   -5.9189542483660125,
+   -6.37843954248366,
+   -5.463063725490196
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|koncowe": [
+   -11.616666666666667,
+   -12.466666666666667,
+   -10.749583333333339
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|pole": [
+   7.933986928104574,
+   7.532017973856208,
+   8.332026143790848
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|stale_okno": [
+   7.933986928104574,
+   7.532017973856208,
+   8.332026143790848
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|koncowe": [
+   13.066666666666666,
+   11.983333333333333,
+   14.133749999999994
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|pole": [
+   7.981372549019608,
+   7.60031045751634,
+   8.364403594771241
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|stale_okno": [
+   7.981372549019608,
+   7.60031045751634,
+   8.364403594771241
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|koncowe": [
+   13.233333333333333,
+   12.216666666666667,
+   14.233749999999993
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|pole": [
+   8.873856209150325,
+   8.42906862745098,
+   9.318316993464054
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|stale_okno": [
+   8.873856209150325,
+   8.42906862745098,
+   9.318316993464054
+  ],
+  "T1|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|koncowe": [
+   14.816666666666666,
+   13.7,
+   15.883333333333333
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|pole": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|stale_okno": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|pole": [
+   -2.0635221177506526,
+   -2.489815829425205,
+   -1.6405447401325313
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|stale_okno": [
+   -3.1669934640522874,
+   -3.65687091503268,
+   -2.6751552287581704
+  ],
+  "T1|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|koncowe": [
+   -3.3333333333333335,
+   -4.050416666666666,
+   -2.6333333333333333
+  ],
+  "T1|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|pole": [
+   1.858880899785786,
+   1.319805864509375,
+   2.409543760490511
+  ],
+  "T1|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|stale_okno": [
+   1.8336601307189544,
+   1.3807107843137254,
+   2.3163398692810455
+  ],
+  "T1|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|koncowe": [
+   0.06666666666666667,
+   0.0,
+   0.2
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|pole": [
+   1.858880899785786,
+   1.319805864509375,
+   2.409543760490511
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|stale_okno": [
+   1.8336601307189544,
+   1.3807107843137254,
+   2.3163398692810455
+  ],
+  "T1|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|koncowe": [
+   0.06666666666666667,
+   0.0,
+   0.2
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|pole": [
+   2.0863908729768426,
+   1.5757227763257966,
+   2.6172390329755664
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|stale_okno": [
+   2.031045751633987,
+   1.5676388888888888,
+   2.516666666666666
+  ],
+  "T1|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|koncowe": [
+   0.2,
+   0.03333333333333333,
+   0.48333333333333334
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|pole": [
+   -0.06334016001945733,
+   -0.12556069908251324,
+   -0.009322542633067166
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   -0.032352941176470654,
+   -0.06535947712418319,
+   -0.004901960784313737
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   -0.016666666666666666,
+   -0.05,
+   0.0
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.9521216198541658,
+   0.7278659366559428,
+   1.1862496228564758
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.36274509803921556,
+   0.2683006535947712,
+   0.4637336601307189
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.5200746937219712,
+   0.35527562990351375,
+   0.7003827535955093
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.18235294117647063,
+   0.11699346405228761,
+   0.25392973856209156
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.016666666666666666,
+   0.0,
+   0.05
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.4561368546065344,
+   0.30819195217410444,
+   0.6179912058065433
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.14999999999999997,
+   0.09640522875817004,
+   0.20947712418300657
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|pole": [
+   0.4136796362965093,
+   0.2226612096624017,
+   0.615461357159738
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|stale_okno": [
+   0.12712418300653583,
+   0.06013071895424836,
+   0.19934640522875788
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*x))=(y*(y*y))|koncowe": [
+   -0.016666666666666666,
+   -0.05,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|pole": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|stale_okno": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(x*(x*(y*x)))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|pole": [
+   -3.4307189542483654,
+   -3.8715686274509795,
+   -2.9823529411764698
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|stale_okno": [
+   -3.4307189542483654,
+   -3.8715686274509795,
+   -2.9823529411764698
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(x*(x*(y*x)))=x|koncowe": [
+   -12.216666666666667,
+   -12.9,
+   -11.516666666666667
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|pole": [
+   6.880392156862745,
+   6.404232026143789,
+   7.37156862745098
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|stale_okno": [
+   6.880392156862745,
+   6.404232026143789,
+   7.37156862745098
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(x*(y*x)))=x|koncowe": [
+   16.933333333333334,
+   16.033333333333335,
+   17.85
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|pole": [
+   6.880392156862745,
+   6.404232026143789,
+   7.37156862745098
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|stale_okno": [
+   6.880392156862745,
+   6.404232026143789,
+   7.37156862745098
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(x*(x*(y*x)))=x|koncowe": [
+   16.933333333333334,
+   16.033333333333335,
+   17.85
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|pole": [
+   7.320915032679738,
+   6.757156862745098,
+   7.889926470588234
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|stale_okno": [
+   7.320915032679738,
+   6.757156862745098,
+   7.889926470588234
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(x*(x*(y*x)))=x|koncowe": [
+   17.566666666666666,
+   16.633333333333333,
+   18.533333333333335
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|pole": [
+   1.1660436995604886,
+   0.8089106849125168,
+   1.5276931314448028
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.1604575163398692,
+   0.8084967320261437,
+   1.5153594771241818
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   1.3666666666666667,
+   0.16666666666666666,
+   2.5833333333333335
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|pole": [
+   -5.3698214566862585,
+   -5.88176413449775,
+   -4.869462526530526
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   -5.531045751633987,
+   -6.0771323529411765,
+   -4.998357843137255
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   -11.35,
+   -12.633333333333333,
+   -10.016666666666667
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|pole": [
+   1.1130600801156334,
+   0.7392165602012069,
+   1.5197276017091483
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   1.1830065359477129,
+   0.7996732026143796,
+   1.6013153594771243
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   4.45,
+   3.25,
+   5.65
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|pole": [
+   2.262419390648739,
+   1.9233333513312088,
+   2.6118667058422087
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   2.343464052287582,
+   1.9901879084967313,
+   2.7052369281045765
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   5.816666666666666,
+   4.5,
+   7.1
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|pole": [
+   6.354001988000677,
+   5.669656629348285,
+   7.036102185674681
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|stale_okno": [
+   6.37843137254902,
+   5.697696078431373,
+   7.063088235294118
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((y*z)*y)=((z*y)*z)|koncowe": [
+   7.966666666666667,
+   6.516666666666667,
+   9.4
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|pole": [
+   0.5022875816993462,
+   0.22091503267973894,
+   0.786617647058823
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|stale_okno": [
+   0.5022875816993462,
+   0.22091503267973894,
+   0.786617647058823
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:(y*(x*(x*y)))=y|koncowe": [
+   0.8166666666666667,
+   0.08333333333333333,
+   1.65
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|pole": [
+   -6.8957516339869285,
+   -7.381405228758171,
+   -6.415351307189541
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|stale_okno": [
+   -6.8957516339869285,
+   -7.381405228758171,
+   -6.415351307189541
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:(y*(x*(x*y)))=y|koncowe": [
+   -13.6,
+   -14.58375,
+   -12.616666666666667
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|pole": [
+   4.6460784313725485,
+   4.177753267973856,
+   5.151985294117647
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|stale_okno": [
+   4.6460784313725485,
+   4.177753267973856,
+   5.151985294117647
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(x*(x*y)))=y|koncowe": [
+   12.983333333333333,
+   11.783333333333333,
+   14.216666666666667
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|pole": [
+   5.148366013071895,
+   4.637573529411763,
+   5.688897058823529
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|stale_okno": [
+   5.148366013071895,
+   4.637573529411763,
+   5.688897058823529
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:(y*(x*(x*y)))=y|koncowe": [
+   13.8,
+   12.733333333333333,
+   14.95
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|pole": [
+   10.346078431372549,
+   9.724158496732027,
+   10.98562908496732
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|stale_okno": [
+   10.346078431372549,
+   9.724158496732027,
+   10.98562908496732
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:(y*(x*(x*y)))=y|koncowe": [
+   18.533333333333335,
+   17.35,
+   19.75
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|pole": [
+   -0.0019380843171167802,
+   -0.07553861756523071,
+   0.06024700839035499
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|stale_okno": [
+   0.0006535947712419461,
+   -0.03529411764705858,
+   0.031699346405228826
+  ],
+  "T1-4|heur_grafu_wsp-heur_grafu|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|pole": [
+   -0.391132242700121,
+   -0.6023465557794941,
+   -0.17325560332141143
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|stale_okno": [
+   -0.22483660130719052,
+   -0.31830065359477167,
+   -0.13104575163398854
+  ],
+  "T1-4|wyrocznia_pokrycia-heur_grafu|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|pole": [
+   1.2001793065242414,
+   0.9137097610584575,
+   1.491637357840677
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|stale_okno": [
+   0.657843137254902,
+   0.49803921568627474,
+   0.8326797385620917
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|pole": [
+   1.1887484125476482,
+   0.9177974339149729,
+   1.4622230798440736
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|stale_okno": [
+   0.6584967320261439,
+   0.5068545751633983,
+   0.8209150326797386
+  ],
+  "T1-4|heur_grafu_wsp-heurystyka|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|pole": [
+   1.33340962702625,
+   0.9760790620339735,
+   1.702589308476774
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|stale_okno": [
+   0.7114379084967323,
+   0.5140441176470592,
+   0.9290849673202614
+  ],
+  "T1-4|heur_grafu_wsp-losowa|L:((z*(z*x))*x)=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "per_swiat": {
+  "T1": {
+   "prawa_wazne": [
+    "L:(x*(x*x))=(y*(y*y))",
+    "L:(x*(x*(y*x)))=x",
+    "L:((y*z)*y)=((z*y)*z)",
+    "L:(y*(x*(x*y)))=y",
+    "L:((z*(z*x))*x)=x"
+   ],
+   "bramka_prawa": [
+    "L:(x*(x*x))=(y*(y*y))",
+    "L:(x*(x*(y*x)))=x",
+    "L:((y*z)*y)=((z*y)*z)"
+   ],
+   "lepsza": [
+    "L:(x*(x*(y*x)))=x"
+   ],
+   "gorsza": [],
+   "ulamek_luki": {
+    "L:(x*(x*x))=(y*(y*y))": 0.018561632768475944,
+    "L:(x*(x*(y*x)))=x": 0.12246969481022692,
+    "L:((y*z)*y)=((z*y)*z)": -0.022833802409268734,
+    "L:(y*(x*(x*y)))=y": -0.008005742049469976,
+    "L:((z*(z*x))*x)=x": -0.0
+   },
+   "kategoria": "nierozstrzygnieta"
+  },
+  "T1-4": {
+   "prawa_wazne": [
+    "L:(x*(x*x))=(y*(y*y))",
+    "L:(x*(x*(y*x)))=x",
+    "L:((y*z)*y)=((z*y)*z)",
+    "L:(y*(x*(x*y)))=y",
+    "L:((z*(z*x))*x)=x"
+   ],
+   "bramka_prawa": [
+    "L:(x*(x*x))=(y*(y*y))"
+   ],
+   "lepsza": [
+    "L:((y*z)*y)=((z*y)*z)",
+    "L:(y*(x*(x*y)))=y"
+   ],
+   "gorsza": [
+    "L:(x*(x*x))=(y*(y*y))"
+   ],
+   "ulamek_luki": {
+    "L:(x*(x*x))=(y*(y*y))": -0.06652528279859772,
+    "L:(x*(x*(y*x)))=x": -0.0,
+    "L:((y*z)*y)=((z*y)*z)": -0.21714757352101227,
+    "L:(y*(x*(x*y)))=y": -0.0728401497559357,
+    "L:((z*(z*x))*x)=x": 0.004955061499756488
+   },
+   "kategoria": "nieinformatywny"
+  }
+ },
+ "waznosc": {
+  "T1|L:(x*(x*x))=(y*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:(x*(x*(y*x)))=x": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:((y*z)*y)=((z*y)*z)": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:(y*(x*(x*y)))=y": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:((z*(z*x))*x)=x": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(x*(x*x))=(y*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(x*(x*(y*x)))=x": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:((y*z)*y)=((z*y)*z)": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(y*(x*(x*y)))=y": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:((z*(z*x))*x)=x": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  }
+ },
+ "G": "NIEINFORMATYWNY w rzędzie 4; T1: nierozstrzygnieta"
+}
