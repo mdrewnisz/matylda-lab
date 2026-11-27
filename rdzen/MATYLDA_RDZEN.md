@@ -219,3 +219,9 @@ Część zysku to tempo. Wyrocznia pokrycia jest zachłanna, nie jest optimum. R
 
 Od 27.11 `petla.uruchom` bez podanej intuicji używa heurystyki grafu (`HeurystykaGrafu("oa+ob+kara")`), z zastrzeżeniem, że w rzędzie 4 przewaga jest krucha.
 Stara `HeurystykaOgolnosci` zostaje nazwaną linią bazową; runnery wcześniejszych eksperymentów (S-0, S-0b, korekta, trudność) mają ją przypiętą jawnie, więc ich wyniki pozostają odtwarzalne.
+
+## Prototyp i rząd 4 (27.11, seria samodzielna)
+
+- Prototyp: `python -m matylda_rdzen.prototyp` — czuwanie → sen → przebudzenie → każda intuicja jako rekord Praxis w stanie SEED (SQLite) z genealogią i werdyktem weryfikatora obok. Sklejenie istniejących części, bez nowego twierdzenia o skuteczności.
+- Rząd 4, wariant ze wsparciem (prerejestracja f30184c, 5 nowych praw, ziarna 1820–1879): **NIEINFORMATYWNY**; domyślna intuicja bez zmian.
+- **Erratum:** „wyrocznia pokrycia” nie jest sufitem (40–50% jej sprawdzeń nic nie wnosi); heurystyka grafu ją bije w 4/5 praw rzędu 4. Bramki dawnych testów stoją, ale ułamki luki i wnioski o „suficie” (w tym z LMM v3) są nieważne. Lepszy kandydat na sufit: wyrocznia przyrostu pokrycia TR. Raport: `rdzen/wyniki/HEUR4_RAPORT.md`.

@@ -1,4 +1,5 @@
 # LMM v3: raport (24.11)
+> **Erratum (27.11, `wyniki/HEUR4_RAPORT.md`):** wyrocznia pokrycia nie jest sufitem (40–50% jej sprawdzeń nic nie wnosi). Bramki stoją, ale „ułamki luki do wyroczni” i wnioski o „suficie” są nieważne.
 
 Plan z kryterium zapisanym przed treningiem: `PLAN_LMM_V3.md` (fc3b3fd). Wagi zacommitowane przed walidacją (077062a), wynik walidacji w cfe7936.
 Niezależna recenzja: `wyniki/LMM_V3_RECENZJA.md`.

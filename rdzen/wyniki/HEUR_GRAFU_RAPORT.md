@@ -1,4 +1,5 @@
 # Heurystyka grafu zależności: raport (24.11)
+> **Erratum (27.11, `wyniki/HEUR4_RAPORT.md`):** wyrocznia pokrycia nie jest sufitem (40–50% jej sprawdzeń nic nie wnosi). Bramki stoją, ale „ułamki luki do wyroczni” i wnioski o „suficie” są nieważne.
 
 Decyzja Michała po LMM v3: zatrzymać LMM, wzmocnić heurystykę. Plan z kryterium przed walidacją: `PLAN_HEURYSTYKA_GRAFU.md` (459a097).
 Walidacja: `wyniki/heur_grafu_walidacja.json` (b9d7ef6). Niezależna recenzja z replikacją na ziarnach 1680–1719: `wyniki/HEUR_GRAFU_RECENZJA.md`.

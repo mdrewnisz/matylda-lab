@@ -1,4 +1,5 @@
 # Heurystyka grafu na prawach S-0: raport (26.11)
+> **Erratum (27.11, `wyniki/HEUR4_RAPORT.md`):** wyrocznia pokrycia nie jest sufitem (40–50% jej sprawdzeń nic nie wnosi). Bramki stoją, ale „ułamki luki do wyroczni” i wnioski o „suficie” są nieważne.
 
 Prerejestracja `PREREJESTRACJA_S0_HEUR.md` zamrożona w 1183968 po recenzji przed zamrożeniem (`wyniki/S0_HEUR_RECENZJA_PRZED.md`, poprawki B1–B5).
 Przebieg: ziarna 600–679, 3 200 przebiegów, `wyniki/s0_heur_wyniki.json` (7c53e43). `git diff` rdzen/ między commitem zamrożenia a commitem w JSON: pusty.
