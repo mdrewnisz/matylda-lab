@@ -78,3 +78,28 @@ def affine_family(n: int):
         for b in range(n):
             for c in range(n):
                 yield (a, b, c), ((a * x[:, None] + b * x[None, :] + c) % n).astype(np.int64)
+
+
+def unary_magma(n: int, seed: int, relabel: bool = True) -> World:
+    """x*y = f(x) albo x*y = f(y) dla losowego odwzorowania f (strona losowana). Rodzina D1'."""
+    check_policy(seed, n)
+    rng = np.random.default_rng(seed)
+    f = rng.integers(0, n, size=n)
+    side = int(rng.integers(0, 2))
+    t = np.tile(f[:, None], (1, n)) if side == 0 else np.tile(f[None, :], (n, 1))
+    perm = rng.permutation(n) if relabel else None
+    if perm is not None:
+        t = relabeled(t, perm)
+    return World(t.astype(np.int64), seed, "jednoargumentowa", {"strona": "lewa" if side == 0 else "prawa"}, perm)
+
+
+def isotope_magma(n: int, seed: int, relabel: bool = True) -> World:
+    """x*y = σ(x) + τ(y) (mod n), σ, τ losowe permutacje: quasigrupa izotopowa z Z_n. Rodzina D1'."""
+    check_policy(seed, n)
+    rng = np.random.default_rng(seed)
+    s, u = rng.permutation(n), rng.permutation(n)
+    t = (s[:, None] + u[None, :]) % n
+    perm = rng.permutation(n) if relabel else None
+    if perm is not None:
+        t = relabeled(t, perm)
+    return World(t.astype(np.int64), seed, "izotop", {}, perm)

@@ -50,20 +50,26 @@ def _oriented(axioms):
     return out
 
 
-def _forward(term, rules, max_ops):
+def _forward(term, rules, max_ops, fillers=()):
+    """Kroki przepisania w przód. Zmienne wolne strony docelowej (np. z w x*y -> x*z) dostają
+    kolejno każdą wartość z `fillers` (zmienne celu); podstawienie trafia jawnie do kroku."""
     for i, d, src, dst in rules:
-        if not _vars(dst) <= _vars(src):
+        free = sorted(_vars(dst) - _vars(src))
+        if free and not fillers:
             continue
         for pos in _positions(term):
             s = match(src, subterm(term, pos), {})
             if s is None:
                 continue
-            nt = replace_at(term, pos, apply_subst(dst, s))
-            if n_ops(nt) <= max_ops:
-                yield nt, Step(i, d, pos, nt, dict(s))
+            for vals in product(fillers, repeat=len(free)) if free else [()]:
+                s2 = dict(s)
+                s2.update(zip(free, vals))
+                nt = replace_at(term, pos, apply_subst(dst, s2))
+                if n_ops(nt) <= max_ops:
+                    yield nt, Step(i, d, pos, nt, s2)
 
 
-def prove(axioms: list, law: Law, extra_ops: int = 2, node_limit: int = 20000):
+def prove(axioms: list, law: Law, extra_ops: int = 2, node_limit: int = 20000, fill_free: bool = True):
     """Zwraca listę kroków sprawdzoną przez proofcheck albo None.
 
     Przeszukiwanie w przód z obu stron (l i r) aż do wspólnego termu; kroki ze strony r
@@ -73,6 +79,7 @@ def prove(axioms: list, law: Law, extra_ops: int = 2, node_limit: int = 20000):
         return []
     rules = _oriented(axioms)
     max_ops = max(n_ops(l), n_ops(r)) + extra_ops
+    fillers = tuple(sorted(_vars(l) | _vars(r))) if fill_free else ()
     seen = [{l: None}, {r: None}]
     queues = [deque([l]), deque([r])]
     nodes = 0
@@ -81,7 +88,7 @@ def prove(axioms: list, law: Law, extra_ops: int = 2, node_limit: int = 20000):
             if not queues[side]:
                 continue
             t = queues[side].popleft()
-            for nt, st in _forward(t, rules, max_ops):
+            for nt, st in _forward(t, rules, max_ops, fillers):
                 nodes += 1
                 if nt in seen[side]:
                     continue
@@ -238,7 +245,7 @@ def _sat_countermodel(axioms, law, n, Solver):
 
 # ---------- rozstrzygnięcie ----------
 def entails(axioms: list, law: Law, **kw):
-    steps = prove(axioms, law, **{k: v for k, v in kw.items() if k in ("extra_ops", "node_limit")})
+    steps = prove(axioms, law, **{k: v for k, v in kw.items() if k in ("extra_ops", "node_limit", "fill_free")})
     if steps is not None:
         return PROVED, steps
     t = countermodel(axioms, law, **{k: v for k, v in kw.items() if k == "sizes"})

@@ -229,3 +229,104 @@ def test_nph_star_entail_bounds_sound():
     acc = [parse_law(s) for s in ["x*y = y*x", "(x*y)*z = x*(y*z)", "(x*y)*z = (y*z)*x"]]
     lo, hi = basis.nph_star_laws_entail(acc)
     assert lo <= hi == 2
+
+
+# ---------- filtr ETP ----------
+from lmm_bench import etp  # noqa: E402
+
+
+def test_etp_list_loads_and_covers_pool():
+    assert len(etp.etp_canonical()) == 2389            # 4694 wpisy, pary dualne sklejone
+    assert etp.etp_ids(parse_law("x = x")) == [1]
+    assert etp.in_etp(parse_law("x*(y*z) = (x*y)*z"))   # łączność
+    # cała pula D1 (≤ 4 operacje, ≤ 3 zmienne) leży w ETP: wariant N wymaga praw spoza tej puli
+    assert all(etp.in_etp(l) for l in controls.law_pool(4))
+    assert not etp.in_etp(parse_law("x*(y*(z*x)) = (x*y)*(z*x)"))   # 5 operacji
+
+
+def test_packing_lower_bound():
+    # pakowanie nigdy nie obniża granicy i nie przekracza górnej
+    acc = [parse_law(s) for s in ["x*y = y*x", "(x*y)*z = x*(y*z)", "(x*y)*z = (y*z)*x", "x*x = x"]]
+    lo0, hi0 = basis.nph_star_laws_entail(acc, packing=False)
+    lo, hi = basis.nph_star_laws_entail(acc)
+    assert lo0 <= lo <= hi == hi0
+    # niezależne: komutatywność i idempotentność
+    assert basis.nph_star_laws_entail([parse_law("x*y = y*x"), parse_law("x*x = x")]) == (2, 2)
+    # zbiór praw równoważnych bez prawa niezbędnego: dolna granica co najmniej 1
+    eq = [parse_law("x*y = y*x"), parse_law("(x*y)*z = z*(x*y)")]
+    assert basis._packing(eq, [], [], (2, 4)) >= 1
+
+
+# ---------- D1' ----------
+from lmm_bench import d1prime  # noqa: E402
+
+FAM, HELD = d1prime.make_family(2100), d1prime.make_family(2101)
+
+
+def test_d1prime_family_deterministic_and_mixed():
+    assert len(FAM) == 20 and all(5 <= w.n <= 7 for w in FAM)
+    assert {w.kind for w in FAM} == {"afiniczna", "izotop", "jednoargumentowa", "losowa"}
+    again = d1prime.make_family(2100)
+    assert all(np.array_equal(a.table, b.table) for a, b in zip(FAM, again))
+
+
+@pytest.mark.parametrize("law,ok,reason", [
+    ("x*y = x*z", True, "nowe"),
+    ("(x*y)*z = (x*z)*y", True, "nowe"),
+    ("x*y = y*x", False, "równoważne pojęciu"),           # podane pojęcie
+    ("(x*x)*y = y*(x*x)", False, "równoważne pojęciu"),   # inna składnia, ta sama sygnatura
+    ("x*(y*z) = x*(y*w)", False, "składnia"),             # 4 zmienne
+    ("x = x*x*x*x*x*x", False, "składnia"),               # głębokość 5
+    ("x*y = y*x*x*x*x*x", False, "składnia"),
+])
+def test_d1prime_concept_conditions(law, ok, reason):
+    v = d1prime.check_concept(parse_law(law), FAM, HELD)
+    assert v.ok_new is ok and reason in v.reason
+
+
+def test_d1prime_constant_concept_rejected():
+    v = d1prime.check_concept(parse_law("(x*y)*(z*x) = (x*z)*(y*x)"), FAM, HELD)
+    if all(v.sig) or not any(v.sig):
+        assert not v.ok_new and "stałe" in v.reason
+
+
+def test_d1prime_implications():
+    P = parse_law
+    v = d1prime.check_implication([P("x*y = y*x")], P("x*x = x"), FAM, HELD)
+    assert v.status is Status.DISPROVED and isinstance(v.certificate, int)
+    w = (FAM + HELD)[v.certificate].table
+    assert terms.holds(P("x*y = y*x"), w) and not terms.holds(P("x*x = x"), w)
+    v = d1prime.check_implication([P("x*y = x*z")], P("(x*y)*z = (x*w)*z"), FAM, HELD)
+    assert v.trivial and "podstawieniem" in v.reason
+    v = d1prime.check_implication([P("x*y = y*x"), P("(x*y)*z = x*(y*z)")], P("(x*y)*z = (y*z)*x"), FAM, HELD)
+    assert v.status is Status.NIEOBALONA_W_ZAKRESIE and v.proved     # dowód z aksjomatów też sprawdzony
+
+
+def test_d1prime_score_counts_only_used_new_concepts():
+    P = parse_law
+    new = P("x*y = x*z")                     # „lewa stałość”: wynik nie zależy od prawego argumentu
+    imps = [([new], P("(x*y)*z = (x*z)*y")), ([new], P("x*y = y*x"))]
+    res = d1prime.score([new, P("x*y = y*x")], imps, FAM, HELD)
+    assert res["pojecia_nowe"] == 1
+    good = [v for v in res["werdykty_implikacji"] if v.status is Status.NIEOBALONA_W_ZAKRESIE and not v.trivial]
+    assert res["pojecia_zaliczone"] == (1 if good else 0)
+    assert res["nph_star_reguly"] <= res["implikacje_dobre"]
+    # wariant N: pojęcie z listy ETP się nie liczy
+    assert d1prime.score([new], imps, FAM, HELD, variant_N=True)["pojecia_nowe"] == 0
+
+
+def test_prover_instantiates_free_variables():
+    # x*y = x*z (wynik nie zależy od prawego argumentu) ⊨ (x*y)*z = (x*z)*y:
+    # oba kierunki aksjomatu wprowadzają zmienną wolną, dowodnik musi ją jawnie podstawić
+    ax, law = [parse_law("x*y = x*z")], parse_law("(x*y)*z = (x*z)*y")
+    steps = entail.prove(ax, law)
+    assert steps is not None
+    assert proofcheck.check_proof(law, ax, steps)[0]
+
+
+def test_d1prime_semantic_duplicates_count_once():
+    P = parse_law
+    a, b = P("(x*x)*y = x"), P("(x*y)*x = x")          # różna składnia, ta sama sygnatura na F ∪ H
+    assert d1prime.signature(a, FAM + HELD) == d1prime.signature(b, FAM + HELD)
+    assert d1prime.check_concept(a, FAM, HELD).ok_new and d1prime.check_concept(b, FAM, HELD).ok_new
+    assert d1prime.score([a, b], [], FAM, HELD)["pojecia_nowe"] == 1
