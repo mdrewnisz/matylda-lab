@@ -17,7 +17,7 @@ from .s1 import PRAWA_MOCY, ROOT
 from .swiat import PRAWA_S0
 
 ZIARNO = 9494
-NA_PRZEDZIAL = 5
+NA_PRZEDZIAL = 7       # 5 + 2 rezerwowe (B4 recenzji): do analizy wchodzi pierwszych 5 ważnych w kolejności generatora
 MALE, DUZE = (20, 300), (500, 10 ** 9)
 
 

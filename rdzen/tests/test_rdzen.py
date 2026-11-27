@@ -307,10 +307,31 @@ def test_domyslna_intuicja_zalezy_od_rzedu():
 
 
 def test_rozmiar3_werdykt_i_przedzialy():
-    from matylda_rdzen.rozmiar3_walidacja import werdykt
+    from matylda_rdzen.rozmiar3_walidacja import status_zamrozona, werdykt
     from matylda_rdzen.rozmiar3_wybor_praw import przedzial
     assert przedzial(20) == "male" and przedzial(300) == "male" and przedzial(400) is None and przedzial(500) == "duze"
-    assert werdykt("lepsza", "nierozstrzygnieta", (1.0, 0.2, 2.0)).startswith("WYNIK: lepsza w małych światach i efekt")
-    assert werdykt("lepsza", "lepsza", (0.1, -0.5, 0.7)).startswith("WYNIK: lepsza w małych światach; moderacja")
-    assert werdykt("nierozstrzygnieta", "lepsza", None).startswith("WYNIK NEGATYWNY dla hipotezy")
+    tak, nie = {"p_perm": 0.01}, {"p_perm": 0.3}
+    assert werdykt("lepsza", "nierozstrzygnieta", tak).startswith("WYNIK: lepsza w małych, nie w dużych")
+    assert werdykt("lepsza", "lepsza", tak) .startswith("WYNIK: lepsza w małych i w dużych; efekt większy")
+    assert werdykt("lepsza", "lepsza", nie).startswith("WYNIK: lepsza w małych i w dużych; różnica")
+    assert werdykt("lepsza", "nieinformatywny", tak).startswith("WYNIK: lepsza w małych; duże nieinformatywne")
+    assert werdykt("lepsza", "gorsza", nie).startswith("WYNIK: lepsza w małych; moderacja niewykazana")
+    assert werdykt("nierozstrzygnieta", "lepsza", None).startswith("H_mod NIEPOTWIERDZONA")
+    assert werdykt("gorsza", "lepsza", None).startswith("WYNIK NEGATYWNY")
     assert werdykt("nieinformatywny", "lepsza", None).startswith("NIEINFORMATYWNY")
+    assert not status_zamrozona("Status: **SZKIC**\nZamrożenie = ... „ZAMROŻONA” ...")
+    assert status_zamrozona("# T\n\nStatus: **ZAMROŻONA** (27.11)")
+
+
+def test_rozmiar3_permutacja_dokladna():
+    """Interakcja: dokładny test permutacyjny po prawach (252 podziały przy 5 + 5)."""
+    import numpy as np
+    from matylda_rdzen import rozmiar3_walidacja as R
+    A = {"male": [f"m{i}" for i in range(5)], "duze": [f"d{i}" for i in range(5)]}
+    stare = R._d
+    R._d = lambda run, H, seeds: np.full(10, 5.0 if H[0] == "m" else 0.0) + np.arange(10) * 0.01
+    try:
+        w = R.interakcja(None, A, range(10))
+    finally:
+        R._d = stare
+    assert w["n_podzialow"] == 252 and abs(w["p_perm"] - 1 / 252) < 1e-9 and w["I"] > 4.9
