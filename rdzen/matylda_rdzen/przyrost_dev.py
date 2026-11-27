@@ -1,5 +1,5 @@
 """Dewelopment: (1) czy wyrocznia przyrostu przechodzi jako bramka na typowych światach, (2) warianty heurystyki przyrostu.
-Losowe prawa (bez praw S-0 i walidacyjnych z nazwy), rząd 4 na U4 (światy 20–59 z heur4_dev.swiaty_dev, 0–19 zużyte w HEUR4)
+Losowe prawa (bez praw S-0 i walidacyjnych z nazwy), rząd 4 na U4 (światy 20–39 i 60–79 z heur4_dev.swiaty_dev; światy 0–119 były już widziane w dev HEUR4)
 oraz rząd 3 (generator ziarno 4446). Ziarna 1900–1909 (dev), --potw: 1910–1919 na kolejnych światach.
     python -m matylda_rdzen.przyrost_dev [--potw]
 """
@@ -24,8 +24,9 @@ from .swiat import zbuduj_swiat
 from .wyrocznie import IntuicjaWyroczniaPrzyrostu
 
 POTW = "--potw" in sys.argv
+PILOT = "--pilot" in sys.argv   # B2 recenzji: pilot na klasie większych termów (prawa z przyrost_wybor_praw --pilot), m = 1 zamrożone
 RUNDA2 = "--r2" in sys.argv     # druga runda wariantów na tych samych światach/ziarnach dev
-SEEDS = range(1910, 1920) if POTW else range(1900, 1910)
+SEEDS = range(2000, 2010) if PILOT else range(1910, 1920) if POTW else range(1900, 1910)
 
 
 def swiaty_dev3(liczba, ziarno=4446):
@@ -42,7 +43,7 @@ def swiaty_dev3(liczba, ziarno=4446):
 
 
 def ramiona(sw):
-    if POTW:      # potwierdzenie wybranego wariantu (m = 1, bez wag) na nowych światach i ziarnach
+    if PILOT or POTW:      # potwierdzenie wybranego wariantu (m = 1, bez wag) na nowych światach i ziarnach
         return {"heur": HeurystykaOgolnosci(), "grafu": HeurystykaGrafu("oa+ob+kara"), "wyr": IntuicjaWyroczniaPokrycia(sw),
                 "wyr_prz": IntuicjaWyroczniaPrzyrostu(sw), "prz_m1": HeurystykaPrzyrostu(1)}
     if RUNDA2:
@@ -70,11 +71,14 @@ def jeden(arg):
 
 if __name__ == "__main__":
     n4, n3 = 20, 20
-    L4 = swiaty_dev(60 + n4)[60:] if POTW else swiaty_dev(40)[20:]
-    L3 = swiaty_dev3(2 * n3)[n3:] if POTW else swiaty_dev3(n3)
+    if PILOT:
+        L4 = L3 = [H for H, _ in json.loads((ROOT / "wyniki" / "przyrost_pilot_prawa.json").read_text(encoding="utf-8"))]
+    else:
+        L4 = swiaty_dev(60 + n4)[60:] if POTW else swiaty_dev(40)[20:]
+        L3 = swiaty_dev3(2 * n3)[n3:] if POTW else swiaty_dev3(n3)
     with Pool(4) as p:
         R = p.map(jeden, [(H, 4) for H in L4] + [(H, 3) for H in L3])
-    (ROOT / "wyniki" / ("przyrost_dev_potw.json" if POTW else "przyrost_dev_r2.json" if RUNDA2 else "przyrost_dev.json")).write_text(json.dumps(R, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "wyniki" / ("przyrost_pilot.json" if PILOT else "przyrost_dev_potw.json" if POTW else "przyrost_dev_r2.json" if RUNDA2 else "przyrost_dev.json")).write_text(json.dumps(R, ensure_ascii=False), encoding="utf-8")
     for rz in (4, 3):
         RR = [(H, o) for H, r, o in R if r == rz]
         print(f"--- rząd {rz}: {len(RR)} światów")

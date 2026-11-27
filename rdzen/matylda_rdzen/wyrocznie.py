@@ -38,8 +38,9 @@ def zachlanny_przyrost(names, potwierdzone, TR, a_list, b_list, remis, k=K_PACZK
         zysk = (nie[:, None] & R[X][:, ai] & R[bi][:, Y].T).sum(0).astype(float)
         if waga is not None:
             zysk = zysk * np.asarray(waga, float)
-        klucz = np.where(wolne, zysk * 1e3 + remis / (1.0 + np.abs(remis).max()), -np.inf)
-        j = int(np.argmax(klucz))
+        z = np.where(wolne, zysk, -np.inf)                 # najpierw zysk, remisy: ocena remisowa (bez sumowania skal, Z3 recenzji)
+        kand = np.flatnonzero(z == z.max())
+        j = int(kand[np.argmax(remis[kand])])
         wybor.append(j)
         wolne[j] = False
         a, b = ai[j], bi[j]

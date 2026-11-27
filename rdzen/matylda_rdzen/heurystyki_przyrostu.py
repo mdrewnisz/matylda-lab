@@ -10,7 +10,7 @@ from __future__ import annotations
 import numpy as np
 
 from .heurystyki import HeurystykaGrafu
-from .swiat import TOP, klasy_i_redukcja
+from .swiat import TOP, closure, klasy_i_redukcja
 from .wyrocznie import WYSOKO, K_PACZKI, oceny_z_kolejnosci, zachlanny_przyrost
 
 
@@ -25,7 +25,7 @@ def porzadek_empiryczny(names, concepts, znane, m):
 
 
 class HeurystykaPrzyrostu:
-    def __init__(self, m=2, kara_smialych=False, waga_smialych=1.0):
+    def __init__(self, m=1, kara_smialych=False, waga_smialych=1.0):
         self.m, self.kara, self.ws = m, kara_smialych, waga_smialych
         self.nazwa = f"heur_przyrostu[m={m}{',K' if kara_smialych else ''}{f',ws={waga_smialych}' if waga_smialych != 1.0 else ''}]"
         self._g = HeurystykaGrafu("oa+ob+kara")
@@ -34,7 +34,9 @@ class HeurystykaPrzyrostu:
         p = ctx.pamiec
         g = self._g.ocen(kandydaci, ctx)
         E = porzadek_empiryczny(p.names, p.concepts, ctx.znane_magmy, self.m)
-        _, TRh = klasy_i_redukcja(p.names, set(E) | set(p.prawdziwe))
+        R, idx = closure(p.names, set(E) | set(p.prawdziwe))     # Z9: domknięcie (dla m ≥ 2 suma nie musi być przechodnia)
+        D = {(a, b) for a in p.names for b in p.names if a != b and R[idx[a], idx[b]]}
+        _, TRh = klasy_i_redukcja(p.names, D)
         dozw = [i for i, k in enumerate(kandydaci) if g[i] > -1e5 and not (self.kara and k.zrodlo == "sen:smiale")]
         wybor = zachlanny_przyrost(p.names, p.prawdziwe, sorted(TRh),
                                    [kandydaci[i].a for i in dozw], [kandydaci[i].b for i in dozw], g[dozw],

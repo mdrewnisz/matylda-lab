@@ -269,3 +269,31 @@ def test_wyrocznia_przyrostu_i_heurystyka_przyrostu_w_petli():
         from matylda_rdzen.s1 import prawdziwa
         flagi = [prawdziwa(sw, k.a, k.b) for k in wyb]
         assert flagi == sorted(flagi, reverse=True)
+
+
+def test_heurystyka_przyrostu_nie_widzi_swiata_poza_znanymi_magmami():
+    """Z7 recenzji: zaszumienie pojęć poza znanymi magmami nie zmienia ocen heurystyki przyrostu."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
+    from matylda_rdzen.fazy import kandydaci_z_obserwacji
+    r = uruchom("medialna", 5, "S", budzet=80, budzet_snu=10, slownik="literaly", cex_cap=1)
+    p = r.pamiec
+    znane = list(dict.fromkeys(list(p.obserwacje) + list(p.kontrprzyklady)))
+    kand = kandydaci_z_obserwacji(p, znane, np.random.default_rng(0), "sen:powtorka")[:60]
+    ctx = KontekstIntuicji(p.konsolidacja(), len(znane), p, tuple(znane))
+    a = HeurystykaPrzyrostu(1).ocen(kand, ctx)
+    rng = np.random.default_rng(1)
+    poza = np.ones(len(next(iter(p.concepts.values()))), bool)
+    poza[np.asarray(znane)] = False
+    szum = {k: np.where(poza, rng.random(len(v)) < 0.5, v) for k, v in p.concepts.items()}
+    p2 = Pamiec(names=p.names, concepts=szum, obserwacje=p.obserwacje, kontrprzyklady=p.kontrprzyklady, status=p.status)
+    b = HeurystykaPrzyrostu(1).ocen(kand, KontekstIntuicji(p2.konsolidacja(), len(znane), p2, tuple(znane)))
+    assert np.array_equal(a, b)
+
+
+def test_werdykt_przyrost_pelna_tabela():
+    from matylda_rdzen.przyrost_walidacja import werdykt
+    assert werdykt("lepsza", "lepsza").startswith("WYNIK:")
+    assert werdykt("lepsza", "gorsza").startswith("WYNIK NEGATYWNY")
+    assert werdykt("nieinformatywny", "lepsza").startswith("WYNIK CZĘŚCIOWY")
+    assert "NIEINFORMATYWNY" in werdykt("nieinformatywny", "nierozstrzygnieta") and "brak przewagi" in werdykt("nieinformatywny", "nierozstrzygnieta")
+    assert werdykt("nieinformatywny", "nieinformatywny").startswith("NIEINFORMATYWNY")
