@@ -218,11 +218,11 @@ def test_lmm_v3_bez_praw_wykluczonych():
     assert not set(PRAWA_S0) & {H for H, *_ in L}
 
 
-def test_domyslna_intuicja_to_heurystyka_grafu():
-    """Od 27.11 domyślną intuicją rdzenia jest heurystyka grafu; linia bazowa pozostaje dostępna jawnie."""
-    from matylda_rdzen.heurystyki import HeurystykaGrafu
+def test_domyslna_intuicja_to_heurystyka_przyrostu():
+    """Od 27.11 (po ROZMIAR3) domyślną intuicją jest heurystyka przyrostu; linie bazowe pozostają dostępne jawnie."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
     a = uruchom("medialna", 1, "S", budzet=60)
-    b = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaGrafu("oa+ob+kara"))
+    b = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaPrzyrostu(1))
     c = uruchom("medialna", 1, "S", budzet=60, intuicja=HeurystykaOgolnosci())
     assert a.dziennik.krzywa == b.dziennik.krzywa
     assert c.wywolania > 0
@@ -299,10 +299,10 @@ def test_werdykt_przyrost_pelna_tabela():
     assert werdykt("nieinformatywny", "nieinformatywny").startswith("NIEINFORMATYWNY")
 
 
-def test_domyslna_intuicja_zalezy_od_rzedu():
-    """Decyzja Michała (27.11): w rzędzie 4 domyślna jest heurystyka przyrostu, w rzędzie 3 heurystyka grafu."""
+def test_domyslna_intuicja_w_obu_rzedach():
+    """Decyzja Michała (27.11, po ROZMIAR3): heurystyka przyrostu domyślna w rzędzie 3 i 4."""
     from matylda_rdzen.petla import domyslna_intuicja
-    assert domyslna_intuicja(3).nazwa.startswith("heur_grafu")
+    assert domyslna_intuicja(3).nazwa == "heur_przyrostu[m=1]"
     assert domyslna_intuicja(4).nazwa == "heur_przyrostu[m=1]"
 
 

@@ -61,13 +61,12 @@ DOMYSLNY_WZOR = "oa+ob+kara"
 
 
 def domyslna_intuicja(rzad):
-    """Domyślna intuicja rdzenia (decyzje Michała, 27.11).
-    Rząd 3: heurystyka grafu (wyniki/S0_HEUR_RAPORT.md). Rząd 4: heurystyka przyrostu pokrycia, m = 1 (wyniki/PRZYROST_RAPORT.md:
-    lepsza od grafu w 5/5 praw rzędu 4; jawny wyjątek od §6 przy WYNIKU CZĘŚCIOWYM; zysk w tempie). Linia bazowa: intuicja.HeurystykaOgolnosci."""
-    if rzad in (4, "4T"):
-        from .heurystyki_przyrostu import HeurystykaPrzyrostu
-        return HeurystykaPrzyrostu(1)
-    return HeurystykaGrafu(DOMYSLNY_WZOR)
+    """Domyślna intuicja rdzenia (decyzja Michała, 27.11, po ROZMIAR3): heurystyka przyrostu pokrycia, m = 1, w rzędzie 3 i 4
+    (wyniki/PRZYROST_RAPORT.md: rząd 4 5/5; wyniki/ROZMIAR3_RAPORT.md: rząd 3 lepsza w małych 3/4 i dużych 5/5, nigdzie gorsza).
+    Zakres: klasa większych termów; w ok. 30% dużych praw efekt zerowy. Nazwane linie bazowe: HeurystykaGrafu(DOMYSLNY_WZOR)
+    (poprzednia domyślna) i intuicja.HeurystykaOgolnosci. Argument rzad zostaje dla zgodności i przyszłych wyjątków."""
+    from .heurystyki_przyrostu import HeurystykaPrzyrostu
+    return HeurystykaPrzyrostu(1)
 
 
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,

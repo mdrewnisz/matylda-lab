@@ -242,3 +242,4 @@ Prerejestracja 7029a27, 14 nowych praw (7 małych i 7 dużych światów, po 2 re
 - Hipoteza „pomaga tylko w małych światach” nie jest potwierdzona (p = 0,40).
 - Diagnostyka wskazuje, że o wielkości efektu decyduje trafność puli snu, a nie rozmiar świata (HIPOTEZA).
 - Rekomendacja (do decyzji Michała): domyślna także w rzędzie 3. Raport: `rdzen/wyniki/ROZMIAR3_RAPORT.md`.
+- **Decyzja Michała (27.11, po ROZMIAR3):** heurystyka przyrostu (m = 1) jest domyślną intuicją także w rzędzie 3 (`petla.domyslna_intuicja`). Heurystyka grafu zostaje nazwaną linią bazową. Zastrzeżenia: zakres to klasa większych termów, a w ok. 30% dużych praw efekt jest zerowy.
