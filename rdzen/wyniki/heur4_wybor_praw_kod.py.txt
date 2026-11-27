@@ -1,0 +1,28 @@
+import numpy as np, json
+from matylda_rdzen.prawa_losowe import losuj_prawa
+from matylda_rdzen.heur4_dev import swiaty_dev
+from matylda_rdzen.swiat import zbuduj_swiat, PRAWA_S0, _tablice
+from matylda_rdzen.s1 import PRAWA_MOCY
+def key(H,rz):
+    sw=zbuduj_swiat(H,rz,'literaly'); U=_tablice(rz)[sw.world]
+    A={m.tobytes() for m in U.astype(np.uint8)}; At={m.T.tobytes() for m in U.astype(np.uint8)}
+    return frozenset(A), frozenset(At)
+spent=list(PRAWA_S0)+list(PRAWA_MOCY)+swiaty_dev(120)
+zakaz={3:set(),4:set()}
+for H in spent:
+    for rz in (3,4):
+        a,at=key(H,rz); zakaz[rz]|={a,at}
+named=['unipotentna xx=yy','lewa alternat. x(xy)=(xx)y','prawa alternat. (yx)x=y(xx)']
+out=[]; 
+for H in named+losuj_prawa(600, 9090):
+    if H in spent: continue
+    ok=True; info=[]
+    for rz in (3,4):
+        sw=zbuduj_swiat(H,rz,'literaly'); a,at=key(H,rz)
+        if len(sw.world)<20 or len(sw.TR)<15 or a in zakaz[rz] or at in zakaz[rz]: ok=False; break
+        info+= [len(sw.world),len(sw.TR)]
+    if ok:
+        out.append((H,info))
+        for rz in (3,4): a,at=key(H,rz); zakaz[rz]|={a,at}   # bez duplikatów/dualów wewnątrz zbioru
+    if len(out)>=8: break
+print(json.dumps(out,ensure_ascii=False))
