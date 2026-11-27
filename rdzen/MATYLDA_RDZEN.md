@@ -234,3 +234,11 @@ Stara `HeurystykaOgolnosci` zostaje nazwaną linią bazową; runnery wcześniejs
   - Rząd 3: 2/5, nierozstrzygnięte. Prawdopodobnie przeszkadza rozmiar świata (HIPOTEZA). Wąskim gardłem jest rozpoznanie prawdziwości w puli snu.
 - Raport: `rdzen/wyniki/PRZYROST_RAPORT.md`.
 - **Decyzja Michała (27.11):** w rzędzie 4 domyślną intuicją jest heurystyka przyrostu (`petla.domyslna_intuicja`), w rzędzie 3 zostaje heurystyka grafu. To jawny wyjątek od §6 prerejestracji przy WYNIKU CZĘŚCIOWYM; zysk dotyczy tempa.
+
+## Rząd 3 według rozmiaru świata (27.11): WYNIK
+
+Prerejestracja 7029a27, 14 nowych praw (7 małych i 7 dużych światów, po 2 rezerwowe), ziarna 2010–2069.
+- Heurystyka przyrostu jest lepsza od heurystyki grafu w rzędzie 3: 3/4 małych i 5/5 dużych praw, nigdzie gorsza.
+- Hipoteza „pomaga tylko w małych światach” nie jest potwierdzona (p = 0,40).
+- Diagnostyka wskazuje, że o wielkości efektu decyduje trafność puli snu, a nie rozmiar świata (HIPOTEZA).
+- Rekomendacja (do decyzji Michała): domyślna także w rzędzie 3. Raport: `rdzen/wyniki/ROZMIAR3_RAPORT.md`.
