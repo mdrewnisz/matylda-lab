@@ -60,15 +60,23 @@ class Przebieg:
 DOMYSLNY_WZOR = "oa+ob+kara"
 
 
+def domyslna_intuicja(rzad):
+    """Domyślna intuicja rdzenia (decyzje Michała, 27.11).
+    Rząd 3: heurystyka grafu (wyniki/S0_HEUR_RAPORT.md). Rząd 4: heurystyka przyrostu pokrycia, m = 1 (wyniki/PRZYROST_RAPORT.md:
+    lepsza od grafu w 5/5 praw rzędu 4; jawny wyjątek od §6 przy WYNIKU CZĘŚCIOWYM; zysk w tempie). Linia bazowa: intuicja.HeurystykaOgolnosci."""
+    if rzad in (4, "4T"):
+        from .heurystyki_przyrostu import HeurystykaPrzyrostu
+        return HeurystykaPrzyrostu(1)
+    return HeurystykaGrafu(DOMYSLNY_WZOR)
+
+
 def uruchom(H: str, seed: int, nazwa_ramienia: str, budzet: int = 100,
             intuicja: Intuicja | None = None, k: int = ILE_INTUICJI, rzad: int = 3,
             slownik: str = "baza", cex_cap: int = CEX_CAP, budzet_snu: int | None = None) -> Przebieg:
     """budzet_snu (S-1b): jeśli podany, czuwanie 1 ma limit `budzet`, a fazy po nim dostają osobno `budzet_snu` wywołań
     (łączny limit = wywołania po dniu 1 + budzet_snu). Domyślnie (None) jeden wspólny budżet, jak w S-0/S-0b/S-1."""
     sw = zbuduj_swiat(H, rzad, slownik)
-    # Domyślna intuicja rdzenia od 27.11 (decyzja Michała): heurystyka grafu, zwalidowana i przetestowana na S-0
-    # (wyniki/S0_HEUR_RAPORT.md; zastrzeżenie: w rzędzie 4 przewaga krucha). Linia bazowa: intuicja.HeurystykaOgolnosci.
-    intuicja = intuicja or HeurystykaGrafu(DOMYSLNY_WZOR)
+    intuicja = intuicja or domyslna_intuicja(rzad)
     sen = ramie(nazwa_ramienia, sw)
 
     # Czuwanie 1: identyczne we wszystkich ramionach i zgodne z ramieniem A2 z KG-0b.

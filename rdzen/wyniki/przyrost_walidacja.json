@@ -1,0 +1,1220 @@
+{
+ "commit": "85f6d4de9b03ccb24d7cafff2f339800e96f0ba9",
+ "prerejestracja_sha256": "03154290104478b6f5765fbfb2cbdba62ee633b8bb51d1044c990e0817841196",
+ "m": 1,
+ "kod_sha256": {
+  "heurystyki.py": "bbbf3a71c2da07d94391a35c8f865ba0c99f12d53f60e7510d0075bca5ed8931",
+  "heurystyki_przyrostu.py": "fec8b2f092591414fa2f5a6eee50497974bbac992ec630cf22efa66cadfd1250",
+  "wyrocznie.py": "9618877d6cbe1f032242625e49ea5a1edc0998580adc6606db11cdda59afa951",
+  "heur4_walidacja.py": "3c3b8b1c54e2749241493ee56bf7aa968b4f1e365d417ce0a528f97f031da6b8",
+  "s1b.py": "d35676bb28bea2ec6be210dd28cde0370c48665f327ba7d70ee9401d4fb8e3df",
+  "s1.py": "9c65b6eac392b1c67f20937f225dee4291980c266b1e411bf91891d4c53b1422",
+  "s0.py": "e0120cefe32f25f887b2b85cb5e62766d9d783d10d0011bbf169a951d38dc5f2",
+  "intuicja.py": "47f4277862a8731acc5edc7bc50aa2ae837aabecd51f433b60c4253a79a25a2c",
+  "fazy.py": "b581c4157a91993a8532bd6a31277dc5b157503cd02a30528e64ea4a5831d363",
+  "petla.py": "52187ef6949ef41016449f3a690bfbd5b3224feaac1a775649c9bf464e48d2e1",
+  "pamiec.py": "d945cfbeb5a5e826227361a6ea6b8e455bc8df203fc85baa262c7e1516c2576b",
+  "swiat.py": "f762475c1fbf7e3ba9293940f88f55a5404a9758b773b4b964cb9361f41ba103",
+  "prawa_losowe.py": "8bc523cf33f01ebf75713f69533ad3b48f932a99544dbb25d89825f955c31ed1",
+  "uniwersum4.py": "2b3466444a1798b2675bfa0077f874da2312254b44c35d52e39e729ecedb27d1",
+  "przyrost_walidacja.py": "9b5ad1a80181ad022e1bc90b5ee6987eebad5318f0165dfa59317a7ef3d84506"
+ },
+ "kontrasty": {
+  "T1|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   0.6474485831255367,
+   0.4303356242557613,
+   0.8990746300547382
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   0.5490196078431375,
+   0.34542483660130757,
+   0.7836683006535947
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.18333333333333332,
+   0.0,
+   0.48333333333333334
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   4.057694243199433,
+   3.7137454401667616,
+   4.424673634653947
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   3.120588235294117,
+   2.7431372549019613,
+   3.5081781045751637
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   -0.05,
+   -0.35,
+   0.2
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   2.1096237173295047,
+   1.6902771860070878,
+   2.5257090074104993
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   1.8300653594771243,
+   1.4199183006535947,
+   2.2428186274509803
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.6333333333333333,
+   0.09958333333333372,
+   1.2166666666666666
+  ],
+  "T1|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   3.5626816704838458,
+   3.09375959466181,
+   4.019726271254332
+  ],
+  "T1|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   2.9313725490196076,
+   2.493455882352941,
+   3.3787581699346405
+  ],
+  "T1|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.35,
+   -0.3,
+   1.05
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   1.4777258136892841,
+   1.1345637739284076,
+   1.8256937632075603
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   1.2810457516339866,
+   0.9538888888888887,
+   1.6055637254901953
+  ],
+  "T1|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.45,
+   -0.0004166666666662877,
+   0.9333333333333333
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   0.9161571564820079,
+   0.5965958266384747,
+   1.1977926863251458
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   0.4035947712418299,
+   0.07058006535947706,
+   0.7035947712418299
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   -0.85,
+   -1.5166666666666666,
+   -0.26666666666666666
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   3.469955709769198,
+   3.129318100559874,
+   3.8038200357172713
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   2.57156862745098,
+   2.2029411764705884,
+   2.9284395424836602
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   -0.23333333333333334,
+   -0.5833333333333334,
+   0.0
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   0.14966365663103556,
+   -0.01310041270147068,
+   0.317430019496488
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.17156862745098078,
+   0.05816993464052367,
+   0.29934640522875816
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.2,
+   0.0,
+   0.5
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   2.5876998620571046,
+   2.1916040540685704,
+   2.997291330457343
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   1.2542483660130719,
+   0.9643709150326801,
+   1.5728839869281048
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   0.44220574495634385,
+   0.19709936729435945,
+   0.6845698504656087
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.3862745098039218,
+   0.2143790849673204,
+   0.5849754901960784
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.3333333333333333,
+   0.0,
+   0.7666666666666667
+  ],
+  "T1|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   0.8023517221190509,
+   0.5111254223667191,
+   1.1088826698509693
+  ],
+  "T1|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.5104575163398694,
+   0.3065359477124188,
+   0.7343218954248365
+  ],
+  "T1|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.13333333333333333,
+   -0.3,
+   0.6333333333333333
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   0.3027394240010046,
+   0.07373406111331458,
+   0.5320076431815137
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.214705882352941,
+   0.07842320261437859,
+   0.36013888888888884
+  ],
+  "T1|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.13333333333333333,
+   0.0,
+   0.4
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   0.3239210426942934,
+   0.14927461481479512,
+   0.5147636260596461
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.06993464052287575,
+   -0.14607843137254908,
+   0.25882352941176445
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   -0.3333333333333333,
+   -0.7666666666666667,
+   0.0
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   2.444981958658579,
+   2.077927266231628,
+   2.8221641029658233
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   1.0826797385620912,
+   0.8326797385620917,
+   1.357843137254901
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   -0.2,
+   -0.5,
+   0.0
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   0.031414650661142664,
+   -0.09446861300964624,
+   0.1690764062288044
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   -0.0003267973856210323,
+   -0.15294934640522903,
+   0.14869281045751623
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   -0.2,
+   0.2
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   2.1790372939758167,
+   1.8780096892344964,
+   2.4951430519436393
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.9575163398692808,
+   0.7169852941176469,
+   1.2035947712418296
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.06666666666666667,
+   -0.16666666666666666,
+   0.3
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   0.8745539948885539,
+   0.6304442229203264,
+   1.1350558948914644
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.41666666666666685,
+   0.13986928104575191,
+   0.6960866013071897
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   -0.38333333333333336,
+   0.38333333333333336
+  ],
+  "T1|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   1.0502556677575845,
+   0.7693175241427465,
+   1.3411218326346601
+  ],
+  "T1|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.5464052287581699,
+   0.2849591503267974,
+   0.8255065359477121
+  ],
+  "T1|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.08333333333333333,
+   -0.26666666666666666,
+   0.48333333333333334
+  ],
+  "T1|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   0.864163860525265,
+   0.6597771377697906,
+   1.075153939388171
+  ],
+  "T1|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.4169934640522879,
+   0.16370915032679786,
+   0.6686274509803923
+  ],
+  "T1|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   -0.4,
+   0.4166666666666667
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   -0.06488266105204511,
+   -0.12053847964719798,
+   -0.012286719619283125
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   -0.024183006535947685,
+   -0.17156862745098037,
+   0.11895424836601284
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   -0.2,
+   0.2
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   2.150147803457136,
+   1.8478749185171743,
+   2.4529460104003302
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.9578431372549018,
+   0.7313725490196075,
+   1.192165032679738
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.06666666666666667,
+   -0.16666666666666666,
+   0.3
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|pole": [
+   3.21402089985618,
+   2.811888011050941,
+   3.6307628260076465
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   2.4950980392156867,
+   1.9607843137254903,
+   3.0722303921568628
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.9666666666666667,
+   -0.35,
+   2.45
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|pole": [
+   3.890569653517899,
+   3.4592637497092675,
+   4.338015231278006
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   2.631045751633987,
+   1.8627124183006536,
+   3.337916666666667
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.8166666666666667,
+   -0.75,
+   2.433333333333333
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|pole": [
+   5.092271883221346,
+   4.459242847297369,
+   5.748092692857789
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   4.586601307189542,
+   3.72906862745098,
+   5.454583333333335
+  ],
+  "T1|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   3.0,
+   1.4333333333333333,
+   4.716666666666667
+  ],
+  "T1|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|pole": [
+   6.374773855124968,
+   5.736524028131254,
+   7.004768793027326
+  ],
+  "T1|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   5.497058823529412,
+   4.678088235294117,
+   6.319689542483658
+  ],
+  "T1|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   2.7333333333333334,
+   1.2166666666666666,
+   4.433333333333334
+  ],
+  "T1|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|pole": [
+   2.0848951643206113,
+   1.5498682565946489,
+   2.642689706902552
+  ],
+  "T1|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   2.091503267973856,
+   1.5281045751633988,
+   2.6817075163398694
+  ],
+  "T1|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   2.033333333333333,
+   0.9333333333333333,
+   3.2666666666666666
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|pole": [
+   1.8482268362502998,
+   1.5993205771412298,
+   2.0950721012881965
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   1.279411764705883,
+   0.88202614379085,
+   1.6875898692810463
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.4166666666666667,
+   -0.9666666666666667,
+   1.85
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|pole": [
+   0.6665270301260297,
+   0.3779708727385085,
+   0.9387310385592125
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.13594771241830064,
+   -0.6258333333333338,
+   0.7980555555555555
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   -0.15,
+   -1.8333333333333333,
+   1.55
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   -0.11006301988401841,
+   -0.30659819993719656,
+   0.08668286960104891
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   -0.07418300653594771,
+   -0.21960784313725468,
+   0.07483660130718946
+  ],
+  "T1|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   3.942500346573692,
+   3.51091410623324,
+   4.382586880383793
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   2.808496732026144,
+   2.4006535947712417,
+   3.2199346405228755
+  ],
+  "T1|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.2,
+   -0.06666666666666667,
+   0.6
+  ],
+  "T1|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   1.460665959613203,
+   1.190705993989676,
+   1.7268280539690408
+  ],
+  "T1|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   1.2699346405228764,
+   1.0189542483660132,
+   1.523529411764706
+  ],
+  "T1|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.31666666666666665,
+   0.06666666666666667,
+   0.6666666666666666
+  ],
+  "T1|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   1.2069511568755653,
+   0.8979615117221966,
+   1.5223422846947172
+  ],
+  "T1|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.9562091503267975,
+   0.6794035947712422,
+   1.2480555555555557
+  ],
+  "T1|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.06666666666666667,
+   -0.31666666666666665,
+   0.4166666666666667
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   1.5600174504274003,
+   1.2954138826202004,
+   1.817651932054002
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   1.344117647058824,
+   1.1006454248366015,
+   1.58921568627451
+  ],
+  "T1|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.31666666666666665,
+   0.06666666666666667,
+   0.6666666666666666
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   0.3326848520211167,
+   0.07966071441413618,
+   0.59051231731365
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.33496732026143816,
+   0.04901960784313755,
+   0.6290849673202618
+  ],
+  "T1|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.26666666666666666,
+   -0.26666666666666666,
+   0.8666666666666667
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   4.0591556045382005,
+   3.643215019053736,
+   4.4780879724450235
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   2.8826797385620915,
+   2.4934640522875826,
+   3.2800816993464053
+  ],
+  "T1|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.2,
+   -0.06666666666666667,
+   0.6
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   2.280492325287836,
+   1.936443366107498,
+   2.612721574510286
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   1.731372549019608,
+   1.4829983660130717,
+   1.9758169934640522
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   4.0015744336838575,
+   3.5939677215840806,
+   4.381279146771081
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   2.8937908496732025,
+   2.5653431372549025,
+   3.207532679738561
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   3.1718486563493102,
+   2.803057073145208,
+   3.5262413546349762
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   2.4166666666666665,
+   2.118954248366013,
+   2.7058823529411757
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   4.361126455407847,
+   3.8797504529069977,
+   4.843845306808998
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   3.514052287581699,
+   3.0852859477124186,
+   3.941527777777777
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.26666666666666666,
+   0.06666666666666667,
+   0.5333333333333333
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   0.9094921327897258,
+   0.6197965094794329,
+   1.2042718453440995
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   0.6852941176470585,
+   0.45880718954248334,
+   0.9147222222222219
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   3.02318468958727,
+   2.71827034243644,
+   3.2973690201453603
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   2.303267973856209,
+   2.063390522875817,
+   2.52875816993464
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|pole": [
+   1.6846627501096567,
+   1.4148874882307714,
+   1.9636309910318452
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|stale_okno": [
+   1.162418300653595,
+   0.9503267973856213,
+   1.381053921568628
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(y*(y*y))=((x*(y*x))*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   1.243784746472352,
+   1.0928159013041086,
+   1.3810467413522198
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.8895424836601314,
+   0.7836601307189549,
+   0.9872630718954246
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.06666666666666667,
+   0.0,
+   0.18333333333333332
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   6.408949098832367,
+   5.999772225414782,
+   6.837199792793117
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   4.854575163398695,
+   4.350326797385622,
+   5.3911764705882375
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.15,
+   0.0,
+   0.43333333333333335
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   -0.7062227282899936,
+   -1.0321295546824085,
+   -0.3976648629290657
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   -0.45849673202614366,
+   -0.7362745098039217,
+   -0.19771241830065447
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.2,
+   0.06666666666666667,
+   0.36666666666666664
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   2.213686815710212,
+   1.9069701962998522,
+   2.514976981628894
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   1.8392156862745106,
+   1.5934558823529417,
+   2.090857843137255
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.38333333333333336,
+   0.08333333333333333,
+   0.7333333333333333
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   -1.8447787436991994,
+   -2.109243883108477,
+   -1.5909430847408135
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   -1.348039215686275,
+   -1.6085049019607842,
+   -1.099975490196079
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.13333333333333333,
+   -0.03333333333333333,
+   0.3
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   1.255933154031265,
+   1.1319154588094726,
+   1.3784950838306083
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   0.9117647058823544,
+   0.816658496732027,
+   1.0098039215686287
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|pole": [
+   5.2268163937815615,
+   4.793697435121696,
+   5.687204283593608
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|stale_okno": [
+   3.9650326797385635,
+   3.4777696078431366,
+   4.487630718954248
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(x*(z*(x*x)))=(z*(x*x))|koncowe": [
+   0.08333333333333333,
+   0.0,
+   0.25
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   1.1919704078052638,
+   1.0160422195100556,
+   1.3627016356541208
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.5594771241830068,
+   0.476462418300654,
+   0.6388888888888892
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.016666666666666666,
+   0.0,
+   0.05
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   2.384076200721799,
+   2.173443781981814,
+   2.587866963521644
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   1.1071895424836597,
+   0.9833169934640511,
+   1.2284313725490192
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   2.3767453957934737,
+   2.1680116915350536,
+   2.5822213718549705
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   1.3653594771241842,
+   1.1954248366013085,
+   1.543464052287582
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   -0.03333333333333333,
+   -0.08333333333333333,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   3.7342739658281183,
+   3.3457615001427126,
+   4.131675862000713
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   2.158169934640524,
+   1.859477124183008,
+   2.4568627450980403
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.016666666666666666,
+   0.0,
+   0.05
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   1.2968697396944335,
+   1.1055304081478612,
+   1.4900776931273285
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.8058823529411769,
+   0.6614379084967322,
+   0.9571977124183015
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   -0.05,
+   -0.11666666666666667,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   1.4304090908911102,
+   1.2080152183864317,
+   1.6475083340479646
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.6633986928104567,
+   0.5555473856209135,
+   0.7732107843137241
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|pole": [
+   1.2629867177271779,
+   1.1310764834927352,
+   1.3922910186354698
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|stale_okno": [
+   0.5477124183006529,
+   0.47679738562091484,
+   0.6192810457516332
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((z*x)*x)*x)=((x*z)*x)|koncowe": [
+   -0.016666666666666666,
+   -0.05,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|pole": [
+   1.901103237538861,
+   1.52510634251006,
+   2.287353303281325
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.7457516339869283,
+   0.5477124183006538,
+   0.9571977124183004
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|pole": [
+   2.104307959459141,
+   1.7060312928712218,
+   2.5198292778543245
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.831045751633987,
+   0.6238562091503269,
+   1.0555555555555551
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|pole": [
+   1.9849216040613176,
+   1.6556109315296499,
+   2.3156614760562104
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.8434640522875817,
+   0.6522794117647059,
+   1.0418300653594768
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|pole": [
+   2.755942851556602,
+   2.329341137351658,
+   3.189615709776566
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   1.1669934640522877,
+   0.9071895424836609,
+   1.4441176470588242
+  ],
+  "T1-4|heur_przyrostu-losowa|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|pole": [
+   0.21362174274205875,
+   0.03715326994497739,
+   0.3809555173909568
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.09771241830065343,
+   0.009150326797385826,
+   0.18334150326797372
+  ],
+  "T1-4|heur_grafu-heurystyka|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|pole": [
+   1.8226498024013003,
+   1.4143235888643348,
+   2.2462665076796267
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.785294117647059,
+   0.5630718954248367,
+   1.023537581699346
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|pole": [
+   0.2653403304498506,
+   0.16477947993126013,
+   0.3680137144603479
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|stale_okno": [
+   0.0852941176470587,
+   0.05065359477124159,
+   0.122549019607843
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:(((x*z)*x)*(z*x))=x|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   0.12892811287074235,
+   0.04132955330366749,
+   0.21534212207192385
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.06633986928104604,
+   0.02123366013071903,
+   0.1114379084967321
+  ],
+  "T1-4|heur_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   2.2991245297272522,
+   2.0698036302209784,
+   2.5275435632830563
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   1.1218954248366009,
+   0.966658496732026,
+   1.2820261437908498
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_grafu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   1.0224467708122074,
+   0.7985758363410488,
+   1.2499804529671117
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.6454248366013073,
+   0.5117647058823532,
+   0.781372549019608
+  ],
+  "T1-4|heur_przyrostu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   1.8200814515589563,
+   1.4940836918049898,
+   2.149189001899991
+  ],
+  "T1-4|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   1.0401960784313726,
+   0.8372549019607849,
+   1.2552287581699346
+  ],
+  "T1-4|heur_przyrostu-losowa|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   0.8966281956842136,
+   0.6931802363514936,
+   1.104575516178171
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.5790849673202613,
+   0.45881535947712415,
+   0.7035947712418297
+  ],
+  "T1-4|heur_grafu-heurystyka|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   0.03805185683349528,
+   -0.05312353883176478,
+   0.1413666089363683
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   0.01764705882352935,
+   -0.028431372549019448,
+   0.06699346405228752
+  ],
+  "T1-4|wyrocznia_przyrostu-wyrocznia_pokrycia|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|pole": [
+   2.169096725386046,
+   1.9435936301112158,
+   2.394359231456556
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|stale_okno": [
+   1.055555555555555,
+   0.90392156862745,
+   1.213398692810456
+  ],
+  "T1-4|wyrocznia_przyrostu-heur_przyrostu|L:((y*x)*(y*x))=((y*x)*(y*y))|koncowe": [
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "per_swiat": {
+  "T1": {
+   "prawa_wazne": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(x*(z*(x*x)))=(z*(x*x))",
+    "L:(((z*x)*x)*x)=((x*z)*x)",
+    "L:(((x*z)*x)*(z*x))=x",
+    "L:((y*x)*(y*x))=((y*x)*(y*y))"
+   ],
+   "bramka_prawa": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(x*(z*(x*x)))=(z*(x*x))",
+    "L:(((z*x)*x)*x)=((x*z)*x)",
+    "L:(((x*z)*x)*(z*x))=x",
+    "L:((y*x)*(y*x))=((y*x)*(y*y))"
+   ],
+   "lepsza": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(((x*z)*x)*(z*x))=x"
+   ],
+   "gorsza": [],
+   "ulamek_luki_okno": {
+    "L:(y*(y*y))=((x*(y*x))*(y*y))": [
+     0.17593465284322976,
+     0.11359654461006448,
+     0.2442630523401015
+    ],
+    "L:(x*(z*(x*x)))=(z*(x*x))": [
+     0.1367899947889529,
+     0.0515831947267919,
+     0.22179418097894102
+    ],
+    "L:(((z*x)*x)*x)=((x*z)*x)": [
+     -0.0003412969283277676,
+     -0.1822152537907617,
+     0.14515782039319516
+    ],
+    "L:(((x*z)*x)*(z*x))=x": [
+     0.948329400074525,
+     0.7360500241546236,
+     1.3091704961619743
+    ],
+    "L:((y*x)*(y*x))=((y*x)*(y*y))": [
+     -0.026413777053758435,
+     -0.08234900745350592,
+     0.025280945740384156
+    ]
+   },
+   "kategoria": "nierozstrzygnieta"
+  },
+  "T1-4": {
+   "prawa_wazne": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(x*(z*(x*x)))=(z*(x*x))",
+    "L:(((z*x)*x)*x)=((x*z)*x)",
+    "L:(((x*z)*x)*(z*x))=x",
+    "L:((y*x)*(y*x))=((y*x)*(y*y))"
+   ],
+   "bramka_prawa": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(x*(z*(x*x)))=(z*(x*x))",
+    "L:(((z*x)*x)*x)=((x*z)*x)",
+    "L:(((x*z)*x)*(z*x))=x",
+    "L:((y*x)*(y*x))=((y*x)*(y*y))"
+   ],
+   "lepsza": [
+    "L:(y*(y*y))=((x*(y*x))*(y*y))",
+    "L:(x*(z*(x*x)))=(z*(x*x))",
+    "L:(((z*x)*x)*x)=((x*z)*x)",
+    "L:(((x*z)*x)*(z*x))=x",
+    "L:((y*x)*(y*x))=((y*x)*(y*y))"
+   ],
+   "gorsza": [],
+   "ulamek_luki_okno": {
+    "L:(y*(y*y))=((x*(y*x))*(y*y))": [
+     0.5983060417843027,
+     0.5402635893019125,
+     0.6546085408652241
+    ],
+    "L:(x*(z*(x*x)))=(z*(x*x))": [
+     0.1832379670144733,
+     0.15874901696438626,
+     0.20909187031867577
+    ],
+    "L:(((z*x)*x)*x)=((x*z)*x)": [
+     0.505312868949233,
+     0.46362050513698716,
+     0.5444573874178994
+    ],
+    "L:(((x*z)*x)*(z*x))=x": [
+     0.89736531655525,
+     0.8533157163620723,
+     0.9361864623079228
+    ],
+    "L:((y*x)*(y*x))=((y*x)*(y*y))": [
+     0.0591319545586953,
+     0.019266601456427494,
+     0.09866946850364698
+    ]
+   },
+   "kategoria": "lepsza"
+  }
+ },
+ "waznosc": {
+  "T1|L:(y*(y*y))=((x*(y*x))*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:(x*(z*(x*x)))=(z*(x*x))": {
+   "pula_snu1": 0.9833333333333333,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:(((z*x)*x)*x)=((x*z)*x)": {
+   "pula_snu1": 0.9833333333333333,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:(((x*z)*x)*(z*x))=x": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1|L:((y*x)*(y*x))=((y*x)*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(y*(y*y))=((x*(y*x))*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(x*(z*(x*x)))=(z*(x*x))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(((z*x)*x)*x)=((x*z)*x)": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:(((x*z)*x)*(z*x))=x": {
+   "pula_snu1": 0.9666666666666667,
+   "dzien_na_limicie": 0.0
+  },
+  "T1-4|L:((y*x)*(y*x))=((y*x)*(y*y))": {
+   "pula_snu1": 1.0,
+   "dzien_na_limicie": 0.0
+  }
+ },
+ "G": "WYNIK CZĘŚCIOWY: lepsza tylko w T1-4 (rząd 4) (T1: nierozstrzygnieta; T1-4: lepsza)"
+}

@@ -1,0 +1,10 @@
+{
+ "ziarno": 9191,
+ "prawa": [],
+ "odrzucenia": {
+  "jaccard_lub_nadzbior_rz3": 2872,
+  "rozmiar_rz3": 1864,
+  "na_liscie": 186,
+  "jaccard_lub_nadzbior_rz4": 78
+ }
+}

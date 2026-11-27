@@ -239,3 +239,68 @@ def test_prototyp_seedy_w_praxis(tmp_path):
         from matylda_praxis.adapters.sqlite import SQLiteArtifactRepository
         recs = SQLiteArtifactRepository(tmp_path / "praxis.sqlite3").list()
         assert len(recs) == o["seedy"] and all(r.state.value == "seed" for r in recs)
+
+
+def test_zachlanny_przyrost_liczy_jak_pokrycie():
+    """Przyrost wybranej krawędzi = przyrost Swiat.pokrycie; wybór sekwencyjny nie powtarza zysku."""
+    from matylda_rdzen.wyrocznie import zachlanny_przyrost
+    from matylda_rdzen.swiat import closure
+    sw = zbuduj_swiat("medialna", 3, "literaly")
+    tr = sorted(sw.TR)
+    a, b = [x for x, _ in tr[:5]], [y for _, y in tr[:5]]
+    wybor = zachlanny_przyrost(sw.names, set(), tr, a + a[:1], b + b[:1], np.zeros(6), k=6)
+    assert sorted(wybor[:5]) == [0, 1, 2, 3, 4] and wybor[5] == 5        # duplikat ostatni (zysk 0)
+    przed = sw.pokrycie(set())[0]
+    po = sw.pokrycie({(a[wybor[0]], b[wybor[0]])})[0]
+    assert po - przed >= 1
+
+
+def test_wyrocznia_przyrostu_i_heurystyka_przyrostu_w_petli():
+    """Wyrocznia: najpierw prawdziwe; heurystyka przyrostu nie zna świata (ten sam wynik dla tego samego ziarna)."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
+    from matylda_rdzen.wyrocznie import IntuicjaWyroczniaPrzyrostu
+    sw = zbuduj_swiat("medialna", 3, "literaly")
+    r1 = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=HeurystykaPrzyrostu(1))
+    r2 = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=HeurystykaPrzyrostu(1))
+    assert r1.dziennik.krzywa == r2.dziennik.krzywa
+    w = uruchom("medialna", 3, "S", budzet=80, budzet_snu=30, slownik="literaly", cex_cap=1, intuicja=IntuicjaWyroczniaPrzyrostu(sw))
+    wyb = w.dziennik.wybrane_snu1
+    if wyb:
+        from matylda_rdzen.s1 import prawdziwa
+        flagi = [prawdziwa(sw, k.a, k.b) for k in wyb]
+        assert flagi == sorted(flagi, reverse=True)
+
+
+def test_heurystyka_przyrostu_nie_widzi_swiata_poza_znanymi_magmami():
+    """Z7 recenzji: zaszumienie pojęć poza znanymi magmami nie zmienia ocen heurystyki przyrostu."""
+    from matylda_rdzen.heurystyki_przyrostu import HeurystykaPrzyrostu
+    from matylda_rdzen.fazy import kandydaci_z_obserwacji
+    r = uruchom("medialna", 5, "S", budzet=80, budzet_snu=10, slownik="literaly", cex_cap=1)
+    p = r.pamiec
+    znane = list(dict.fromkeys(list(p.obserwacje) + list(p.kontrprzyklady)))
+    kand = kandydaci_z_obserwacji(p, znane, np.random.default_rng(0), "sen:powtorka")[:60]
+    ctx = KontekstIntuicji(p.konsolidacja(), len(znane), p, tuple(znane))
+    a = HeurystykaPrzyrostu(1).ocen(kand, ctx)
+    rng = np.random.default_rng(1)
+    poza = np.ones(len(next(iter(p.concepts.values()))), bool)
+    poza[np.asarray(znane)] = False
+    szum = {k: np.where(poza, rng.random(len(v)) < 0.5, v) for k, v in p.concepts.items()}
+    p2 = Pamiec(names=p.names, concepts=szum, obserwacje=p.obserwacje, kontrprzyklady=p.kontrprzyklady, status=p.status)
+    b = HeurystykaPrzyrostu(1).ocen(kand, KontekstIntuicji(p2.konsolidacja(), len(znane), p2, tuple(znane)))
+    assert np.array_equal(a, b)
+
+
+def test_werdykt_przyrost_pelna_tabela():
+    from matylda_rdzen.przyrost_walidacja import werdykt
+    assert werdykt("lepsza", "lepsza").startswith("WYNIK:")
+    assert werdykt("lepsza", "gorsza").startswith("WYNIK NEGATYWNY")
+    assert werdykt("nieinformatywny", "lepsza").startswith("WYNIK CZĘŚCIOWY")
+    assert "NIEINFORMATYWNY" in werdykt("nieinformatywny", "nierozstrzygnieta") and "brak przewagi" in werdykt("nieinformatywny", "nierozstrzygnieta")
+    assert werdykt("nieinformatywny", "nieinformatywny").startswith("NIEINFORMATYWNY")
+
+
+def test_domyslna_intuicja_zalezy_od_rzedu():
+    """Decyzja Michała (27.11): w rzędzie 4 domyślna jest heurystyka przyrostu, w rzędzie 3 heurystyka grafu."""
+    from matylda_rdzen.petla import domyslna_intuicja
+    assert domyslna_intuicja(3).nazwa.startswith("heur_grafu")
+    assert domyslna_intuicja(4).nazwa == "heur_przyrostu[m=1]"
