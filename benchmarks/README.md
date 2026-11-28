@@ -36,8 +36,8 @@ Zasada „sprawdzacz najpierw”: kod oceniający powstaje i jest testowany na p
 - WYNIK: 62 testy kontrolne przechodzą (4 wymagają binarki twee, bez niej są pomijane) (`python -m pytest benchmarks/tests -c /dev/null`).
 - WYNIK: `basis.nph_star_laws_entail` daje obie granice NPH* z certyfikatami (dowód albo kontrmodel).
   Starsza `nph_star_laws` (modele referencyjne) zostaje tylko do porównania: jej dolna granica nie jest poprawna.
-- Zależność: `python-sat` (pip). Bez niej kontrmodele tylko rozmiaru 2. Metryka główna (zamrożona, `zamrozenie.py`) wymaga twee.
-- Opcjonalnie: twee (`sh narzedzia/pobierz_twee.sh`). Bez niego górna granica NPH* jest słabsza (własny dowodnik).
+- Zależność: `python-sat` (pip). Bez niej kontrmodele tylko rozmiaru 2.
+- Opcjonalnie: twee (`sh narzedzia/pobierz_twee.sh`). Bez niego górna granica NPH* jest słabsza (własny dowodnik), a metryka główna (zamrożona, `zamrozenie.py`) jest niedostępna.
 - WYNIK (sprawdzone 2026-11-27): lista ETP to 4694 prawa o ≤ 4 operacjach (do 6 zmiennych). Cała pula
   `law_pool(4)` (1476 praw, ≤ 3 zmienne) leży w ETP, więc wariant N wymaga praw o ≥ 5 operacjach
   (`d1prime.pool_variant_N`: 12 072 prawa ≤ 5 operacji spoza ETP).
