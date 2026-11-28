@@ -48,7 +48,7 @@ class Rodzina:
     wersja: int = 1
 
 
-def make_family(seed: int, wersja: int = 1) -> Rodzina:
+def make_family(seed: int, wersja: int = 2) -> Rodzina:
     """Wersja 1 (spec 2.0): współczynniki 0–5 – pilot 2026-11-28 pokazał, że pełne przeszukanie ją
     rozwiązuje (WYNIK NEGATYWNY). Wersja 2 (PROPOZYCJA): a, c ∈ [0, L/2), b, d, e, f ∈ [0, L).
     Ograniczenie a, c < L/2 usuwa jedyną niejednoznaczność: (L/2)·x(x−1) ≡ 0 mod każdego n | L."""
@@ -193,7 +193,7 @@ def solve_crt(train: dict):
     return co if all(np.array_equal(tabela(co, n), train[n]) for n in ns) else None
 
 
-def arm_C(train: dict, K: int, max_ops: int = 4, wersja: int = 1):
+def arm_C(train: dict, K: int, max_ops: int = 4, wersja: int = 2):
     """Pętla narzędziowa: (i) przeszukanie współczynników zgodnych ze WSZYSTKIMI tabelami uczącymi
     (pierwszy zgodny w kolejności leksykograficznej); (ii) prawa z puli ≤ max_ops działań, które
     zachodzą we wszystkich tabelach uczących, w kolejności puli, do K."""
@@ -220,14 +220,14 @@ def arm_E(K: int, max_ops: int = 4):
     return (0, 0, 0, 1, 1, 0), controls.enumerator_E(K, max_ops=max_ops)
 
 
-def arm_R0(K: int, seed: int, max_ops: int = 4, wersja: int = 1):
+def arm_R0(K: int, seed: int, max_ops: int = 4, wersja: int = 2):
     # osobny strumień: to samo ziarno co make_family odtworzyłoby ukryte współczynniki (błąd pilota 1)
     rng = np.random.default_rng([seed, 0xD2])
     top = COEF_MAX + 1 if wersja == 1 else L // 2
     return tuple(int(v) for v in rng.integers(0, top, size=6)), controls.random_R0(K, seed, max_ops=max_ops)
 
 
-def run_pilot(seeds, K: int = 20, wersja: int = 1):
+def run_pilot(seeds, K: int = 20, wersja: int = 2):
     from . import zamrozenie
     zamrozenie.sprawdz()
     rows = []

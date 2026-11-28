@@ -461,7 +461,7 @@ def test_d2_generator_niezalezny_zgodny_i_polityka():
 
 def test_d2_R0_nie_odtwarza_ukrytej_reguly():
     from lmm_bench import d2
-    hits = sum(d2.arm_R0(5, s)[0] == d2.make_family(s).coefs for s in range(2200, 2240))
+    hits = sum(d2.arm_R0(5, s, wersja=1)[0] == d2.make_family(s, wersja=1).coefs for s in range(2200, 2240))
     assert hits == 0
 
 
