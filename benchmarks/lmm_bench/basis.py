@@ -189,8 +189,17 @@ def min_hitting_set(sets: list, n: int) -> int:
     """Dokładna liczność minimalnego zbioru trafiającego (elementy 0..n-1)."""
     if not sets:
         return 0
-    from pysat.card import CardEnc, EncType
-    from pysat.solvers import Cadical153
+    try:
+        from pysat.card import CardEnc, EncType
+        from pysat.solvers import Cadical153
+    except ImportError:                     # bez pysat: przeszukanie wyczerpujące (dokładne, wolniejsze)
+        from itertools import combinations
+        for k in range(1, n + 1):
+            for c in combinations(range(n), k):
+                cs = set(c)
+                if all(v & cs for v in sets):
+                    return k
+        return n
     lits = list(range(1, n + 1))
     for k in range(1, n + 1):
         enc = CardEnc.atmost(lits=lits, bound=k, top_id=n, encoding=EncType.seqcounter)
