@@ -443,3 +443,30 @@ def test_zamrozenie_odmawia_bez_twee(monkeypatch, tmp_path):
             zamrozenie.nph_zamrozone([parse_law("x*y = y*x")])
     finally:
         twee.binary.cache_clear()
+
+
+# ---------- D2 (2026-11-28) ----------
+def test_d2_generator_niezalezny_zgodny_i_polityka():
+    from lmm_bench import d2
+    for s in range(2200, 2206):
+        fam = d2.make_family(s)
+        for n in (4, 12, 13, 40):
+            assert d2.tabela(fam.coefs, n).tolist() == d2._tabela_niezalezna(fam.coefs, n)
+        assert d2.generalizacja(fam, fam.coefs) == 1.0
+    with pytest.raises(ValueError):
+        d2.tabela((0, 0, 0, 1, 1, 0), 3)
+    with pytest.raises(ValueError):
+        d2.make_family(2199)
+
+
+def test_d2_R0_nie_odtwarza_ukrytej_reguly():
+    from lmm_bench import d2
+    hits = sum(d2.arm_R0(5, s)[0] == d2.make_family(s).coefs for s in range(2200, 2240))
+    assert hits == 0
+
+
+def test_d2_prawo_w_rodzinie():
+    from lmm_bench import d2
+    fam = d2.Rodzina(2200, "afiniczna", (0, 0, 0, 1, 1, 0))            # x*y = x+y
+    assert d2.prawo_w_rodzinie(parse_law("x*y = y*x"), fam)
+    assert not d2.prawo_w_rodzinie(parse_law("x*x = x"), fam)
