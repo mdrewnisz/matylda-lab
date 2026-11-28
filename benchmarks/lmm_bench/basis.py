@@ -104,7 +104,7 @@ def nph_star_laws(accepted: list, initial: list = (), reference_models: list = (
 def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000,
                          packing: bool = True, fill_free: bool = True,
                          extra_ops=(2, 4), pairs: bool = False, use_twee: bool = True,
-                         twee_timeout: float = 3.0):
+                         twee_timeout: float = 3.0, cegar: bool = True):
     """Przedział NPH* oparty na prawdziwym sprawdzaczu wynikania (entail.py). Obie granice są pewne:
 
     górna = liczność zbioru po zachłannym usunięciu praw z DOWODEM wynikania z pozostałych
@@ -149,6 +149,10 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
     # Każdy wynik jest zbiorem generującym, więc minimum z dwóch kolejności też jest górną granicą.
     upper = min(greedy(list(reversed(uniq))), greedy(list(uniq)), key=len)
 
+    if cegar:
+        lo, hi, _ = cegar_basis(uniq, initial, sizes, _provable)
+        return lo, min(hi, len(upper))
+
     essential = []
     for law in uniq:
         rest = [x for x in uniq if x is not law] + list(initial)
@@ -165,7 +169,7 @@ def _packing(uniq, essential, initial, sizes, pairs: bool = True):
     Każda magma M spełniająca E ∪ wiedza początkowa i łamiąca któreś prawo z uniq daje zbiór
     V(M) = {l ∉ E : M łamie l} (niepusty). Każda baza B ⊆ uniq zawiera E i generuje wszystkie prawa,
     więc musi zawierać prawo łamane w M (inaczej M spełnia B, a więc i wszystko, co z B wynika).
-    Zatem |B \ E| ≥ minimalny zbiór trafiający rodziny {V(M)}. Liczymy go DOKŁADNIE (SAT z ograniczeniem
+    Zatem |B − E| ≥ minimalny zbiór trafiający rodziny {V(M)}. Liczymy go DOKŁADNIE (SAT z ograniczeniem
     liczności), więc granica jest poprawna dla każdej zebranej rodziny; więcej małych zbiorów = ciaśniej.
 
     Rodzina: (1) dla każdego prawa L jeden kontrmodel względem E; (2) przy pairs=True dla każdej pary
@@ -201,8 +205,13 @@ def _packing(uniq, essential, initial, sizes, pairs: bool = True):
 
 def min_hitting_set(sets: list, n: int) -> int:
     """Dokładna liczność minimalnego zbioru trafiającego (elementy 0..n-1)."""
+    return len(min_hitting_set_witness(sets, n))
+
+
+def min_hitting_set_witness(sets: list, n: int) -> frozenset:
+    """Minimalny zbiór trafiający (elementy 0..n-1), dokładnie."""
     if not sets:
-        return 0
+        return frozenset()
     try:
         from pysat.card import CardEnc, EncType
         from pysat.solvers import Cadical153
@@ -210,14 +219,52 @@ def min_hitting_set(sets: list, n: int) -> int:
         from itertools import combinations
         for k in range(1, n + 1):
             for c in combinations(range(n), k):
-                cs = set(c)
+                cs = frozenset(c)
                 if all(v & cs for v in sets):
-                    return k
-        return n
+                    return cs
+        return frozenset(range(n))
     lits = list(range(1, n + 1))
     for k in range(1, n + 1):
         enc = CardEnc.atmost(lits=lits, bound=k, top_id=n, encoding=EncType.seqcounter)
         with Cadical153(bootstrap_with=[[e + 1 for e in v] for v in sets] + enc.clauses) as sol:
             if sol.solve():
-                return k
-    return n
+                m = set(sol.get_model())
+                return frozenset(i for i in range(n) if (i + 1) in m)
+    return frozenset(range(n))
+
+
+def cegar_basis(uniq: list, initial: list, sizes, provable, max_iter: int = 60):
+    """Pętla kontrprzykładów dla NPH*: (dolna, górna, baza albo None).
+
+    Rodzina F zbiorów V(M) = {i : magma M łamie prawo i}, gdzie M spełnia wiedzę początkową.
+    Każda baza B ⊆ uniq trafia każdy V(M) (inaczej M spełnia B, więc i wszystko, co z B wynika),
+    więc |minimalny zbiór trafiający F| jest POPRAWNĄ dolną granicą na każdym kroku.
+    Krok: H = minimalny zbiór trafiający; szukamy M ⊨ H ∪ wiedza, łamiącej któreś inne prawo.
+    Jest M: dodajemy V(M) (rozłączny z H), powtarzamy. Brak M (rozmiary `sizes`): próbujemy dowieść
+    każdego pozostałego prawa z H (`provable`, dowody sprawdzane). Wszystkie dowiedzione: H jest bazą,
+    dolna = górna = |H|. Inaczej górna = |H| + liczba niedowiedzionych (H z nimi generuje wszystko)."""
+    from . import entail
+    from .terms import holds
+
+    n = len(uniq)
+    if n == 0:
+        return 0, 0, []
+    fam = []
+    for _ in range(max_iter):
+        H = min_hitting_set_witness(fam, n)
+        base = [uniq[i] for i in sorted(H)] + list(initial)
+        rest = [uniq[i] for i in range(n) if i not in H]
+        if not rest:
+            return len(H), len(H), [uniq[i] for i in sorted(H)]
+        m = entail.countermodel_any(base, rest, sizes=sizes) if base else entail.countermodel_any([], rest, sizes=sizes)
+        if m is not None:
+            v = frozenset(i for i in range(n) if not holds(uniq[i], m))
+            assert v and not (v & H)
+            fam.append(v)
+            continue
+        unproved = [l for l in rest if not provable(base, l)]
+        if not unproved:
+            return len(H), len(H), [uniq[i] for i in sorted(H)]
+        return len(H), len(H) + len(unproved), None
+    H = min_hitting_set_witness(fam, n)
+    return len(H), n, None

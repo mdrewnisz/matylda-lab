@@ -398,3 +398,26 @@ def test_nph_star_entail_empty_extra_ops():
     acc = [parse_law("x*y = y*x"), parse_law("(x*x)*y = y*(x*x)")]
     lo, hi = basis.nph_star_laws_entail(acc, extra_ops=())
     assert 1 <= lo <= hi <= 2
+
+
+def test_min_hitting_set_witness_hits_all():
+    sets = [frozenset({0, 1}), frozenset({1, 2}), frozenset({3})]
+    h = basis.min_hitting_set_witness(sets, 4)
+    assert len(h) == 2 and all(v & h for v in sets)
+
+
+def test_cegar_basis_exact_on_known_cases():
+    P = parse_law
+
+    def prov(base, law):
+        return entail.prove(base, law, node_limit=5000) is not None
+    # komutatywność generuje swoje podstawienie: baza = 1
+    lo, hi, B = basis.cegar_basis([P("x*y = y*x"), P("(x*x)*y = y*(x*x)")], [], (2, 4), prov)
+    assert lo == hi == 1 and B == [P("x*y = y*x")]
+    # dwa niezależne prawa: baza = 2
+    lo, hi, B = basis.cegar_basis([P("x*y = y*x"), P("x*x = x")], [], (2, 4), prov)
+    assert lo == hi == 2
+    # dolna nigdy nie przekracza górnej
+    acc = [P(s) for s in ["x*y = y*x", "(x*y)*z = x*(y*z)", "(x*y)*z = (y*z)*x", "x*x = x"]]
+    lo, hi, _ = basis.cegar_basis(acc, [], (2, 4), prov)
+    assert lo <= hi
