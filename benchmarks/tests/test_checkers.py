@@ -392,3 +392,9 @@ def test_twee_missing_binary_is_none(monkeypatch):
     finally:
         monkeypatch.delenv("TWEE")
         twee.binary.cache_clear()
+
+
+def test_nph_star_entail_empty_extra_ops():
+    acc = [parse_law("x*y = y*x"), parse_law("(x*x)*y = y*(x*x)")]
+    lo, hi = basis.nph_star_laws_entail(acc, extra_ops=())
+    assert 1 <= lo <= hi <= 2

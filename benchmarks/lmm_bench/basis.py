@@ -126,12 +126,14 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
     tw = use_twee and _twee.binary() is not None
 
     def _provable(rest, law):
-        if entail.prove(rest, law, extra_ops=extra_ops[0], node_limit=node_limit, fill_free=fill_free) is not None:
+        first, later = (tuple(extra_ops[:1]), tuple(extra_ops[1:]))     # pusta sekwencja: bez własnego dowodnika
+        if any(entail.prove(rest, law, extra_ops=eo, node_limit=node_limit, fill_free=fill_free) is not None
+               for eo in first):
             return True
         if tw and _twee.prove(rest, law, timeout=twee_timeout) is not None:
             return True
         return any(entail.prove(rest, law, extra_ops=eo, node_limit=node_limit, fill_free=fill_free) is not None
-                   for eo in extra_ops[1:])
+                   for eo in later)
 
     def greedy(order):
         up = list(uniq)
