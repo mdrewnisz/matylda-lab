@@ -421,3 +421,25 @@ def test_cegar_basis_exact_on_known_cases():
     acc = [P(s) for s in ["x*y = y*x", "(x*y)*z = x*(y*z)", "(x*y)*z = (y*z)*x", "x*x = x"]]
     lo, hi, _ = basis.cegar_basis(acc, [], (2, 4), prov)
     assert lo <= hi
+
+
+# ---------- zamrożenie sprawdzacza NPH* (2026-11-28) ----------
+def test_zamrozenie_kod_i_parametry():
+    import inspect
+    from lmm_bench import zamrozenie, zawezenie
+    assert zamrozenie.hash_kodu() == zamrozenie.KOD_SHA256, "kod sprawdzacza zmieniony: potrzebne ponowne zamrożenie"
+    sig = inspect.signature(basis.nph_star_laws_entail).parameters
+    assert set(zamrozenie.PARAMETRY) <= set(sig)
+    cfg = dict(zawezenie.CONFIGS_4["cegar"], packing=True, pairs=False, twee_timeout=3.0)
+    assert cfg == zamrozenie.PARAMETRY        # te same ustawienia co w pomiarze CEGAR_2026-11-28
+
+
+def test_zamrozenie_odmawia_bez_twee(monkeypatch, tmp_path):
+    from lmm_bench import twee, zamrozenie
+    monkeypatch.setenv("TWEE", str(tmp_path / "brak"))
+    twee.binary.cache_clear()
+    try:
+        with pytest.raises(zamrozenie.ZamrozenieNaruszone):
+            zamrozenie.nph_zamrozone([parse_law("x*y = y*x")])
+    finally:
+        twee.binary.cache_clear()

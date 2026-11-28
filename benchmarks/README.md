@@ -20,6 +20,7 @@ Zasada „sprawdzacz najpierw”: kod oceniający powstaje i jest testowany na p
 | `lmm_bench/pilot.py` | Pilot etapu 2 bez LMM: ramiona C, R0, E na zadaniu D1-W; wyniki w `wyniki/` |
 | `lmm_bench/etp.py` | Filtr dokładny względem listy Equational Theories Project (`dane/etp_equations.txt`, hash sprawdzany) |
 | `lmm_bench/d1prime.py` | Klasa D1': rodziny światów F/H, sprawdzacz nowego pojęcia (warunki a–c), implikacji nad rodziną i wynik; pilot ramion E, R0, C |
+| `lmm_bench/zamrozenie.py` | Zamrożony sprawdzacz metryki głównej NPH* (NPH-1, 2026-11-28): parametry, hash kodu, wymagany twee |
 | `lmm_bench/zawezenie.py` | Pomiar zawężenia przedziału NPH* przy mocniejszych ustawieniach sprawdzacza |
 | `lmm_bench/twee.py` | Zewnętrzny prover twee 2.4.2 (hash sprawdzany); dowody przepisywane na kroki i sprawdzane przez `proofcheck` |
 | `lmm_bench/controls.py` | Kontrole bez modelu: enumerator E i losowe R0, ta sama gramatyka i ten sam limit K |
@@ -32,11 +33,11 @@ Zasada „sprawdzacz najpierw”: kod oceniający powstaje i jest testowany na p
 
 ## Poziomy pewności tego, co tu jest
 
-- WYNIK: 57 testów kontrolnych przechodzi (4 wymagają binarki twee, bez niej są pomijane) (`python -m pytest benchmarks/tests -c /dev/null`).
+- WYNIK: 62 testy kontrolne przechodzą (4 wymagają binarki twee, bez niej są pomijane) (`python -m pytest benchmarks/tests -c /dev/null`).
 - WYNIK: `basis.nph_star_laws_entail` daje obie granice NPH* z certyfikatami (dowód albo kontrmodel).
   Starsza `nph_star_laws` (modele referencyjne) zostaje tylko do porównania: jej dolna granica nie jest poprawna.
 - Zależność: `python-sat` (pip). Bez niej kontrmodele tylko rozmiaru 2.
-- Opcjonalnie: twee (`sh narzedzia/pobierz_twee.sh`). Bez niego górna granica NPH* jest słabsza (własny dowodnik).
+- Opcjonalnie: twee (`sh narzedzia/pobierz_twee.sh`). Bez niego górna granica NPH* jest słabsza (własny dowodnik), a metryka główna (zamrożona, `zamrozenie.py`) jest niedostępna.
 - WYNIK (sprawdzone 2026-11-27): lista ETP to 4694 prawa o ≤ 4 operacjach (do 6 zmiennych). Cała pula
   `law_pool(4)` (1476 praw, ≤ 3 zmienne) leży w ETP, więc wariant N wymaga praw o ≥ 5 operacjach
   (`d1prime.pool_variant_N`: 12 072 prawa ≤ 5 operacji spoza ETP).
