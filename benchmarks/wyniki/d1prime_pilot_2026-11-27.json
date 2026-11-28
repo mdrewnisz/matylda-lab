@@ -1,0 +1,292 @@
+[
+ {
+  "F": 2100,
+  "H": 2101,
+  "E": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 4,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 3,
+   "pojecia_zaliczone": 1,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 1,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 1
+  },
+  "C": {
+   "pojecia_zgloszone": 18,
+   "pojecia_nowe": 18,
+   "pojecia_zaliczone": 18,
+   "implikacje_zgloszone": 18,
+   "implikacje_dobre": 18,
+   "implikacje_dowiedzione": 2,
+   "nph_star_reguly": 18
+  },
+  "E_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 0,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 3,
+   "pojecia_zaliczone": 1,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 2,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 1
+  },
+  "C_N": {
+   "pojecia_zgloszone": 12,
+   "pojecia_nowe": 12,
+   "pojecia_zaliczone": 12,
+   "implikacje_zgloszone": 12,
+   "implikacje_dobre": 12,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 12
+  }
+ },
+ {
+  "F": 2102,
+  "H": 2103,
+  "E": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 1,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C": {
+   "pojecia_zgloszone": 11,
+   "pojecia_nowe": 11,
+   "pojecia_zaliczone": 11,
+   "implikacje_zgloszone": 11,
+   "implikacje_dobre": 11,
+   "implikacje_dowiedzione": 2,
+   "nph_star_reguly": 11
+  },
+  "E_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 0,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C_N": {
+   "pojecia_zgloszone": 10,
+   "pojecia_nowe": 10,
+   "pojecia_zaliczone": 10,
+   "implikacje_zgloszone": 10,
+   "implikacje_dobre": 10,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 10
+  }
+ },
+ {
+  "F": 2104,
+  "H": 2105,
+  "E": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 4,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C": {
+   "pojecia_zgloszone": 7,
+   "pojecia_nowe": 7,
+   "pojecia_zaliczone": 7,
+   "implikacje_zgloszone": 7,
+   "implikacje_dobre": 7,
+   "implikacje_dowiedzione": 2,
+   "nph_star_reguly": 7
+  },
+  "E_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 0,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 1,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 3,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C_N": {
+   "pojecia_zgloszone": 10,
+   "pojecia_nowe": 10,
+   "pojecia_zaliczone": 10,
+   "implikacje_zgloszone": 10,
+   "implikacje_dobre": 10,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 10
+  }
+ },
+ {
+  "F": 2106,
+  "H": 2107,
+  "E": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 3,
+   "pojecia_zaliczone": 1,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 3,
+   "implikacje_dowiedzione": 2,
+   "nph_star_reguly": 1
+  },
+  "C": {
+   "pojecia_zgloszone": 13,
+   "pojecia_nowe": 13,
+   "pojecia_zaliczone": 5,
+   "implikacje_zgloszone": 13,
+   "implikacje_dobre": 5,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 5
+  },
+  "E_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 0,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 4,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C_N": {
+   "pojecia_zgloszone": 12,
+   "pojecia_nowe": 12,
+   "pojecia_zaliczone": 4,
+   "implikacje_zgloszone": 12,
+   "implikacje_dobre": 4,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 4
+  }
+ },
+ {
+  "F": 2108,
+  "H": 2109,
+  "E": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 1,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 1,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 1
+  },
+  "C": {
+   "pojecia_zgloszone": 15,
+   "pojecia_nowe": 15,
+   "pojecia_zaliczone": 4,
+   "implikacje_zgloszone": 15,
+   "implikacje_dobre": 4,
+   "implikacje_dowiedzione": 1,
+   "nph_star_reguly": 4
+  },
+  "E_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 0,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 1,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "R0_N": {
+   "pojecia_zgloszone": 20,
+   "pojecia_nowe": 2,
+   "pojecia_zaliczone": 0,
+   "implikacje_zgloszone": 20,
+   "implikacje_dobre": 0,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 0
+  },
+  "C_N": {
+   "pojecia_zgloszone": 12,
+   "pojecia_nowe": 12,
+   "pojecia_zaliczone": 3,
+   "implikacje_zgloszone": 12,
+   "implikacje_dobre": 3,
+   "implikacje_dowiedzione": 0,
+   "nph_star_reguly": 3
+  }
+ }
+]

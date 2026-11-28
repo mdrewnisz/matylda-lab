@@ -101,7 +101,8 @@ def nph_star_laws(accepted: list, initial: list = (), reference_models: list = (
     return len(lower), len(upper)
 
 
-def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000):
+def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000,
+                         packing: bool = True, fill_free: bool = True):
     """Przedział NPH* oparty na prawdziwym sprawdzaczu wynikania (entail.py). Obie granice są pewne:
 
     górna = liczność zbioru po zachłannym usunięciu praw z DOWODEM wynikania z pozostałych
@@ -119,15 +120,48 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
         seen.add(c)
         uniq.append(law)
 
-    upper = list(uniq)
-    for law in reversed(uniq):
-        rest = [x for x in upper if x is not law] + list(initial)
-        if entail.prove(rest, law, node_limit=node_limit) is not None:
-            upper.remove(law)
+    def greedy(order):
+        up = list(uniq)
+        for law in order:
+            rest = [x for x in up if x is not law] + list(initial)
+            if entail.prove(rest, law, node_limit=node_limit, fill_free=fill_free) is not None:
+                up = [x for x in up if x is not law]
+        return up
+
+    # Zachłanne usuwanie zależy od kolejności (mocniejszy dowodnik może dać WIĘKSZY zbiór).
+    # Każdy wynik jest zbiorem generującym, więc minimum z dwóch kolejności też jest górną granicą.
+    upper = min(greedy(list(reversed(uniq))), greedy(list(uniq)), key=len)
 
     essential = []
     for law in uniq:
         rest = [x for x in uniq if x is not law] + list(initial)
         if entail.countermodel(rest, law, sizes=sizes) is not None:
             essential.append(law)
-    return len(essential), len(upper)
+    if not packing:
+        return len(essential), len(upper)
+    return len(essential) + _packing(uniq, essential, initial, sizes), len(upper)
+
+
+def _packing(uniq, essential, initial, sizes):
+    """Dolna granica ponad prawa niezbędne (pakowanie rozłącznych zbiorów łamanych praw).
+
+    Dla prawa L spoza E szukamy magmy M spełniającej E ∪ wiedza początkowa i łamiącej L.
+    Każda baza B ⊆ uniq zawiera E i musi generować L, więc zawiera prawo łamane w M
+    (inaczej M spełnia B, a więc i L). Zbiory V(M) = {l ∉ E : M łamie l} parami rozłączne
+    wymuszają różne elementy B. Zachłanne pakowanie (od najmniejszych) daje poprawną dolną granicę."""
+    from . import entail
+    from .terms import holds
+
+    base = list(essential) + list(initial)
+    others = [l for l in uniq if not any(l is e for e in essential)]
+    sets = []
+    for law in others:
+        m = entail.countermodel(base, law, sizes=sizes)
+        if m is not None:
+            sets.append(frozenset(i for i, l in enumerate(others) if not holds(l, m)))
+    used, count = set(), 0
+    for v in sorted(set(sets), key=len):
+        if not v & used:
+            used |= v
+            count += 1
+    return count
