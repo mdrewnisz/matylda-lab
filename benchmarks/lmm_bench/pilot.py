@@ -23,14 +23,13 @@ import time
 
 import numpy as np
 
-from . import basis, controls, worlds
+from . import basis, controls, worlds, zamrozenie
 from .terms import assignments, eval_term, holds, law_variables
 
 PILOT_SEEDS = range(2000, 3000)
 MAX_OPS = 4
 K = 20
 WINDOW = 12
-NODE_LIMIT = 5000
 FULL_CEILING = False  # sufit z wynikaniem dla ~90 praw jest kosztowny; włączany osobno
 
 
@@ -75,13 +74,14 @@ def arm_C(table, seed, pool):
 def score(submitted, table, refs):
     acc = [l for l in submitted if holds(l, table)]
     lo, hi = basis.nph_star_laws(acc, reference_models=refs)
-    elo, ehi = basis.nph_star_laws_entail(acc, node_limit=NODE_LIMIT) if acc else (0, 0)
+    elo, ehi = zamrozenie.nph_zamrozone(acc) if acc else (0, 0)
     return {"nph_star_entail_lo": elo, "nph_star_entail_hi": ehi, "zgloszone": len(submitted), "przyjete": len(acc),
             "precyzja": len(acc) / len(submitted) if submitted else None,
             "nph_star_lo": lo, "nph_star_hi": hi}
 
 
 def run(n_worlds: int = 30, sizes=(4, 5, 6), kinds=("afiniczna", "losowa")) -> dict:
+    zamrozenie.sprawdz()   # przed startem: kod sprawdzacza i twee jak w zamrożeniu
     pool = list(controls.law_pool(MAX_OPS))
     refs = reference_models()
     rows = []
@@ -94,7 +94,7 @@ def run(n_worlds: int = 30, sizes=(4, 5, 6), kinds=("afiniczna", "losowa")) -> d
                 t0 = time.perf_counter()
                 truth = [l for l in pool if holds(l, w.table)]
                 truth_lo, truth_hi = basis.nph_star_laws(truth, reference_models=refs) if truth else (0, 0)
-                rec = {"sufit_nph_star_entail": list(basis.nph_star_laws_entail(truth, node_limit=NODE_LIMIT)) if truth and FULL_CEILING else None,
+                rec = {"sufit_nph_star_entail": list(zamrozenie.nph_zamrozone(truth)) if truth and FULL_CEILING else None,
                        "seed": s, "kind": kind, "n": n, "prawdziwe_w_puli": len(truth),
                        "sufit_nph_star": [truth_lo, truth_hi]}
                 rec["E"] = score(controls.enumerator_E(K, max_ops=MAX_OPS), w.table, refs)
@@ -105,7 +105,8 @@ def run(n_worlds: int = 30, sizes=(4, 5, 6), kinds=("afiniczna", "losowa")) -> d
                 rec["czas_s"] = round(time.perf_counter() - t0, 3)
                 rows.append(rec)
     return {"meta": {"K": K, "MAX_OPS": MAX_OPS, "WINDOW": WINDOW, "pula": len(pool),
-                     "uwaga": "PILOT, nie test; ziarna 2000–2999"}, "swiaty": rows}
+                     "uwaga": "PILOT, nie test; ziarna 2000–2999",
+                     "sprawdzacz_nph": zamrozenie.opis()}, "swiaty": rows}
 
 
 def summarize(res: dict) -> dict:
