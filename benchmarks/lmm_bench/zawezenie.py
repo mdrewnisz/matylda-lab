@@ -76,3 +76,9 @@ CONFIGS_3 = {
     "twee":     dict(sizes=(2, 4, 5), node_limit=50000, packing=True, fill_free=True, extra_ops=(2, 4), use_twee=True),
 }
 
+
+# 2026-11-28: pętla kontrprzykładów (CEGAR) dla dolnej granicy
+CONFIGS_4 = {
+    "cegar": dict(sizes=(2, 4, 5), node_limit=50000, fill_free=True, extra_ops=(2, 4), use_twee=True, cegar=True),
+}
+

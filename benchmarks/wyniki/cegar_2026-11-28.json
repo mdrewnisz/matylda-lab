@@ -1,0 +1,337 @@
+{
+ "meta": {
+  "uwaga": "PILOT, nie test; 30 światów afinicznych 2000–2029, ramię C, D1-W; pętla kontrprzykładów + twee"
+ },
+ "swiaty": [
+  {
+   "seed": 2000,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.19
+   }
+  },
+  {
+   "seed": 2001,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 4.09
+   }
+  },
+  {
+   "seed": 2002,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 1.62
+   }
+  },
+  {
+   "seed": 2003,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 13.37
+   }
+  },
+  {
+   "seed": 2004,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 4.59
+   }
+  },
+  {
+   "seed": 2005,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 46.31
+   }
+  },
+  {
+   "seed": 2006,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 1.57
+   }
+  },
+  {
+   "seed": 2007,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 73.32
+   }
+  },
+  {
+   "seed": 2008,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 64.82
+   }
+  },
+  {
+   "seed": 2009,
+   "kind": "afiniczna",
+   "n": 4,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 4.29
+   }
+  },
+  {
+   "seed": 2010,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 75.97
+   }
+  },
+  {
+   "seed": 2011,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 19.35
+   }
+  },
+  {
+   "seed": 2012,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 15.5
+   }
+  },
+  {
+   "seed": 2013,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 16,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 32.7
+   }
+  },
+  {
+   "seed": 2014,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 38.48
+   }
+  },
+  {
+   "seed": 2015,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 48.56
+   }
+  },
+  {
+   "seed": 2016,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 39.01
+   }
+  },
+  {
+   "seed": 2017,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 33.24
+   }
+  },
+  {
+   "seed": 2018,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 74.41
+   }
+  },
+  {
+   "seed": 2019,
+   "kind": "afiniczna",
+   "n": 5,
+   "przyjete": 12,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.6
+   }
+  },
+  {
+   "seed": 2020,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 3.1
+   }
+  },
+  {
+   "seed": 2021,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 18,
+   "cegar": {
+    "lo": 3,
+    "hi": 3,
+    "czas_s": 17.17
+   }
+  },
+  {
+   "seed": 2022,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 12,
+   "cegar": {
+    "lo": 2,
+    "hi": 3,
+    "czas_s": 25.48
+   }
+  },
+  {
+   "seed": 2023,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 5.33
+   }
+  },
+  {
+   "seed": 2024,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 14,
+   "cegar": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 14.19
+   }
+  },
+  {
+   "seed": 2025,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 21.75
+   }
+  },
+  {
+   "seed": 2026,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 2,
+    "czas_s": 14.53
+   }
+  },
+  {
+   "seed": 2027,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 1,
+    "hi": 1,
+    "czas_s": 1.87
+   }
+  },
+  {
+   "seed": 2028,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 20,
+   "cegar": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 13.9
+   }
+  },
+  {
+   "seed": 2029,
+   "kind": "afiniczna",
+   "n": 6,
+   "przyjete": 5,
+   "cegar": {
+    "lo": 2,
+    "hi": 2,
+    "czas_s": 9.46
+   }
+  }
+ ]
+}
