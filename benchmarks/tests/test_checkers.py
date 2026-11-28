@@ -483,3 +483,13 @@ def test_d2_v2_crt_odzyskuje_regule_i_niejednoznacznosc_usunieta():
     h = d2.L // 2
     for n in d2.UCZACE:
         assert np.array_equal(d2.tabela((h, 0, 0, d2.L - h, 0, 0), n), np.zeros((n, n), int))
+
+
+def test_prerejestracja_hashe_kodu_klas():
+    """Kod klas zadań i sprawdzacza zgodny z hashami zamrożonymi w PREREJESTRACJA_BENCHMARK.md (sekcja 10)."""
+    import hashlib, os, re
+    root = os.path.join(os.path.dirname(__file__), "..")
+    text = open(os.path.join(root, "PREREJESTRACJA_BENCHMARK.md"), encoding="utf-8").read()
+    for path, h in re.findall(r"\| (lmm_bench/[a-z0-9_]+\.py) \| ([0-9a-f]{64}) \|", text):
+        with open(os.path.join(root, path), "rb") as f:
+            assert hashlib.sha256(f.read()).hexdigest() == h, f"{path} zmieniony po zamrożeniu prerejestracji"
