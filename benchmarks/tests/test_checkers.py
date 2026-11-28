@@ -443,3 +443,53 @@ def test_zamrozenie_odmawia_bez_twee(monkeypatch, tmp_path):
             zamrozenie.nph_zamrozone([parse_law("x*y = y*x")])
     finally:
         twee.binary.cache_clear()
+
+
+# ---------- D2 (2026-11-28) ----------
+def test_d2_generator_niezalezny_zgodny_i_polityka():
+    from lmm_bench import d2
+    for s in range(2200, 2206):
+        fam = d2.make_family(s)
+        for n in (4, 12, 13, 40):
+            assert d2.tabela(fam.coefs, n).tolist() == d2._tabela_niezalezna(fam.coefs, n)
+        assert d2.generalizacja(fam, fam.coefs) == 1.0
+    with pytest.raises(ValueError):
+        d2.tabela((0, 0, 0, 1, 1, 0), 3)
+    with pytest.raises(ValueError):
+        d2.make_family(2199)
+
+
+def test_d2_R0_nie_odtwarza_ukrytej_reguly():
+    from lmm_bench import d2
+    hits = sum(d2.arm_R0(5, s, wersja=1)[0] == d2.make_family(s, wersja=1).coefs for s in range(2200, 2240))
+    assert hits == 0
+
+
+def test_d2_prawo_w_rodzinie():
+    from lmm_bench import d2
+    fam = d2.Rodzina(2200, "afiniczna", (0, 0, 0, 1, 1, 0))            # x*y = x+y
+    assert d2.prawo_w_rodzinie(parse_law("x*y = y*x"), fam)
+    assert not d2.prawo_w_rodzinie(parse_law("x*x = x"), fam)
+
+
+def test_d2_v2_crt_odzyskuje_regule_i_niejednoznacznosc_usunieta():
+    import numpy as np
+    from lmm_bench import d2
+    for s in range(2240, 2246):                       # ziarna testów jednostkowych, nie pilota
+        fam = d2.make_family(s, wersja=2)
+        assert fam.coefs[0] < d2.L // 2 and fam.coefs[2] < d2.L // 2
+        assert d2.solve_crt(d2.uczace(fam)) == fam.coefs
+    # (L/2)·x(x−1) znika mod każdego n | L, więc bez ograniczenia a < L/2 reguła byłaby niejednoznaczna
+    h = d2.L // 2
+    for n in d2.UCZACE:
+        assert np.array_equal(d2.tabela((h, 0, 0, d2.L - h, 0, 0), n), np.zeros((n, n), int))
+
+
+def test_prerejestracja_hashe_kodu_klas():
+    """Kod klas zadań i sprawdzacza zgodny z hashami zamrożonymi w PREREJESTRACJA_BENCHMARK.md (sekcja 10)."""
+    import hashlib, os, re
+    root = os.path.join(os.path.dirname(__file__), "..")
+    text = open(os.path.join(root, "PREREJESTRACJA_BENCHMARK.md"), encoding="utf-8").read()
+    for path, h in re.findall(r"\| (lmm_bench/[a-z0-9_]+\.py) \| ([0-9a-f]{64}) \|", text):
+        with open(os.path.join(root, path), "rb") as f:
+            assert hashlib.sha256(f.read()).hexdigest() == h, f"{path} zmieniony po zamrożeniu prerejestracji"

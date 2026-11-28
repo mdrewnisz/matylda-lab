@@ -177,7 +177,7 @@ def initial_rules(fam: list, held: list, atom) -> list:
 
 
 # ---------- pilot D1' bez modelu (ramiona widzą tylko F; H służy wyłącznie do oceny) ----------
-K = 20
+K = 30                                   # decyzja Michała 2026-11-28 (pilot: C do 18 przy K = 20)
 
 
 def _given_list():
