@@ -344,3 +344,18 @@ def test_countermodel_any_breaks_one_of_several():
     t = entail.countermodel_any(ax, laws)
     assert t is not None and terms.holds(ax[0], t) and any(not terms.holds(l, t) for l in laws)
     assert entail.countermodel_any([parse_law("x*y = x")], [parse_law("(x*y)*z = x")]) is None
+
+
+def test_hitting_set_and_countermodel_any_without_pysat(monkeypatch):
+    import builtins
+    real = builtins.__import__
+
+    def fake(name, *a, **k):
+        if name.startswith("pysat"):
+            raise ImportError(name)
+        return real(name, *a, **k)
+    monkeypatch.setattr(builtins, "__import__", fake)
+    assert basis.min_hitting_set([frozenset({0, 1}), frozenset({1, 2}), frozenset({3})], 4) == 2
+    ax = [parse_law("x*y = y*x")]
+    t = entail.countermodel_any(ax, [parse_law("x*x = x")])
+    assert t is not None and t.shape == (2, 2) and terms.holds(ax[0], t)

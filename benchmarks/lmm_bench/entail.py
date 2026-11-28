@@ -145,7 +145,14 @@ def countermodel(axioms: list, law: Law, sizes=(2, 4, 5)):
 
 def countermodel_any(axioms: list, laws: list, sizes=(2, 4, 5)):
     """Magma spełniająca wszystkie `axioms` i łamiąca CO NAJMNIEJ JEDNO z `laws` (albo None)."""
-    from pysat.solvers import Cadical153
+    try:
+        from pysat.solvers import Cadical153
+    except ImportError:            # bez pysat: tylko pełne przeszukanie rozmiaru 2
+        for code in range(16):
+            t = np.array([[(code >> (2 * a + b)) & 1 for b in range(2)] for a in range(2)])
+            if all(holds(a, t) for a in axioms) and any(not holds(l, t) for l in laws):
+                return t
+        return None
     for n in sizes:
         t = _sat_countermodel(axioms, laws[0], n, Cadical153, also_break=laws[1:])
         if t is not None:
