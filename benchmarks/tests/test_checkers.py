@@ -470,3 +470,16 @@ def test_d2_prawo_w_rodzinie():
     fam = d2.Rodzina(2200, "afiniczna", (0, 0, 0, 1, 1, 0))            # x*y = x+y
     assert d2.prawo_w_rodzinie(parse_law("x*y = y*x"), fam)
     assert not d2.prawo_w_rodzinie(parse_law("x*x = x"), fam)
+
+
+def test_d2_v2_crt_odzyskuje_regule_i_niejednoznacznosc_usunieta():
+    import numpy as np
+    from lmm_bench import d2
+    for s in range(2240, 2246):                       # ziarna testów jednostkowych, nie pilota
+        fam = d2.make_family(s, wersja=2)
+        assert fam.coefs[0] < d2.L // 2 and fam.coefs[2] < d2.L // 2
+        assert d2.solve_crt(d2.uczace(fam)) == fam.coefs
+    # (L/2)·x(x−1) znika mod każdego n | L, więc bez ograniczenia a < L/2 reguła byłaby niejednoznaczna
+    h = d2.L // 2
+    for n in d2.UCZACE:
+        assert np.array_equal(d2.tabela((h, 0, 0, d2.L - h, 0, 0), n), np.zeros((n, n), int))
