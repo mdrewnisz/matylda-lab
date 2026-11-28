@@ -68,3 +68,11 @@ if __name__ == "__main__":
     first = int(sys.argv[3]) if len(sys.argv) > 3 else 2000
     rows = run(int(sys.argv[1]) if len(sys.argv) > 1 else 30, kinds=kinds, first_seed=first)
     json.dump({"swiaty": rows, "podsumowanie": summarize(rows)}, sys.stdout, ensure_ascii=False, indent=1)
+
+
+# 2026-11-28: zewnętrzny prover twee (decyzja Michała), dowody sprawdzane przez proofcheck
+CONFIGS_3 = {
+    "bez_twee": dict(sizes=(2, 4, 5), node_limit=50000, packing=True, fill_free=True, extra_ops=(2, 4), use_twee=False),
+    "twee":     dict(sizes=(2, 4, 5), node_limit=50000, packing=True, fill_free=True, extra_ops=(2, 4), use_twee=True),
+}
+

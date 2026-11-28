@@ -1,0 +1,671 @@
+{
+ "meta": {
+  "uwaga": "PILOT, nie test; 30 światów afinicznych 2000–2029, ramię C, D1-W; twee 2.4.2, timeout 3 s, dowody sprawdzane przez proofcheck"
+ },
+ "swiaty": {
+  "bez_twee": [
+   {
+    "seed": 2000,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 9.35
+    }
+   },
+   {
+    "seed": 2001,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 6.72
+    }
+   },
+   {
+    "seed": 2002,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 5.05
+    }
+   },
+   {
+    "seed": 2003,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.58
+    }
+   },
+   {
+    "seed": 2004,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 3,
+     "hi": 3,
+     "czas_s": 12.48
+    }
+   },
+   {
+    "seed": 2005,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 36.67
+    }
+   },
+   {
+    "seed": 2006,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 5.54
+    }
+   },
+   {
+    "seed": 2007,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 31.7
+    }
+   },
+   {
+    "seed": 2008,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 53.7
+    }
+   },
+   {
+    "seed": 2009,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 7.26
+    }
+   },
+   {
+    "seed": 2010,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 6,
+     "czas_s": 29.69
+    }
+   },
+   {
+    "seed": 2011,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 39.77
+    }
+   },
+   {
+    "seed": 2012,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.32
+    }
+   },
+   {
+    "seed": 2013,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 16,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 4,
+     "czas_s": 19.0
+    }
+   },
+   {
+    "seed": 2014,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 4,
+     "czas_s": 68.32
+    }
+   },
+   {
+    "seed": 2015,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 4,
+     "czas_s": 30.2
+    }
+   },
+   {
+    "seed": 2016,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 4,
+     "czas_s": 73.62
+    }
+   },
+   {
+    "seed": 2017,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 12.45
+    }
+   },
+   {
+    "seed": 2018,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 10,
+     "czas_s": 49.18
+    }
+   },
+   {
+    "seed": 2019,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 12,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 4.24
+    }
+   },
+   {
+    "seed": 2020,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 9.28
+    }
+   },
+   {
+    "seed": 2021,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 18,
+    "bez_twee": {
+     "lo": 3,
+     "hi": 3,
+     "czas_s": 20.25
+    }
+   },
+   {
+    "seed": 2022,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 12,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 2.41
+    }
+   },
+   {
+    "seed": 2023,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 10.29
+    }
+   },
+   {
+    "seed": 2024,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 14,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 2.92
+    }
+   },
+   {
+    "seed": 2025,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 20.22
+    }
+   },
+   {
+    "seed": 2026,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.11
+    }
+   },
+   {
+    "seed": 2027,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 4.45
+    }
+   },
+   {
+    "seed": 2028,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "bez_twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 12.63
+    }
+   },
+   {
+    "seed": 2029,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 5,
+    "bez_twee": {
+     "lo": 2,
+     "hi": 2,
+     "czas_s": 1.07
+    }
+   }
+  ],
+  "twee": [
+   {
+    "seed": 2000,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 9.22
+    }
+   },
+   {
+    "seed": 2001,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 6.77
+    }
+   },
+   {
+    "seed": 2002,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 4.69
+    }
+   },
+   {
+    "seed": 2003,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.62
+    }
+   },
+   {
+    "seed": 2004,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 3,
+     "hi": 3,
+     "czas_s": 12.67
+    }
+   },
+   {
+    "seed": 2005,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 48.75
+    }
+   },
+   {
+    "seed": 2006,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 6.1
+    }
+   },
+   {
+    "seed": 2007,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 41.56
+    }
+   },
+   {
+    "seed": 2008,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 63.69
+    }
+   },
+   {
+    "seed": 2009,
+    "kind": "afiniczna",
+    "n": 4,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 8.27
+    }
+   },
+   {
+    "seed": 2010,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 28.07
+    }
+   },
+   {
+    "seed": 2011,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 22.89
+    }
+   },
+   {
+    "seed": 2012,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.38
+    }
+   },
+   {
+    "seed": 2013,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 16,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 32.53
+    }
+   },
+   {
+    "seed": 2014,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 38.75
+    }
+   },
+   {
+    "seed": 2015,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 37.34
+    }
+   },
+   {
+    "seed": 2016,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 42.18
+    }
+   },
+   {
+    "seed": 2017,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 13.86
+    }
+   },
+   {
+    "seed": 2018,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 25.36
+    }
+   },
+   {
+    "seed": 2019,
+    "kind": "afiniczna",
+    "n": 5,
+    "przyjete": 12,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 4.46
+    }
+   },
+   {
+    "seed": 2020,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 9.14
+    }
+   },
+   {
+    "seed": 2021,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 18,
+    "twee": {
+     "lo": 3,
+     "hi": 3,
+     "czas_s": 35.19
+    }
+   },
+   {
+    "seed": 2022,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 12,
+    "twee": {
+     "lo": 1,
+     "hi": 3,
+     "czas_s": 20.03
+    }
+   },
+   {
+    "seed": 2023,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 13.61
+    }
+   },
+   {
+    "seed": 2024,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 14,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.29
+    }
+   },
+   {
+    "seed": 2025,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 28.83
+    }
+   },
+   {
+    "seed": 2026,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 14.44
+    }
+   },
+   {
+    "seed": 2027,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 1,
+     "czas_s": 4.3
+    }
+   },
+   {
+    "seed": 2028,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 20,
+    "twee": {
+     "lo": 1,
+     "hi": 2,
+     "czas_s": 15.09
+    }
+   },
+   {
+    "seed": 2029,
+    "kind": "afiniczna",
+    "n": 6,
+    "przyjete": 5,
+    "twee": {
+     "lo": 2,
+     "hi": 2,
+     "czas_s": 10.21
+    }
+   }
+  ]
+ }
+}
