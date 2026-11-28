@@ -359,3 +359,36 @@ def test_hitting_set_and_countermodel_any_without_pysat(monkeypatch):
     ax = [parse_law("x*y = y*x")]
     t = entail.countermodel_any(ax, [parse_law("x*x = x")])
     assert t is not None and t.shape == (2, 2) and terms.holds(ax[0], t)
+
+
+# ---------- twee (zewnętrzny prover, dowody sprawdzane przez proofcheck) ----------
+from lmm_bench import twee  # noqa: E402
+
+needs_twee = pytest.mark.skipif(twee.binary() is None, reason="brak binarki twee (narzedzia/pobierz_twee.sh)")
+
+
+@needs_twee
+@pytest.mark.parametrize("axioms,law", [
+    (["x*y = x*z"], "(x*y)*z = (x*z)*y"),
+    (["x*y = x"], "(x*y)*z = x*(y*z)"),
+    (["x*y = y*x", "(x*y)*z = x*(y*z)"], "(x*y)*z = (y*z)*x"),
+])
+def test_twee_proofs_pass_our_checker(axioms, law):
+    ax, L = [parse_law(a) for a in axioms], parse_law(law)
+    steps = twee.prove(ax, L, timeout=5)
+    assert steps is not None and proofcheck.check_proof(L, ax, steps)[0]
+
+
+@needs_twee
+def test_twee_false_entailment_gives_none():
+    assert twee.prove([parse_law("x*y = y*x")], parse_law("(x*y)*z = x*(y*z)"), timeout=2) is None
+
+
+def test_twee_missing_binary_is_none(monkeypatch):
+    monkeypatch.setenv("TWEE", "/nie/ma/takiej/binarki")
+    twee.binary.cache_clear()
+    try:
+        assert twee.prove([parse_law("x*y = x")], parse_law("(x*y)*z = x")) is None
+    finally:
+        monkeypatch.delenv("TWEE")
+        twee.binary.cache_clear()

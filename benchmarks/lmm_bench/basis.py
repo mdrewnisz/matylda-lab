@@ -103,7 +103,8 @@ def nph_star_laws(accepted: list, initial: list = (), reference_models: list = (
 
 def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000,
                          packing: bool = True, fill_free: bool = True,
-                         extra_ops=(2, 4), pairs: bool = False):
+                         extra_ops=(2, 4), pairs: bool = False, use_twee: bool = True,
+                         twee_timeout: float = 3.0):
     """Przedział NPH* oparty na prawdziwym sprawdzaczu wynikania (entail.py). Obie granice są pewne:
 
     górna = liczność zbioru po zachłannym usunięciu praw z DOWODEM wynikania z pozostałych
@@ -121,13 +122,24 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
         seen.add(c)
         uniq.append(law)
 
+    from . import twee as _twee
+    tw = use_twee and _twee.binary() is not None
+
+    def _provable(rest, law):
+        if entail.prove(rest, law, extra_ops=extra_ops[0], node_limit=node_limit, fill_free=fill_free) is not None:
+            return True
+        if tw and _twee.prove(rest, law, timeout=twee_timeout) is not None:
+            return True
+        return any(entail.prove(rest, law, extra_ops=eo, node_limit=node_limit, fill_free=fill_free) is not None
+                   for eo in extra_ops[1:])
+
     def greedy(order):
         up = list(uniq)
         for law in order:
             rest = [x for x in up if x is not law] + list(initial)
-            # harmonogram: najpierw tani dowodnik, przy porażce szerszy (większe termy pośrednie)
-            if any(entail.prove(rest, law, extra_ops=eo, node_limit=node_limit, fill_free=fill_free) is not None
-                   for eo in extra_ops):
+            # harmonogram: tani własny dowodnik, potem twee (dowód sprawdzany przez proofcheck),
+            # potem szerszy własny dowodnik; pierwszy sukces kończy
+            if _provable(rest, law):
                 up = [x for x in up if x is not law]
         return up
 
