@@ -330,3 +330,17 @@ def test_d1prime_semantic_duplicates_count_once():
     assert d1prime.signature(a, FAM + HELD) == d1prime.signature(b, FAM + HELD)
     assert d1prime.check_concept(a, FAM, HELD).ok_new and d1prime.check_concept(b, FAM, HELD).ok_new
     assert d1prime.score([a, b], [], FAM, HELD)["pojecia_nowe"] == 1
+
+
+def test_min_hitting_set_exact():
+    assert basis.min_hitting_set([frozenset({0, 1}), frozenset({1, 2}), frozenset({3})], 4) == 2
+    assert basis.min_hitting_set([frozenset({0}), frozenset({1}), frozenset({2})], 3) == 3
+    assert basis.min_hitting_set([], 5) == 0
+
+
+def test_countermodel_any_breaks_one_of_several():
+    ax = [parse_law("x*y = y*x")]
+    laws = [parse_law("(x*y)*z = x*(y*z)"), parse_law("x*x = x")]
+    t = entail.countermodel_any(ax, laws)
+    assert t is not None and terms.holds(ax[0], t) and any(not terms.holds(l, t) for l in laws)
+    assert entail.countermodel_any([parse_law("x*y = x")], [parse_law("(x*y)*z = x")]) is None

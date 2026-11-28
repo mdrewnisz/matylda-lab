@@ -21,6 +21,14 @@ CONFIGS = {   # "bazowa" = dokładnie ustawienia pilota 2026-11-23
     "wszystko+rozmiar6":     dict(sizes=(2, 4, 5, 6), node_limit=20000, packing=True, fill_free=True),
 }
 
+# 2026-11-28: pary kontrmodeli (dolna) i harmonogram szerokości dowodnika (górna)
+CONFIGS_2 = {
+    "poprzednia":   dict(sizes=(2, 4, 5), node_limit=5000, packing=True, fill_free=True),
+    "pary":         dict(sizes=(2, 4, 5), node_limit=5000, packing=True, fill_free=True, pairs=True),
+    "harmonogram":  dict(sizes=(2, 4, 5), node_limit=50000, packing=True, fill_free=True, extra_ops=(2, 4)),
+    "oba":          dict(sizes=(2, 4, 5), node_limit=50000, packing=True, fill_free=True, extra_ops=(2, 4), pairs=True),
+}
+
 
 def run(n_worlds=30, sizes=(4, 5, 6), kinds=("afiniczna", "losowa"), configs=CONFIGS, first_seed=2000):
     pool = list(controls.law_pool(4))

@@ -31,7 +31,7 @@ Zasada „sprawdzacz najpierw”: kod oceniający powstaje i jest testowany na p
 
 ## Poziomy pewności tego, co tu jest
 
-- WYNIK: 49 testów kontrolnych przechodzi (`python -m pytest benchmarks/tests -c /dev/null`).
+- WYNIK: 51 testów kontrolnych przechodzi (`python -m pytest benchmarks/tests -c /dev/null`).
 - WYNIK: `basis.nph_star_laws_entail` daje obie granice NPH* z certyfikatami (dowód albo kontrmodel).
   Starsza `nph_star_laws` (modele referencyjne) zostaje tylko do porównania: jej dolna granica nie jest poprawna.
 - Zależność: `python-sat` (pip). Bez niej kontrmodele tylko rozmiaru 2.

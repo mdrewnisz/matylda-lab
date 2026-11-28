@@ -102,7 +102,8 @@ def nph_star_laws(accepted: list, initial: list = (), reference_models: list = (
 
 
 def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), node_limit: int = 20000,
-                         packing: bool = True, fill_free: bool = True):
+                         packing: bool = True, fill_free: bool = True,
+                         extra_ops=(2, 4), pairs: bool = False):
     """Przedział NPH* oparty na prawdziwym sprawdzaczu wynikania (entail.py). Obie granice są pewne:
 
     górna = liczność zbioru po zachłannym usunięciu praw z DOWODEM wynikania z pozostałych
@@ -124,7 +125,9 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
         up = list(uniq)
         for law in order:
             rest = [x for x in up if x is not law] + list(initial)
-            if entail.prove(rest, law, node_limit=node_limit, fill_free=fill_free) is not None:
+            # harmonogram: najpierw tani dowodnik, przy porażce szerszy (większe termy pośrednie)
+            if any(entail.prove(rest, law, extra_ops=eo, node_limit=node_limit, fill_free=fill_free) is not None
+                   for eo in extra_ops):
                 up = [x for x in up if x is not law]
         return up
 
@@ -139,29 +142,59 @@ def nph_star_laws_entail(accepted: list, initial: list = (), sizes=(2, 4, 5), no
             essential.append(law)
     if not packing:
         return len(essential), len(upper)
-    return len(essential) + _packing(uniq, essential, initial, sizes), len(upper)
+    return len(essential) + _packing(uniq, essential, initial, sizes, pairs=pairs), len(upper)
 
 
-def _packing(uniq, essential, initial, sizes):
-    """Dolna granica ponad prawa niezbędne (pakowanie rozłącznych zbiorów łamanych praw).
+def _packing(uniq, essential, initial, sizes, pairs: bool = True):
+    """Dolna granica ponad prawa niezbędne E: minimalny zbiór trafiający zbiorów łamanych praw.
 
-    Dla prawa L spoza E szukamy magmy M spełniającej E ∪ wiedza początkowa i łamiącej L.
-    Każda baza B ⊆ uniq zawiera E i musi generować L, więc zawiera prawo łamane w M
-    (inaczej M spełnia B, a więc i L). Zbiory V(M) = {l ∉ E : M łamie l} parami rozłączne
-    wymuszają różne elementy B. Zachłanne pakowanie (od najmniejszych) daje poprawną dolną granicę."""
+    Każda magma M spełniająca E ∪ wiedza początkowa i łamiąca któreś prawo z uniq daje zbiór
+    V(M) = {l ∉ E : M łamie l} (niepusty). Każda baza B ⊆ uniq zawiera E i generuje wszystkie prawa,
+    więc musi zawierać prawo łamane w M (inaczej M spełnia B, a więc i wszystko, co z B wynika).
+    Zatem |B \ E| ≥ minimalny zbiór trafiający rodziny {V(M)}. Liczymy go DOKŁADNIE (SAT z ograniczeniem
+    liczności), więc granica jest poprawna dla każdej zebranej rodziny; więcej małych zbiorów = ciaśniej.
+
+    Rodzina: (1) dla każdego prawa L jeden kontrmodel względem E; (2) przy pairs=True dla każdej pary
+    {L, L'} magma spełniająca E i WSZYSTKIE pozostałe prawa, łamiąca L lub L' (zbiór rozmiaru ≤ 2)."""
+    from itertools import combinations
+
     from . import entail
     from .terms import holds
 
     base = list(essential) + list(initial)
     others = [l for l in uniq if not any(l is e for e in essential)]
-    sets = []
+    if not others:
+        return 0
+    sets = set()
+
+    def add(m):
+        v = frozenset(i for i, l in enumerate(others) if not holds(l, m))
+        if v:
+            sets.add(v)
+
     for law in others:
         m = entail.countermodel(base, law, sizes=sizes)
         if m is not None:
-            sets.append(frozenset(i for i, l in enumerate(others) if not holds(l, m)))
-    used, count = set(), 0
-    for v in sorted(set(sets), key=len):
-        if not v & used:
-            used |= v
-            count += 1
-    return count
+            add(m)
+    if pairs:
+        for i, j in combinations(range(len(others)), 2):
+            rest = [l for k, l in enumerate(others) if k not in (i, j)]
+            m = entail.countermodel_any(base + rest, [others[i], others[j]], sizes=sizes)
+            if m is not None:
+                add(m)
+    return min_hitting_set(list(sets), len(others))
+
+
+def min_hitting_set(sets: list, n: int) -> int:
+    """Dokładna liczność minimalnego zbioru trafiającego (elementy 0..n-1)."""
+    if not sets:
+        return 0
+    from pysat.card import CardEnc, EncType
+    from pysat.solvers import Cadical153
+    lits = list(range(1, n + 1))
+    for k in range(1, n + 1):
+        enc = CardEnc.atmost(lits=lits, bound=k, top_id=n, encoding=EncType.seqcounter)
+        with Cadical153(bootstrap_with=[[e + 1 for e in v] for v in sets] + enc.clauses) as sol:
+            if sol.solve():
+                return k
+    return n

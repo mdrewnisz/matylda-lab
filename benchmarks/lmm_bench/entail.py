@@ -143,6 +143,17 @@ def countermodel(axioms: list, law: Law, sizes=(2, 4, 5)):
     return None
 
 
+def countermodel_any(axioms: list, laws: list, sizes=(2, 4, 5)):
+    """Magma spełniająca wszystkie `axioms` i łamiąca CO NAJMNIEJ JEDNO z `laws` (albo None)."""
+    from pysat.solvers import Cadical153
+    for n in sizes:
+        t = _sat_countermodel(axioms, laws[0], n, Cadical153, also_break=laws[1:])
+        if t is not None:
+            assert all(holds(a, t) for a in axioms) and any(not holds(l, t) for l in laws)
+            return t
+    return None
+
+
 def _brute2(axioms, law):
     for code in range(16):
         t = np.array([[(code >> (2 * a + b)) & 1 for b in range(2)] for a in range(2)])
@@ -151,7 +162,7 @@ def _brute2(axioms, law):
     return None
 
 
-def _sat_countermodel(axioms, law, n, Solver):
+def _sat_countermodel(axioms, law, n, Solver, also_break=()):
     nv = [0]
 
     def new():
@@ -214,23 +225,24 @@ def _sat_countermodel(axioms, law, n, Solver):
                     if y is not False:
                         c.append(y)
                     cls.append(c)
-    vs = law_variables(law)
     sel = []
-    for vals in product(range(n), repeat=len(vs)):
-        sg = dict(zip(vs, vals))
-        d = new()
-        sel.append(d)
-        L, R = encode_value(law[0], sg, cache), encode_value(law[1], sg, cache)
-        for k in range(n):                              # d -> ¬(L=k ∧ R=k)
-            a, b = lit_eq(L, k), lit_eq(R, k)
-            if a is False or b is False:
-                continue
-            c = [-d]
-            if a is not True:
-                c.append(-a)
-            if b is not True:
-                c.append(-b)
-            cls.append(c)
+    for law in [law, *also_break]:
+        vs = law_variables(law)
+        for vals in product(range(n), repeat=len(vs)):
+            sg = dict(zip(vs, vals))
+            d = new()
+            sel.append(d)
+            L, R = encode_value(law[0], sg, cache), encode_value(law[1], sg, cache)
+            for k in range(n):                              # d -> ¬(L=k ∧ R=k)
+                a, b = lit_eq(L, k), lit_eq(R, k)
+                if a is False or b is False:
+                    continue
+                c = [-d]
+                if a is not True:
+                    c.append(-a)
+                if b is not True:
+                    c.append(-b)
+                cls.append(c)
     cls.append(sel)
     with Solver(bootstrap_with=cls) as s:
         if not s.solve():
